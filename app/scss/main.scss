@@ -3,20 +3,24 @@
 // Main Styles
 html {
     font-size: 10px;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
 }
 body {
     box-sizing: border-box;
     font-size: 1.6rem;
     color: #333;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    @include flex-center-column;
 }
 // Header and nav
 .header {
-    
+    @include flex-center-row;
 }
 .nav {
-    @include flex-row;
+    @include flex-center-row;
     width: 100%;
     position: fixed;
     top: 0;
@@ -25,11 +29,14 @@ body {
 }
 .nav__logo {
     align-self: flex-start;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
 }
 .nav__list {
-    @include flex-row;
-    justify-content: flex-end;
-    width: 100%;
+    @include flex-center-row;
+    justify-content: space-around;
+    width: 50%;
 }
 .nav__item {
     font-size: 1.8rem;
@@ -40,7 +47,6 @@ body {
     margin-right: 3rem;
 }
 .nav__link {
-    color: #ffffff;
     text-decoration: none;
 }
 // Main layout
@@ -51,20 +57,44 @@ body {
     color: #333333;
     margin-top: 5rem;
 }
+
+.main-section {
+    @include flex-center-column;
+}
+.main-section__title {
+    font-size: 7rem;
+}
+.main-section__subtitle {
+    font-size: 4rem;
+}
+
 .section {
     background-color: #ffffff;
     @include flex-center-row;
     flex-wrap: wrap;
-    @include mq-min(1201px) {
-        width: 117rem;
-    }
-    @include mq-max(1200px) {
-        width: 100%;
-    }
 }
 .section__title {
     flex-basis: 100%;
     text-align: center;
+}
+
+.footer {
+    @include flex-center-column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.footer__copyright {
+    font-size: 1.2rem;
+}
+.footer__link {
+    color: #eaeaea;
+    text-decoration: none;
+}
+.footer__link:hover, .footer__link:focus {
+    color: #999999;
+    text-decoration: underline;
 }
 
 // Misc items

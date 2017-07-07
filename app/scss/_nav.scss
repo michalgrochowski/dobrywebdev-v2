@@ -1,0 +1,40 @@
+// Header and nav
+
+.header {
+    @include flex-center-row;
+}
+.header__link {
+    z-index: 2;
+}
+.header__logo {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+.nav {
+    @include flex-center-row;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    z-index: 1;
+}
+.nav__list {
+    @include flex-center-row;
+    justify-content: space-around;
+    width: 50%;
+    padding: 0;
+}
+.nav__item {
+    font-size: 1.8rem;
+    display: block;
+}
+.nav__link {
+    text-decoration: none;
+    color: #333;
+}
+.nav__link:hover, .nav__link:focus {
+    color: #666;
+    text-decoration: underline;
+}

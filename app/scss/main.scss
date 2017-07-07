@@ -1,7 +1,11 @@
-@import '_mixins.scss';
-@import '_form.scss';
-@import '_socials.scss';
-@import '_animations.scss';
+@import 'mixins.scss';
+@import 'nav.scss';
+@import 'projects.scss';
+@import 'form.scss';
+@import 'socials.scss';
+@import 'footer.scss';
+@import 'animations.scss';
+@import 'devicons.scss';
 
 // Main Styles
 * {
@@ -18,45 +22,7 @@ body {
     color: #333;
     height: 100vh;
     width: 100vw;
-    overflow: hidden;
     @include flex-center-column;
-}
-
-// Header and nav
-
-.header {
-    @include flex-center-row;
-}
-.nav {
-    @include flex-center-row;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-.nav__logo {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-}
-.nav__list {
-    @include flex-center-row;
-    justify-content: space-around;
-    width: 50%;
-    padding: 0;
-}
-.nav__item {
-    font-size: 1.8rem;
-    display: block;
-}
-.nav__link {
-    text-decoration: none;
-    color: #333;
-}
-.nav__link:hover, .nav__link:focus {
-    color: #666;
-    text-decoration: underline;
 }
 
 // Main layout
@@ -94,6 +60,7 @@ body {
 }
 .section__title {
     font-size: 4rem;
+    margin-top: 3rem;
 }
 .section__subtitle {
     font-size: 2.5rem;
@@ -101,6 +68,7 @@ body {
 .section__description {
     font-size: 1.8rem;
     width: 100%;
+    text-align: center;
 }
 
 .contact {
@@ -114,25 +82,6 @@ body {
 .skills__skill {
     @include flex-center-column;
     margin: 0 2rem 0 2rem;
-}
-
-// Footer
-
-.footer {
-    @include flex-center-column;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-}
-.footer__copyright {
-    font-size: 1.2rem;
-}
-.footer__link {
-    text-decoration: none;
-}
-.footer__link:hover, .footer__link:focus {
-    text-decoration: underline;
 }
 
 // Display classes

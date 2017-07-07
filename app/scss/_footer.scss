@@ -1,0 +1,18 @@
+// Footer
+
+.footer {
+    @include flex-center-column;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+.footer__copyright {
+    font-size: 1.2rem;
+}
+.footer__link {
+    text-decoration: none;
+}
+.footer__link:hover, .footer__link:focus {
+    text-decoration: underline;
+}

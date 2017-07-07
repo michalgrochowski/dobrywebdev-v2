@@ -1,3 +1,138 @@
+@charset "UTF-8";
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+.header__link {
+  z-index: 2; }
+
+.header__logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem; }
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  z-index: 1; }
+
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 50%;
+  padding: 0; }
+
+.nav__item {
+  font-size: 1.8rem;
+  display: block; }
+
+.nav__link {
+  text-decoration: none;
+  color: #333; }
+
+.nav__link:hover, .nav__link:focus {
+  color: #666;
+  text-decoration: underline; }
+
+.section-projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%; }
+
+.project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 2rem; }
+
+.project__photo {
+  display: block;
+  width: 20%; }
+
+.project__description {
+  text-align: center; }
+
+.project__link {
+  color: #333;
+  text-decoration: none; }
+
+.project__link:hover, .project__link:focus {
+  color: #666;
+  text-decoration: underline; }
+
+.owl-carousel .owl-item img {
+  width: 50%; }
+
+.owl-theme .owl-nav [class*="owl-"] {
+  background-color: #333;
+  color: #CDCBD4;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem; }
+
+.owl-theme .owl-nav [class*="owl-"]:hover {
+  background-color: #666;
+  color: #CDCBD4; }
+
 .form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -166,6 +301,34 @@
 .icon {
   font-size: 6rem; }
 
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%; }
+
+.footer__copyright {
+  font-size: 1.2rem; }
+
+.footer__link {
+  text-decoration: none; }
+
+.footer__link:hover, .footer__link:focus {
+  text-decoration: underline; }
+
 .fade-out {
   -webkit-animation: fade-out 2s;
   animation: fade-out 2s; }
@@ -207,6 +370,601 @@
     display: -ms-flexbox;
     display: flex; } }
 
+/*!
+ *  Devicons 1.8.0 made by Theodore Vorillas / http://vorillaz.com 
+ */
+@font-face {
+  font-family: 'devicons';
+  src: url("../fonts/devicons.eot?xqxft6");
+  src: url("../fonts/devicons.eot?#iefixxqxft6") format("embedded-opentype"), url("../fonts/devicons.woff?xqxft6") format("woff"), url("../fonts/devicons.ttf?xqxft6") format("truetype"), url("../fonts/devicons.svg?xqxft6#devicons") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.devicons {
+  font-family: 'devicons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.devicons-git:before {
+  content: ""; }
+
+.devicons-git_compare:before {
+  content: ""; }
+
+.devicons-git_branch:before {
+  content: ""; }
+
+.devicons-git_commit:before {
+  content: ""; }
+
+.devicons-git_pull_request:before {
+  content: ""; }
+
+.devicons-git_merge:before {
+  content: ""; }
+
+.devicons-bitbucket:before {
+  content: ""; }
+
+.devicons-github_alt:before {
+  content: ""; }
+
+.devicons-github_badge:before {
+  content: ""; }
+
+.devicons-github:before {
+  content: ""; }
+
+.devicons-github_full:before {
+  content: ""; }
+
+.devicons-java:before {
+  content: ""; }
+
+.devicons-ruby:before {
+  content: ""; }
+
+.devicons-scala:before {
+  content: ""; }
+
+.devicons-python:before {
+  content: ""; }
+
+.devicons-go:before {
+  content: ""; }
+
+.devicons-ruby_on_rails:before {
+  content: ""; }
+
+.devicons-django:before {
+  content: ""; }
+
+.devicons-markdown:before {
+  content: ""; }
+
+.devicons-php:before {
+  content: ""; }
+
+.devicons-mysql:before {
+  content: ""; }
+
+.devicons-streamline:before {
+  content: ""; }
+
+.devicons-database:before {
+  content: ""; }
+
+.devicons-laravel:before {
+  content: ""; }
+
+.devicons-javascript:before {
+  content: ""; }
+
+.devicons-angular:before {
+  content: ""; }
+
+.devicons-backbone:before {
+  content: ""; }
+
+.devicons-coffeescript:before {
+  content: ""; }
+
+.devicons-jquery:before {
+  content: ""; }
+
+.devicons-modernizr:before {
+  content: ""; }
+
+.devicons-jquery_ui:before {
+  content: ""; }
+
+.devicons-ember:before {
+  content: ""; }
+
+.devicons-dojo:before {
+  content: ""; }
+
+.devicons-nodejs:before {
+  content: ""; }
+
+.devicons-nodejs_small:before {
+  content: ""; }
+
+.devicons-javascript_shield:before {
+  content: ""; }
+
+.devicons-bootstrap:before {
+  content: ""; }
+
+.devicons-sass:before {
+  content: ""; }
+
+.devicons-css3_full:before {
+  content: ""; }
+
+.devicons-css3:before {
+  content: ""; }
+
+.devicons-html5:before {
+  content: ""; }
+
+.devicons-html5_multimedia:before {
+  content: ""; }
+
+.devicons-html5_device_access:before {
+  content: ""; }
+
+.devicons-html5_3d_effects:before {
+  content: ""; }
+
+.devicons-html5_connectivity:before {
+  content: ""; }
+
+.devicons-ghost_small:before {
+  content: ""; }
+
+.devicons-ghost:before {
+  content: ""; }
+
+.devicons-magento:before {
+  content: ""; }
+
+.devicons-joomla:before {
+  content: ""; }
+
+.devicons-jekyll_small:before {
+  content: ""; }
+
+.devicons-drupal:before {
+  content: ""; }
+
+.devicons-wordpress:before {
+  content: ""; }
+
+.devicons-grunt:before {
+  content: ""; }
+
+.devicons-bower:before {
+  content: ""; }
+
+.devicons-npm:before {
+  content: ""; }
+
+.devicons-yahoo_small:before {
+  content: ""; }
+
+.devicons-yahoo:before {
+  content: ""; }
+
+.devicons-bing_small:before {
+  content: ""; }
+
+.devicons-windows:before {
+  content: ""; }
+
+.devicons-linux:before {
+  content: ""; }
+
+.devicons-ubuntu:before {
+  content: ""; }
+
+.devicons-android:before {
+  content: ""; }
+
+.devicons-apple:before {
+  content: ""; }
+
+.devicons-appstore:before {
+  content: ""; }
+
+.devicons-phonegap:before {
+  content: ""; }
+
+.devicons-blackberry:before {
+  content: ""; }
+
+.devicons-stackoverflow:before {
+  content: ""; }
+
+.devicons-techcrunch:before {
+  content: ""; }
+
+.devicons-codrops:before {
+  content: ""; }
+
+.devicons-css_tricks:before {
+  content: ""; }
+
+.devicons-smashing_magazine:before {
+  content: ""; }
+
+.devicons-netmagazine:before {
+  content: ""; }
+
+.devicons-codepen:before {
+  content: ""; }
+
+.devicons-cssdeck:before {
+  content: ""; }
+
+.devicons-hackernews:before {
+  content: ""; }
+
+.devicons-dropbox:before {
+  content: ""; }
+
+.devicons-google_drive:before {
+  content: ""; }
+
+.devicons-visualstudio:before {
+  content: ""; }
+
+.devicons-unity_small:before {
+  content: ""; }
+
+.devicons-raspberry_pi:before {
+  content: ""; }
+
+.devicons-chrome:before {
+  content: ""; }
+
+.devicons-ie:before {
+  content: ""; }
+
+.devicons-firefox:before {
+  content: ""; }
+
+.devicons-opera:before {
+  content: ""; }
+
+.devicons-safari:before {
+  content: ""; }
+
+.devicons-swift:before {
+  content: ""; }
+
+.devicons-symfony:before {
+  content: ""; }
+
+.devicons-symfony_badge:before {
+  content: ""; }
+
+.devicons-less:before {
+  content: ""; }
+
+.devicons-stylus:before {
+  content: ""; }
+
+.devicons-trello:before {
+  content: ""; }
+
+.devicons-atlassian:before {
+  content: ""; }
+
+.devicons-jira:before {
+  content: ""; }
+
+.devicons-envato:before {
+  content: ""; }
+
+.devicons-snap_svg:before {
+  content: ""; }
+
+.devicons-raphael:before {
+  content: ""; }
+
+.devicons-google_analytics:before {
+  content: ""; }
+
+.devicons-compass:before {
+  content: ""; }
+
+.devicons-onedrive:before {
+  content: ""; }
+
+.devicons-gulp:before {
+  content: ""; }
+
+.devicons-atom:before {
+  content: ""; }
+
+.devicons-cisco:before {
+  content: ""; }
+
+.devicons-nancy:before {
+  content: ""; }
+
+.devicons-clojure:before {
+  content: ""; }
+
+.devicons-clojure_alt:before {
+  content: ""; }
+
+.devicons-perl:before {
+  content: ""; }
+
+.devicons-celluloid:before {
+  content: ""; }
+
+.devicons-w3c:before {
+  content: ""; }
+
+.devicons-redis:before {
+  content: ""; }
+
+.devicons-postgresql:before {
+  content: ""; }
+
+.devicons-webplatform:before {
+  content: ""; }
+
+.devicons-jenkins:before {
+  content: ""; }
+
+.devicons-requirejs:before {
+  content: ""; }
+
+.devicons-opensource:before {
+  content: ""; }
+
+.devicons-typo3:before {
+  content: ""; }
+
+.devicons-uikit:before {
+  content: ""; }
+
+.devicons-doctrine:before {
+  content: ""; }
+
+.devicons-groovy:before {
+  content: ""; }
+
+.devicons-nginx:before {
+  content: ""; }
+
+.devicons-haskell:before {
+  content: ""; }
+
+.devicons-zend:before {
+  content: ""; }
+
+.devicons-gnu:before {
+  content: ""; }
+
+.devicons-yeoman:before {
+  content: ""; }
+
+.devicons-heroku:before {
+  content: ""; }
+
+.devicons-debian:before {
+  content: ""; }
+
+.devicons-travis:before {
+  content: ""; }
+
+.devicons-dotnet:before {
+  content: ""; }
+
+.devicons-codeigniter:before {
+  content: ""; }
+
+.devicons-javascript_badge:before {
+  content: ""; }
+
+.devicons-yii:before {
+  content: ""; }
+
+.devicons-msql_server:before {
+  content: ""; }
+
+.devicons-composer:before {
+  content: ""; }
+
+.devicons-krakenjs_badge:before {
+  content: ""; }
+
+.devicons-krakenjs:before {
+  content: ""; }
+
+.devicons-mozilla:before {
+  content: ""; }
+
+.devicons-firebase:before {
+  content: ""; }
+
+.devicons-sizzlejs:before {
+  content: ""; }
+
+.devicons-creativecommons:before {
+  content: ""; }
+
+.devicons-creativecommons_badge:before {
+  content: ""; }
+
+.devicons-mitlicence:before {
+  content: ""; }
+
+.devicons-senchatouch:before {
+  content: ""; }
+
+.devicons-bugsense:before {
+  content: ""; }
+
+.devicons-extjs:before {
+  content: ""; }
+
+.devicons-mootools_badge:before {
+  content: ""; }
+
+.devicons-mootools:before {
+  content: ""; }
+
+.devicons-ruby_rough:before {
+  content: ""; }
+
+.devicons-komodo:before {
+  content: ""; }
+
+.devicons-coda:before {
+  content: ""; }
+
+.devicons-bintray:before {
+  content: ""; }
+
+.devicons-terminal:before {
+  content: ""; }
+
+.devicons-code:before {
+  content: ""; }
+
+.devicons-responsive:before {
+  content: ""; }
+
+.devicons-dart:before {
+  content: ""; }
+
+.devicons-aptana:before {
+  content: ""; }
+
+.devicons-mailchimp:before {
+  content: ""; }
+
+.devicons-netbeans:before {
+  content: ""; }
+
+.devicons-dreamweaver:before {
+  content: ""; }
+
+.devicons-brackets:before {
+  content: ""; }
+
+.devicons-eclipse:before {
+  content: ""; }
+
+.devicons-cloud9:before {
+  content: ""; }
+
+.devicons-scrum:before {
+  content: ""; }
+
+.devicons-prolog:before {
+  content: ""; }
+
+.devicons-terminal_badge:before {
+  content: ""; }
+
+.devicons-code_badge:before {
+  content: ""; }
+
+.devicons-mongodb:before {
+  content: ""; }
+
+.devicons-meteor:before {
+  content: ""; }
+
+.devicons-meteorfull:before {
+  content: ""; }
+
+.devicons-fsharp:before {
+  content: ""; }
+
+.devicons-rust:before {
+  content: ""; }
+
+.devicons-ionic:before {
+  content: ""; }
+
+.devicons-sublime:before {
+  content: ""; }
+
+.devicons-appcelerator:before {
+  content: ""; }
+
+.devicons-asterisk:before {
+  content: ""; }
+
+.devicons-aws:before {
+  content: ""; }
+
+.devicons-digital-ocean:before {
+  content: ""; }
+
+.devicons-dlang:before {
+  content: ""; }
+
+.devicons-docker:before {
+  content: ""; }
+
+.devicons-erlang:before {
+  content: ""; }
+
+.devicons-google-cloud-platform:before {
+  content: ""; }
+
+.devicons-grails:before {
+  content: ""; }
+
+.devicons-illustrator:before {
+  content: ""; }
+
+.devicons-intellij:before {
+  content: ""; }
+
+.devicons-materializecss:before {
+  content: ""; }
+
+.devicons-openshift:before {
+  content: ""; }
+
+.devicons-photoshop:before {
+  content: ""; }
+
+.devicons-rackspace:before {
+  content: ""; }
+
+.devicons-react:before {
+  content: ""; }
+
+.devicons-redhat:before {
+  content: ""; }
+
+.devicons-scriptcs:before {
+  content: ""; }
+
+.devicons-sqllite:before {
+  content: ""; }
+
+.devicons-vim:before {
+  content: ""; }
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -223,7 +981,6 @@ body {
   color: #333;
   height: 100vh;
   width: 100vw;
-  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,77 +994,6 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column; }
-
-.header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row; }
-
-.nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1; }
-
-.nav__logo {
-  position: absolute;
-  top: 1rem;
-  left: 1rem; }
-
-.nav__list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 50%;
-  padding: 0; }
-
-.nav__item {
-  font-size: 1.8rem;
-  display: block; }
-
-.nav__link {
-  text-decoration: none;
-  color: #333; }
-
-.nav__link:hover, .nav__link:focus {
-  color: #666;
-  text-decoration: underline; }
 
 .container {
   display: -webkit-box;
@@ -372,14 +1058,16 @@ body {
   width: 100%; }
 
 .section__title {
-  font-size: 4rem; }
+  font-size: 4rem;
+  margin-top: 3rem; }
 
 .section__subtitle {
   font-size: 2.5rem; }
 
 .section__description {
   font-size: 1.8rem;
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
 
 .contact {
   display: -webkit-box;
@@ -427,34 +1115,6 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   margin: 0 2rem 0 2rem; }
-
-.footer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%; }
-
-.footer__copyright {
-  font-size: 1.2rem; }
-
-.footer__link {
-  text-decoration: none; }
-
-.footer__link:hover, .footer__link:focus {
-  text-decoration: underline; }
 
 .is-visible {
   display: -webkit-box;

@@ -1,0 +1,58 @@
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+@mixin flex-center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    display: $display;
+    position: $pos;
+    content: $content;
+}
+
+@mixin mq-max($width) {
+    @media screen and (max-width: $width) {
+        @content;
+    }
+}
+
+@mixin mq-min($width) {
+    @media screen and (min-width: $width) {
+        @content;
+    }
+}
+
+@mixin mq-minmax($width, $width2) {
+    @media screen and (min-width: $width) and (max-width: $width2) {
+        @content;
+    }
+}
+
+@mixin v-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+@mixin one-third {
+    width: calc((100% / 3) - 2px);
+}

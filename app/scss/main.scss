@@ -1,0 +1,90 @@
+@import '_mixins.scss';
+
+// Main Styles
+html {
+    font-size: 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 1.6;
+}
+body {
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    color: #333;
+}
+// Header and nav
+.header {
+    
+}
+.nav {
+    @include flex-row;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.nav__logo {
+    align-self: flex-start;
+}
+.nav__list {
+    @include flex-row;
+    justify-content: flex-end;
+    width: 100%;
+}
+.nav__item {
+    font-size: 1.8rem;
+    margin: 1rem 1.5rem 1rem 1.5rem;
+    display: block;
+}
+.nav__item:last-of-type {
+    margin-right: 3rem;
+}
+.nav__link {
+    color: #ffffff;
+    text-decoration: none;
+}
+// Main layout
+.container {
+    @include flex-center-column;
+}
+.container__title {
+    color: #333333;
+    margin-top: 5rem;
+}
+.section {
+    background-color: #ffffff;
+    @include flex-center-row;
+    flex-wrap: wrap;
+    @include mq-min(1201px) {
+        width: 117rem;
+    }
+    @include mq-max(1200px) {
+        width: 100%;
+    }
+}
+.section__title {
+    flex-basis: 100%;
+    text-align: center;
+}
+
+// Misc items
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}

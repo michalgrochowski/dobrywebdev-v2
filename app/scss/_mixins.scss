@@ -56,3 +56,10 @@
 @mixin one-third {
     width: calc((100% / 3) - 2px);
 }
+
+@mixin bg-cover {
+    background-size: auto auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}

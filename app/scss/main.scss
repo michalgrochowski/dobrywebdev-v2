@@ -21,15 +21,16 @@ body {
     font-size: 1.6rem;
     color: #333;
     height: 100vh;
-    width: 100vw;
+    width: 400vw;
     @include flex-center-column;
+    overflow: hidden;
 }
 
 // Main layout
 
 .container {
-    @include flex-center-column;
-    width: 1170px;
+    @include flex-center-row;
+    width: 100vw;
 }
 .container__title {
     color: #333333;
@@ -40,7 +41,8 @@ body {
 
 .main-section {
     @include flex-center-column;
-    display: none;
+    width: 100vw;
+    min-width: 100vw;
 }
 .main-section__title {
     font-size: 7rem;
@@ -51,12 +53,17 @@ body {
 
 // Other sections
 
+.section-wrapper {
+    @include flex-center-row;
+    width: 100vw;
+    min-width: 100vw;
+    max-height: 100vh;
+}
 .section {
     background-color: #ffffff;
     @include flex-center-column;
     flex-wrap: wrap;
-    display: none;
-    width: 100%;
+    width: 117rem;
 }
 .section__title {
     font-size: 4rem;
@@ -82,15 +89,6 @@ body {
 .skills__skill {
     @include flex-center-column;
     margin: 0 2rem 0 2rem;
-}
-
-// Display classes
-
-.is-visible {
-    display: flex;
-}
-.inst-visible {
-    display: none;
 }
 
 // Misc items

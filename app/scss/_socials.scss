@@ -1,0 +1,20 @@
+.socials {
+    @include flex-center-row;
+    width: 50%;
+    flex-wrap: wrap;
+    padding: 5rem 10rem 5rem 10rem;
+}
+.socials__item {
+    margin-bottom: 3rem;
+    @include flex-center-column;
+    flex-basis: 50%;
+    text-decoration: none;
+    color: #333;
+}
+.socials__item:hover, .socials__item:focus {
+    color: #666;
+}
+
+.icon {
+    font-size: 6rem;
+}

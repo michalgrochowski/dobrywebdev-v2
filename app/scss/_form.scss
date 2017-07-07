@@ -1,14 +1,7 @@
 .form {
     @include flex-column;
-    margin-top: 1rem;
-    @include mq-max(900px) {
-        padding: 1rem;
-    }
-    @include mq-min(901px) {
-        padding: 2.5rem;
-        width: 50%;
-    }
     position: relative;
+    width: 50%;
 }
 .form__input {
     font-family: 'Source Sans Pro', sans-serif;

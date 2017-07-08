@@ -15,7 +15,7 @@ gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
         .pipe(sass())
         .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['> 1%', 'IE 10-11'],
             cascade: false
         }))
         .pipe(gulp.dest('app/css'))

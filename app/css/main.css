@@ -111,13 +111,14 @@
   font-style: italic; }
 
 .projects__description {
-  text-align: center; }
+  text-align: center;
+  width: 80%; }
 
 .projects__link {
   color: #333;
   text-decoration: none; }
 
-.project__link:hover, .project__link:focus {
+.projects__link:hover, .projects__link:focus {
   color: #666;
   text-decoration: underline; }
 
@@ -320,9 +321,11 @@
   font-size: 1.2rem; }
 
 .footer__link {
+  color: #333;
   text-decoration: none; }
 
 .footer__link:hover, .footer__link:focus {
+  color: #555;
   text-decoration: underline; }
 
 .fade-out {

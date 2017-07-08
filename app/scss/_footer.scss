@@ -11,8 +11,10 @@
     font-size: 1.2rem;
 }
 .footer__link {
+    color: #333;
     text-decoration: none;
 }
 .footer__link:hover, .footer__link:focus {
+    color: #555;
     text-decoration: underline;
 }

@@ -19,6 +19,7 @@
 
 .projects__description {
     text-align: center;
+    width: 80%;
 }
 
 .projects__link {
@@ -26,7 +27,7 @@
     text-decoration: none;
 }
 
-.project__link:hover, .project__link:focus {
+.projects__link:hover, .projects__link:focus {
     color: #666;
     text-decoration: underline;
 }

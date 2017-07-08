@@ -11,11 +11,13 @@
 * {
     box-sizing: border-box;
 }
+
 html {
     font-size: 10px;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
 }
+
 body {
     box-sizing: border-box;
     font-size: 1.6rem;
@@ -30,11 +32,7 @@ body {
 
 .container {
     @include flex-center-row;
-    width: 100vw;
-}
-.container__title {
-    color: #333333;
-    margin-top: 5rem;
+    width: 400vw;
 }
 
 // Main Section
@@ -44,14 +42,16 @@ body {
     width: 100vw;
     min-width: 100vw;
 }
+
 .main-section__title {
     font-size: 7rem;
 }
+
 .main-section__subtitle {
     font-size: 4rem;
 }
 
-// Other sections
+// Sections styles
 
 .section-wrapper {
     @include flex-center-row;
@@ -59,24 +59,30 @@ body {
     min-width: 100vw;
     max-height: 100vh;
 }
+
 .section {
     background-color: #ffffff;
     @include flex-center-column;
     flex-wrap: wrap;
     width: 117rem;
 }
+
 .section__title {
     font-size: 4rem;
     margin-top: 3rem;
 }
+
 .section__subtitle {
     font-size: 2.5rem;
 }
+
 .section__description {
     font-size: 1.8rem;
     width: 100%;
     text-align: center;
 }
+
+// Specific elemenst styles
 
 .contact {
     @include flex-center-row;
@@ -86,6 +92,7 @@ body {
 .skills {
     @include flex-center-row;
 }
+
 .skills__skill {
     @include flex-center-column;
     margin: 0 2rem 0 2rem;
@@ -98,16 +105,19 @@ body {
     text-indent: 1rem;
     padding: 1rem;
 }
+
 ::-moz-placeholder { /* Firefox 19+ */
     color: #ffffff;
     text-indent: 1rem;
     padding: 1rem;
 }
+
 :-ms-input-placeholder { /* IE 10+ */
     color: #ffffff;
     text-indent: 1rem;
     padding: 1rem;
 }
+
 :-moz-placeholder { /* Firefox 18- */
     color: #ffffff;
     text-indent: 1rem;

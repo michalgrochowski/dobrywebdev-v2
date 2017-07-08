@@ -1,4 +1,4 @@
-$('.owl-carousel').owlCarousel({
+$('.projects').owlCarousel({
     margin:10,
     nav:true,
     dots: false,
@@ -9,7 +9,7 @@ $('.owl-carousel').owlCarousel({
 
 $('.header__link').on('click', function(event){
     $('html, body').animate({
-        scrollLeft:$('#').offset().left -380
+        scrollLeft:$('#start').offset().left
     }, 700);
 });
 
@@ -20,7 +20,7 @@ $(document).on('click touch', '.nav__link', function(e) {
         return;
     }
     e.preventDefault();
-    var pos = $id.offset().left -380;
+    var pos = $id.offset().left;
     $('body, html').animate({scrollLeft: pos}, 700);
     window.location.hash = id;
     return false;

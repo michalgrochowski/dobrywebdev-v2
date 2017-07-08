@@ -56,6 +56,11 @@ gulp.task('font', function(){
         .pipe(gulp.dest('dist/font'))
 });
 
+gulp.task('fonts', function(){
+    return gulp.src('app/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'))
+});
+
 gulp.task('php', function(){
     return gulp.src('app/phpmailer/**/*')
         .pipe(gulp.dest('dist/phpmailer'))
@@ -76,5 +81,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'csso','img', 'font', 'php',])
+    sequence('clean:dist', ['sass', 'useref', 'csso','img', 'font', 'fonts', 'php',])
 });

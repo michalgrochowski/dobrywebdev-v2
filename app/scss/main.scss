@@ -22,10 +22,14 @@ body {
     box-sizing: border-box;
     font-size: 1.6rem;
     color: #333;
-    height: 100vh;
+    min-height: 100vh;
     width: 400vw;
     @include flex-center-column;
-    overflow: hidden;
+    background-color: #eaeaea;
+    overflow-x: hidden;
+    @include mq-max(800px) {
+        position: relative;
+    }
 }
 
 // Main layout
@@ -33,22 +37,38 @@ body {
 .container {
     display: flex;
     width: 400vw;
+    height: auto;
+    overflow: auto;
 }
 
 // Main Section
 
 .main-section {
     width: 100vw;
-    min-width: 100vw;
+    max-height: 100vh;
     @include flex-center-column;
+    overflow: hidden;
+    @include mq-max(800px) {
+        max-width: 100vw;
+        position: absolute;
+        top: 15rem;
+        left: 0;
+    }
 }
 
 .main-section__title {
     font-size: 7rem;
+    @include mq-max(800px) {
+        font-size: 4rem;
+        text-align: center;
+    }
 }
 
 .main-section__subtitle {
     font-size: 4rem;
+    @include mq-max(800px) {
+        font-size: 2rem;
+    }
 }
 
 // Sections styles
@@ -56,30 +76,78 @@ body {
 .section-wrapper {
     @include flex-center-row;
     width: 100vw;
-    min-width: 100vw;
-    max-height: 100vh;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 .section {
-    background-color: #ffffff;
     @include flex-center-column;
-    flex-wrap: wrap;
-    width: 117rem;
+    background-color: #eaeaea;
+    @include mq-minmax(320px, 968px) {
+        width: 95%;
+        overflow: auto;
+    }
+    @include mq-minmax(969px, 1200px) {
+        width: 90%;
+    }
+    @include mq-min(1201px) {
+        width: 117rem;
+    }
+}
+
+.section--about {
+    @include mq-max(800px) {
+        max-width: 100vw;
+        position: absolute;
+        top: 5rem;
+        left: 100vw;
+    }
+}
+
+.section--projects {
+    @include mq-max(800px) {
+        max-width: 100vw;
+        position: absolute;
+        top: 5rem;
+        left: 200vw;
+    }
+}
+
+.section--contact {
+    @include mq-max(800px) {
+        max-width: 100vw;
+        position: absolute;
+        top: 5rem;
+        left: 300vw;
+    }
 }
 
 .section__title {
     font-size: 4rem;
-    margin-top: 3rem;
+    @include mq-max(800px) {
+        width: 95%;
+        font-size: 2.5rem;
+        text-align: center;
+    }
 }
 
 .section__subtitle {
     font-size: 2.5rem;
+    @include mq-max(800px) {
+        width: 95%;
+        font-size: 1.8rem;
+        text-align: center;;
+    }
 }
 
 .section__description {
     font-size: 1.8rem;
     width: 100%;
     text-align: center;
+    @include mq-max(800px) {
+        width: 90%;
+        font-size: 1.4rem;
+    }
 }
 
 // Specific elemenst styles
@@ -87,15 +155,30 @@ body {
 .contact {
     @include flex-center-row;
     width: 100%;
+    overflow: auto;
+    @include mq-max(800px) {
+        flex-direction: column;
+    }
 }
 
 .skills {
     @include flex-center-row;
+    flex-wrap: wrap;
 }
 
 .skills__skill {
+    @include mq-max(800px) {
+        flex-basis: 20%;
+        margin: 0 0.5rem 0 0.5rem;
+    }
     @include flex-center-column;
     margin: 0 2rem 0 2rem;
+}
+
+.skills__text {
+    @include mq-max(800px) {
+        font-size: 1.4rem;
+    }
 }
 
 // Misc items

@@ -1,5 +1,7 @@
 
 .icon-phone-1:before { content: '\e803'; } /* '' */
+.icon-cancel:before { content: '\e804'; } /* '' */
 .icon-mail-alt:before { content: '\e805'; } /* '' */
 .icon-github-circled:before { content: '\f09b'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-linkedin-squared:before { content: '\f30c'; } /* '' */

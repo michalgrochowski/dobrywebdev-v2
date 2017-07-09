@@ -1,30 +1,38 @@
 .projects {
     @include flex-center-row;
     width: 100%;
-    height: 80%;
+    height: 50%;
+    position: relative;
 }
 
 .projects__project {
     @include flex-center-column;
     padding: 2rem;
+    z-index: 0;
 }
 
 .projects__photo {
-
+    z-index: 0;
 }
 
 .projects__title {
     font-style: italic;
+    text-align: center;
 }
 
 .projects__description {
     text-align: center;
     width: 80%;
+    @include mq-max(800px) {
+        width: 95%;
+        font-size: 1.4rem;
+    }
 }
 
 .projects__link {
     color: #333;
-    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
 }
 
 .projects__link:hover, .projects__link:focus {
@@ -34,6 +42,10 @@
 
 .owl-carousel .owl-item img {
     width: 50%;
+    @include mq-max(800px) {
+        margin-top: 2rem;
+        width: 70%;
+    }
 }
 
 .owl-theme .owl-nav [class*="owl-"] {
@@ -41,8 +53,20 @@
     color: #CDCBD4;
     padding: 0.7rem 1.5rem 0.5rem 1.5rem;
 }
+.owl-nav {
+    position: absolute;
+    top: -5rem;
+    width: 100%;
+    @include mq-max(800px) {
+        top: -3rem;
+    }
+}
 
 .owl-theme .owl-nav [class*="owl-"]:hover {
     background-color: #555;
     color: #ffffff; 
+}
+
+.owl-carousel {
+    z-index: 0;
 }

@@ -20,12 +20,9 @@
 
 .header__logo {
   position: fixed;
-  top: 2.5rem;
+  top: 1.5rem;
   left: 2rem;
   width: 15rem; }
-  @media screen and (max-width: 850px) {
-    .header__logo {
-      top: 1.5rem; } }
 
 .nav {
   display: -webkit-box;
@@ -124,7 +121,7 @@
   border: none;
   background: none;
   position: fixed;
-  top: 1rem;
+  top: 1.2rem;
   right: 0; }
   @media screen and (min-width: 851px) {
     .nav__hamburger, .nav__close-menu {
@@ -1092,7 +1089,7 @@ body {
   flex-direction: column;
   background-color: #eaeaea;
   overflow-x: hidden; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     body {
       position: relative; } }
 
@@ -1121,7 +1118,7 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   overflow: hidden; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .main-section {
       max-width: 100vw;
       position: absolute;
@@ -1130,14 +1127,14 @@ body {
 
 .main-section__title {
   font-size: 7rem; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .main-section__title {
       font-size: 4rem;
       text-align: center; } }
 
 .main-section__subtitle {
   font-size: 4rem; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .main-section__subtitle {
       font-size: 2rem; } }
 
@@ -1185,21 +1182,21 @@ body {
     .section {
       width: 117rem; } }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .section--about {
     max-width: 100vw;
     position: absolute;
     top: 5rem;
     left: 100vw; } }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .section--projects {
     max-width: 100vw;
     position: absolute;
     top: 5rem;
     left: 200vw; } }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .section--contact {
     max-width: 100vw;
     position: absolute;
@@ -1208,7 +1205,7 @@ body {
 
 .section__title {
   font-size: 4rem; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .section__title {
       width: 95%;
       font-size: 2.5rem;
@@ -1216,7 +1213,7 @@ body {
 
 .section__subtitle {
   font-size: 2.5rem; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .section__subtitle {
       width: 95%;
       font-size: 1.8rem;
@@ -1226,7 +1223,7 @@ body {
   font-size: 1.8rem;
   width: 100%;
   text-align: center; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .section__description {
       width: 90%;
       font-size: 1.4rem; } }
@@ -1247,7 +1244,7 @@ body {
   flex-direction: row;
   width: 100%;
   overflow: auto; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .contact {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
@@ -1286,13 +1283,13 @@ body {
   -ms-flex-direction: column;
   flex-direction: column;
   margin: 0 2rem 0 2rem; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .skills__skill {
       -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
       margin: 0 0.5rem 0 0.5rem; } }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .skills__text {
     font-size: 1.4rem; } }
 

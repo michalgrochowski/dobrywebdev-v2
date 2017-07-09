@@ -11,12 +11,9 @@
 
 .header__logo {
     position: fixed;
-    top: 2.5rem;
+    top: 1.5rem;
     left: 2rem;
     width: 15rem;
-    @include mq-max(850px) {
-        top: 1.5rem;
-    }
 }
 
 .nav {
@@ -87,7 +84,7 @@
     border: none;
     background: none;
     position: fixed;
-    top: 1rem;
+    top: 1.2rem;
     right: 0;
     @include mq-min(851px) {
         display: none;

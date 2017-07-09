@@ -27,7 +27,7 @@ body {
     @include flex-center-column;
     background-color: #eaeaea;
     overflow-x: hidden;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         position: relative;
     }
 }
@@ -48,7 +48,7 @@ body {
     max-height: 100vh;
     @include flex-center-column;
     overflow: hidden;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         max-width: 100vw;
         position: absolute;
         top: 15rem;
@@ -58,7 +58,7 @@ body {
 
 .main-section__title {
     font-size: 7rem;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         font-size: 4rem;
         text-align: center;
     }
@@ -66,7 +66,7 @@ body {
 
 .main-section__subtitle {
     font-size: 4rem;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         font-size: 2rem;
     }
 }
@@ -96,7 +96,7 @@ body {
 }
 
 .section--about {
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         max-width: 100vw;
         position: absolute;
         top: 5rem;
@@ -105,7 +105,7 @@ body {
 }
 
 .section--projects {
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         max-width: 100vw;
         position: absolute;
         top: 5rem;
@@ -114,7 +114,7 @@ body {
 }
 
 .section--contact {
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         max-width: 100vw;
         position: absolute;
         top: 5rem;
@@ -124,7 +124,7 @@ body {
 
 .section__title {
     font-size: 4rem;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         width: 95%;
         font-size: 2.5rem;
         text-align: center;
@@ -133,7 +133,7 @@ body {
 
 .section__subtitle {
     font-size: 2.5rem;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         width: 95%;
         font-size: 1.8rem;
         text-align: center;;
@@ -144,19 +144,19 @@ body {
     font-size: 1.8rem;
     width: 100%;
     text-align: center;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         width: 90%;
         font-size: 1.4rem;
     }
 }
 
-// Specific elemenst styles
+// Specific elements styles
 
 .contact {
     @include flex-center-row;
     width: 100%;
     overflow: auto;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         flex-direction: column;
     }
 }
@@ -167,7 +167,7 @@ body {
 }
 
 .skills__skill {
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         flex-basis: 20%;
         margin: 0 0.5rem 0 0.5rem;
     }
@@ -176,7 +176,7 @@ body {
 }
 
 .skills__text {
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         font-size: 1.4rem;
     }
 }

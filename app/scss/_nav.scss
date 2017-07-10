@@ -5,6 +5,7 @@
     background-color: #eaeaea;
     width: 100vw;
     max-width: 100vw;
+    position: relative;
 }
 
 .header__link {
@@ -92,18 +93,8 @@
     @include mq-min(851px) {
         display: none;
     }
-    transform: translateZ(0);
-    -moz-transform: translatez(0);
-    -ms-transform: translatez(0);
-    -o-transform: translatez(0);
-    -webkit-transform: translateZ(0);
 }
 .nav__close-menu {
     @extend .nav__hamburger;
     display: none;
-    transform: translateZ(0);
-    -moz-transform: translatez(0);
-    -ms-transform: translatez(0);
-    -o-transform: translatez(0);
-    -webkit-transform: translateZ(0);
 }

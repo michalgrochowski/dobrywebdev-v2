@@ -15,7 +15,8 @@
   flex-direction: row;
   background-color: #eaeaea;
   width: 100vw;
-  max-width: 100vw; }
+  max-width: 100vw;
+  position: relative; }
 
 .header__link {
   z-index: 2; }
@@ -125,23 +126,13 @@
   background: none;
   position: fixed;
   top: 1.2rem;
-  right: 0;
-  transform: translateZ(0);
-  -moz-transform: translatez(0);
-  -ms-transform: translatez(0);
-  -o-transform: translatez(0);
-  -webkit-transform: translateZ(0); }
+  right: 0; }
   @media screen and (min-width: 851px) {
     .nav__hamburger, .nav__close-menu {
       display: none; } }
 
 .nav__close-menu {
-  display: none;
-  transform: translateZ(0);
-  -moz-transform: translatez(0);
-  -ms-transform: translatez(0);
-  -o-transform: translatez(0);
-  -webkit-transform: translateZ(0); }
+  display: none; }
 
 .projects {
   display: -webkit-box;
@@ -158,7 +149,6 @@
   -ms-flex-direction: row;
   flex-direction: row;
   width: 100%;
-  height: 50%;
   position: relative; }
 
 .projects__project {
@@ -204,7 +194,7 @@
 
 .owl-carousel .owl-item img {
   width: 50%; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .owl-carousel .owl-item img {
       margin-top: 2rem;
       width: 70%; } }
@@ -218,7 +208,7 @@
   position: absolute;
   top: -5rem;
   width: 100%; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .owl-nav {
       top: -3rem; } }
 
@@ -251,10 +241,12 @@
   border: none;
   height: 3rem;
   text-indent: 1rem;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .form__input:focus {
   background-color: rgba(180, 180, 180, 0.8);
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .input__fail {
@@ -271,10 +263,12 @@
   resize: none;
   text-indent: 1rem;
   padding-top: 0.5rem;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .form__textarea:focus {
   background-color: rgba(180, 180, 180, 0.8);
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .form__button {
@@ -287,12 +281,14 @@
   width: 10rem;
   height: 3rem;
   border: none;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .form__button:hover {
   color: #333333;
   background-color: #ffffff;
   border: 1px solid #999999;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .form__button:focus {
@@ -303,9 +299,11 @@
   font-size: 1.8rem;
   padding: 0.5rem;
   text-align: center;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .form__group:hover {
+  -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .form__success, .form__fail {
@@ -317,6 +315,7 @@
   width: 70%;
   height: 20%;
   background-color: #4CD964;
+  -webkit-box-shadow: 0px 0px 15px 5px rgba(51, 51, 51, 0.3);
   box-shadow: 0px 0px 15px 5px rgba(51, 51, 51, 0.3);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -383,16 +382,16 @@
   flex-basis: 50%;
   text-decoration: none;
   color: #333; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .socials__item {
       -ms-flex-preferred-size: 50%;
       flex-basis: 50%; } }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .socials__item:nth-child(3) {
     margin-bottom: 2rem; } }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 850px) {
   .socials__item:nth-child(4) {
     margin-bottom: 2rem; } }
 
@@ -401,7 +400,7 @@
 
 .icon {
   font-size: 6rem; }
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 850px) {
     .icon {
       font-size: 4rem; } }
 
@@ -422,7 +421,8 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
   background-color: #eaeaea;
   height: 3rem; }
 
@@ -1074,16 +1074,17 @@
   content: ""; }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 html {
   font-size: 10px;
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  overflow-x: hidden;
-  height: auto; }
+  overflow: hidden; }
 
 body {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 1.6rem;
   color: #333;
@@ -1104,6 +1105,7 @@ body {
   flex-direction: column;
   background-color: #eaeaea;
   overflow-x: hidden;
+  overflow-y: scroll;
   position: relative; }
 
 .container {
@@ -1134,7 +1136,7 @@ body {
   @media screen and (max-width: 850px) {
     .main-section {
       max-width: 100vw;
-      position: absolute;
+      position: fixed;
       top: 15rem;
       left: 0; } }
 
@@ -1197,21 +1199,21 @@ body {
 
 @media screen and (max-width: 850px) {
   .section--about {
-    max-width: 100vw;
+    width: 100vw;
     position: absolute;
     top: 5rem;
     left: 100vw; } }
 
 @media screen and (max-width: 850px) {
   .section--projects {
-    max-width: 100vw;
+    width: 100vw;
     position: absolute;
     top: 5rem;
     left: 200vw; } }
 
 @media screen and (max-width: 850px) {
   .section--contact {
-    max-width: 100vw;
+    width: 100vw;
     position: absolute;
     top: 5rem;
     left: 300vw; } }

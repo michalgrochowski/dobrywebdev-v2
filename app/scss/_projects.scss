@@ -1,7 +1,6 @@
 .projects {
     @include flex-center-row;
     width: 100%;
-    height: 50%;
     position: relative;
 }
 
@@ -42,7 +41,7 @@
 
 .owl-carousel .owl-item img {
     width: 50%;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         margin-top: 2rem;
         width: 70%;
     }
@@ -57,7 +56,7 @@
     position: absolute;
     top: -5rem;
     width: 100%;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         top: -3rem;
     }
 }

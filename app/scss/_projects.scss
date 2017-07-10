@@ -1,7 +1,10 @@
 .projects {
     @include flex-center-row;
-    width: 100%;
+    width: 75%;
     position: relative;
+    @include mq-max(800px) {
+        width: 95%;
+    }
 }
 
 .projects__project {

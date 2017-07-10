@@ -16,7 +16,8 @@ html {
     font-size: 10px;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    overflow: hidden;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 body {
@@ -35,25 +36,20 @@ body {
 // Main layout
 
 .container {
-    display: flex;
+    @include flex-center-row;
+    height: 100%;
+    overflow-x: hidden;
     width: 400vw;
-    height: auto;
-    overflow: auto;
 }
 
 // Main Section
 
 .main-section {
-    width: 100vw;
-    max-height: 100vh;
     @include flex-center-column;
-    overflow: hidden;
-    @include mq-max(850px) {
-        max-width: 100vw;
-        position: fixed;
-        top: 15rem;
-        left: 0;
-    }
+    width: 100vw;
+    height: 100%;
+    overflow-x: hidden;
+    margin-top: -40rem;
 }
 
 .main-section__title {
@@ -73,53 +69,14 @@ body {
 
 // Sections styles
 
-.section-wrapper {
-    @include flex-center-row;
-    width: 100vw;
-    min-height: 100vh;
-    overflow: auto;
-}
-
 .section {
     @include flex-center-column;
+    height: auto;
     background-color: #eaeaea;
-    @include mq-minmax(320px, 968px) {
-        width: 95%;
-        overflow: auto;
-    }
-    @include mq-minmax(969px, 1200px) {
-        width: 90%;
-    }
-    @include mq-min(1201px) {
-        width: 117rem;
-    }
-}
+    width: 100vw;
+    overflow: auto;
+    padding-top: 5rem;
 
-.section--about {
-    @include mq-max(850px) {
-        width: 100vw;
-        position: absolute;
-        top: 5rem;
-        left: 100vw;
-    }
-}
-
-.section--projects {
-    @include mq-max(850px) {
-        width: 100vw;
-        position: absolute;
-        top: 5rem;
-        left: 200vw;
-    }
-}
-
-.section--contact {
-    @include mq-max(850px) {
-        width: 100vw;
-        position: absolute;
-        top: 5rem;
-        left: 300vw;
-    }
 }
 
 .section__title {
@@ -142,7 +99,7 @@ body {
 
 .section__description {
     font-size: 1.8rem;
-    width: 100%;
+    width: 70%;
     text-align: center;
     @include mq-max(850px) {
         width: 90%;
@@ -154,10 +111,11 @@ body {
 
 .contact {
     @include flex-center-row;
-    width: 100%;
+    width: 70%;
     overflow: auto;
     @include mq-max(850px) {
         flex-direction: column;
+        width: 100%;
     }
 }
 

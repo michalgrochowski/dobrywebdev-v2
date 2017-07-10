@@ -1,18 +1,6 @@
-// Header and nav
+// Nav
 
-.header {
-    @include flex-center-row;
-    background-color: #eaeaea;
-    width: 100vw;
-    max-width: 100vw;
-    position: relative;
-}
-
-.header__link {
-    z-index: 2;
-}
-
-.header__logo {
+.nav__logo {
     position: fixed;
     top: 1.5rem;
     left: 2rem;
@@ -87,9 +75,7 @@
     font-size: 3rem;
     border: none;
     background: none;
-    position: fixed;
-    top: 1.2rem;
-    right: 0;
+    margin-left: auto;
     @include mq-min(851px) {
         display: none;
     }

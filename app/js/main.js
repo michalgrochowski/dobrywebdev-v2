@@ -1,5 +1,4 @@
 $('.projects').owlCarousel({
-    margin:10,
     nav:true,
     dots: false,
     navText: ["Poprzedni", "Następny"],
@@ -7,7 +6,7 @@ $('.projects').owlCarousel({
     items: 1
 })
 
-$('.header__link').on('click', function(event){
+$('.nav__link--start').on('click', function(event){
     $('html, body').animate({
         scrollLeft:$('#start').offset().left
     }, 700);

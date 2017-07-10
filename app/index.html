@@ -26,9 +26,9 @@
 </head>
 <body id="body" class="body"> 
 		<nav class="nav">
-			<a class="header__link" href="#start" title="">
-			<img class="header__logo" src="img/logo.png" alt="">
-		</a>
+			<a class="nav__link--start" href="#start" title="">
+				<img class="nav__logo" src="img/logo.png" alt="">
+			</a>
 			<ul class="nav__list">
 				<li class="nav__item"><a class="nav__link nav__link--about" href="#start" title="">Start</a></li>
 				<li class="nav__item"><a class="nav__link nav__link--about" href="#about" title="">O mnie</a></li>
@@ -45,14 +45,11 @@
 			<button class="nav__close-menu icon-cancel"></button>
 		</nav> 
 	<main class="container">
-		<div class="section-wrapper" id="start">
-			<section class="main-section fade-in">
+		<section class="main-section" id="start">
 				<h1 class="main-section__title">Michał Grochowski</h1>
 				<h2 class="main-section__subtitle">Front-end Developer</h2>
-			</section>
-		</div>
-		<div class="section-wrapper" id="about">
-			<section class="section section--about fade-in">
+		</section>
+			<section class="section fade-in" id="about">
 				<h2 class="section__title">O mnie</h2>
 				<h3 class="section__subtitle">Nazywam się Michał Grochowski</h3>
 				<p class="section__description">Tworzeniem stron internetowych zajmuję się stosunkowo od niedawna i wszystkiego uczę się sam przy pomocy książek, kursów internetowych i rozmaitych stron o tematyce front-endu. Z wykształcenia jestem technikiem informatykiem. Szybko się uczę i jestem głodny wiedzy, a wszystkie zlecone zadania oraz własne projekty staram się wykonywać najlepiej jak potrafię.</p>
@@ -92,9 +89,7 @@
 					</div>
 				</div>
 			</section>
-		</div>
-		<div class="section-wrapper" id="projects">
-			<section class="section section--projects fade-in">
+			<section class="section fade-in" id="projects">
 				<h2 class="section__title">Projekty</h2>
 				<div class="projects owl-carousel owl-theme">
 					<div class="projects__project">
@@ -152,9 +147,7 @@
 					</div>
 				</div>
 			</section>
-		</div>
-		<div class="section-wrapper" id="contact">
-			<section class="section section--contact fade-in">
+			<section class="section  fade-in" id="contact">
 				<h2 class="section__title">Kontakt</h2>
 				<div class="contact">
 					<form class="form" action="formularz.php" method="POST">

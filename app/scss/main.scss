@@ -16,19 +16,20 @@ html {
     font-size: 10px;
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
     box-sizing: border-box;
     width: 400vw;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 body {
     box-sizing: border-box;
     font-size: 1.6rem;
     color: #333;
-    @include flex-center-column;
-    background-color: #eaeaea;
+    background-color: #eaeaea;  
+    min-height: 100vh;
+    width: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
 }
 
 // Main layout
@@ -36,45 +37,21 @@ body {
 .container {
     @include flex-center-row;
     overflow-x: hidden;
-    overflow-y: scroll;
-}
-
-// Main Section
-
-.main-section {
-    @include flex-center-column;
-    width: 100vw;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    margin-top: -40rem;
-}
-
-.main-section__title {
-    font-size: 7rem;
-    @include mq-max(850px) {
-        font-size: 4rem;
-        text-align: center;
-    }
-}
-
-.main-section__subtitle {
-    font-size: 4rem;
-    @include mq-max(850px) {
-        font-size: 2rem;
-    }
+    min-height: 100vh;
+    width: 100%;
 }
 
 // Sections styles
 
 .section {
     @include flex-center-column;
-    height: auto;
     background-color: #eaeaea;
     width: 100vw;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding-top: 5rem;
-
+    overflow: auto;
+    min-height: 100vh;
+    @include mq-max(800px) {
+        padding: 5rem 0 2rem 0;
+    }
 }
 
 .section__title {
@@ -92,6 +69,21 @@ body {
         width: 95%;
         font-size: 1.8rem;
         text-align: center;;
+    }
+}
+
+.section__title--start {
+    font-size: 7rem;
+    @include mq-max(850px) {
+        font-size: 4rem;
+        text-align: center;
+    }
+}
+
+.section__subtitle--start {
+    font-size: 4rem;
+    @include mq-max(850px) {
+        font-size: 2rem;
     }
 }
 

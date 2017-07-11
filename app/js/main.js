@@ -1,4 +1,5 @@
-$('.projects').owlCarousel({
+(function(){
+    $('.projects').owlCarousel({
     nav:true,
     dots: false,
     navText: ["Poprzedni", "Następny"],
@@ -10,9 +11,10 @@ $('.nav__link--start').on('click', function(event){
     $('html, body').animate({
         scrollLeft:$('#start').offset().left
     }, 700);
+    window.location.hash = $(this).attr('href');
 });
 
-$(document).on('click touch', '.nav__link', function(e) {
+$(document).on('click', '.nav__link', function(e) {
     var id = $(this).attr('href');
     var $id = $(id);
     if ($id.length === 0) {
@@ -25,7 +27,7 @@ $(document).on('click touch', '.nav__link', function(e) {
     return false;
 });
 
-$(document).on('click touch', '.nav__link--mobile', function(e) {
+$(document).on('click', '.nav__link--mobile', function(e) {
     var id = $(this).attr('href');
     var $id = $(id);
     if ($id.length === 0) {
@@ -43,7 +45,7 @@ $(document).on('click touch', '.nav__link--mobile', function(e) {
 
 /* Open mobile menu after clicking hamburger icon */
 
-$(".nav__hamburger").on("click touch", function() {
+$(".nav__hamburger").on("click", function() {
     $(".nav__hamburger").hide();
     $(".nav__close-menu").show();
     $(".nav__list--mobile").slideToggle();
@@ -51,7 +53,7 @@ $(".nav__hamburger").on("click touch", function() {
 
 /* Close mobile menu after clicking X icon */
 
-$(".nav__close-menu").on("click touch", function() {
+$(".nav__close-menu").on("click", function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
     $(".nav__list--mobile").slideToggle();
@@ -105,3 +107,4 @@ $(function() {
     });
 });
 */
+})();

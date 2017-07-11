@@ -24,7 +24,7 @@
 
 .projects__description {
     text-align: center;
-    width: 80%;
+    width: 70%;
     @include mq-max(800px) {
         width: 95%;
         font-size: 1.4rem;
@@ -43,7 +43,7 @@
 }
 
 .owl-carousel .owl-item img {
-    width: 50%;
+    width: 30%;
     @include mq-max(850px) {
         margin-top: 2rem;
         width: 70%;

@@ -12,7 +12,7 @@
     $('.container').owlCarousel({
     nav: false,
     dots: false,
-    navSpeed: 1200,
+    navSpeed: 700,
     infinite: false,
     loop: false,
     URLhashListener: true,
@@ -20,6 +20,9 @@
 })
 
 window.addEventListener("DOMContentLoaded", function() {
+    if (localStorage.getItem("icon") === null) {
+        return false;
+    } else {
     var iconKey = localStorage.getItem("icon");
     var sectionKey = localStorage.getItem("section");
     var navKey = localStorage.getItem("nav");
@@ -48,28 +51,28 @@ window.addEventListener("DOMContentLoaded", function() {
     } else if ($(".nav__logo").attr("src", "img/logo-dark.png")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     };
+    if ($("#theme").hasClass("icon-moon")) {
+        $('a').removeClass("dark-theme--link").addClass("light-theme--link");
+    } else {
+        $('a').removeClass("light-theme--link").addClass("dark-theme--link");
+    };
+    };
 });
+
+var closeMobile = function() {
+    $(".nav__hamburger").show();
+    $(".nav__close-menu").hide();
+    $(".nav__list--mobile").slideToggle("700");
+}
 
 $(".nav__link--mobile").on('click', function() {
-    $(".nav__hamburger").show();
-    $(".nav__close-menu").hide();
-    $(".nav__list--mobile").slideToggle();
+    closeMobile();
 });
-
-/* Open mobile menu after clicking hamburger icon */
-
 $(".nav__hamburger").on("click", function() {
-    $(".nav__hamburger").hide();
-    $(".nav__close-menu").show();
-    $(".nav__list--mobile").slideToggle();
+    closeMobile();
 });
-
-/* Close mobile menu after clicking X icon */
-
 $(".nav__close-menu").on("click", function() {
-    $(".nav__hamburger").show();
-    $(".nav__close-menu").hide();
-    $(".nav__list--mobile").slideToggle();
+    closeMobile();
 });
 
 $(".icon--theme").on("click", function(){
@@ -105,7 +108,7 @@ $(".icon--theme").on("click", function(){
          $(".nav__logo").attr("src", "img/logo-dark.png");
     } else if ($(".nav__logo").attr("src", "img/logo-dark.png")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
-    }
+    };
 })
 
 /*

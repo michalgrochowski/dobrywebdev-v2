@@ -17,7 +17,6 @@ html {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 body {
@@ -25,16 +24,14 @@ body {
     font-size: 1.6rem;
     color: #333;
     background-color: #eaeaea;  
-    width: 400vw;
-    overflow-x: hidden;
-    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
 }
 
 // Main layout
 
 .container {
     @include flex-center-row;
-    overflow-x: hidden;
     min-height: 100vh;
     width: 100%;
 }
@@ -45,7 +42,6 @@ body {
     @include flex-center-column;
     background-color: #eaeaea;
     width: 100vw;
-    overflow-x: hidden;
     min-height: 100vh;
     @include mq-max(800px) {
         padding: 5rem 0 2rem 0;

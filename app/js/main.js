@@ -4,43 +4,25 @@
     dots: false,
     navText: ["Poprzedni", "Następny"],
     navSpeed: 700,
+    touchDrag: false,
+    mouseDrag: false,
     items: 1
 })
 
-$('.nav__link--start').on('click', function(event){
-    $('html, body').animate({
-        scrollLeft:$('#start').offset().left
-    }, 700);
-    window.location.hash = $(this).attr('href');
-});
+    $('.container').owlCarousel({
+    nav: false,
+    dots: false,
+    navSpeed: 700,
+    infinite: false,
+    loop: false,
+    URLhashListener: true,
+    items: 1
+})
 
-$(document).on('click', '.nav__link', function(e) {
-    var id = $(this).attr('href');
-    var $id = $(id);
-    if ($id.length === 0) {
-        return;
-    }
-    e.preventDefault();
-    var pos = $id.offset().left;
-    $('body, html').animate({scrollLeft: pos}, 700);
-    window.location.hash = id;
-    return false;
-});
-
-$(document).on('click', '.nav__link--mobile', function(e) {
-    var id = $(this).attr('href');
-    var $id = $(id);
-    if ($id.length === 0) {
-        return;
-    }
-    e.preventDefault();
-    var pos = $id.offset().left;
-    $('body, html').animate({scrollLeft: pos}, 700);
-    window.location.hash = id;
+$(".nav__link--mobile").on('click', function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
     $(".nav__list--mobile").slideToggle();
-    return false;
 });
 
 /* Open mobile menu after clicking hamburger icon */

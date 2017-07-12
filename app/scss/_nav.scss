@@ -17,7 +17,6 @@
     left: 0;
     padding: 1rem;
     z-index: 1;
-    background-color: #eaeaea;
 }
 
 .nav__list {
@@ -28,23 +27,33 @@
     @include mq-max(850px) {
         display: none;
     }
+    list-style: none;
 }
 
 .nav__list--mobile {
     @include flex-center-column;
-    background-color: #eaeaea;
     position: fixed;
     left: 0;
-    top: 3.5rem;
+    top: 5rem;
     width: 100vw;
     display: none;
     padding: 0;
     z-index: 3;
+    list-style: none;
 }
 
 .nav__item {
     font-size: 1.8rem;
     display: block;
+}
+
+.nav__item--flag {
+    @include mq-min(851px) {
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+    }
+    cursor: pointer;
 }
 
 .nav__item--mobile {
@@ -58,7 +67,6 @@
 
 .nav__link {
     text-decoration: none;
-    color: #333;
 }
 
 .nav__link--mobile {
@@ -66,12 +74,10 @@
 }
 
 .nav__link:hover, .nav__link:focus {
-    color: #666;
     text-decoration: underline;
 }
 
 .nav__hamburger {
-    color: #333333;
     font-size: 3rem;
     border: none;
     background: none;

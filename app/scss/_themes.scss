@@ -1,0 +1,34 @@
+.icon--theme {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.light-theme {
+    background-color: #eaeaea;
+    color: #333333;
+    transition: all 0.3s;
+}
+
+.light-theme--link {
+    color: #333333;
+    transition: all 0.3s;
+}
+
+.light-theme--link:hover, .light-theme--link:focus {
+    color: #666666;
+}
+
+.dark-theme {
+    background-color: #333333;
+    color: #eaeaea;
+    transition: all 0.3s;
+}
+
+.dark-theme--link {
+    color: #eaeaea;
+    transition: all 0.3s;
+}
+
+.dark-theme--link:hover, .dark-theme--link:focus {
+    color: #ffffff;
+}

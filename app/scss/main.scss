@@ -6,6 +6,7 @@
 @import 'footer.scss';
 @import 'animations.scss';
 @import 'devicons.scss';
+@import 'themes.scss';
 
 // Main Styles
 * {
@@ -22,8 +23,7 @@ html {
 body {
     box-sizing: border-box;
     font-size: 1.6rem;
-    color: #333;
-    background-color: #eaeaea;  
+    color: #333; 
     width: 100vw;
     min-height: 100vh;
 }
@@ -40,7 +40,6 @@ body {
 
 .section {
     @include flex-center-column;
-    background-color: #eaeaea;
     width: 100vw;
     min-height: 100vh;
     @include mq-max(800px) {
@@ -150,4 +149,8 @@ body {
 
 .devicons {
     font-size: 5rem;
+}
+
+.icon-moon, .icon-sun {
+    font-size: 3rem;
 }

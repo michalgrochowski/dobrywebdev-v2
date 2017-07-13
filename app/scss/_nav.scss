@@ -28,6 +28,7 @@
         display: none;
     }
     list-style: none;
+    margin-left: 11rem;
 }
 
 .nav__list--mobile {
@@ -50,8 +51,8 @@
 .nav__item--flag {
     @include mq-min(851px) {
         position: fixed;
-        top: 1rem;
-        right: 1rem;
+        top: 1.5rem;
+        right: 2rem;
     }
     cursor: pointer;
 }

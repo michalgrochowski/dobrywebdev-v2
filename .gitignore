@@ -51,3 +51,7 @@ node_modules/
 
 # Finished (dist) code
 dist/
+
+# Form files
+formularz.php
+

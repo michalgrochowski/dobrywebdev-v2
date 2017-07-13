@@ -46,15 +46,15 @@ window.addEventListener("DOMContentLoaded", function() {
     } else {
         $('a').removeClass("light-theme--link").addClass("dark-theme--link");
     };
-    if ($(".nav__logo").attr("src", "img/logo-light.png")) {
-         $(".nav__logo").attr("src", "img/logo-dark.png");
-    } else if ($(".nav__logo").attr("src", "img/logo-dark.png")) {
-         $(".nav__logo").attr("src", "img/logo-light.png");
-    };
     if ($("#theme").hasClass("icon-moon")) {
         $('a').removeClass("dark-theme--link").addClass("light-theme--link");
     } else {
         $('a').removeClass("light-theme--link").addClass("dark-theme--link");
+    };
+    if ($("#theme").hasClass("icon-moon")) {
+         $(".nav__logo").attr("src", "img/logo-light.png");
+    } else if ($("#theme").hasClass("icon-sun")) {
+         $(".nav__logo").attr("src", "img/logo-dark.png");
     };
     };
 });
@@ -104,12 +104,140 @@ $(".icon--theme").on("click", function(){
     localStorage.setItem("mobilelist", JSON.stringify(mobilelist));
     var body = $("body").attr("class");
     localStorage.setItem("body", JSON.stringify(body));
-    if ($(".nav__logo").attr("src", "img/logo-light.png")) {
-         $(".nav__logo").attr("src", "img/logo-dark.png");
-    } else if ($(".nav__logo").attr("src", "img/logo-dark.png")) {
+    if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
+    } else if ($("#theme").hasClass("icon-sun")) {
+         $(".nav__logo").attr("src", "img/logo-dark.png");
     };
 })
+
+var flag = $(".nav__item--flag");
+    flag.on("click", function() {
+    if (flag.attr("src") === "img/eng.png") {
+        flag.attr("src","img/pl.png");
+        $.getJSON("json/content-eng.json", function(data) {
+            var navAbout = data.navAbout;
+            var navProjects = data.navProjects;
+            var navContact = data.navContact;
+            var mainTitle = data.mainTitle;
+            var mainSubtitle = data.mainSubtitle;
+            var aboutTitle = data.aboutTitle;
+            var aboutSubtitle = data.aboutSubtitle;
+            var aboutDescription = data.aboutDescription;
+            var skillsSubtitle = data.skillsSubtitle;
+            var projectsTitle = data.projectsTitle;
+            var interiorDescription = data.interiorDescription;
+            var sleszynskiDescription = data.sleszynskiDescription;
+            var todoDescription = data.todoDescription;
+            var interiorv1Description = data.interiorv1Description;
+            var dobrywebdevDescription = data.dobrywebdevDescription;
+            var cvDescription = data.cvDescription;
+            var interactiveDescription = data.interactiveDescription;
+            var formDescription = data.formDescription;
+            var projectLive = data.projectLive;
+            var projectCode = data.projectCode;
+            var contactTitle = data.contactTitle;
+            var mailLabel = data.mailLabel;
+            var phoneLabel = data.phoneLabel;
+            var nameLabel = data.nameLabel;
+            var textLabel = data.textLabel;
+            var sendButton = data.sendButton;
+            var phone = data.phone;
+            var mail = data.mail;
+            $(".navAbout").text(navAbout);
+            $(".navProjects").text(navProjects);
+            $(".navContact").text(navContact);
+            $(".mainTitle").text(mainTitle);
+            $(".mainSubtitle").text(mainSubtitle);
+            $(".aboutTitle").text(aboutTitle);
+            $(".aboutSubtitle").text(aboutSubtitle);
+            $(".aboutDescription").text(aboutDescription);
+            $(".skillsSubtitle").text(skillsSubtitle);
+            $(".projectsTitle").text(projectsTitle);
+            $(".interiorDescription").text(interiorDescription);
+            $(".sleszynskiDescription").text(sleszynskiDescription);
+            $(".todoDescription").text(todoDescription);
+            $(".interiorv1Description").text(interiorv1Description);
+            $(".dobrywebdevDescription").text(dobrywebdevDescription);
+            $(".cvDescription").text(cvDescription);
+            $(".interactiveDescription").text(interactiveDescription);
+            $(".formDescription").text(formDescription);
+            $(".projectLive").text(projectLive);
+            $(".projectCode").text(projectCode);
+            $(".contactTitle").text(contactTitle);
+            $(".mailLabel").text(mailLabel);
+            $(".phoneLabel").text(phoneLabel);
+            $(".nameLabel").text(nameLabel);
+            $(".textLabel").text(textLabel);
+            $(".sendButton").text(sendButton);
+            $(".phone").text(phone);
+            $(".mail").text(mail);
+        });
+    } else if (flag.attr("src") === "img/pl.png") {
+        flag.attr("src", "img/eng.png");
+        $.getJSON("json/content-pl.json", function(data) {
+            var navAbout = data.navAbout;
+            var navProjects = data.navProjects;
+            var navContact = data.navContact;
+            var navAbout = data.navAbout;
+            var navProjects = data.navProjects;
+            var navContact = data.navContact;
+            var mainTitle = data.mainTitle;
+            var mainSubtitle = data.mainSubtitle;
+            var aboutTitle = data.aboutTitle;
+            var aboutSubtitle = data.aboutSubtitle;
+            var aboutDescription = data.aboutDescription;
+            var skillsSubtitle = data.skillsSubtitle;
+            var projectsTitle = data.projectsTitle;
+            var interiorDescription = data.interiorDescription;
+            var sleszynskiDescription = data.sleszynskiDescription;
+            var todoDescription = data.todoDescription;
+            var interiorv1Description = data.interiorv1Description;
+            var dobrywebdevDescription = data.dobrywebdevDescription;
+            var cvDescription = data.cvDescription;
+            var interactiveDescription = data.interactiveDescription;
+            var formDescription = data.formDescription;
+            var projectLive = data.projectLive;
+            var projectCode = data.projectCode;
+            var contactTitle = data.contactTitle;
+            var mailLabel = data.mailLabel;
+            var phoneLabel = data.phoneLabel;
+            var nameLabel = data.nameLabel;
+            var textLabel = data.textLabel;
+            var sendButton = data.sendButton;
+            var phone = data.phone;
+            var mail = data.mail;
+            $(".navAbout").text(navAbout);
+            $(".navProjects").text(navProjects);
+            $(".navContact").text(navContact);
+            $(".mainTitle").text(mainTitle);
+            $(".mainSubtitle").text(mainSubtitle);
+            $(".aboutTitle").text(aboutTitle);
+            $(".aboutSubtitle").text(aboutSubtitle);
+            $(".aboutDescription").text(aboutDescription);
+            $(".skillsSubtitle").text(skillsSubtitle);
+            $(".projectsTitle").text(projectsTitle);
+            $(".interiorDescription").text(interiorDescription);
+            $(".sleszynskiDescription").text(sleszynskiDescription);
+            $(".todoDescription").text(todoDescription);
+            $(".interiorv1Description").text(interiorv1Description);
+            $(".dobrywebdevDescription").text(dobrywebdevDescription);
+            $(".cvDescription").text(cvDescription);
+            $(".interactiveDescription").text(interactiveDescription);
+            $(".formDescription").text(formDescription);
+            $(".projectLive").text(projectLive);
+            $(".projectCode").text(projectCode);
+            $(".contactTitle").text(contactTitle);
+            $(".mailLabel").text(mailLabel);
+            $(".phoneLabel").text(phoneLabel);
+            $(".nameLabel").text(nameLabel);
+            $(".textLabel").text(textLabel);
+            $(".sendButton").text(sendButton);
+            $(".phone").text(phone);
+            $(".mail").text(mail);
+        });
+    };
+});
 
 /*
 $(function() {

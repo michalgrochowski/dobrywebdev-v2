@@ -43,18 +43,13 @@
 }
 
 .owl-carousel .owl-item img {
-    width: 30%;
+    width: 50%;
     @include mq-max(850px) {
         margin-top: 2rem;
-        width: 70%;
+        width: 80%;
     }
 }
 
-.owl-theme .owl-nav [class*="owl-"] {
-    background-color: #333;
-    color: #CDCBD4;
-    padding: 0.7rem 1.5rem 0.5rem 1.5rem;
-}
 .owl-nav {
     position: absolute;
     top: -5rem;
@@ -62,6 +57,12 @@
     @include mq-max(850px) {
         top: -3rem;
     }
+}
+
+.owl-theme .owl-nav [class*="owl-"] {
+    background-color: #333;
+    color: #CDCBD4;
+    padding: 0.7rem 1.5rem 0.5rem 1.5rem;
 }
 
 .owl-theme .owl-nav [class*="owl-"]:hover {

@@ -292,12 +292,24 @@ $(function() {
                 url: form.attr('action'),
                 data: form.serialize()
             }).done(function(data) {
-                var success = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
-                $(".form").trigger("reset");
-                $(success).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+                var successPl = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
+                var successEng = '<div class="form__success"><p>Thank you for your Message!</p></div>';
+                if (flag.attr("src") === "img/eng.png") {
+                    $(".form").trigger("reset");
+                    $(successPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+                } else if (flag.attr("src") === "img/pl.png") {
+                    $(".form").trigger("reset");
+                    $(successEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+                };
             }).fail(function(data) {
-                var fail = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
+                var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
+                var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
                 $(fail).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+                if (flag.attr("src") === "img/eng.png") {
+                    $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+                } else if (flag.attr("src") === "img/pl.png") {
+                    $(failEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+                };
             });
         }
     });

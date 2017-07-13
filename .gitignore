@@ -54,4 +54,5 @@ dist/
 
 # Form files
 formularz.php
+phpmailer/
 

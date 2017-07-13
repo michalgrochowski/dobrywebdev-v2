@@ -67,6 +67,11 @@ gulp.task('php', function(){
         .pipe(gulp.dest('dist/phpmailer'))
 });
 
+gulp.task('json', function(){
+    return gulp.src('app/json/**/*.json')
+        .pipe(gulp.dest('dist/json'))
+});
+
 gulp.task('clean:dist', function(){
     return del.sync('dist');
 });
@@ -76,5 +81,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php',])
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json'])
 });

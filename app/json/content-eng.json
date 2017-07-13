@@ -6,7 +6,7 @@
     "mainSubtitle": "Front-end Developer",
     "aboutTitle": "About me",
     "aboutSubtitle": "My name is Michał Grochowski",
-    "aboutDescription": "I got into Front-end Development quite recently and everything I've learned so far was from various books, online courses and websites about it. I'm trained as a information technology specialist. I'm a fast learner, always hungry for more knwledge and I try my best to do everything, be it my personal projects or work tasks the best way that I can.",
+    "aboutDescription": "I got into Front-end Development quite recently and everything I've learned so far was from various books, online courses and websites about development. I'm trained as a information technology specialist. I'm a fast learner, always hungry for more knwledge and I try my best to do everything, be it my personal projects or work tasks, the best way I can.",
     "skillsSubtitle": "In my projects I'm using:",
     "projectsTitle": "Projects",
     "interiorDescription": "Based on a clients project, made using HTML5, CSS3 and jQuery. Responsiveness by Flexbox. Extra plugins: Lightbox.js.",
@@ -24,6 +24,9 @@
     "phoneLabel": "Phone number",
     "nameLabel": "First and last name",
     "textLabel": "Enter your message",
+    "mailPlaceholder": "address@email.com",
+    "namePlaceholder": "John Smith",
+    "textPlaceholder": "Hi! I really like your website.",
     "sendButton": "Send",
     "phone": "Call me",
     "mail": "E-mail me"

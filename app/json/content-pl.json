@@ -24,6 +24,9 @@
     "phoneLabel": "Numer telefonu",
     "nameLabel": "Imię i nazwisko",
     "textLabel": "Treść wiadomości",
+    "mailPlaceholder": "adres@email.pl",
+    "namePlaceholder": "Jan Kowalski",
+    "textPlaceholder": "Cześć! Podoba mi się twoja strona.",
     "sendButton": "Wyślij",
     "phone": "Zadzwoń",
     "mail": "Napisz maila"

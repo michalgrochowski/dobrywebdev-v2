@@ -144,6 +144,10 @@ var flag = $(".nav__item--flag");
             var sendButton = data.sendButton;
             var phone = data.phone;
             var mail = data.mail;
+            var mailPlaceholder = data.mailPlaceholder;
+            var namePlaceholder = data.namePlaceholder;
+            var textPlaceholder = data.textPlaceholder;
+            var sendButton = data.sendButton;
             $(".navAbout").text(navAbout);
             $(".navProjects").text(navProjects);
             $(".navContact").text(navContact);
@@ -172,6 +176,10 @@ var flag = $(".nav__item--flag");
             $(".sendButton").text(sendButton);
             $(".phone").text(phone);
             $(".mail").text(mail);
+            $(".form__input--mail").attr("placeholder", mailPlaceholder);
+            $(".form__input--name").attr("placeholder", namePlaceholder);
+            $(".form__textarea").attr("placeholder", textPlaceholder);
+            $(".form__button").attr("value", sendButton);
         });
     } else if (flag.attr("src") === "img/pl.png") {
         flag.attr("src", "img/eng.png");
@@ -207,6 +215,10 @@ var flag = $(".nav__item--flag");
             var sendButton = data.sendButton;
             var phone = data.phone;
             var mail = data.mail;
+            var mailPlaceholder = data.mailPlaceholder;
+            var namePlaceholder = data.namePlaceholder;
+            var textPlaceholder = data.textPlaceholder;
+            var sendButton = data.sendButton;
             $(".navAbout").text(navAbout);
             $(".navProjects").text(navProjects);
             $(".navContact").text(navContact);
@@ -235,11 +247,15 @@ var flag = $(".nav__item--flag");
             $(".sendButton").text(sendButton);
             $(".phone").text(phone);
             $(".mail").text(mail);
+            $(".form__input--mail").attr("placeholder", mailPlaceholder);
+            $(".form__input--name").attr("placeholder", namePlaceholder);
+            $(".form__textarea").attr("placeholder", textPlaceholder);
+            $(".form__button").attr("value", sendButton);
         });
     };
 });
 
-/*
+
 $(function() {
     $('.form').submit(function(event) {
         event.preventDefault();
@@ -286,5 +302,5 @@ $(function() {
         }
     });
 });
-*/
+
 })();

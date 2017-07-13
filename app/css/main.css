@@ -57,7 +57,7 @@
   width: 50%;
   padding: 0;
   list-style: none;
-  margin-left: 11rem; }
+  margin-left: 15rem; }
   @media screen and (max-width: 850px) {
     .nav__list {
       display: none; } }
@@ -92,7 +92,8 @@
 
 .nav__item {
   font-size: 1.8rem;
-  display: block; }
+  display: block;
+  width: 20%; }
 
 .nav__item--flag {
   cursor: pointer; }
@@ -1110,7 +1111,8 @@
 .icon--theme {
   cursor: pointer;
   -webkit-transition: all 0.3s;
-  transition: all 0.3s; }
+  transition: all 0.3s;
+  width: 20%; }
 
 .light-theme {
   background-color: #eaeaea;

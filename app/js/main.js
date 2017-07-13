@@ -293,7 +293,7 @@ $(function() {
                 data: form.serialize()
             }).done(function(data) {
                 var successPl = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
-                var successEng = '<div class="form__success"><p>Thank you for your Message!</p></div>';
+                var successEng = '<div class="form__success"><p>Thank you for your message!</p></div>';
                 if (flag.attr("src") === "img/eng.png") {
                     $(".form").trigger("reset");
                     $(successPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);

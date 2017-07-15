@@ -71,7 +71,7 @@
 .form__group:hover {
     transition: all 0.5s;
 }
-.form__success {
+.form__success, .form__fail {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -92,6 +92,5 @@
     }
 }
 .form__fail {
-    @extend .form__success;
     background-color: #c71610;
 }

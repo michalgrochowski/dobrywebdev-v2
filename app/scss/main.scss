@@ -1,3 +1,5 @@
+// Partials
+
 @import 'mixins.scss';
 @import 'nav.scss';
 @import 'projects.scss';
@@ -9,6 +11,7 @@
 @import 'themes.scss';
 
 // Main Styles
+
 * {
     box-sizing: border-box;
 }
@@ -18,6 +21,7 @@ html {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
     box-sizing: border-box;
+    max-width: 100vw;
 }
 
 body {
@@ -25,6 +29,7 @@ body {
     font-size: 1.6rem;
     color: #333; 
     width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
 }
 
@@ -33,7 +38,8 @@ body {
 .container {
     @include flex-center-row;
     min-height: 100vh;
-    width: 100%;
+    width: 100vw;
+    max-width: 100vw;
 }
 
 // Sections styles
@@ -41,6 +47,7 @@ body {
 .section {
     @include flex-center-column;
     width: 100vw;
+    max-width: 100vw;
     min-height: 100vh;
     @include mq-max(800px) {
         padding: 5rem 0 2rem 0;
@@ -90,7 +97,7 @@ body {
     }
 }
 
-// Specific elements styles
+// Specific elements styles, which are too small to be in a component
 
 .contact {
     @include flex-center-row;

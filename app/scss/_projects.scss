@@ -77,18 +77,6 @@
     transition: 0.3s color, 0.3s background-color;
 }
 
-.owl-prev--dark, .owl-next--dark {
-    background-color: #dbdbdb !important;
-    color: #333333 !important;
-    transition: 0.3s color, 0.3s background-color;
-}
-
-.owl-prev--dark:hover, .owl-next--dark:hover {
-    background-color: #f7f7f7 !important;
-    color: #111111 !important; 
-    transition: 0.3s color, 0.3s background-color;
-}
-
 .owl-carousel {
     z-index: 0;
 }

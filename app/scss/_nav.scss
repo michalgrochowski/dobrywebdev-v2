@@ -15,7 +15,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    padding: 1rem;
     z-index: 1;
 }
 
@@ -47,6 +46,7 @@
     font-size: 1.8rem;
     display: block;
     width: 20%;
+    padding: 1rem;
 }
 
 .nav__item--flag {
@@ -79,7 +79,7 @@
     text-decoration: underline;
 }
 
-.nav__hamburger {
+.nav__hamburger, .nav__close-menu {
     font-size: 3rem;
     border: none;
     background: none;
@@ -89,6 +89,5 @@
     }
 }
 .nav__close-menu {
-    @extend .nav__hamburger;
     display: none;
 }

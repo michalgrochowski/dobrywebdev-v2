@@ -30,7 +30,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding: 1rem;
   z-index: 1; }
 
 .nav__list {
@@ -93,7 +92,8 @@
 .nav__item {
   font-size: 1.8rem;
   display: block;
-  width: 20%; }
+  width: 20%;
+  padding: 1rem; }
 
 .nav__item--flag {
   cursor: pointer; }
@@ -232,18 +232,6 @@
 .owl-theme .owl-nav .owl-prev:hover, .owl-theme .owl-nav .owl-next:hover {
   background-color: #555;
   color: #ffffff;
-  -webkit-transition: 0.3s color, 0.3s background-color;
-  transition: 0.3s color, 0.3s background-color; }
-
-.owl-prev--dark, .owl-next--dark {
-  background-color: #dbdbdb !important;
-  color: #333333 !important;
-  -webkit-transition: 0.3s color, 0.3s background-color;
-  transition: 0.3s color, 0.3s background-color; }
-
-.owl-prev--dark:hover, .owl-next--dark:hover {
-  background-color: #f7f7f7 !important;
-  color: #111111 !important;
   -webkit-transition: 0.3s color, 0.3s background-color;
   transition: 0.3s color, 0.3s background-color; }
 
@@ -1163,6 +1151,18 @@
 .dark-theme--link:hover, .dark-theme--link:focus {
   color: #ffffff; }
 
+.owl-prev--dark, .owl-next--dark {
+  background-color: #dbdbdb !important;
+  color: #333333 !important;
+  -webkit-transition: 0.3s color, 0.3s background-color;
+  transition: 0.3s color, 0.3s background-color; }
+
+.owl-prev--dark:hover, .owl-next--dark:hover {
+  background-color: #f7f7f7 !important;
+  color: #111111 !important;
+  -webkit-transition: 0.3s color, 0.3s background-color;
+  transition: 0.3s color, 0.3s background-color; }
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -1172,7 +1172,8 @@ html {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  max-width: 100vw; }
 
 body {
   -webkit-box-sizing: border-box;
@@ -1180,6 +1181,7 @@ body {
   font-size: 1.6rem;
   color: #333;
   width: 100vw;
+  max-width: 100vw;
   min-height: 100vh; }
 
 .container {
@@ -1202,7 +1204,8 @@ body {
   -ms-flex-positive: 0;
   flex-grow: 0;
   min-height: 100vh;
-  width: 100%; }
+  width: 100vw;
+  max-width: 100vw; }
 
 .section {
   display: -webkit-box;
@@ -1224,6 +1227,7 @@ body {
   -ms-flex-positive: 0;
   flex-grow: 0;
   width: 100vw;
+  max-width: 100vw;
   min-height: 100vh; }
   @media screen and (max-width: 800px) {
     .section {

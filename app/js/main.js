@@ -1,11 +1,11 @@
 (function(){
     $('.projects').owlCarousel({
-    nav:true,
+    nav: true,
     dots: false,
-    navText: ["Poprzedni", "Następny"],
+    navText: ["<span class='icon-left-open'></span>", "<span class='icon-right-open'></span>"],
     navSpeed: 700,
-    touchDrag: false,
-    mouseDrag: false,
+    touchDrag: true,
+    mouseDrag: true,
     items: 1
 })
 
@@ -14,6 +14,11 @@
     dots: false,
     navSpeed: 700,
     infinite: false,
+    touchDrag: false,
+    mouseDrag: false,
+    pullDrag: false,
+    freeDrag: false,
+    rewind: false,
     loop: false,
     URLhashListener: true,
     items: 1
@@ -32,6 +37,8 @@ window.addEventListener("DOMContentLoaded", function() {
     var closemenu = localStorage.getItem("closemenu");
     var mobilelist = localStorage.getItem("mobilelist");
     var body = localStorage.getItem("body");
+    var owlPrev = localStorage.getItem("owlPrev");
+    var owlNext = localStorage.getItem("owlNext");
     $(".icon--theme").attr("class", JSON.parse(iconKey));
     $(".section").attr("class", JSON.parse(sectionKey));
     $(".nav").attr("class", JSON.parse(navKey));
@@ -41,6 +48,8 @@ window.addEventListener("DOMContentLoaded", function() {
     $(".nav__close-menu").attr("class", JSON.parse(closemenu));
     $(".nav__list--mobile").attr("class", JSON.parse(mobilelist));
     $("body").attr("class", JSON.parse(body));
+    $(".owl-prev").attr("class", JSON.parse(owlPrev));
+    $(".owl-next").attr("class", JSON.parse(owlNext));
     if ($("#theme").hasClass("icon-moon")) {
         $('a').removeClass("dark-theme--link").addClass("light-theme--link");
     } else {
@@ -86,6 +95,8 @@ $(".icon--theme").on("click", function(){
     $(".nav__close-menu").toggleClass("light-theme dark-theme");
     $(".nav__list--mobile").toggleClass("light-theme dark-theme");
     $("body").toggleClass("light-theme dark-theme");
+    $(".owl-prev").toggleClass("owl-prev--dark");
+    $(".owl-next").toggleClass("owl-next--dark");
     window.localStorage.clear();
     // Items for localStorage
     var icon = $(".icon--theme").attr("class");
@@ -104,6 +115,10 @@ $(".icon--theme").on("click", function(){
     localStorage.setItem("mobilelist", JSON.stringify(mobilelist));
     var body = $("body").attr("class");
     localStorage.setItem("body", JSON.stringify(body));
+    var owlPrev = $(".owl-prev").attr("class");
+    localStorage.setItem("owlPrev", JSON.stringify(owlPrev));
+    var owlNext = $(".owl-next").attr("class");
+    localStorage.setItem("owlNext", JSON.stringify(owlNext));
     if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     } else if ($("#theme").hasClass("icon-sun")) {
@@ -304,7 +319,7 @@ $(function() {
             }).fail(function(data) {
                 var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
                 var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
-                $(fail).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+                $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 if (flag.attr("src") === "img/eng.png") {
                     $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 } else if (flag.attr("src") === "img/pl.png") {

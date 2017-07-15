@@ -84,6 +84,7 @@
     p {
         font-size: 2.4rem;
         color: #ffffff;
+        text-align: center;
     }
     @include mq-max(600px) {
         width: 90%;

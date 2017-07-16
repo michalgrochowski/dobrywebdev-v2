@@ -1,10 +1,4 @@
 @charset "UTF-8";
-.nav__logo {
-  position: fixed;
-  top: 1.5rem;
-  left: 2rem;
-  width: 15rem; }
-
 .nav {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -32,6 +26,9 @@
   left: 0;
   z-index: 1; }
 
+.nav__logo {
+  width: 15rem; }
+
 .nav__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,7 +50,7 @@
   flex-grow: 0;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  width: 50%;
+  width: 70%;
   padding: 0;
   list-style: none;
   margin-left: 15rem; }
@@ -82,7 +79,7 @@
   flex-grow: 0;
   position: fixed;
   left: 0;
-  top: 5rem;
+  top: 4.4rem;
   width: 100vw;
   display: none;
   padding: 0;
@@ -95,10 +92,10 @@
   width: 20%;
   padding: 1rem; }
 
-.nav__item--flag {
+.button--flag {
   cursor: pointer; }
   @media screen and (min-width: 851px) {
-    .nav__item--flag {
+    .button--flag {
       position: fixed;
       top: 1.5rem;
       right: 2rem; } }
@@ -116,6 +113,11 @@
 
 .nav__link--mobile {
   z-index: 5; }
+
+.nav__link--start {
+  position: fixed;
+  top: 1.5rem;
+  left: 2rem; }
 
 .nav__link:hover, .nav__link:focus {
   text-decoration: underline; }
@@ -422,16 +424,16 @@
   flex-basis: 50%;
   text-decoration: none;
   color: #333; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .socials__item {
       -ms-flex-preferred-size: 50%;
       flex-basis: 50%; } }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 800px) {
   .socials__item:nth-child(3) {
     margin-bottom: 2rem; } }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 800px) {
   .socials__item:nth-child(4) {
     margin-bottom: 2rem; } }
 
@@ -440,7 +442,7 @@
 
 .icon {
   font-size: 6rem; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .icon {
       font-size: 4rem; } }
 
@@ -1163,6 +1165,12 @@
   -webkit-transition: 0.3s color, 0.3s background-color;
   transition: 0.3s color, 0.3s background-color; }
 
+.icon-sun {
+  color: #eaeaea; }
+
+.icon-moon {
+  color: #333333; }
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
@@ -1235,15 +1243,22 @@ body {
 
 .section__title {
   font-size: 4rem; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .section__title {
       width: 95%;
       font-size: 2.5rem;
-      text-align: center; } }
+      text-align: center;
+      padding-top: 1rem; } }
+  @media screen and (min-width: 801px) and (max-width: 1200px) {
+    .section__title {
+      width: 90%;
+      font-size: 3rem;
+      text-align: center;
+      padding-top: 2.5rem; } }
 
 .section__subtitle {
   font-size: 2.5rem; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .section__subtitle {
       width: 95%;
       font-size: 1.8rem;
@@ -1251,14 +1266,14 @@ body {
 
 .section__title--start {
   font-size: 7rem; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .section__title--start {
       font-size: 4rem;
       text-align: center; } }
 
 .section__subtitle--start {
   font-size: 4rem; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .section__subtitle--start {
       font-size: 2rem; } }
 
@@ -1266,7 +1281,7 @@ body {
   font-size: 1.8rem;
   width: 70%;
   text-align: center; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .section__description {
       width: 90%;
       font-size: 1.4rem; } }
@@ -1291,13 +1306,16 @@ body {
   -ms-flex-positive: 0;
   flex-grow: 0;
   width: 70%; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .contact {
       -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
       -ms-flex-direction: column;
       flex-direction: column;
       width: 100%; } }
+  @media screen and (min-width: 801px) and (max-width: 1200px) {
+    .contact {
+      width: 90%; } }
 
 .skills {
   display: -webkit-box;
@@ -1341,15 +1359,20 @@ body {
   -ms-flex-positive: 0;
   flex-grow: 0;
   margin: 0 2rem 0 2rem; }
-  @media screen and (max-width: 850px) {
+  @media screen and (max-width: 800px) {
     .skills__skill {
       -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
       margin: 0 0.5rem 0 0.5rem; } }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 800px) {
   .skills__text {
     font-size: 1.4rem; } }
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
 
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */

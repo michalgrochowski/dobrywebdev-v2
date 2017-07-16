@@ -14,18 +14,18 @@
     flex-basis: 50%;
     text-decoration: none;
     color: #333;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         flex-basis: 50%;
     }
 }
 
 .socials__item:nth-child(3) {
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         margin-bottom: 2rem;
     }
 }
 .socials__item:nth-child(4) {
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         margin-bottom: 2rem;
     }
 }
@@ -36,7 +36,7 @@
 
 .icon {
     font-size: 6rem;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         font-size: 4rem;
     }
 }

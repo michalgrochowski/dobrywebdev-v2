@@ -84,8 +84,8 @@ $(".nav__close-menu").on("click", function() {
     closeMobile();
 });
 
-$(".icon--theme").on("click", function(){
-    $(this).toggleClass("icon-moon icon-sun");
+$(".button--theme").on("click", function(){
+    $(".icon--theme").toggleClass("icon-moon icon-sun");
     $(".section").toggleClass("light-theme dark-theme");
     $(".nav").toggleClass("light-theme dark-theme");
     $(".footer").toggleClass("light-theme dark-theme");
@@ -126,8 +126,9 @@ $(".icon--theme").on("click", function(){
     };
 })
 
+var flagButton = $(".button--flag");
 var flag = $(".nav__item--flag");
-    flag.on("click", function() {
+    flagButton.on("click", function() {
     if (flag.attr("src") === "img/eng.png") {
         flag.attr("src","img/pl.png");
         $.getJSON("json/content-eng.json", function(data) {

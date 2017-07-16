@@ -56,16 +56,23 @@ body {
 
 .section__title {
     font-size: 4rem;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         width: 95%;
         font-size: 2.5rem;
         text-align: center;
+        padding-top: 1rem;
+    }
+    @include mq-minmax(801px, 1200px) {
+        width: 90%;
+        font-size: 3rem;
+        text-align: center;
+        padding-top: 2.5rem;
     }
 }
 
 .section__subtitle {
     font-size: 2.5rem;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         width: 95%;
         font-size: 1.8rem;
         text-align: center;;
@@ -74,7 +81,7 @@ body {
 
 .section__title--start {
     font-size: 7rem;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         font-size: 4rem;
         text-align: center;
     }
@@ -82,7 +89,7 @@ body {
 
 .section__subtitle--start {
     font-size: 4rem;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         font-size: 2rem;
     }
 }
@@ -91,7 +98,7 @@ body {
     font-size: 1.8rem;
     width: 70%;
     text-align: center;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         width: 90%;
         font-size: 1.4rem;
     }
@@ -102,9 +109,12 @@ body {
 .contact {
     @include flex-center-row;
     width: 70%;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         flex-direction: column;
         width: 100%;
+    }
+    @include mq-minmax(801px, 1200px) {
+        width: 90%;
     }
 }
 
@@ -116,19 +126,25 @@ body {
 .skills__skill {
     @include flex-center-column;
     margin: 0 2rem 0 2rem;
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         flex-basis: 20%;
         margin: 0 0.5rem 0 0.5rem;
     }
 }
 
 .skills__text {
-    @include mq-max(850px) {
+    @include mq-max(800px) {
         font-size: 1.4rem;
     }
 }
 
 // Misc items
+
+.button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #333333;

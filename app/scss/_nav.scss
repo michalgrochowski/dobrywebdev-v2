@@ -1,12 +1,5 @@
 // Nav
 
-.nav__logo {
-    position: fixed;
-    top: 1.5rem;
-    left: 2rem;
-    width: 15rem;
-}
-
 .nav {
     @include flex-center-row;
     width: 100vw;
@@ -18,10 +11,14 @@
     z-index: 1;
 }
 
+.nav__logo {
+    width: 15rem;
+}
+
 .nav__list {
     @include flex-center-row;
     justify-content: space-around;
-    width: 50%;
+    width: 70%;
     padding: 0;
     @include mq-max(850px) {
         display: none;
@@ -34,7 +31,7 @@
     @include flex-center-column;
     position: fixed;
     left: 0;
-    top: 5rem;
+    top: 4.4rem;
     width: 100vw;
     display: none;
     padding: 0;
@@ -49,7 +46,7 @@
     padding: 1rem;
 }
 
-.nav__item--flag {
+.button--flag {
     @include mq-min(851px) {
         position: fixed;
         top: 1.5rem;
@@ -73,6 +70,12 @@
 
 .nav__link--mobile {
     z-index: 5;
+}
+
+.nav__link--start {
+    position: fixed;
+    top: 1.5rem;
+    left: 2rem;
 }
 
 .nav__link:hover, .nav__link:focus {

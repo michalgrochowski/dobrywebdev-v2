@@ -22,6 +22,7 @@ html {
     line-height: 1.6;
     box-sizing: border-box;
     max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
@@ -31,6 +32,7 @@ body {
     width: 100vw;
     max-width: 100vw;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 // Main layout
@@ -70,20 +72,24 @@ body {
     }
 }
 
+.section__title--start {
+    font-size: 7rem;
+    @include mq-max(800px) {
+        font-size: 4rem;
+        text-align: center;
+    }
+}
+
+.section__title--projects {
+    padding-top: 4rem;
+}
+
 .section__subtitle {
     font-size: 2.5rem;
     @include mq-max(800px) {
         width: 95%;
         font-size: 1.8rem;
         text-align: center;;
-    }
-}
-
-.section__title--start {
-    font-size: 7rem;
-    @include mq-max(800px) {
-        font-size: 4rem;
-        text-align: center;
     }
 }
 
@@ -147,25 +153,25 @@ body {
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-    color: #333333;
+    color: #ffffff;
     text-indent: 1rem;
     padding: 1rem;
 }
 
 ::-moz-placeholder { /* Firefox 19+ */
-    color: #333333;
+    color: #ffffff;
     text-indent: 1rem;
     padding: 1rem;
 }
 
 :-ms-input-placeholder { /* IE 10+ */
-    color: #333333;
+    color: #ffffff;
     text-indent: 1rem;
     padding: 1rem;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-    color: #333333;
+    color: #ffffff;
     text-indent: 1rem;
     padding: 1rem;
 }

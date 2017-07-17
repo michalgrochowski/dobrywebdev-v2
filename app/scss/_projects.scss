@@ -5,6 +5,9 @@
     @include mq-max(800px) {
         width: 95%;
     }
+    @media screen and (max-height: 800px) {
+        padding-bottom: 5rem;
+    }
 }
 
 .projects__project {
@@ -52,7 +55,8 @@
 
 .owl-nav {
     position: absolute;
-    top: -5rem;
+    top: -4rem;
+    left: 0;
     width: 100%;
     @include mq-max(850px) {
         top: -3rem;

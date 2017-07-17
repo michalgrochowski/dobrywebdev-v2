@@ -1,55 +1,60 @@
 .icon--theme {
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.5s;
     width: 20%;
 }
 
 .light-theme {
-    background-color: #eaeaea;
+    background-color: #cccccc;
     color: #333333;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 .light-theme--link {
     color: #333333;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 .light-theme--link:hover, .light-theme--link:focus {
     color: #666666;
+    transition: all 0.5s;
 }
 
 .dark-theme {
     background-color: #333333;
-    color: #eaeaea;
-    transition: all 0.3s;
+    color: #cccccc;
+    transition: all 0.5s;
+    transition: all 0.5s;
 }
 
 .dark-theme--link {
-    color: #eaeaea;
-    transition: all 0.3s;
+    color: #cccccc;
+    transition: all 0.5s;
 }
 
 .dark-theme--link:hover, .dark-theme--link:focus {
     color: #ffffff;
+    transition: all 0.5s;
 }
 
 .owl-prev--dark, .owl-next--dark {
-    background-color: #dbdbdb !important;
+    background-color: #cccccc !important;
     color: #333333 !important;
-    transition: 0.3s color, 0.3s background-color;
+    transition: 0.5s color, 0.5s background-color;
 }
 
 .owl-prev--dark:hover, .owl-next--dark:hover {
-    background-color: #f7f7f7 !important;
+    background-color: #ffffff !important;
     color: #111111 !important; 
-    transition: 0.3s color, 0.3s background-color;
+    transition: 0.5s color, 0.5s background-color;
 }
 
 .icon-sun {
-    color: #eaeaea;
+    color: #cccccc;
+    transition: all 0.5s;
 }
 
 .icon-moon {
     color: #333333;
+    transition: all 0.5s;
 }

@@ -39,6 +39,8 @@ window.addEventListener("DOMContentLoaded", function() {
     var body = localStorage.getItem("body");
     var owlPrev = localStorage.getItem("owlPrev");
     var owlNext = localStorage.getItem("owlNext");
+    var buttonTheme = localStorage.getItem("buttonTheme");
+    var buttonFlag = localStorage.getItem("buttonFlag");
     $(".icon--theme").attr("class", JSON.parse(iconKey));
     $(".section").attr("class", JSON.parse(sectionKey));
     $(".nav").attr("class", JSON.parse(navKey));
@@ -50,6 +52,8 @@ window.addEventListener("DOMContentLoaded", function() {
     $("body").attr("class", JSON.parse(body));
     $(".owl-prev").attr("class", JSON.parse(owlPrev));
     $(".owl-next").attr("class", JSON.parse(owlNext));
+    $(".button--theme").attr("class", JSON.parse(buttonTheme));
+    $(".button--flag").attr("class", JSON.parse(buttonFlag));
     if ($("#theme").hasClass("icon-moon")) {
         $('a').removeClass("dark-theme--link").addClass("light-theme--link");
     } else {
@@ -97,6 +101,8 @@ $(".button--theme").on("click", function(){
     $("body").toggleClass("light-theme dark-theme");
     $(".owl-prev").toggleClass("owl-prev--dark");
     $(".owl-next").toggleClass("owl-next--dark");
+    $(".button--theme").toggleClass("dark-outline");
+    $(".button--flag").toggleClass("dark-outline");
     window.localStorage.clear();
     // Items for localStorage
     var icon = $(".icon--theme").attr("class");
@@ -119,6 +125,10 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("owlPrev", JSON.stringify(owlPrev));
     var owlNext = $(".owl-next").attr("class");
     localStorage.setItem("owlNext", JSON.stringify(owlNext));
+    var buttonTheme = $(".button--theme").attr("class");
+    localStorage.setItem("buttonTheme", JSON.stringify(buttonTheme));
+    var buttonFlag = $(".button--flag").attr("class");
+    localStorage.setItem("buttonFlag", JSON.stringify(buttonFlag));
     if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     } else if ($("#theme").hasClass("icon-sun")) {

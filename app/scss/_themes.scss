@@ -58,3 +58,11 @@
     color: #333333;
     transition: all 0.5s;
 }
+
+.dark-outline:focus {
+    outline: 1px dashed #cccccc;
+}
+
+.dark-outline:active {
+    outline: none;
+}

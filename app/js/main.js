@@ -72,20 +72,20 @@ window.addEventListener("DOMContentLoaded", function() {
     };
 });
 
-var closeMobile = function() {
+$(".nav__link--mobile").on('click', function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
     $(".nav__list--mobile").slideToggle("700");
-}
-
-$(".nav__link--mobile").on('click', function() {
-    closeMobile();
 });
 $(".nav__hamburger").on("click", function() {
-    closeMobile();
+    $(".nav__hamburger").hide();
+    $(".nav__close-menu").show();
+    $(".nav__list--mobile").slideToggle("700").attr("aria-expanded", "true");
 });
 $(".nav__close-menu").on("click", function() {
-    closeMobile();
+    $(".nav__hamburger").show();
+    $(".nav__close-menu").hide();
+    $(".nav__list--mobile").slideToggle("700").attr("aria-expanded", "false");
 });
 
 $(".button--theme").on("click", function(){

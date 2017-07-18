@@ -89,6 +89,7 @@ $(".nav__close-menu").on("click", function() {
 });
 
 $(".button--theme").on("click", function(){
+    window.localStorage.clear();
     $(".icon--theme").toggleClass("icon-moon icon-sun");
     $(".section").toggleClass("light-theme dark-theme");
     $(".nav").toggleClass("light-theme dark-theme");
@@ -103,7 +104,6 @@ $(".button--theme").on("click", function(){
     $(".owl-next").toggleClass("owl-next--dark");
     $(".button--theme").toggleClass("dark-outline");
     $(".button--flag").toggleClass("dark-outline");
-    window.localStorage.clear();
     // Items for localStorage
     var icon = $(".icon--theme").attr("class");
     localStorage.setItem("icon", JSON.stringify(icon));

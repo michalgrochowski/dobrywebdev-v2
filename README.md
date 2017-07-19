@@ -1,11 +1,16 @@
 # dobrywebdev v2
 
-This is the second edition of my portfolio page, where I share all of my projects.
+This is the second version of my portfolio page, where I share all of my projects.
 Build with:
 - HTML5,
 - CSS3 (Flexbox),
 - jQuery,
 - OwlCarousel 2.0 - https://owlcarousel2.github.io/OwlCarousel2/,
-- Fontello and Font Mfizz web font icons.
+- PHPmailer,
+- Fontello and Devicons font icons.
+
+Cool features:
+- You can change the theme (dark or light) and the theme settings are saved in your localStorage,
+- Language changes via AJAX and JSON files with specific texts.
 
 Live: http://dobrywebdev.pl

@@ -11,6 +11,7 @@ Build with:
 
 Cool features:
 - You can change the theme (dark or light) and the theme settings are saved in your localStorage,
-- Language changes via AJAX and JSON files with specific texts.
+- Language changes via AJAX and JSON files with specific texts,
+- Form validation made using RegExp with jQuery without any external library.
 
 Live: http://dobrywebdev.pl

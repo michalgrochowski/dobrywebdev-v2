@@ -50,9 +50,8 @@
   flex-grow: 0;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  width: 50%;
+  width: 30%;
   padding: 0;
-  margin-left: 15rem;
   list-style: none; }
   @media screen and (max-width: 850px) {
     .nav__list {
@@ -190,6 +189,9 @@
   -ms-flex-positive: 0;
   flex-grow: 0;
   margin-top: -4rem; }
+  @media screen and (max-width: 800px) {
+    .projects__nav-list {
+      margin-top: -2rem; } }
 
 .projects__prev, .projects__next {
   font-size: 1.8rem;
@@ -515,13 +517,13 @@
     display: none; } }
 
 .fade-in {
-  -webkit-animation: fade-in 5s;
-  animation: fade-in 5s; }
+  -webkit-animation: fade-in 4s;
+  animation: fade-in 4s; }
 
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0; }
-  20% {
+  10% {
     opacity: 0; }
   100% {
     opacity: 1; } }
@@ -529,7 +531,7 @@
 @keyframes fade-in {
   0% {
     opacity: 0; }
-  20% {
+  10% {
     opacity: 0; }
   100% {
     opacity: 1; } }

@@ -15,14 +15,14 @@
 }
 
 .fade-in {
-    animation: fade-in 5s;
+    animation: fade-in 4s;
 }
 
 @keyframes fade-in {
     0% {
         opacity: 0;
     }
-    20% {
+    10% {
         opacity: 0;
     }
     100% {

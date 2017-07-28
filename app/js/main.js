@@ -1,32 +1,50 @@
 (function(){
-
     var projects = $(".projects");
     var container = $(".container");
-
-    projects.owlCarousel({
-    dots: false,
-    navSpeed: 700,
-    touchDrag: false,
-    mouseDrag: false,
-    pullDrag: false,
-    freeDrag: false,
-    items: 1,
-    slideBy: 1
-});
-
-    container.owlCarousel({
-    nav: false,
-    dots: false,
-    navSpeed: 700,
-    infinite: false,
-    touchDrag: false,
-    mouseDrag: false,
-    rewind: false,
-    loop: false,
-    items: 1,
-    slideBy: 1
-});
-
+    $(function() {
+        projects.owlCarousel({
+        dots: false,
+        navSpeed: 700,
+        touchDrag: false,
+        mouseDrag: false,
+        pullDrag: false,
+        freeDrag: false,
+        items: 1,
+        slideBy: 1,
+        responsive : {
+            0 : {
+                mouseDrag: true,
+                touchDrag: true,
+            },
+            800 : {
+                mouseDrag: false,
+                touchDrag: false,
+            }
+        }
+    });
+        container.owlCarousel({
+        nav: false,
+        dots: false,
+        navSpeed: 700,
+        infinite: false,
+        rewind: false,
+        loop: false,
+        items: 1,
+        slideBy: 1,
+        responsive : {
+            0 : {
+                mouseDrag: true,
+                touchDrag: true,
+                autoHeight: true,
+            },
+            800 : {
+                mouseDrag: false,
+                touchDrag: false,
+                autoHeight: false,
+            }
+        }
+    });
+});    
 
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
@@ -51,13 +69,13 @@ $(".nav__link").click(function(e){
     e.preventDefault();
     window.location.hash = $(".nav__link").attr("href");
     if ($(".nav__link").attr("href") == "#about") {
-        container.trigger("to.owl.carousel", [1, 300, true]);
+        container.trigger("to.owl.carousel", [1, 3000, true]);
     } else if ($(".nav__link").attr("href") == "#projects") {
-        container.trigger("to.owl.carousel", [2, 300, true]);
+        container.trigger("to.owl.carousel", [2, 3000, true]);
     } else if ($(".nav__link").attr("href") == "#contact") {
-        container.trigger("to.owl.carousel", [3, 300, true]);
+        container.trigger("to.owl.carousel", [3, 3000, true]);
     } else if ($(".nav__link").attr("href") == "#start") {
-        container.trigger("to.owl.carousel", [0, 300, true]);
+        container.trigger("to.owl.carousel", [0, 3000, true]);
     }
 });
 
@@ -67,13 +85,13 @@ $(".nav__link").click(function(e){
     window.location.hash = $(".nav__link").attr("href");
     switch ($(".nav__link").attr("href")) {
         case "#start": 
-            container.trigger("to.owl.carousel", [0, 300, true]);
+            container.trigger("to.owl.carousel", [0, 3000, true]);
             break;
         case "#about": 
-            container.trigger("to.owl.carousel", [1, 300, true]);
+            container.trigger("to.owl.carousel", [1, 3000, true]);
             break;
         case "#projects": 
-            container.trigger("to.owl.carousel", [2, 300, true]);
+            container.trigger("to.owl.carousel", [2, 3000, true]);
             break;
         case "#contact": 
             container.trigger("to.owl.carousel", [3, 300, true]);
@@ -138,17 +156,17 @@ window.addEventListener("DOMContentLoaded", function() {
 $(".nav__link--mobile").on('click', function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
-    $(".nav__list--mobile").slideToggle("700");
+    $(".nav__list--mobile").hide();
 });
 $(".nav__hamburger").on("click", function() {
     $(".nav__hamburger").hide();
     $(".nav__close-menu").show();
-    $(".nav__list--mobile").slideToggle("700").attr("aria-expanded", "true");
+    $(".nav__list--mobile").show().attr("aria-expanded", "true");
 });
 $(".nav__close-menu").on("click", function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
-    $(".nav__list--mobile").slideToggle("700").attr("aria-expanded", "false");
+    $(".nav__list--mobile").hide().attr("aria-expanded", "false");
 });
 
 $(".button--theme").on("click", function(){

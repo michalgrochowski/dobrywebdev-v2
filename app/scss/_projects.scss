@@ -18,6 +18,9 @@
     padding: 0;
     @include flex-center-row;
     margin-top: -4rem;
+    @include mq-max(800px) {
+        margin-top: -2rem;
+    }
 }
 
 .projects__nav-item {

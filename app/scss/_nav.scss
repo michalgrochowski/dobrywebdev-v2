@@ -18,9 +18,8 @@
 .nav__list {
     @include flex-center-row;
     justify-content: space-around;
-    width: 50%;
+    width: 30%;
     padding: 0;
-    margin-left: 15rem;
     list-style: none;
     @include mq-max(850px) {
         display: none;

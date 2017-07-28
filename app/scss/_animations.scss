@@ -15,16 +15,26 @@
 }
 
 .fade-in {
-    animation: fade-in 3s;
+    animation: fade-in 5s;
 }
 
 @keyframes fade-in {
     0% {
         opacity: 0;
-        display: none;
+    }
+    20% {
+        opacity: 0;
     }
     100% {
         opacity: 1;
-        display: flex;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
     }
 }

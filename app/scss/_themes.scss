@@ -11,12 +11,12 @@
 }
 
 .light-theme--link {
-    color: #333333;
+    color: #000000;
     transition: all 0.5s;
 }
 
 .light-theme--link:hover, .light-theme--link:focus {
-    color: #666666;
+    color: #555555;
     transition: all 0.5s;
 }
 
@@ -37,26 +37,24 @@
     transition: all 0.5s;
 }
 
-.owl-prev--dark, .owl-next--dark {
-    background-color: #cccccc !important;
-    color: #333333 !important;
-    transition: 0.5s color, 0.5s background-color;
-}
-
-.owl-prev--dark:hover, .owl-next--dark:hover {
-    background-color: #ffffff !important;
-    color: #111111 !important; 
-    transition: 0.5s color, 0.5s background-color;
-}
-
 .icon-sun {
     color: #cccccc;
     transition: all 0.5s;
 }
 
+.button--theme:hover .icon-sun {
+    color: #ffffff;
+    transform: rotate(180deg);
+}
+
 .icon-moon {
-    color: #333333;
+    color: #000000;
     transition: all 0.5s;
+}
+
+.button--theme:hover .icon-moon {
+    color: #555555;
+    transform: rotate(180deg);
 }
 
 .dark-outline:focus {
@@ -64,5 +62,29 @@
 }
 
 .dark-outline:active {
-    outline: none;
+    outline: 1px dashed #cccccc;
+}
+
+.light-theme--button {
+    background-color: #111111;
+    color: #cccccc;
+    border: none;
+    cursor: pointer;
+}
+
+.light-theme--button:hover {
+    background-color: #555555;
+    color: #ffffff;
+}
+
+.dark-theme--button {
+    background-color: #cccccc;
+    color: #333333;
+    border: none;
+    cursor: pointer;
+}
+
+.dark-theme--button:hover {
+    background-color: #ffffff;
+    color: #111111;
 }

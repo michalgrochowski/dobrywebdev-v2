@@ -70,33 +70,32 @@ body {
         text-align: center;
         padding-top: 2.5rem;
     }
-}
-
-.section__title--start {
-    font-size: 7rem;
-    @include mq-max(800px) {
-        font-size: 4rem;
-        text-align: center;
+    &--start {
+        font-size: 7rem;
+        @include mq-max(800px) {
+            font-size: 4rem;
+            text-align: center;
+        }
     }
-}
-
-.section__title--projects {
-    padding-top: 4rem;
+    &--projects {
+        padding-top: 2rem;
+    }
 }
 
 .section__subtitle {
     font-size: 2.5rem;
+    font-weight: bold;
     @include mq-max(800px) {
         width: 95%;
         font-size: 1.8rem;
         text-align: center;;
     }
-}
-
-.section__subtitle--start {
-    font-size: 4rem;
-    @include mq-max(800px) {
-        font-size: 2rem;
+    &--start {
+        font-size: 4rem;
+        font-weight: bold;
+        @include mq-max(800px) {
+            font-size: 2rem;
+        }
     }
 }
 
@@ -127,6 +126,7 @@ body {
 .skills {
     @include flex-center-row;
     flex-wrap: wrap;
+    padding: 0;
 }
 
 .skills__skill {
@@ -182,4 +182,8 @@ body {
 
 .icon-moon, .icon-sun {
     font-size: 3rem;
+}
+
+.visuallyhidden {
+    display: none;
 }

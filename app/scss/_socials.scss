@@ -3,10 +3,15 @@
     width: 50%;
     flex-wrap: wrap;
     padding: 5rem 10rem 5rem 10rem;
+    list-style: none;
     @include mq-max (800px) {
         width: 100%;
         padding: 0;
     }
+}
+
+.socials li {
+    flex-basis: 50%;
 }
 
 .socials__item {

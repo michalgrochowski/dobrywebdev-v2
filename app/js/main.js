@@ -1,28 +1,85 @@
 (function(){
-    $('.projects').owlCarousel({
-    nav: true,
-    dots: false,
-    navText: ["<span class='icon-left-open'></span>", "<span class='icon-right-open'></span>"],
-    navSpeed: 700,
-    touchDrag: true,
-    mouseDrag: true,
-    items: 1
-})
 
-    $('.container').owlCarousel({
+    var projects = $(".projects");
+    var container = $(".container");
+
+    projects.owlCarousel({
+    dots: false,
+    navSpeed: 700,
+    touchDrag: false,
+    mouseDrag: false,
+    pullDrag: false,
+    freeDrag: false,
+    items: 1,
+    slideBy: 1
+});
+
+    container.owlCarousel({
     nav: false,
     dots: false,
     navSpeed: 700,
     infinite: false,
     touchDrag: false,
     mouseDrag: false,
-    pullDrag: false,
-    freeDrag: false,
     rewind: false,
     loop: false,
-    URLhashListener: true,
-    items: 1
-})
+    items: 1,
+    slideBy: 1
+});
+
+
+function stopOwlPropagation(element) {
+    $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('prev.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
+}
+
+stopOwlPropagation(projects);
+stopOwlPropagation(container);
+
+$('.projects__next').click(function() {
+    projects.trigger('next.owl.carousel', [300]);
+});
+
+$('.projects__prev').click(function() {
+    projects.trigger('prev.owl.carousel', [300]);
+});
+
+/*
+$(".nav__link").click(function(e){
+    e.preventDefault();
+    window.location.hash = $(".nav__link").attr("href");
+    if ($(".nav__link").attr("href") == "#about") {
+        container.trigger("to.owl.carousel", [1, 300, true]);
+    } else if ($(".nav__link").attr("href") == "#projects") {
+        container.trigger("to.owl.carousel", [2, 300, true]);
+    } else if ($(".nav__link").attr("href") == "#contact") {
+        container.trigger("to.owl.carousel", [3, 300, true]);
+    } else if ($(".nav__link").attr("href") == "#start") {
+        container.trigger("to.owl.carousel", [0, 300, true]);
+    }
+});
+
+
+$(".nav__link").click(function(e){
+    e.preventDefault();
+    window.location.hash = $(".nav__link").attr("href");
+    switch ($(".nav__link").attr("href")) {
+        case "#start": 
+            container.trigger("to.owl.carousel", [0, 300, true]);
+            break;
+        case "#about": 
+            container.trigger("to.owl.carousel", [1, 300, true]);
+            break;
+        case "#projects": 
+            container.trigger("to.owl.carousel", [2, 300, true]);
+            break;
+        case "#contact": 
+            container.trigger("to.owl.carousel", [3, 300, true]);
+            break;
+    }
+});*/
 
 window.addEventListener("DOMContentLoaded", function() {
     if (localStorage.getItem("icon") === null) {
@@ -41,6 +98,9 @@ window.addEventListener("DOMContentLoaded", function() {
     var owlNext = localStorage.getItem("owlNext");
     var buttonTheme = localStorage.getItem("buttonTheme");
     var buttonFlag = localStorage.getItem("buttonFlag");
+    var projectsPrev = localStorage.getItem("projectsPrev");
+    var projectsNext = localStorage.getItem("projectsNext");
+    var sendButton = localStorage.getItem("sendButton");
     $(".icon--theme").attr("class", JSON.parse(iconKey));
     $(".section").attr("class", JSON.parse(sectionKey));
     $(".nav").attr("class", JSON.parse(navKey));
@@ -54,22 +114,25 @@ window.addEventListener("DOMContentLoaded", function() {
     $(".owl-next").attr("class", JSON.parse(owlNext));
     $(".button--theme").attr("class", JSON.parse(buttonTheme));
     $(".button--flag").attr("class", JSON.parse(buttonFlag));
+    $(".projects__prev").attr("class", JSON.parse(projectsPrev));
+    $(".projects__next").attr("class", JSON.parse(projectsNext));
+    $(".form__button").attr("class", JSON.parse(sendButton));
     if ($("#theme").hasClass("icon-moon")) {
         $('a').removeClass("dark-theme--link").addClass("light-theme--link");
     } else {
         $('a').removeClass("light-theme--link").addClass("dark-theme--link");
-    };
+    }
     if ($("#theme").hasClass("icon-moon")) {
         $('a').removeClass("dark-theme--link").addClass("light-theme--link");
     } else {
         $('a').removeClass("light-theme--link").addClass("dark-theme--link");
-    };
+    }
     if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     } else if ($("#theme").hasClass("icon-sun")) {
          $(".nav__logo").attr("src", "img/logo-dark.png");
-    };
-    };
+    }
+    }
 });
 
 $(".nav__link--mobile").on('click', function() {
@@ -104,6 +167,9 @@ $(".button--theme").on("click", function(){
     $(".owl-next").toggleClass("owl-next--dark");
     $(".button--theme").toggleClass("dark-outline");
     $(".button--flag").toggleClass("dark-outline");
+    $(".projects__prev").toggleClass("dark-theme--button light-theme--button dark-outline");
+    $(".projects__next").toggleClass("dark-theme--button light-theme--button dark-outline");
+    $(".form__button").toggleClass("light-theme--button dark-theme--button dark-outline");
     // Items for localStorage
     var icon = $(".icon--theme").attr("class");
     localStorage.setItem("icon", JSON.stringify(icon));
@@ -129,12 +195,18 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("buttonTheme", JSON.stringify(buttonTheme));
     var buttonFlag = $(".button--flag").attr("class");
     localStorage.setItem("buttonFlag", JSON.stringify(buttonFlag));
+    var projectsPrev = $(".projects__prev").attr("class");
+    localStorage.setItem("projectsPrev", JSON.stringify(projectsPrev));
+    var projectsNext = $(".projects__next").attr("class");
+    localStorage.setItem("projectsNext", JSON.stringify(projectsNext));
+    var sendButton = $(".form__button").attr("class");
+    localStorage.setItem("sendButton", JSON.stringify(sendButton));
     if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     } else if ($("#theme").hasClass("icon-sun")) {
          $(".nav__logo").attr("src", "img/logo-dark.png");
-    };
-})
+    }
+});
 
 var flagButton = $(".button--flag");
 var flag = $(".nav__item--flag");
@@ -278,7 +350,7 @@ var flag = $(".nav__item--flag");
             $(".form__textarea").attr("placeholder", textPlaceholder);
             $(".form__button").attr("value", sendButton);
         });
-    };
+    }
 });
 
 
@@ -326,7 +398,7 @@ $(function() {
                 } else if (flag.attr("src") === "img/pl.png") {
                     $(".form").trigger("reset");
                     $(successEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-                };
+                }
             }).fail(function(data) {
                 var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
                 var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
@@ -335,7 +407,7 @@ $(function() {
                     $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 } else if (flag.attr("src") === "img/pl.png") {
                     $(failEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-                };
+                }
             });
         }
     });

@@ -1,13 +1,34 @@
 .projects {
     @include flex-center-row;
-    width: 75%;
-    position: relative;
+    width: 100%;
     @include mq-max(800px) {
-        width: 95%;
+        width: 100%;
     }
     @media screen and (max-height: 800px) {
         padding-bottom: 5rem;
     }
+}
+
+.projects__nav {
+    
+}
+
+.projects__nav-list {
+    list-style: none;
+    padding: 0;
+    @include flex-center-row;
+    margin-top: -4rem;
+}
+
+.projects__nav-item {
+    
+}
+
+.projects__prev, .projects__next {
+    font-size: 1.8rem;
+    padding: 0.5rem 1.2rem 0.5rem 1.2rem;
+    transition: 0.3s color, 0.3s background-color;
+    margin: 0.5rem;
 }
 
 .projects__project {
@@ -46,39 +67,11 @@
 }
 
 .owl-carousel .owl-item img {
-    width: 50%;
+    width: 40%;
     @include mq-max(850px) {
         margin-top: 2rem;
         width: 80%;
     }
-}
-
-.owl-nav {
-    position: absolute;
-    top: -4rem;
-    left: 0;
-    width: 100%;
-    @include mq-max(850px) {
-        top: -3rem;
-    }
-}
-
-.owl-theme .owl-nav .owl-prev, .owl-theme .owl-nav .owl-next {
-    background-color: #333;
-    color: #CDCBD4;
-    font-size: 1.8rem;
-    padding: 0.5rem 1.5rem 0.3rem 1.2rem;
-    transition: 0.3s color, 0.3s background-color;
-}
-
-.owl-theme .owl-nav .owl-next {
-    padding: 0.5rem 1.2rem 0.3rem 1.5rem;
-}
-
-.owl-theme .owl-nav .owl-prev:hover, .owl-theme .owl-nav .owl-next:hover {
-    background-color: #555;
-    color: #ffffff; 
-    transition: 0.3s color, 0.3s background-color;
 }
 
 .owl-carousel {

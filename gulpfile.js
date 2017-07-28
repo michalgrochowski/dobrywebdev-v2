@@ -9,7 +9,7 @@ var del = require('del');
 var cache = require('gulp-cache');
 var sequence = require('run-sequence');
 var autoprefixer = require('gulp-autoprefixer');
-var cleancss = require('gulp-clean-css');
+var cssmin = require('gulp-cssmin');
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
@@ -41,10 +41,20 @@ gulp.task('browserSync', function() {
 gulp.task('useref', function(){
     return gulp.src('app/*.html')
         .pipe(useref())
-        .pipe(gulpIf('app/js/**/*.js', uglify()))
-        .pipe(gulpIf('app/css/**/*.css', cleancss()))
         .pipe(gulp.dest('dist'))
 });
+
+gulp.task('uglify', function() {
+    return gulp.src('dist/js/main.min.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'))
+})
+
+gulp.task('cssmin', function() {
+    return gulp.src('dist/css/main.min.css')
+        .pipe(cssmin())
+        .pipe(gulp.dest('dist/css'))
+})
 
 gulp.task('img', function(){
     return gulp.src('app/img/**/*.+(png|jpg|gif|svg)')
@@ -86,5 +96,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form'])
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form'], 'uglify', 'cssmin')
 });

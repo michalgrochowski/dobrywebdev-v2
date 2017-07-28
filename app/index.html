@@ -33,13 +33,10 @@
 </head>
 <body id="body" class="body light-theme"> 
 	<nav class="nav light-theme">
-		<a class="nav__link--start" href="#start" title="DobryWebdev">
+		<a class="nav__link nav__link--start" href="#start" title="DobryWebdev">
 			<img class="nav__logo" src="img/logo-light.png" alt="Dobrywebdev.pl">
 		</a>
 		<ul class="nav__list">
-			<li class="nav__item">
-				<a class="nav__link nav__link--about light-theme--link" href="#start" title="Start">Start</a>
-			</li>
 			<li class="nav__item">
 				<a class="nav__link nav__link--about light-theme--link navAbout" href="#about" title="O mnie">O mnie</a>
 			</li>
@@ -64,9 +61,6 @@
 		<button class="nav__close-menu light-theme icon-cancel" title="Zamknij menu"></button>
 		<ul class="nav__list--mobile light-theme" aria-expanded="false">
 			<li class="nav__item nav__item--mobile">
-				<a class="nav__link nav__link--mobile light-theme--link" href="#start" title="Start">Start</a>
-			</li>
-			<li class="nav__item nav__item--mobile">
 				<a class="nav__link nav__link--mobile light-theme--link navAbout" href="#about" title="O mnie">O mnie</a>
 			</li>
 			<li class="nav__item nav__item--mobile">
@@ -88,109 +82,115 @@
 		</ul>
 	</nav> 
 	<main class="container owl-carousel owl-theme">
-		<section class="section light-theme" data-hash="start">
-			<h1 class="section__title--start mainTitle">Michał Grochowski</h1>
-			<h2 class="section__subtitle--start mainSubtitle">Front-end Developer</h2>
+		<section class="section light-theme" id="start" tabindex="0">
+			<h1 class="section__title--start mainTitle fade-in">Michał Grochowski</h1>
+			<p class="section__subtitle--start mainSubtitle fade-in">Front-end Developer</p>
 		</section>
-		<section class="section" data-hash="about">
+		<section class="section" id="about" tabindex="0">
 			<h2 class="section__title aboutTitle">O mnie</h2>
-			<h3 class="section__subtitle aboutSubtitle">Nazywam się Michał Grochowski</h3>
+			<p class="section__subtitle aboutSubtitle">Nazywam się Michał Grochowski</p>
 			<p class="section__description aboutDescription">Tworzeniem stron internetowych zajmuję się stosunkowo od niedawna i wszystkiego uczę się sam przy pomocy książek, kursów internetowych i rozmaitych stron o tematyce front-endu. Z wykształcenia jestem technikiem informatykiem. Szybko się uczę i jestem głodny wiedzy, a wszystkie zlecone zadania oraz własne projekty staram się wykonywać najlepiej jak potrafię.</p>
 			<h3 class="section__subtitle skillsSubtitle">W swoich projektach korzystam z:</h3>
-			<div class="skills">
-				<div class="skills__skill">
+			<ul class="skills">
+				<li class="skills__skill">
 					<span class="devicons devicons-html5" aria-hidden="true"></span>
 					<p class="skills__text">HTML5</p>
-				</div>
-				<div class="skills__skill">
+				</li>
+				<li class="skills__skill">
 					<span class="devicons devicons-css3" aria-hidden="true"></span>
 					<p class="skills__text">CSS3</p>
-				</div>
-				<div class="skills__skill">
+				</li>
+				<li class="skills__skill">
 					<span class="devicons devicons devicons-javascript_badge" aria-hidden="true"></span>
 					<p class="skills__text">JavaScript</p>
-				</div>
-				<div class="skills__skill">
+				</li>
+				<li class="skills__skill">
 					<span class="devicons devicons-jquery" aria-hidden="true"></span>
 					<p class="skills__text">jQuery</p>
-				</div>
-				<div class="skills__skill">
+				</li>
+				<li class="skills__skill">
 					<span class="devicons devicons-sass" aria-hidden="true"></span>
 					<p class="skills__text">Sass</p>
-				</div>
-				<div class="skills__skill">
+				</li>
+				<li class="skills__skill">
 					<span class="devicons devicons-gulp" aria-hidden="true"></span>
 					<p class="skills__text">Gulp</p>
-				</div>
-				<div class="skills__skill">
+				</li>
+				<li class="skills__skill">
 					<span class="devicons devicons-npm" aria-hidden="true"></span>
 					<p class="skills__text">NPM</p>
-				</div>
-				<div class="skills__skill">
+				</li>
+				<li class="skills__skill">
 					<span class="devicons devicons-visualstudio" aria-hidden="true"></span>
 					<p class="skills__text">VS Code</p>
-				</div>
-			</div>
+				</li>
+			</ul>
 		</section>
-		<section class="section" data-hash="projects">
+		<section class="section" id="projects" tabindex="0">
 			<h2 class="section__title section__title--projects projectsTitle">Projekty</h2>
+			<nav class="projects__nav">
+				<ul class="projects__nav-list">
+					<li class="projects__nav-item"><button class="projects__prev light-theme--button" tabindex="0"><span class='icon-left-open'></span></button></li>
+					<li class="projects__nav-item"><button class="projects__next light-theme--button" tabindex="0"><span class='icon-right-open'></span></button></li>
+				</ul>
+			</nav>
 			<div class="projects owl-carousel owl-theme">
-				<div class="projects__project">
-					<img class="projects__photo" src="img/interior.png" alt="Interiorideas.pl - screenshot">
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/interior.png" alt="Screenshot strony głównej Interiorideas.pl">
 					<h3 class="projects__title">interiorideas.pl</h3>
 					<p class="projects__description interiorDescription">Strona wykonana według projektu klienta, stworzona przy użyciu HTML5, CSS3 i jQuery. Za responsywność odpowiada w pełni Flexbox. Dodatkowo użyte pluginy: Lightbox.js.</p>
-					<a class="projects__link projectLive" href="http://interiorideas.pl/test" title="Zobacz interiorideas.pl" target="_blank">Zobacz projekt</a>
-				</div>
-				<div class="projects__project">
-					<img class="projects__photo" src="img/sleszynski.png" alt="msleszynski.pl - screenshot">
+					<a class="projects__link projectLive" href="http://interiorideas.pl/test" title="Zobacz interiorideas.pl" target="_blank" tabindex="0">Zobacz projekt</a>
+				</section>
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/sleszynski.png" alt="Screenshot strony głównej msleszynski.pl">
 					<h3 class="projects__title">msleszynski.pl</h3>
 					<p class="projects__description sleszynskiDescription">Strona wykonana według projektu klienta, stworzona przy użyciu HTML5, CSS3 i czystego JavaScriptu. Za responsywność odpowiada Bootstrap 3.3.7. Dodatkowo użyte pluginy: Lightbox.js.</p>
-					<a class="projects__link projectLive" href="http://msleszynski.pl" title="Zobacz msleszynski.pl" target="_blank">Zobacz projekt</a>
-				</div>
-				<div class="projects__project">
-					<img class="projects__photo" src="img/todo.png" alt="Aplikacja ToDo - screenshot">
+					<a class="projects__link projectLive" href="http://msleszynski.pl" title="Zobacz msleszynski.pl" target="_blank" tabindex="0">Zobacz projekt</a>
+				</section>
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/todo.png" alt="Screenshot strony głównej Aplikacja ToDo">
 					<h3 class="projects__title">Aplikacja To-Do</h3>
 					<p class="projects__description todoDescription">Prosta aplikacja typu To-Do wykonana w całości w czystym JavaScripcie. Aplikacja umożliwia dodawanie i usuwanie zadań, zmianę statusu zadania, wyczyszczenie listy oraz zapisanie jej w localStorage przeglądarki. Plany następnych wydań opisane są w pliku Readme w repozytorium.</p>
-					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/to-do" title="Zobacz Aplikację To-Do" target="_blank">Zobacz projekt</a>
-					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/to-do" title="Zobacz kod źródłowy aplikacji To-Do" target="_blank">Kod źródłowy</a>
-				</div>
-				<div class="projects__project">
-					<img class="projects__photo" src="img/interior1.png" alt="Interiorideas.pl v1 - screenshot">
+					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/to-do" title="Zobacz Aplikację To-Do" target="_blank" tabindex="0">Zobacz projekt</a>
+					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/to-do" title="Zobacz kod źródłowy aplikacji To-Do" target="_blank" tabindex="0">Kod źródłowy</a>
+				</section>
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/interior1.png" alt="Screenshot strony głównej Interiorideas.pl v1">
 					<h3 class="projects__title">interiorideas.pl - v1</h3>
 					<p class="projects__description interiorv1Description">Strona wykonana według projektu klienta, stworzona przy użyciu HTML5, CSS3 i jQuery. Za responsywność odpowiada w pełni Flexbox. Dodatkowo użyte pluginy: Lightbox.js i Slick Carousel. Ostateczny projekt został zmieniony na ten, który jest widoczny jako pierwszy na liście projektów.</p>
-					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/interiorideas1" title="Zobacz interiorideas.pl v1" target="_blank">Zobacz projekt</a>
-					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/interiorideas1" title="Zobacz kod źródłowy interiorideas.pl v1" target="_blank">Kod źródłowy</a>
-				</div>
-				<div class="projects__project">
-					<img class="projects__photo" src="img/dobrywebdev.png" alt="Dobrywebdev.pl v2 - screenshot">
+					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/interiorideas1" title="Zobacz interiorideas.pl v1" target="_blank" tabindex="0">Zobacz projekt</a>
+					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/interiorideas1" title="Zobacz kod źródłowy interiorideas.pl v1" target="_blank" tabindex="0">Kod źródłowy</a>
+				</section>
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/dobrywebdev.png" alt="Screenshot strony głównej Dobrywebdev.pl v2">
 					<h3 class="projects__title">DobryWebdev v1</h3>
 					<p class="projects__description dobrywebdevDescription">Poprzednia wersja mojego portfolio. Zbudowana przy użyciu HTML5, CSS3 (Bootstrap 3.3.7), jQuery oraz pluginów Scrolling nav i OwlCarousel 2.</p>
-					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/dobrywebdev/" title="Zobacz dobrywebdev.pl v1" target="_blank">Zobacz projekt</a>
-					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/dobrywebdev" title="Zobacz kod źródłowy dobrywebdev.pl v1" target="_blank">Kod źródłowy</a>
-				</div>
-				<div class="projects__project">
-					<img class="projects__photo" src="img/cv.png" alt="Szablon CV - screenshot">
+					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/dobrywebdev/" title="Zobacz dobrywebdev.pl v1" target="_blank" tabindex="0">Zobacz projekt</a>
+					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/dobrywebdev" title="Zobacz kod źródłowy dobrywebdev.pl v1" target="_blank" tabindex="0">Kod źródłowy</a>
+				</section>
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/cv.png" alt="Screenshot strony głównej Szablon CV">
 					<h3 class="projects__title">Curriculum Vitae</h3>
 					<p class="projects__description cvDescription">Szablon który stworzyłem w celu uaktualnienia mojego CV i konwersji do pliku PDF. Napisany przy pomocy HTML5 i CSS3 (Flexbox + BEM).</p>
-					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/cv" title="Zobacz kod źródłowy Curriculum Vitae" target="_blank">Kod źródłowy</a>
-				</div>
-				<div class="projects__project">
-					<img class="projects__photo" src="img/agency.png" alt="Interactive Agency - screenshot">
+					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/cv" title="Zobacz kod źródłowy Curriculum Vitae" target="_blank" tabindex="0">Kod źródłowy</a>
+				</section>
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/agency.png" alt="Screenshot strony głównej Interactive Agency">
 					<h3 class="projects__title">Inetractive Agency (PSD2HTML)</h3>
 					<p class="projects__description interactiveDescription">Jedna z pierwszych zakodowanych przeze mnie stron na podstawie darmowego szablonu PSD. Za responsywność odpowiada Bootstrap 3.3.7.</p>
-					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/agency" title="Zobacz Interactive Agency" target="_blank">Zobacz projekt</a>
-					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/agency" title="Zobacz kod źródłowy Interactive Agency" target="_blank">Kod źródłowy</a>
-				</div>
-				<div class="projects__project">
-					<img class="projects__photo" src="img/form.png" alt="Formularz - screenshot">
+					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/agency" title="Zobacz Interactive Agency" target="_blank" tabindex="0">Zobacz projekt</a>
+					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/agency" title="Zobacz kod źródłowy Interactive Agency" target="_blank" tabindex="0">Kod źródłowy</a>
+				</section>
+				<section class="projects__project" tabindex="0">
+					<img class="projects__photo" src="img/form.png" alt="Screenshot strony głównej Formularz">
 					<h3 class="projects__title">Formularz</h3>
 					<p class="projects__description formDescription">Zadanie rekrutacyjne wykonane na potrzeby rekrutacji na stanowisko Junior Front-End Developera w jednej z firm. Wykonane przy pomocy HTML5, CSS3 (Flexbox + BEM) i czystego JavaScriptu.</p>
-					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/recruitment4/" title="Zobacz formularz" target="_blank">Zobacz projekt</a>
-					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/recruitment4" title="Zobacz kod źródłowy formularza" target="_blank">Kod źródłowy</a>
-				</div>
+					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/recruitment4/" title="Zobacz formularz" target="_blank" tabindex="0">Zobacz projekt</a>
+					<a class="projects__link projectCode" href="https://github.com/michalgrochowski/recruitment4" title="Zobacz kod źródłowy formularza" target="_blank" tabindex="0">Kod źródłowy</a>
+				</section>
 			</div>
 		</section>
-		<section class="section" data-hash="contact">
+		<section class="section" id="contact" tabindex="0">
 			<h2 class="section__title contactTitle">Kontakt</h2>
 			<div class="contact">
 				<form class="form" action="formularz.php" method="POST">
@@ -210,31 +210,39 @@
 						<label for="inputText" class="textLabel">Treść wiadomości</label>
 						<textarea id="inputText" class="form__textarea" placeholder="Cześć! Podoba mi się twoja strona." name="message"></textarea>
 					</div>
-					<input type="submit" class="form__button" value="Wyślij" name="submit" id="buttonSubmit">
+					<input type="submit" class="form__button light-theme--button" value="Wyślij" name="submit" id="buttonSubmit">
 				</form>
-				<div class="socials">
-					<a class="socials__item" href="tel:509581510" target="_blank" title="Zadzwoń do mnie">
+				<ul class="socials">
+					<li>
+					<a class="socials__item" href="tel:509581510" target="_blank">
 						<span class="icon icon-phone-1" aria-hidden="true"></span>
-						<p class="phone">Zadzwoń</p>
+						<p class="phone">Zadzwoń <span class="visuallyhidden" >do mnie</span></p>
 					</a>
-					<a class="socials__item" href="mailto:michal@dobrywebdev.pl" target="_blank" title="Napisz do mnie maila">
+					</li>
+					<li>
+					<a class="socials__item" href="mailto:michal@dobrywebdev.pl" target="_blank">
 						<span class="icon icon-mail-alt" aria-hidden="true"></span>
-						<p class="mail">Napisz</p>
+						<p class="mail">Napisz <span class="visuallyhidden" >do mnie maila</span></p>
 					</a>
-					<a class="socials__item" href="https://github.com/michalgrochowski" target="_blank" title="Zobacz mój profil na GitHub">
+					</li>
+					<li>
+					<a class="socials__item" href="https://github.com/michalgrochowski" target="_blank">
 						<span class="icon icon-github-circled" aria-hidden="true"></span>
-						<p>GitHub</p>
+						<p><span class="visuallyhidden" >Mój profil na</span> GitHub</p>
 					</a>
-					<a class="socials__item" href="https://www.linkedin.com/in/michał-grochowski-962a45131/" target="_blank" title="Zobacz mój profil na LinkedIn">
+					</li>
+					<li>
+					<a class="socials__item" href="https://www.linkedin.com/in/michał-grochowski-962a45131/" target="_blank">
 						<span class="icon icon-linkedin-squared" aria-hidden="true"></span>
-						<p>LinkedIn</p>
+						<p><span class="visuallyhidden" >Mój profil na</span> LinkedIn</p>
 					</a>
-				</div>
+					</li>
+				</ul>
 			</div>
 		</section>
 	</main>
 	<footer id="footer" class="footer light-theme">
-		<p class="footer__copyright">&copy; 2017 Michał Grochowski -  <a class="footer__link" href="http://dobrywebdev.pl" title="dobrywebdev.pl">dobrywebdev.pl</a></p>
+		<p class="footer__copyright">&copy; 2017 Michał Grochowski -  <a class="footer__link" href="http://dobrywebdev.pl">dobrywebdev.pl</a></p>
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!--build:js js/main.min.js -->

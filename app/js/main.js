@@ -239,6 +239,12 @@ $(".langENG").on("click", function() {
         $(this).toggleClass("button--lang--active");
         $(".langPL").toggleClass("button--lang--active");
     }
+    $(".button--theme").attr("aria-label", "Change the website theme");
+    $(".button--theme").attr("title", "Change the website theme");
+    $(".langPL").attr("title", "Change language to polish");
+    $(".langENG").attr("title", "Change language to english");
+    $(".nav__hamburger").attr("title", "Open menu");
+    $(".nav__close-menu").attr("title", "Close menu");
     $.getJSON("json/content-eng.json", function(data) {
         $(".navAbout").text(data.navAbout);
         $(".navProjects").text(data.navProjects);

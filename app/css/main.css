@@ -1258,9 +1258,7 @@ html {
   line-height: 1.6;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  max-width: 100vw;
-  overflow-x: hidden;
-  overflow-y: hidden; }
+  max-width: 100vw; }
 
 body {
   -webkit-box-sizing: border-box;
@@ -1269,9 +1267,7 @@ body {
   color: #333;
   width: 100vw;
   max-width: 100vw;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: hidden; }
+  min-height: 100vh; }
 
 .container {
   display: -webkit-box;

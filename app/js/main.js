@@ -75,11 +75,16 @@ container.on('changed.owl.carousel', function(event) {
 })*/
 
 window.addEventListener("DOMContentLoaded", function() {
-    if (window.location.hash !== "#start") {
-    $("body").css("overflow-x", "hidden");
-    $("body").css("overflow-y", "auto");
-    $("html").css("overflow-x", "hidden");
-    $("html").css("overflow-y", "auto");
+    if (window.location.hash === "#start" || window.location.hash === "") {
+        $("body").css("overflow-x", "hidden");
+        $("body").css("overflow-y", "hidden");
+        $("html").css("overflow-x", "hidden");
+        $("html").css("overflow-y", "hidden");
+    } else  {
+        $("body").css("overflow-x", "hidden");
+        $("body").css("overflow-y", "auto");
+        $("html").css("overflow-x", "hidden");
+        $("html").css("overflow-y", "auto");
     }
     if (localStorage.getItem("icon") === null) {
         return false;

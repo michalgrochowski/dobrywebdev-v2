@@ -17,7 +17,7 @@
     list-style: none;
     padding: 0;
     @include flex-center-row;
-    margin-top: -4rem;
+    margin-top: -3rem;
     @include mq-max(800px) {
         margin-top: -2rem;
     }

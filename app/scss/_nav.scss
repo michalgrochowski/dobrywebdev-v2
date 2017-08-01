@@ -21,6 +21,7 @@
     width: 40%;
     padding: 0;
     list-style: none;
+    margin-left: 15%;
     @include mq-max(850px) {
         display: none;
     }
@@ -38,7 +39,7 @@
     width: 100vw;
     display: none;
     padding: 0;
-    z-index: 3;
+    z-index: 4;
     list-style: none;
 }
 

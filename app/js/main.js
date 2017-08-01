@@ -11,16 +11,6 @@
         freeDrag: false,
         items: 1,
         slideBy: 1,
-        responsive : {
-            0 : {
-                mouseDrag: false,
-                touchDrag: false,
-            },
-            800 : {
-                mouseDrag: false,
-                touchDrag: false,
-            }
-        }
     });
         container.owlCarousel({
         nav: false,
@@ -31,18 +21,10 @@
         loop: false,
         items: 1,
         slideBy: 1,
-        responsive : {
-            0 : {
-                mouseDrag: true,
-                touchDrag: true,
-                autoHeight: true,
-            },
-            800 : {
-                mouseDrag: false,
-                touchDrag: false,
-                autoHeight: false,
-            }
-        }
+        touchDrag: false,
+        mouseDrag: false,
+        pullDrag: false,
+        freeDrag: false
     });
 });    
 
@@ -51,6 +33,7 @@ function stopOwlPropagation(element) {
     $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('prev.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
 }
 
 stopOwlPropagation(projects);
@@ -64,70 +47,31 @@ $('.projects__prev').click(function() {
     projects.trigger('prev.owl.carousel', [300]);
 });
 
-/*
-$(".nav__link--start").click(function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    window.location.hash = $(".nav__link--start").attr("href");
-    container.trigger('to.owl.carousel', [0,700]);
-})
-
-$(".nav__link--about").click(function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    window.location.hash = $(".nav__link--about").attr("href");
-    container.trigger('to.owl.carousel', [1,700]);
-})
-
-$(".nav__link--projects").click(function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    window.location.hash = $(".nav__link--projects").attr("href");
-    container.trigger('to.owl.carousel', [2,700]);
-})
-
-$(".nav__link--contact").click(function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    window.location.hash = $(".nav__link--contact").attr("href");
-    container.trigger('to.owl.carousel', [3,700]);
-})
-*/
-
-/*
-$(".nav__link").click(function(e){
-    e.preventDefault();
-    window.location.hash = $(".nav__link").attr("href");
-    if ($(".nav__link").attr("href") === "#about") {
-        container.trigger("to.owl.carousel", [1, 3000, true]);
-    } else if ($(".nav__link").attr("href") === "#projects") {
-        container.trigger("to.owl.carousel", [2, 3000, true]);
-    } else if ($(".nav__link").attr("href") === "#contact") {
-        container.trigger("to.owl.carousel", [3, 3000, true]);
-    } else if ($(".nav__link").attr("href") === "#start") {
-        container.trigger("to.owl.carousel", [0, 3000, true]);
-    }
+$(".nav__link--mobile, .nav__link--start").on("click changed.owl.carousel", function(){
+    if ($(this).attr("href") !== "#start") {
+    $("body").css("overflow-x", "hidden");
+    $("body").css("overflow-y", "auto");
+    $("html").css("overflow-x", "hidden");
+    $("html").css("overflow-y", "auto");
+} else if ($(this).attr("href") === "#start") {
+    $("body").css("overflow-x", "hidden");
+    $("body").css("overflow-y", "hidden");
+    $("html").css("overflow-x", "hidden");
+    $("html").css("overflow-y", "hidden");
+};
 });
 
-
-$(".nav__link").click(function(e){
-    e.preventDefault();
-    window.location.hash = $(".nav__link").attr("href");
-    switch ($(".nav__link").attr("href")) {
-        case "#start": 
-            container.trigger("to.owl.carousel", [0, 3000, true]);
-            break;
-        case "#about": 
-            container.trigger("to.owl.carousel", [1, 3000, true]);
-            break;
-        case "#projects": 
-            container.trigger("to.owl.carousel", [2, 3000, true]);
-            break;
-        case "#contact": 
-            container.trigger("to.owl.carousel", [3, 300, true]);
-            break;
+container.on('changed.owl.carousel', function(event) {
+    if (event.item.index === 0) {
+        window.location.hash = "#start"
+    } else if (event.item.index === 1) {
+        window.location.hash = "#about"
+    } else if (event.item.index === 2) {
+        window.location.hash = "#projects"
+    } else if (event.item.index === 3) {
+        window.location.hash = "#contact"
     }
-});*/
+})
 
 window.addEventListener("DOMContentLoaded", function() {
     if (localStorage.getItem("icon") === null) {

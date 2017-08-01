@@ -31,6 +31,7 @@
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#333333">
 	<meta name="theme-color" content="#333333">
 </head>
+<!-- camelCased classes are not for styling, they serve only as hooks in JS -->
 <body id="body" class="body light-theme"> 
 	<nav class="nav light-theme">
 		<a class="nav__link nav__link--start" href="#start" title="DobryWebdev">
@@ -38,15 +39,15 @@
 		</a>
 		<ul class="nav__list">
 			<li class="nav__item">
-				<a class="nav__link nav__link--about light-theme--link navAbout" href="#about" title="O mnie">O mnie</a>
+				<a class="nav__link light-theme--link navAbout" href="#about" title="O mnie">O mnie</a>
 			</li>
 			<li class="nav__item">
-				<a class="nav__link nav__link--projects light-theme--link navProjects" href="#projects" title="Projekty">Projekty</a>
+				<a class="nav__link light-theme--link navProjects" href="#projects" title="Projekty">Projekty</a>
 			</li>
 			<li class="nav__item">
-				<a class="nav__link nav__link--contact light-theme--link navContact" href="#contact" title="Kontakt">Kontakt</a>
+				<a class="nav__link light-theme--link navContact" href="#contact" title="Kontakt">Kontakt</a>
 			</li>
-			<li>
+			<li class="nav__item">
 				<button class="button button--theme" aria-label="Zmień motyw kolorystyczny strony" title="Zmień motyw kolorystyczny strony">
 					<span class="icon icon--theme icon-moon" id="theme" aria-hidden="true"></span>
 				</button>
@@ -99,7 +100,7 @@
 					<p class="skills__text">CSS3</p>
 				</li>
 				<li class="skills__skill">
-					<span class="devicons devicons devicons-javascript_badge" aria-hidden="true"></span>
+					<span class="devicons devicons-javascript_badge" aria-hidden="true"></span>
 					<p class="skills__text">JavaScript</p>
 				</li>
 				<li class="skills__skill">

@@ -53,7 +53,7 @@
   width: 40%;
   padding: 0;
   list-style: none;
-  margin-left: 15%; }
+  margin-left: 10%; }
   @media screen and (max-width: 850px) {
     .nav__list {
       display: none; } }
@@ -1170,7 +1170,7 @@
   width: 20%; }
 
 .light-theme {
-  background-color: #e2e2d9;
+  background-color: #f4f0e6;
   color: #333333;
   -webkit-transition: all 0.5s;
   transition: all 0.5s; }

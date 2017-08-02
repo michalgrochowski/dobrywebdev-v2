@@ -1,0 +1,12 @@
+/* TEAM */
+	Author: Michał Grochowski
+	Contact: michal[at]dobrywebdev.pl
+    Website: http://dobrywebdev.pl
+	Twitter: @dobrywebdev
+	From: Warsaw, Poland
+
+/* SITE */
+	Language: Polish / English
+	Standards: HTML5, CSS3, BEM
+	Components: OwlCarousel 2, jQuery
+	Software: VS Code, FileZilla, Powershell, Gulp

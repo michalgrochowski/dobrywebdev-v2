@@ -1,45 +1,44 @@
 .icon--theme {
     cursor: pointer;
-    transition: all 0.5s;
+    transition: background-color 0.5s, color 0.5s;
     width: 20%;
 }
 
 .light-theme {
     background-color: #f4f0e6;
     color: #333333;
-    transition: all 0.5s;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .light-theme--link {
     color: #000000;
-    transition: all 0.5s;
+    transition: color 0.5s;
 }
 
 .light-theme--link:hover, .light-theme--link:focus {
     color: #555555;
-    transition: all 0.5s;
+    transition: color 0.5s;
 }
 
 .dark-theme {
     background-color: #272a33;
     color: #cccccc;
-    transition: all 0.5s;
-    transition: all 0.5s;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .dark-theme--link {
     color: #cccccc;
-    transition: all 0.5s;
+    transition: color 0.5s;
 }
 
 .dark-theme--link:hover, .dark-theme--link:focus {
     color: #ffffff;
-    transition: all 0.5s;
+    transition: color 0.5s;
 }
 
 .icon-sun {
     color: #cccccc;
-    transition: all 0.5s;
+    transition: color 0.5s;
 }
 
 .button--theme:hover .icon-sun {
@@ -49,7 +48,7 @@
 
 .icon-moon {
     color: #000000;
-    transition: all 0.5s;
+    transition: color 0.5s;
 }
 
 .button--theme:hover .icon-moon {

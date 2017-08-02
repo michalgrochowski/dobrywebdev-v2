@@ -98,14 +98,6 @@
   font-weight: bold;
   letter-spacing: 0.2rem; }
 
-.button--flag {
-  cursor: pointer; }
-  @media screen and (min-width: 851px) {
-    .button--flag {
-      position: fixed;
-      top: 1.5rem;
-      right: 2rem; } }
-
 .nav__item--mobile {
   width: 100vw;
   font-size: 1.8rem;
@@ -143,18 +135,22 @@
 
 .button--lang {
   font-weight: bold;
-  opacity: 0.3; }
-
-.button--lang {
-  font-weight: bold;
-  opacity: 0.3; }
+  opacity: 0.3;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
   .button--lang:hover {
-    opacity: 0.7; }
+    opacity: 0.7;
+    -webkit-transition: opacity 0.5s, color 0.5s;
+    transition: opacity 0.5s, color 0.5s; }
 
 .button--lang--active {
-  opacity: 0.8; }
+  opacity: 0.8;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
   .button--lang--active:hover {
-    opacity: 1; }
+    opacity: 1;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s; }
 
 .projects {
   display: -webkit-box;
@@ -1165,47 +1161,46 @@
 
 .icon--theme {
   cursor: pointer;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
+  -webkit-transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.5s, color 0.5s;
   width: 20%; }
 
 .light-theme {
   background-color: #f4f0e6;
   color: #333333;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.5s, color 0.5s; }
 
 .light-theme--link {
   color: #000000;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s; }
 
 .light-theme--link:hover, .light-theme--link:focus {
   color: #555555;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s; }
 
 .dark-theme {
   background-color: #272a33;
   color: #cccccc;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: background-color 0.5s, color 0.5s;
+  transition: background-color 0.5s, color 0.5s; }
 
 .dark-theme--link {
   color: #cccccc;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s; }
 
 .dark-theme--link:hover, .dark-theme--link:focus {
   color: #ffffff;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s; }
 
 .icon-sun {
   color: #cccccc;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s; }
 
 .button--theme:hover .icon-sun {
   color: #ffffff;
@@ -1214,8 +1209,8 @@
 
 .icon-moon {
   color: #000000;
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  -webkit-transition: color 0.5s;
+  transition: color 0.5s; }
 
 .button--theme:hover .icon-moon {
   color: #555555;

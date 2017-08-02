@@ -89,19 +89,6 @@ $(".nav__link--mobile, .nav__link--start").on("click changed.owl.carousel", func
 }
 });
 
-/*
-container.on('changed.owl.carousel', function(event) {
-    if (event.item.index === 0) {
-        window.location.hash = "#start"
-    } else if (event.item.index === 1) {
-        window.location.hash = "#about"
-    } else if (event.item.index === 2) {
-        window.location.hash = "#projects"
-    } else if (event.item.index === 3) {
-        window.location.hash = "#contact"
-    }
-})*/
-
 window.addEventListener("DOMContentLoaded", function() {
     var start = $("#start");
     var about = $("#about");

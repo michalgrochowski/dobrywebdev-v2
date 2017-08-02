@@ -47,6 +47,34 @@ $('.projects__prev').click(function() {
     projects.trigger('prev.owl.carousel', [300]);
 });
 
+$(window).on("hashchange", function(){
+    var start = $("#start");
+    var about = $("#about");
+    var projects = $("#projects");
+    var contact = $("#contact");
+    if (window.location.hash === "#start" || window.location.hash === "") {
+        start.css("visibility", "visible");
+        about.css("visibility", "hidden");
+        projects.css("visibility", "hidden");
+        contact.css("visibility", "hidden");
+    } else if (window.location.hash === "#about") {
+        start.css("visibility", "hidden");
+        about.css("visibility", "visible");
+        projects.css("visibility", "hidden");
+        contact.css("visibility", "hidden");
+    } else if (window.location.hash === "#projects") {
+        start.css("visibility", "hidden");
+        about.css("visibility", "hidden");
+        projects.css("visibility", "visible");
+        contact.css("visibility", "hidden");
+    } else if (window.location.hash === "#contact") {
+        start.css("visibility", "hidden");
+        about.css("visibility", "hidden");
+        projects.css("visibility", "hidden");
+        contact.css("visibility", "visible");
+    }
+})
+
 $(".nav__link--mobile, .nav__link--start").on("click changed.owl.carousel", function(){
     if ($(this).attr("href") !== "#start") {
     $("body").css("overflow-x", "hidden");
@@ -75,12 +103,41 @@ container.on('changed.owl.carousel', function(event) {
 })*/
 
 window.addEventListener("DOMContentLoaded", function() {
+    var start = $("#start");
+    var about = $("#about");
+    var projects = $("#projects");
+    var contact = $("#contact");
     if (window.location.hash === "#start" || window.location.hash === "") {
         $("body").css("overflow-x", "hidden");
         $("body").css("overflow-y", "hidden");
         $("html").css("overflow-x", "hidden");
         $("html").css("overflow-y", "hidden");
-    } else  {
+        about.css("visibility", "hidden");
+        projects.css("visibility", "hidden");
+        contact.css("visibility", "hidden");
+    } else if (window.location.hash === "#about") {
+        start.css("visibility", "hidden");
+        about.css("visibility", "visible");
+        projects.css("visibility", "hidden");
+        contact.css("visibility", "hidden");
+        $("body").css("overflow-x", "hidden");
+        $("body").css("overflow-y", "auto");
+        $("html").css("overflow-x", "hidden");
+        $("html").css("overflow-y", "auto");
+    } else if (window.location.hash === "#projects") {
+        start.css("visibility", "hidden");
+        about.css("visibility", "hidden");
+        projects.css("visibility", "visible");
+        contact.css("visibility", "hidden");
+        $("body").css("overflow-x", "hidden");
+        $("body").css("overflow-y", "auto");
+        $("html").css("overflow-x", "hidden");
+        $("html").css("overflow-y", "auto");
+    } else if (window.location.hash === "#contact") {
+        start.css("visibility", "hidden");
+        about.css("visibility", "hidden");
+        projects.css("visibility", "hidden");
+        contact.css("visibility", "visible");
         $("body").css("overflow-x", "hidden");
         $("body").css("overflow-y", "auto");
         $("html").css("overflow-x", "hidden");
@@ -164,8 +221,8 @@ $(".button--theme").on("click", function(){
     $(".projects__prev").toggleClass("dark-theme--button light-theme--button dark-outline");
     $(".projects__next").toggleClass("dark-theme--button light-theme--button dark-outline");
     $(".form__button").toggleClass("light-theme--button dark-theme--button dark-outline");
-    $(".langPL").toggleClass("light-theme dark-theme");
-    $(".langENG").toggleClass("light-theme dark-theme");
+    $(".langPL").toggleClass("light-theme dark-theme dark-outline");
+    $(".langENG").toggleClass("light-theme dark-theme dark-outline");
     // Items for localStorage
     localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
     localStorage.setItem("section", JSON.stringify($(".section").attr("class")));

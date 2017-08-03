@@ -42,6 +42,34 @@ function overflowOff() {
     $("html").css("overflow-y", "hidden");
 }
 
+function showStart() {
+    $("#start").css("visibility", "visible");
+    $("#about").css("visibility", "hidden");
+    $("#projects").css("visibility", "hidden");
+    $("#contact").css("visibility", "hidden");
+}
+
+function showAbout() {
+    $("#start").css("visibility", "hidden");
+    $("#about").css("visibility", "visible");
+    $("#projects").css("visibility", "hidden");
+    $("#contact").css("visibility", "hidden");
+}
+
+function showProjects() {
+    $("#start").css("visibility", "hidden");
+    $("#about").css("visibility", "hidden");
+    $("#projects").css("visibility", "visible");
+    $("#contact").css("visibility", "hidden");
+}
+
+function showContact() {
+    $("#start").css("visibility", "hidden");
+    $("#about").css("visibility", "hidden");
+    $("#projects").css("visibility", "hidden");
+    $("#contact").css("visibility", "visible");
+}
+
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
@@ -62,30 +90,14 @@ $('.projects__prev').click(function() {
 });
 
 $(window).on("hashchange", function(){
-    var start = $("#start");
-    var about = $("#about");
-    var projects = $("#projects");
-    var contact = $("#contact");
     if (window.location.hash === "#start" || window.location.hash === "") {
-        start.css("visibility", "visible");
-        about.css("visibility", "hidden");
-        projects.css("visibility", "hidden");
-        contact.css("visibility", "hidden");
+        showStart();
     } else if (window.location.hash === "#about") {
-        start.css("visibility", "hidden");
-        about.css("visibility", "visible");
-        projects.css("visibility", "hidden");
-        contact.css("visibility", "hidden");
+        showAbout();
     } else if (window.location.hash === "#projects") {
-        start.css("visibility", "hidden");
-        about.css("visibility", "hidden");
-        projects.css("visibility", "visible");
-        contact.css("visibility", "hidden");
+        showProjects();
     } else if (window.location.hash === "#contact") {
-        start.css("visibility", "hidden");
-        about.css("visibility", "hidden");
-        projects.css("visibility", "hidden");
-        contact.css("visibility", "visible");
+        showContact();
     }
 })
 
@@ -98,32 +110,17 @@ $(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
 });
 
 $(window).on("load", function() {
-    var start = $("#start");
-    var about = $("#about");
-    var projects = $("#projects");
-    var contact = $("#contact");
     if (window.location.hash === "#start" || window.location.hash === "") {
         overflowOff();
-        about.css("visibility", "hidden");
-        projects.css("visibility", "hidden");
-        contact.css("visibility", "hidden");
+        showStart();
     } else if (window.location.hash === "#about") {
-        start.css("visibility", "hidden");
-        about.css("visibility", "visible");
-        projects.css("visibility", "hidden");
-        contact.css("visibility", "hidden");
+        showAbout();
         overflowOff();
     } else if (window.location.hash === "#projects") {
-        start.css("visibility", "hidden");
-        about.css("visibility", "hidden");
-        projects.css("visibility", "visible");
-        contact.css("visibility", "hidden");
+        showProjects();
         overflowOff();
     } else if (window.location.hash === "#contact") {
-        start.css("visibility", "hidden");
-        about.css("visibility", "hidden");
-        projects.css("visibility", "hidden");
-        contact.css("visibility", "visible");
+        showContact();
         overflowOff();
     } 
     if (window.localStorage.length === 0) {
@@ -161,12 +158,14 @@ $(window).on("load", function() {
     }
 });
 
-$(document).ready(function(){
-    if (localStorage.getItem("cookieoff") === "true") {
-        $(".cookie-info").addClass("visuallyhidden");
-    } else {
-         return;
-    }
+document.addEventListener("DOMContentLoaded",function(){
+    setTimeout(function(){
+        if (localStorage.getItem("cookieoff") === "true" && $(".cookie-info").hasClass("visuallyhidden") === false) {
+            $(".cookie-info").addClass("visuallyhidden");
+        } else {
+            return;
+        }
+    }, 500);
 });
 
 $(".nav__link--mobile").on('click', function() {

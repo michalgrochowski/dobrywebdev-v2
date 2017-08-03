@@ -2,6 +2,11 @@
     "navAbout": "About",
     "navProjects": "Projects",
     "navContact": "Contact",
+    "buttonTheme": "Change the website theme",
+    "langPL": "Change language to polish",
+    "langENG": "Change language to english",
+    "hamburger": "Open menu",
+    "closeMenu": "Close menu",
     "mainTitle": "Michał Grochowski",
     "mainSubtitle": "Front-end Developer",
     "aboutTitle": "About me",
@@ -29,5 +34,6 @@
     "textPlaceholder": "Hi! I really like your website.",
     "sendButton": "Send",
     "phone": "Call me",
-    "mail": "E-mail me"
+    "mail": "E-mail me",
+    "cookies": "This website is using cookies and your browser localStorage to store some settings and collect info on the visitors to provide usage statistics. If you do not agree to this, you can change your cookies preferences in your browser."
 }

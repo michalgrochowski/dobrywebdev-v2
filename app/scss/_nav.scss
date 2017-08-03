@@ -18,15 +18,17 @@
 .nav__list {
     @include flex-center-row;
     justify-content: space-around;
-    width: 40%;
     padding: 0;
     list-style: none;
     margin-left: 10%;
     @include mq-max(850px) {
         display: none;
     }
-    @include mq-max(1100px) {
-        width: 70%;
+    @include mq-minmax(851px, 1399px) {
+        width: 50%;
+    }
+    @include mq-min(1400px) {
+        width: 40%;
         margin-left: 20rem;
     }
 }

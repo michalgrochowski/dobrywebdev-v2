@@ -28,6 +28,20 @@
     });
 });    
 
+function overflowOn() {
+    $("body").css("overflow-x", "hidden");
+    $("body").css("overflow-y", "auto");
+    $("html").css("overflow-x", "hidden");
+    $("html").css("overflow-y", "auto");
+}
+
+function overflowOff() {
+    $("body").css("overflow-x", "hidden");
+    $("body").css("overflow-y", "hidden");
+    $("html").css("overflow-x", "hidden");
+    $("html").css("overflow-y", "hidden");
+}
+
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
@@ -75,30 +89,21 @@ $(window).on("hashchange", function(){
     }
 })
 
-$(".nav__link--mobile, .nav__link--start").on("click changed.owl.carousel", function(){
+$(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
     if ($(this).attr("href") !== "#start") {
-    $("body").css("overflow-x", "hidden");
-    $("body").css("overflow-y", "auto");
-    $("html").css("overflow-x", "hidden");
-    $("html").css("overflow-y", "auto");
-} else if ($(this).attr("href") === "#start") {
-    $("body").css("overflow-x", "hidden");
-    $("body").css("overflow-y", "hidden");
-    $("html").css("overflow-x", "hidden");
-    $("html").css("overflow-y", "hidden");
-}
+        overflowOn();
+    } else if ($(this).attr("href") === "#start") {
+        overflowOff();
+    }
 });
 
-window.addEventListener("DOMContentLoaded", function() {
+$(window).on("load", function() {
     var start = $("#start");
     var about = $("#about");
     var projects = $("#projects");
     var contact = $("#contact");
     if (window.location.hash === "#start" || window.location.hash === "") {
-        $("body").css("overflow-x", "hidden");
-        $("body").css("overflow-y", "hidden");
-        $("html").css("overflow-x", "hidden");
-        $("html").css("overflow-y", "hidden");
+        overflowOff();
         about.css("visibility", "hidden");
         projects.css("visibility", "hidden");
         contact.css("visibility", "hidden");
@@ -107,32 +112,24 @@ window.addEventListener("DOMContentLoaded", function() {
         about.css("visibility", "visible");
         projects.css("visibility", "hidden");
         contact.css("visibility", "hidden");
-        $("body").css("overflow-x", "hidden");
-        $("body").css("overflow-y", "auto");
-        $("html").css("overflow-x", "hidden");
-        $("html").css("overflow-y", "auto");
+        overflowOff();
     } else if (window.location.hash === "#projects") {
         start.css("visibility", "hidden");
         about.css("visibility", "hidden");
         projects.css("visibility", "visible");
         contact.css("visibility", "hidden");
-        $("body").css("overflow-x", "hidden");
-        $("body").css("overflow-y", "auto");
-        $("html").css("overflow-x", "hidden");
-        $("html").css("overflow-y", "auto");
+        overflowOff();
     } else if (window.location.hash === "#contact") {
         start.css("visibility", "hidden");
         about.css("visibility", "hidden");
         projects.css("visibility", "hidden");
         contact.css("visibility", "visible");
-        $("body").css("overflow-x", "hidden");
-        $("body").css("overflow-y", "auto");
-        $("html").css("overflow-x", "hidden");
-        $("html").css("overflow-y", "auto");
-    }
-    if (localStorage.getItem("icon") === null) {
+        overflowOff();
+    } 
+    if (window.localStorage.length === 0) {
         return false;
-    } else {
+    }  else if (localStorage.getItem("icon") !== null) {
+    $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
     $(".icon--theme").attr("class", JSON.parse(localStorage.getItem("icon")));
     $(".section").attr("class", JSON.parse(localStorage.getItem("section")));
     $(".nav").attr("class", JSON.parse(localStorage.getItem("nav")));
@@ -161,6 +158,14 @@ window.addEventListener("DOMContentLoaded", function() {
     } else if ($(".langPL").hasClass("button--lang--active")) {
         return;
     }
+    }
+});
+
+$(document).ready(function(){
+    if (localStorage.getItem("cookieoff") === "true") {
+        $(".cookie-info").addClass("visuallyhidden");
+    } else {
+         return;
     }
 });
 
@@ -210,6 +215,7 @@ $(".button--theme").on("click", function(){
     $(".form__button").toggleClass("light-theme--button dark-theme--button dark-outline");
     $(".langPL").toggleClass("light-theme dark-theme dark-outline");
     $(".langENG").toggleClass("light-theme dark-theme dark-outline");
+    $(".cookie-info").toggleClass("light-theme dark-theme");
     // Items for localStorage
     localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
     localStorage.setItem("section", JSON.stringify($(".section").attr("class")));
@@ -225,11 +231,17 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("sendButton", JSON.stringify($(".form__button").attr("class")));
     localStorage.setItem("langPL", JSON.stringify($(".langPL").attr("class")));
     localStorage.setItem("langENG", JSON.stringify($(".langENG").attr("class")));
+    localStorage.setItem("cookie", JSON.stringify($(".cookie-info").attr("class")));
     if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     } else if ($("#theme").hasClass("icon-sun")) {
          $(".nav__logo").attr("src", "img/logo-dark.png");
     }
+});
+
+$(".cookie-info__close").on("click", function(){
+    $(".cookie-info").addClass("visuallyhidden");
+    localStorage.setItem("cookieoff", "true");
 });
 
 $(".langENG").on("click", function() {
@@ -239,16 +251,15 @@ $(".langENG").on("click", function() {
         $(this).toggleClass("button--lang--active");
         $(".langPL").toggleClass("button--lang--active");
     }
-    $(".button--theme").attr("aria-label", "Change the website theme");
-    $(".button--theme").attr("title", "Change the website theme");
-    $(".langPL").attr("title", "Change language to polish");
-    $(".langENG").attr("title", "Change language to english");
-    $(".nav__hamburger").attr("title", "Open menu");
-    $(".nav__close-menu").attr("title", "Close menu");
     $.getJSON("json/content-eng.json", function(data) {
-        $(".navAbout").text(data.navAbout);
-        $(".navProjects").text(data.navProjects);
-        $(".navContact").text(data.navContact);
+        $(".navAbout").text(data.navAbout).attr("title", data.navAbout);
+        $(".navProjects").text(data.navProjects).attr("title", data.navProjects);
+        $(".navContact").text(data.navContact).attr("title", data.navContact);
+        $(".button--theme").attr("aria-label", data.buttonTheme).attr("title", data.buttonTheme);
+        $(".langPL").attr("title", data.langPL);
+        $(".langENG").attr("title", data.langENG);
+        $(".nav__hamburger").attr("title", data.hamburger);
+        $(".nav__close-menu").attr("title", data.closeMenu);
         $(".mainTitle").text(data.mainTitle);
         $(".mainSubtitle").text(data.mainSubtitle);
         $(".aboutTitle").text(data.aboutTitle);
@@ -278,6 +289,7 @@ $(".langENG").on("click", function() {
         $(".form__input--name").attr("placeholder", data.namePlaceholder);
         $(".form__textarea").attr("placeholder", data.textPlaceholder);
         $(".form__button").attr("value", data.sendButton);
+        $(".cookie-info__text").text(data.cookies);
     });
 });
 
@@ -289,9 +301,14 @@ $(".langPL").on("click", function() {
         $(".langENG").toggleClass("button--lang--active");
     }
     $.getJSON("json/content-pl.json", function(data) {
-        $(".navAbout").text(data.navAbout);
-        $(".navProjects").text(data.navProjects);
-        $(".navContact").text(data.navContact);
+        $(".navAbout").text(data.navAbout).attr("title", data.navAbout);
+        $(".navProjects").text(data.navProjects).attr("title", data.navProjects);
+        $(".navContact").text(data.navContact).attr("title", data.navContact);
+        $(".button--theme").attr("aria-label", data.buttonTheme).attr("title", data.buttonTheme);
+        $(".langPL").attr("title", data.langPL);
+        $(".langENG").attr("title", data.langENG);
+        $(".nav__hamburger").attr("title", data.hamburger);
+        $(".nav__close-menu").attr("title", data.closeMenu);
         $(".mainTitle").text(data.mainTitle);
         $(".mainSubtitle").text(data.mainSubtitle);
         $(".aboutTitle").text(data.aboutTitle);
@@ -321,6 +338,7 @@ $(".langPL").on("click", function() {
         $(".form__input--name").attr("placeholder", data.namePlaceholder);
         $(".form__textarea").attr("placeholder", data.textPlaceholder);
         $(".form__button").attr("value", data.sendButton);
+        $(".cookie-info__text").text(data.cookies);
     });
 });
 
@@ -337,19 +355,39 @@ $(function() {
         var message = $(".form__textarea").val();
         $(".input__fail").remove();
         if (checkmail.test(email) === false) {
-            var mailfail = "<p class='input__fail'>Podaj prawidłowy adres e-mail</p>";
+            var mailfail;
+            if ($(".langPL").hasClass("button--lang--active")) {
+                mailfail = "<p class='input__fail'>Podaj prawidłowy adres e-mail</p>";
+            } else {
+                mailfail = "<p class='input__fail'>Please provide a valid email address</p>";
+            }
             $(mailfail).hide().appendTo(".form__group--mail").fadeIn(500);
             return false;
         } else if (checkphone.test(phone) === false) {
-            var phonefail = "<p class='input__fail'>Podaj prawidłowy, 9 cyfrowy numer telefonu</p>";
+            var phonefail;
+            if ($(".langPL").hasClass("button--lang--active")) {
+                phonefail = "<p class='input__fail'>Podaj prawidłowy, 9 cyfrowy numer telefonu</p>";
+            } else {
+                phonefail = "<p class='input__fail'>Please provide a valid, 9 digit mobile number</p>";
+            }
             $(phonefail).hide().appendTo(".form__group--phone").fadeIn(500);
             return false;
         } else if (checkname.test(name) === false) {
-            var namefail = "<p class='input__fail'>Podaj prawidłowe imię i nazwisko</p>";
+            var namefail;
+            if ($(".langPL").hasClass("button--lang--active")) {
+                namefail = "<p class='input__fail'>Podaj prawidłowe imię i nazwisko</p>";
+            } else {
+                namefail = "<p class='input__fail'>Please provide a valid first and last name</p>";
+            }
             $(namefail).hide().appendTo(".form__group--name").fadeIn(500);
             return false;
         } else if (message === "") {
-            var msgfail = "<p class='input__fail'>Wiadomość nie może być pusta</p>";
+            var msgfail;
+            if ($(".langPL").hasClass("button--lang--active")) {
+                msgfail = "<p class='input__fail'>Wiadomość nie może być pusta</p>";
+            } else {
+                msgfail = "<p class='input__fail'>The message cannot be empty</p>";
+            }
             $(msgfail).hide().appendTo(".form__group--msg").fadeIn(500);
             return false;
         }
@@ -362,10 +400,10 @@ $(function() {
             }).done(function(data) {
                 var successPl = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
                 var successEng = '<div class="form__success"><p>Thank you for your message!</p></div>';
-                if (flag.attr("src") === "img/eng.png") {
+                if ($(".langPL").hasClass("button--lang--active")) {
                     $(".form").trigger("reset");
                     $(successPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-                } else if (flag.attr("src") === "img/pl.png") {
+                } else {
                     $(".form").trigger("reset");
                     $(successEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 }
@@ -373,9 +411,9 @@ $(function() {
                 var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
                 var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
                 $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-                if (flag.attr("src") === "img/eng.png") {
+                if ($(".langPL").hasClass("button--lang--active")) {
                     $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-                } else if (flag.attr("src") === "img/pl.png") {
+                } else {
                     $(failEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 }
             });

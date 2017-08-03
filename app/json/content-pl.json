@@ -2,6 +2,11 @@
     "navAbout": "O mnie",
     "navProjects": "Projekty",
     "navContact": "Kontakt",
+    "buttonTheme": "Zmień motyw kolorystyczny strony",
+    "langPL": "Zmień język strony na polski",
+    "langENG": "Zmień język strony na angielski",
+    "hamburger": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
     "mainTitle": "Michał Grochowski",
     "mainSubtitle": "Front-end Developer",
     "aboutTitle": "O mnie",
@@ -29,5 +34,6 @@
     "textPlaceholder": "Cześć! Podoba mi się twoja strona.",
     "sendButton": "Wyślij",
     "phone": "Zadzwoń",
-    "mail": "Napisz maila"
+    "mail": "Napisz maila",
+    "cookies": "Ta strona korzysta z plików cookies oraz localStorage twojej przeglądarki do przechowywania ustawień oraz prowadzenia statystyk odwiedzin. Jeśli nie wyrażasz na to zgody, ustawienia dotyczące plików cookies możesz zmienić w swojej przeglądarce."
 }

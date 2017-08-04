@@ -1333,11 +1333,17 @@
 .cookie-info {
   position: fixed;
   bottom: 3rem;
-  right: 2rem;
-  width: 35rem;
   z-index: 5;
   border-radius: 1rem;
   padding: 0 2rem 0 2rem; }
+  @media screen and (max-width: 600px) {
+    .cookie-info {
+      width: 90%;
+      right: 5%; } }
+  @media screen and (min-width: 601px) {
+    .cookie-info {
+      width: 35rem;
+      right: 2rem; } }
 
 .cookie-info__text {
   font-size: 1.1rem;

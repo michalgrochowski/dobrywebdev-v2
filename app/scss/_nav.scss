@@ -25,7 +25,8 @@
         display: none;
     }
     @include mq-minmax(851px, 1399px) {
-        width: 50%;
+        width: 65%;
+        margin-left: 15%;
     }
     @include mq-min(1400px) {
         width: 40%;

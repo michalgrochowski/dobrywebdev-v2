@@ -87,3 +87,77 @@
     background-color: #ffffff;
     color: #111111;
 }
+
+.input-light {
+    background-color: #cccccc;
+    color: #333333;
+    &:hover {
+        background-color: #c1c1c1;
+        color: #333333;
+    }
+    &:focus {
+        background-color: #afafaf;
+        color: #111111;
+    }
+}
+
+.input-dark {
+    background-color: #777777;
+    color: #cccccc;
+    &:hover {
+        background-color: #555555;
+        color: #ffffff;
+    }
+    &:focus {
+        background-color: #444444;
+        color: #ffffff;
+    }
+}
+
+.input-light::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #555555;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+
+.input-dark::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+
+.input-light::-moz-placeholder { /* Firefox 19+ */
+    color: #555555;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+
+.input-dark::-moz-placeholder { /* Firefox 19+ */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+
+.input-light:-ms-input-placeholder { /* IE 10+ */
+    color: #555555;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+
+.input-dark:-ms-input-placeholder { /* IE 10+ */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+
+.input-light:-moz-placeholder { /* Firefox 18- */
+    color: #555555;
+    text-indent: 1rem;
+    padding: 1rem;
+}
+
+.input-dark:-moz-placeholder { /* Firefox 18- */
+    color: #ffffff;
+    text-indent: 1rem;
+    padding: 1rem;
+}

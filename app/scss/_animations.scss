@@ -15,14 +15,14 @@
 }
 
 .fade-in {
-    animation: fade-in 4s;
+    animation: fade-in 3s;
 }
 
 @keyframes fade-in {
     0% {
         opacity: 0;
     }
-    10% {
+    50% {
         opacity: 0;
     }
     100% {
@@ -36,5 +36,29 @@
     }
     100% {
         transform: rotate(360deg)
+    }
+}
+
+@keyframes overlay {
+    0% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes overlay-text {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
     }
 }

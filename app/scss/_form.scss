@@ -14,13 +14,9 @@
     height: 3rem;
     text-indent: 1rem;
     transition: all 0.5s;
-    background-color: #999999;
-    color: #ffffff;
 }
 
 .form__input:focus {
-    background-color: #666666;
-    color: #ffffff;
     transition: all 0.5s;
 }
 
@@ -38,13 +34,9 @@
     text-indent: 1rem;
     padding-top: 0.5rem;
     transition: all 0.5s;
-    background-color: #999999;
-    color: #ffffff;
 }
 
 .form__textarea:focus {
-    background-color: #666666;
-    color: #ffffff;
     transition: all 0.5s;
 }
 
@@ -56,15 +48,6 @@
     height: 3rem;
     border: none;
     transition: all 0.5s;
-}
-
-.form__button:hover {
-    transition: all 0.5s;
-}
-
-.form__button:focus {
-    color: #ffffff;
-    background-color: #444444;
 }
 
 .form__group {

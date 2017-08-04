@@ -1,6 +1,7 @@
 (function(){
     var projects = $(".projects");
     var container = $(".container");
+    // OwlCarousel settings
     $(function() {
         projects.owlCarousel({
         navSpeed: 700,
@@ -27,7 +28,63 @@
         freeDrag: false
     });
 });    
-
+// Fucntion that loads theme settings from localStorage
+$(window).on("load", function() {
+    /*$(".overlay").addClass("overlay--light");*/
+    if (window.location.hash === "#start" || window.location.hash === "") {
+        overflowOff();
+        showStart();
+    } else if (window.location.hash === "#about") {
+        showAbout();
+        overflowOff();
+    } else if (window.location.hash === "#projects") {
+        showProjects();
+        overflowOff();
+    } else if (window.location.hash === "#contact") {
+        showContact();
+        overflowOff();
+    } 
+    if (window.localStorage.length === 0 || window.localStorage.length === 1) {
+        return;
+    }  else if (localStorage.getItem("icon") !== null) {
+    $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
+    $(".icon--theme").attr("class", JSON.parse(localStorage.getItem("icon")));
+    $(".section").attr("class", JSON.parse(localStorage.getItem("section")));
+    $(".nav").attr("class", JSON.parse(localStorage.getItem("nav")));
+    $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
+    $(".nav__hamburger").attr("class", JSON.parse(localStorage.getItem("hamburger")));
+    $(".nav__close-menu").attr("class", JSON.parse(localStorage.getItem("closemenu")));
+    $(".nav__list--mobile").attr("class", JSON.parse(localStorage.getItem("mobilelist")));
+    $("body").attr("class", JSON.parse(localStorage.getItem("body")));
+    $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
+    $(".projects__prev").attr("class", JSON.parse(localStorage.getItem("projectsPrev")));
+    $(".projects__next").attr("class", JSON.parse(localStorage.getItem("projectsNext")));
+    $(".form__button").attr("class", JSON.parse(localStorage.getItem("sendButton")));
+    $(".langPL").attr("class", JSON.parse(localStorage.getItem("langPL")));
+    $(".langENG").attr("class", JSON.parse(localStorage.getItem("langENG")));
+    $(".form__input--mail").attr("class", JSON.parse(localStorage.getItem("inputMail")));
+    $(".form__input--phone").attr("class", JSON.parse(localStorage.getItem("inputPhone")));
+    $(".form__input--name").attr("class", JSON.parse(localStorage.getItem("inputName")));
+    $(".form__textarea").attr("class", JSON.parse(localStorage.getItem("textarea")));
+    $('a').removeClass("light-theme--link dark-theme--link");
+    if ($("#theme").hasClass("icon-moon")) {
+        $(".nav__logo").attr("src", "img/logo-light.png");
+        $('a').addClass("light-theme--link").removeClass("dark-theme--link");
+        /*$(".overlay").addClass("overlay--light");*/
+    } else if ($("#theme").hasClass("icon-sun")) {
+        $(".nav__logo").attr("src", "img/logo-dark.png");
+        $('a').addClass("dark-theme--link").removeClass("light-theme--link");
+        /*$(".overlay").addClass("overlay--dark");*/
+    }
+    if ($(".langENG").hasClass("button--lang--active")) {
+        $(".langENG").removeClass("button--lang--active");
+        $(".langPL").addClass("button--lang--active");
+    } else if ($(".langPL").hasClass("button--lang--active")) {
+        return;
+    }
+    }
+});
+// Smaller functions
 function overflowOn() {
     $("body").css("overflow-x", "hidden");
     $("body").css("overflow-y", "auto");
@@ -77,7 +134,7 @@ function stopOwlPropagation(element) {
     $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
 }
-
+// Additional OwlCarousel functions
 stopOwlPropagation(projects);
 stopOwlPropagation(container);
 
@@ -88,7 +145,7 @@ $('.projects__next').click(function() {
 $('.projects__prev').click(function() {
     projects.trigger('prev.owl.carousel', [300]);
 });
-
+// Showing and hiding specific sections so the others can't be reached with keyboard
 $(window).on("hashchange", function(){
     if (window.location.hash === "#start" || window.location.hash === "") {
         showStart();
@@ -99,8 +156,8 @@ $(window).on("hashchange", function(){
     } else if (window.location.hash === "#contact") {
         showContact();
     }
-})
-
+});
+// Turn on or off overflow-x depending on current hash
 $(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
     if ($(this).attr("href") !== "#start") {
         overflowOn();
@@ -108,56 +165,11 @@ $(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
         overflowOff();
     }
 });
-
-$(window).on("load", function() {
-    if (window.location.hash === "#start" || window.location.hash === "") {
-        overflowOff();
-        showStart();
-    } else if (window.location.hash === "#about") {
-        showAbout();
-        overflowOff();
-    } else if (window.location.hash === "#projects") {
-        showProjects();
-        overflowOff();
-    } else if (window.location.hash === "#contact") {
-        showContact();
-        overflowOff();
-    } 
-    if (window.localStorage.length === 0) {
-        return false;
-    }  else if (localStorage.getItem("icon") !== null) {
-    $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
-    $(".icon--theme").attr("class", JSON.parse(localStorage.getItem("icon")));
-    $(".section").attr("class", JSON.parse(localStorage.getItem("section")));
-    $(".nav").attr("class", JSON.parse(localStorage.getItem("nav")));
-    $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
-    $(".nav__hamburger").attr("class", JSON.parse(localStorage.getItem("hamburger")));
-    $(".nav__close-menu").attr("class", JSON.parse(localStorage.getItem("closemenu")));
-    $(".nav__list--mobile").attr("class", JSON.parse(localStorage.getItem("mobilelist")));
-    $("body").attr("class", JSON.parse(localStorage.getItem("body")));
-    $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
-    $(".projects__prev").attr("class", JSON.parse(localStorage.getItem("projectsPrev")));
-    $(".projects__next").attr("class", JSON.parse(localStorage.getItem("projectsNext")));
-    $(".form__button").attr("class", JSON.parse(localStorage.getItem("sendButton")));
-    $(".langPL").attr("class", JSON.parse(localStorage.getItem("langPL")));
-    $(".langENG").attr("class", JSON.parse(localStorage.getItem("langENG")));
-    $('a').removeClass("light-theme--link dark-theme--link");
-    if ($("#theme").hasClass("icon-moon")) {
-         $(".nav__logo").attr("src", "img/logo-light.png");
-         $('a').addClass("light-theme--link").removeClass("dark-theme--link");
-    } else if ($("#theme").hasClass("icon-sun")) {
-         $(".nav__logo").attr("src", "img/logo-dark.png");
-         $('a').addClass("dark-theme--link").removeClass("light-theme--link");
-    }
-    if ($(".langENG").hasClass("button--lang--active")) {
-        $(".langENG").removeClass("button--lang--active");
-        $(".langPL").addClass("button--lang--active");
-    } else if ($(".langPL").hasClass("button--lang--active")) {
-        return;
-    }
-    }
+// Hide the overlay after animation is finished
+$(".overlay").on("animationend", function(){
+    $(this).css("display", "none");
 });
-
+// Check if cookies info was closed before and if so don't show it
 document.addEventListener("DOMContentLoaded",function(){
     setTimeout(function(){
         if (localStorage.getItem("cookieoff") === "true" && $(".cookie-info").hasClass("visuallyhidden") === false) {
@@ -167,7 +179,7 @@ document.addEventListener("DOMContentLoaded",function(){
         }
     }, 500);
 });
-
+// Mobile menu scripts, showing hamburger etc.
 $(".nav__link--mobile").on('click', function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
@@ -195,7 +207,7 @@ $(".nav__link--start").on("click", function(){
         return;
     }
 });
-
+// Theme changing script that also saves settings in localStorage
 $(".button--theme").on("click", function(){
     window.localStorage.clear();
     $(".icon--theme").toggleClass("icon-moon icon-sun");
@@ -215,6 +227,11 @@ $(".button--theme").on("click", function(){
     $(".langPL").toggleClass("light-theme dark-theme dark-outline");
     $(".langENG").toggleClass("light-theme dark-theme dark-outline");
     $(".cookie-info").toggleClass("light-theme dark-theme");
+    $(".overlay").toggleClass("overlay--light overlay--dark");
+    $(".form__input--mail").toggleClass("input-light input-dark");
+    $(".form__input--phone").toggleClass("input-light input-dark");
+    $(".form__input--name").toggleClass("input-light input-dark");
+    $(".form__textarea").toggleClass("input-light input-dark");
     // Items for localStorage
     localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
     localStorage.setItem("section", JSON.stringify($(".section").attr("class")));
@@ -231,18 +248,23 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("langPL", JSON.stringify($(".langPL").attr("class")));
     localStorage.setItem("langENG", JSON.stringify($(".langENG").attr("class")));
     localStorage.setItem("cookie", JSON.stringify($(".cookie-info").attr("class")));
+    localStorage.setItem("overlay", JSON.stringify($(".overlay").attr("class")));
+    localStorage.setItem("inputMail", JSON.stringify($(".form__input--mail").attr("class")));
+    localStorage.setItem("inputPhone", JSON.stringify($(".form__input--phone").attr("class")));
+    localStorage.setItem("inputName", JSON.stringify($(".form__input--name").attr("class")));
+    localStorage.setItem("textarea", JSON.stringify($(".form__textarea").attr("class")));
     if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     } else if ($("#theme").hasClass("icon-sun")) {
          $(".nav__logo").attr("src", "img/logo-dark.png");
     }
 });
-
+// Click function to hide cookies info
 $(".cookie-info__close").on("click", function(){
     $(".cookie-info").addClass("visuallyhidden");
     localStorage.setItem("cookieoff", "true");
 });
-
+// Language changing script
 $(".langENG").on("click", function() {
     if ($(this).hasClass("button--lang--active")) {
         return;
@@ -340,7 +362,7 @@ $(".langPL").on("click", function() {
         $(".cookie-info__text").text(data.cookies);
     });
 });
-
+// Form validation
 $(function() {
     $('.form').submit(function(event) {
         event.preventDefault();

@@ -44,6 +44,9 @@
 </head>
 <!-- camelCased classes are not for styling, they serve only as hooks in JS -->
 <body id="body" class="body light-theme"> 
+	<div class="overlay">
+		<p class="overlay__text">Dzień dobry</p>
+	</div>
 	<nav class="nav light-theme">
 		<a class="nav__link nav__link--start" href="#start" title="DobryWebdev">
 			<img class="nav__logo" src="img/logo-light.png" alt="Dobrywebdev.pl">
@@ -210,19 +213,19 @@
 				<form class="form" action="formularz.php" method="POST">
 					<div class="form__group form__group--mail">
 						<label for="inputMail" class="mailLabel">Adres e-mail</label>
-						<input type="email" class="form__input form__input--mail" id="inputMail" placeholder="adres@email.pl" name="email">
+						<input type="email" class="form__input form__input--mail input-light" id="inputMail" placeholder="adres@email.pl" name="email">
 					</div>
 					<div class="form__group form__group--phone">
 						<label for="inputPhone" class="phoneLabel">Numer telefonu</label>
-						<input type="tel" maxlength="9" class="form__input form__input--phone" id="inputPhone" placeholder="555555555" name="phone" title="9 cyfrowy numer telefonu">
+						<input type="tel" maxlength="9" class="form__input form__input--phone input-light" id="inputPhone" placeholder="555555555" name="phone" title="9 cyfrowy numer telefonu">
 					</div>
 					<div class="form__group form__group--name">
 						<label for="inputName" class="nameLabel">Imię i nazwisko</label>
-						<input type="text" class="form__input form__input--name" id="inputName" placeholder="Jan Kowalski" name="name">
+						<input type="text" class="form__input form__input--name input-light" id="inputName" placeholder="Jan Kowalski" name="name">
 					</div>
 					<div class="form__group form__group--msg">
 						<label for="inputText" class="textLabel">Treść wiadomości</label>
-						<textarea id="inputText" class="form__textarea" placeholder="Cześć! Podoba mi się twoja strona." name="message"></textarea>
+						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się twoja strona." name="message"></textarea>
 					</div>
 					<input type="submit" class="form__button light-theme--button" value="Wyślij" name="submit" id="buttonSubmit">
 				</form>
@@ -263,7 +266,7 @@
 	<script src="js/owl.carousel.min.js"></script>
 	<script src="js/main.js"></script>
 	<!-- endbuild -->
-	<script>
+	<script async>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

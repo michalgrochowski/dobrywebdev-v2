@@ -85,7 +85,7 @@ $(window).on("load", function() {
     }
     }
 });
-// Check what time it is and dusplay welcome text based on that
+// Check what time it is and display welcome text based on that
 function checkTime() {
     var date = new Date();
     var currentTime = date.getHours();
@@ -434,17 +434,15 @@ $(function() {
             }).done(function(data) {
                 var successPl = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
                 var successEng = '<div class="form__success"><p>Thank you for your message!</p></div>';
+                $(".form").trigger("reset");
                 if ($(".langPL").hasClass("button--lang--active")) {
-                    $(".form").trigger("reset");
                     $(successPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 } else {
-                    $(".form").trigger("reset");
                     $(successEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 }
             }).fail(function(data) {
                 var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
                 var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
-                $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 if ($(".langPL").hasClass("button--lang--active")) {
                     $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
                 } else {

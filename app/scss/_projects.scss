@@ -10,21 +10,16 @@
 }
 
 .projects__nav {
-    
-}
+    margin-top: -3rem;
+    @include mq-max(800px) {
+        margin-top: -2rem;
+    }
+}   
 
 .projects__nav-list {
     list-style: none;
     padding: 0;
     @include flex-center-row;
-    margin-top: -3rem;
-    @include mq-max(800px) {
-        margin-top: -2rem;
-    }
-}
-
-.projects__nav-item {
-    
 }
 
 .projects__prev, .projects__next {

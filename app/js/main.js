@@ -30,6 +30,7 @@
 });    
 // Fucntion that loads theme settings from localStorage
 $(window).on("load", function() {
+    checkTime();
     /*$(".overlay").addClass("overlay--light");*/
     if (window.location.hash === "#start" || window.location.hash === "") {
         overflowOff();
@@ -84,6 +85,18 @@ $(window).on("load", function() {
     }
     }
 });
+// Check what time it is and dusplay welcome text based on that
+function checkTime() {
+    var date = new Date();
+    var currentTime = date.getHours();
+    if (currentTime < 18) {
+        $(".overlay").addClass("overlay--light");
+        $(".overlay__text").text("Dzień dobry");
+    } else {
+        $(".overlay__text").text("Dobry wieczór");
+        $(".overlay").addClass("overlay--dark");
+    }
+}
 // Smaller functions
 function overflowOn() {
     $("body").css("overflow-x", "hidden");

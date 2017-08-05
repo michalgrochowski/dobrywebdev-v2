@@ -1586,8 +1586,7 @@ body {
   -ms-flex-positive: 0;
   flex-grow: 0;
   opacity: 0;
-  background-color: #294d80;
-  color: #e4e4e4;
+  background-color: #ffffff;
   -webkit-animation: overlay 2s;
   animation: overlay 2s;
   overflow: hidden; }

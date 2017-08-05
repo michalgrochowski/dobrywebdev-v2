@@ -156,8 +156,7 @@ body {
     z-index: 10;
     @include flex-center-row;
     opacity: 0;
-    background-color: #294d80;
-    color: #e4e4e4;
+    background-color: #ffffff;
     animation: overlay 2s;
     overflow: hidden;
     &--light {

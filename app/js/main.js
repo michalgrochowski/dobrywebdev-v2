@@ -90,6 +90,11 @@ $(window).on("load", function() {
     }
     }
 });
+//
+container.on("initialized.owl.carousel", function(event){
+    container.trigger("to.owl.carousel", [0, 0]);
+})
+
 // Check what time it is and display welcome text based on that
 function checkTime() {
     var date = new Date();

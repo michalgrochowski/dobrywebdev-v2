@@ -35,6 +35,7 @@
 $(window).on("load", function() {
     checkTime();
     $(".projects__link").attr("tabindex", "-1");
+    $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
     if (window.location.hash === "#start" || window.location.hash === "") {
         overflowOff();
         showStart();
@@ -182,10 +183,6 @@ $('.projects__prev').click(function() {
         return;
     }
 });
-
-projects.on("initialized.owl.carousel", function(){
-    $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
-})
 
 projects.on("translated.owl.carousel", function(){
     $(".projects__link").attr("tabindex", "-1");

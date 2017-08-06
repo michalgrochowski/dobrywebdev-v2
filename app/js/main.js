@@ -67,6 +67,7 @@ $(window).on("load", function() {
     $(".form__input--phone").attr("class", JSON.parse(localStorage.getItem("inputPhone")));
     $(".form__input--name").attr("class", JSON.parse(localStorage.getItem("inputName")));
     $(".form__textarea").attr("class", JSON.parse(localStorage.getItem("textarea")));
+    $(".cookie-info__close").attr("class", JSON.parse(localStorage.getItem("cookieClose")));
     $('a').removeClass("light-theme--link dark-theme--link");
     if ($("#theme").hasClass("icon-moon")) {
         $(".nav__logo").attr("src", "img/logo-light.png");
@@ -245,6 +246,7 @@ $(".button--theme").on("click", function(){
     $(".form__input--phone").toggleClass("input-light input-dark");
     $(".form__input--name").toggleClass("input-light input-dark");
     $(".form__textarea").toggleClass("input-light input-dark");
+    $(".cookie-info__close").toggleClass("dark-theme--link light-theme--link dark-outline");
     // Items for localStorage
     localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
     localStorage.setItem("section", JSON.stringify($(".section").attr("class")));
@@ -266,6 +268,7 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("inputPhone", JSON.stringify($(".form__input--phone").attr("class")));
     localStorage.setItem("inputName", JSON.stringify($(".form__input--name").attr("class")));
     localStorage.setItem("textarea", JSON.stringify($(".form__textarea").attr("class")));
+    localStorage.setItem("cookieClose", JSON.stringify($(".cookie-info__close").attr("class")));
     if ($("#theme").hasClass("icon-moon")) {
          $(".nav__logo").attr("src", "img/logo-light.png");
     } else if ($("#theme").hasClass("icon-sun")) {

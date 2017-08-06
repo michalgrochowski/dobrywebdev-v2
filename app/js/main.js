@@ -96,7 +96,7 @@ $(window).on("load", function() {
 function checkTime() {
     var date = new Date();
     var currentTime = date.getHours();
-    if (currentTime < 17) {
+    if (currentTime < 18 && currentTime > 6) {
         $(".overlay").addClass("overlay--light");
         $(".overlay__text").text("Dzień dobry");
     } else {

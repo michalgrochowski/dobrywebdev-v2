@@ -3,16 +3,6 @@
     var container = $(".container");
     // OwlCarousel settings
     $(function() {
-        projects.owlCarousel({
-        navSpeed: 700,
-        dots: false,
-        touchDrag: false,
-        mouseDrag: false,
-        pullDrag: false,
-        freeDrag: false,
-        items: 1,
-        slideBy: 1,
-    });
         container.owlCarousel({
         nav: false,
         dots: false,
@@ -27,23 +17,33 @@
         pullDrag: false,
         freeDrag: false
     });
+        projects.owlCarousel({
+        navSpeed: 700,
+        dots: false,
+        touchDrag: false,
+        mouseDrag: false,
+        pullDrag: false,
+        freeDrag: false,
+        items: 1,
+        slideBy: 1,
+    });
 });    
-// Fucntion that loads theme settings from localStorage
+// Function that loads theme settings from localStorage
 $(window).on("load", function() {
     checkTime();
-    /*$(".overlay").addClass("overlay--light");*/
+    $(".projects__link").attr("tabindex", "-1");
     if (window.location.hash === "#start" || window.location.hash === "") {
         overflowOff();
         showStart();
     } else if (window.location.hash === "#about") {
+        overflowOn();
         showAbout();
-        overflowOff();
     } else if (window.location.hash === "#projects") {
+        overflowOn();
         showProjects();
-        overflowOff();
     } else if (window.location.hash === "#contact") {
+        overflowOn();
         showContact();
-        overflowOff();
     } 
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
         return;
@@ -77,12 +77,10 @@ $(window).on("load", function() {
         $(".nav__logo").attr("src", "img/logo-light.png");
         $('a').addClass("light-theme--link").removeClass("dark-theme--link");
         $(".nav__link--start").removeClass("light-theme--link");
-        /*$(".overlay").addClass("overlay--light");*/
     } else if ($("#theme").hasClass("icon-sun")) {
         $(".nav__logo").attr("src", "img/logo-dark.png");
         $('a').addClass("dark-theme--link").removeClass("light-theme--nav-link");
         $(".nav__link--start").removeClass("dark-theme--link");
-        /*$(".overlay").addClass("overlay--dark");*/
     }
     if ($(".langENG").hasClass("button--lang--active")) {
         $(".langENG").removeClass("button--lang--active");
@@ -160,11 +158,31 @@ stopOwlPropagation(container);
 
 $('.projects__next').click(function() {
     projects.trigger('next.owl.carousel', [300]);
+    if ($(".projects__project").parent().hasClass("active")) {
+        $(this).find(".projects__link").attr("tabindex", "0");
+    } else {
+        return;
+    }
 });
 
 $('.projects__prev').click(function() {
     projects.trigger('prev.owl.carousel', [300]);
+    if ($(".projects__project").parent().hasClass("active")) {
+        $(this).find(".projects__link").attr("tabindex", "0");
+    } else {
+        return;
+    }
 });
+
+projects.on("initialized.owl.carousel", function(){
+    $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
+})
+
+projects.on("translated.owl.carousel", function(){
+    $(".projects__link").attr("tabindex", "-1");
+    $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
+})
+
 // Showing and hiding specific sections so the others can't be reached with keyboard
 $(window).on("hashchange", function(){
     if (window.location.hash === "#start" || window.location.hash === "") {

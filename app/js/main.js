@@ -1,6 +1,7 @@
 (function(){
     var projects = $(".projects");
     var container = $(".container");
+
     // OwlCarousel settings
     $(function() {
         container.owlCarousel({
@@ -28,7 +29,9 @@
         slideBy: 1,
     });
 });    
-// Function that loads theme settings from localStorage
+
+// Main function that loads theme settings from localStorage, displays welcome text and block projects links,
+
 $(window).on("load", function() {
     checkTime();
     $(".projects__link").attr("tabindex", "-1");
@@ -90,12 +93,9 @@ $(window).on("load", function() {
     }
     }
 });
-//
-container.on("initialized.owl.carousel", function(event){
-    container.trigger("to.owl.carousel", [0, 0]);
-})
 
 // Check what time it is and display welcome text based on that
+
 function checkTime() {
     var date = new Date();
     var currentTime = date.getHours();
@@ -107,7 +107,9 @@ function checkTime() {
         $(".overlay").addClass("overlay--dark");
     }
 }
+
 // Smaller functions
+
 function overflowOn() {
     $("body").css("overflow-x", "hidden");
     $("body").css("overflow-y", "auto");
@@ -157,7 +159,9 @@ function stopOwlPropagation(element) {
     $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
 }
+
 // Additional OwlCarousel functions
+
 stopOwlPropagation(projects);
 stopOwlPropagation(container);
 
@@ -189,6 +193,7 @@ projects.on("translated.owl.carousel", function(){
 })
 
 // Showing and hiding specific sections so the others can't be reached with keyboard
+
 $(window).on("hashchange", function(){
     if (window.location.hash === "#start" || window.location.hash === "") {
         showStart();
@@ -200,7 +205,9 @@ $(window).on("hashchange", function(){
         showContact();
     }
 });
+
 // Turn on or off overflow-x depending on current hash
+
 $(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
     if ($(this).attr("href") !== "#start") {
         overflowOn();
@@ -208,11 +215,15 @@ $(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
         overflowOff();
     }
 });
+
 // Hide the overlay after animation is finished
+
 $(".overlay").on("animationend", function(){
     $(this).css("display", "none");
 });
+
 // Check if cookies info was closed before and if so don't show it
+
 document.addEventListener("DOMContentLoaded",function(){
     setTimeout(function(){
         if (localStorage.getItem("cookieoff") === "true" && $(".cookie-info").hasClass("visuallyhidden") === false) {
@@ -222,7 +233,9 @@ document.addEventListener("DOMContentLoaded",function(){
         }
     }, 500);
 });
+
 // Mobile menu scripts, showing hamburger etc.
+
 $(".nav__link--mobile").on('click', function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
@@ -250,7 +263,9 @@ $(".nav__link--start").on("click", function(){
         return;
     }
 });
+
 // Theme changing script that also saves settings in localStorage
+
 $(".button--theme").on("click", function(){
     window.localStorage.clear();
     $(".icon--theme").toggleClass("icon-moon icon-sun");
@@ -310,12 +325,16 @@ $(".button--theme").on("click", function(){
          $(".nav__logo").attr("src", "img/logo-dark.png");
     }
 });
+
 // Click function to hide cookies info
+
 $(".cookie-info__close").on("click", function(){
     $(".cookie-info").addClass("visuallyhidden");
     localStorage.setItem("cookieoff", "true");
 });
+
 // Language changing script
+
 $(".langENG").on("click", function() {
     if ($(this).hasClass("button--lang--active")) {
         return;
@@ -413,7 +432,9 @@ $(".langPL").on("click", function() {
         $(".cookie-info__text").text(data.cookies);
     });
 });
+
 // Form validation
+
 $(function() {
     $('.form').submit(function(event) {
         event.preventDefault();

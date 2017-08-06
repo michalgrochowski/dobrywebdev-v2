@@ -20,17 +20,14 @@
     justify-content: space-around;
     padding: 0;
     list-style: none;
-    margin-left: 10%;
     @include mq-max(850px) {
         display: none;
     }
     @include mq-minmax(851px, 1399px) {
         width: 65%;
-        margin-left: 15%;
     }
     @include mq-min(1400px) {
         width: 40%;
-        margin-left: 20rem;
     }
 }
 

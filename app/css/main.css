@@ -51,19 +51,16 @@
   -ms-flex-pack: distribute;
   justify-content: space-around;
   padding: 0;
-  list-style: none;
-  margin-left: 10%; }
+  list-style: none; }
   @media screen and (max-width: 850px) {
     .nav__list {
       display: none; } }
   @media screen and (min-width: 851px) and (max-width: 1399px) {
     .nav__list {
-      width: 65%;
-      margin-left: 15%; } }
+      width: 65%; } }
   @media screen and (min-width: 1400px) {
     .nav__list {
-      width: 40%;
-      margin-left: 20rem; } }
+      width: 40%; } }
 
 .nav__list--mobile {
   display: -webkit-box;
@@ -280,7 +277,8 @@
   height: 3rem;
   text-indent: 1rem;
   -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  text-indent: 1rem; }
 
 .form__input:focus {
   -webkit-transition: all 0.5s;
@@ -299,7 +297,8 @@
   text-indent: 1rem;
   padding-top: 0.5rem;
   -webkit-transition: all 0.5s;
-  transition: all 0.5s; }
+  transition: all 0.5s;
+  text-indent: 1rem; }
 
 .form__textarea:focus {
   -webkit-transition: all 0.5s;

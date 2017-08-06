@@ -1165,37 +1165,6 @@
 .devicons-vim:before {
   content: ""; }
 
-.cookie-info {
-  position: fixed;
-  bottom: 3rem;
-  z-index: 5;
-  border-radius: 1rem;
-  padding: 0 2rem 0 2rem; }
-  @media screen and (max-width: 600px) {
-    .cookie-info {
-      width: 90%;
-      right: 5%; } }
-  @media screen and (min-width: 601px) {
-    .cookie-info {
-      width: 35rem;
-      right: 2rem; } }
-
-.cookie-info__text {
-  font-size: 1.1rem;
-  position: relative; }
-
-.cookie-info__close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-  border-bottom: none; }
-
-.cookie-info:hover {
-  border-bottom: none; }
-
 .icon--theme {
   cursor: pointer;
   -webkit-transition: background-color 0.5s, color 0.5s;
@@ -1349,6 +1318,37 @@
   color: #ffffff;
   text-indent: 1rem;
   padding: 1rem; }
+
+.cookie-info {
+  position: fixed;
+  bottom: 3rem;
+  z-index: 5;
+  border-radius: 1rem;
+  padding: 0 2rem 0 2rem; }
+  @media screen and (max-width: 600px) {
+    .cookie-info {
+      width: 90%;
+      right: 5%; } }
+  @media screen and (min-width: 601px) {
+    .cookie-info {
+      width: 35rem;
+      right: 2rem; } }
+
+.cookie-info__text {
+  font-size: 1.1rem;
+  position: relative; }
+
+.cookie-info__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: none; }
+
+.cookie-info__close:hover {
+  border-bottom: none; }
 
 * {
   -webkit-box-sizing: border-box;

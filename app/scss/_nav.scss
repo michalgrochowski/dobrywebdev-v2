@@ -13,6 +13,7 @@
 
 .nav__logo {
     width: 15rem;
+    border-bottom: none;
 }
 
 .nav__list {
@@ -73,10 +74,6 @@
     position: fixed;
     top: 1.5rem;
     left: 2rem;
-}
-
-.nav__link:hover, .nav__link:focus {
-    text-decoration: underline;
 }
 
 .nav__hamburger, .nav__close-menu {

@@ -20,6 +20,7 @@
     text-decoration: none;
     color: #333;
     text-align: center;
+    border-bottom: none;
     @include mq-max(800px) {
         flex-basis: 50%;
     }
@@ -38,6 +39,7 @@
 
 .socials__item:hover, .socials__item:focus {
     color: #666;
+    border-bottom: none;
 }
 
 .icon {

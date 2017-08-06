@@ -17,9 +17,11 @@
 .footer__link {
     color: #333;
     text-decoration: none;
+    border-bottom: none;
 }
 
 .footer__link:hover, .footer__link:focus {
     color: #555;
     text-decoration: underline;
+    border-bottom: none;
 }

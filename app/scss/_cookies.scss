@@ -26,4 +26,9 @@
     cursor: pointer;
     background-color: transparent;
     border: none;
+    border-bottom: none;
+}
+
+.cookie-info:hover {
+    border-bottom: none;
 }

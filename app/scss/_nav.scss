@@ -24,10 +24,15 @@
     @include mq-max(850px) {
         display: none;
     }
-    @include mq-minmax(851px, 1399px) {
-        width: 65%;
+    @include mq-minmax(851px, 1010px) {
+        width: 60%;
+        margin-left: 10%;
     }
-    @include mq-min(1400px) {
+    @include mq-minmax(1011px, 1649px) {
+        width: 65%;
+        margin-left: 5%;
+    }
+    @include mq-min(1650px) {
         width: 40%;
     }
 }

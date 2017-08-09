@@ -36,6 +36,7 @@ $(window).on("load", function() {
     checkTime();
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
+    $(".cookie__close")
     if (window.location.hash === "#start" || window.location.hash === "") {
         overflowOff();
         showStart();
@@ -100,7 +101,7 @@ $(window).on("load", function() {
 function checkTime() {
     var date = new Date();
     var currentTime = date.getHours();
-    if (currentTime < 18 && currentTime > 6) {
+    if (currentTime >= 6 && currentTime <= 18) {
         $(".overlay").addClass("overlay--light");
         $(".overlay__text").text("Dzień dobry");
     } else {
@@ -378,6 +379,32 @@ $(".langENG").on("click", function() {
         $(".form__textarea").attr("placeholder", data.textPlaceholder);
         $(".form__button").attr("value", data.sendButton);
         $(".cookie-info__text").text(data.cookies);
+        //Main title
+        $(".projects__title").eq(2).text(data.todoMaintitle);
+        $(".projects__title").eq(7).text(data.formMaintitle);
+        // Projects links titles
+        $(".projects__link").eq(0).attr("title", data.interiorTitle);
+        $(".projects__link").eq(1).attr("title", data.sleszynskiTitle);
+        $(".projects__link").eq(2).attr("title", data.todoTitle);
+        $(".projects__link").eq(3).attr("title", data.todoCode);
+        $(".projects__link").eq(4).attr("title", data.interiorv1Title);
+        $(".projects__link").eq(5).attr("title", data.interiorv1Code);
+        $(".projects__link").eq(6).attr("title", data.dobrywebdevTitle);
+        $(".projects__link").eq(7).attr("title", data.dobrywebdevCode);
+        $(".projects__link").eq(8).attr("title", data.cvTitle);
+        $(".projects__link").eq(9).attr("title", data.interactiveTitle);
+        $(".projects__link").eq(10).attr("title", data.interactiveCode);
+        $(".projects__link").eq(11).attr("title", data.formTitle);
+        $(".projects__link").eq(12).attr("title", data.formCode);
+        // Projects photos alts
+        $(".projects__photo").eq(0).attr("alt", data.interiorAlt);
+        $(".projects__photo").eq(1).attr("alt", data.sleszynskiAlt);
+        $(".projects__photo").eq(2).attr("alt", data.todoAlt);
+        $(".projects__photo").eq(3).attr("alt", data.interiorv1Alt);
+        $(".projects__photo").eq(4).attr("alt", data.dobrywebdevAlt);
+        $(".projects__photo").eq(5).attr("alt", data.cvAlt);
+        $(".projects__photo").eq(6).attr("alt", data.interactiveAlt);
+        $(".projects__photo").eq(7).attr("alt", data.formAlt);
     });
 });
 
@@ -427,6 +454,32 @@ $(".langPL").on("click", function() {
         $(".form__textarea").attr("placeholder", data.textPlaceholder);
         $(".form__button").attr("value", data.sendButton);
         $(".cookie-info__text").text(data.cookies);
+        //Main title
+        $(".projects__title").eq(2).text(data.todoMaintitle);
+        $(".projects__title").eq(7).text(data.formMaintitle);
+        // Projects links titles
+        $(".projects__link").eq(0).attr("title", data.interiorTitle);
+        $(".projects__link").eq(1).attr("title", data.sleszynskiTitle);
+        $(".projects__link").eq(2).attr("title", data.todoTitle);
+        $(".projects__link").eq(3).attr("title", data.todoCode);
+        $(".projects__link").eq(4).attr("title", data.interiorv1Title);
+        $(".projects__link").eq(5).attr("title", data.interiorv1Code);
+        $(".projects__link").eq(6).attr("title", data.dobrywebdevTitle);
+        $(".projects__link").eq(7).attr("title", data.dobrywebdevCode);
+        $(".projects__link").eq(8).attr("title", data.cvTitle);
+        $(".projects__link").eq(9).attr("title", data.interactiveTitle);
+        $(".projects__link").eq(10).attr("title", data.interactiveCode);
+        $(".projects__link").eq(11).attr("title", data.formTitle);
+        $(".projects__link").eq(12).attr("title", data.formCode);
+        // Projects photos alts
+        $(".projects__photo").eq(0).attr("alt", data.interiorAlt);
+        $(".projects__photo").eq(1).attr("alt", data.sleszynskiAlt);
+        $(".projects__photo").eq(2).attr("alt", data.todoAlt);
+        $(".projects__photo").eq(3).attr("alt", data.interiorv1Alt);
+        $(".projects__photo").eq(4).attr("alt", data.dobrywebdevAlt);
+        $(".projects__photo").eq(5).attr("alt", data.cvAlt);
+        $(".projects__photo").eq(6).attr("alt", data.interactiveAlt);
+        $(".projects__photo").eq(7).attr("alt", data.formAlt);
     });
 });
 

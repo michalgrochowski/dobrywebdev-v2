@@ -26,11 +26,10 @@
     }
     @include mq-minmax(851px, 1010px) {
         width: 60%;
-        margin-left: 10%;
+        margin-left: auto;
     }
     @include mq-minmax(1011px, 1649px) {
         width: 65%;
-        margin-left: 5%;
     }
     @include mq-min(1650px) {
         width: 40%;
@@ -56,6 +55,8 @@
     padding: 1rem;
     font-weight: bold;
     letter-spacing: 0.2rem;
+    @include flex-center-row;
+    justify-content: top;
 }
 
 .nav__item--mobile {

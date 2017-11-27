@@ -39,7 +39,7 @@
     ],
     "theme_color": "#333333",
     "background_color": "#333333",
-    "start_url": "http://dobrywebdev.pl",
+    "start_url": "https://dobrywebdev.pl",
     "display": "standalone",
     "orientation": "portrait"
 }

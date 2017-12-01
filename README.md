@@ -14,5 +14,6 @@ Cool features:
 - Language changes via AJAX and JSON files with specific texts,
 - Form validation made using RegExp with jQuery without any external library,
 - Based on a time of day you get a different welcome text and loading overlay background color.
+- In v3.0 I've turned this website to PWA and now it is even faster than before - quite cool if you ask me. 
 
 Live: http://dobrywebdev.pl

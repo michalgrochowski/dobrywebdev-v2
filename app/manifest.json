@@ -1,5 +1,6 @@
 {
     "name": "DobryWebdev",
+    "start_url": "./index.html",
     "icons": [
         {
             "src": "/android-chrome-36x36.png",
@@ -39,7 +40,6 @@
     ],
     "theme_color": "#333333",
     "background_color": "#333333",
-    "start_url": "https://dobrywebdev.pl",
     "display": "standalone",
     "orientation": "portrait"
 }

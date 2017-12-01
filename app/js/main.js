@@ -1,6 +1,6 @@
 (function(){
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('js/serviceworker.js').then(function(registration) {
+        navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
           console.log('ServiceWorker registration successful!');
         }).catch(function(err) {
           console.log('ServiceWorker registration failed: ', err);
@@ -364,6 +364,8 @@ $(".langENG").on("click", function() {
         $(".aboutDescription").text(data.aboutDescription);
         $(".skillsSubtitle").text(data.skillsSubtitle);
         $(".projectsTitle").text(data.projectsTitle);
+        $(".weatherDescription").text(data.weatherDescription);
+        $(".challengeDescription").text(data.challengeDescription);
         $(".interiorDescription").text(data.interiorDescription);
         $(".sleszynskiDescription").text(data.sleszynskiDescription);
         $(".todoDescription").text(data.todoDescription);
@@ -445,6 +447,8 @@ $(".langPL").on("click", function() {
         $(".aboutDescription").text(data.aboutDescription);
         $(".skillsSubtitle").text(data.skillsSubtitle);
         $(".projectsTitle").text(data.projectsTitle);
+        $(".weatherDescription").text(data.weatherDescription);
+        $(".challengeDescription").text(data.challengeDescription);
         $(".interiorDescription").text(data.interiorDescription);
         $(".sleszynskiDescription").text(data.sleszynskiDescription);
         $(".todoDescription").text(data.todoDescription);

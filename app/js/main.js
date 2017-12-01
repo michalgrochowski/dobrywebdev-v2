@@ -390,8 +390,9 @@ $(".langENG").on("click", function() {
         $(".form__button").attr("value", data.sendButton);
         $(".cookie-info__text").text(data.cookies);
         //Main title
-        $(".projects__title").eq(2).text(data.todoMaintitle);
-        $(".projects__title").eq(7).text(data.formMaintitle);
+        $(".projects__title").eq(0).text(data.weatherMaintitle);
+        $(".projects__title").eq(4).text(data.todoMaintitle);
+        $(".projects__title").eq(9).text(data.formMaintitle);
         // Projects links titles
         $(".projects__link").eq(0).attr("title", data.weatherTitle);
         $(".projects__link").eq(1).attr("title", data.weatherCode);
@@ -473,8 +474,9 @@ $(".langPL").on("click", function() {
         $(".form__button").attr("value", data.sendButton);
         $(".cookie-info__text").text(data.cookies);
         //Main title
-        $(".projects__title").eq(2).text(data.todoMaintitle);
-        $(".projects__title").eq(7).text(data.formMaintitle);
+        $(".projects__title").eq(0).text(data.weatherMaintitle);
+        $(".projects__title").eq(4).text(data.todoMaintitle);
+        $(".projects__title").eq(9).text(data.formMaintitle);
         // Projects links titles
         $(".projects__link").eq(0).attr("title", data.weatherTitle);
         $(".projects__link").eq(1).attr("title", data.weatherCode);

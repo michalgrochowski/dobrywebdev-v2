@@ -14,6 +14,7 @@
     "aboutDescription": "Tworzeniem stron internetowych zajmuję się stosunkowo od niedawna i wszystkiego uczę się sam przy pomocy książek, kursów internetowych i rozmaitych stron o tematyce front-endu. Z wykształcenia jestem technikiem informatykiem. Szybko się uczę i jestem głodny wiedzy, a wszystkie zlecone zadania oraz własne projekty staram się wykonywać najlepiej jak potrafię.",
     "skillsSubtitle": "W swoich projektach korzystam z:",
     "projectsTitle": "Projekty",
+    "weatherMaintitle": "Prosta aplikacja pogodowa",
     "weatherDescription": "Prosta aplikacja pokazująca aktualną pogodę na podstawie lokalizacji GPS lub wprowadzonej nazwy miasta, stworzona w HTML, CSS i czystym JavaScripcie (ES6). Dane pogodowe dostarcza Open Weather Map API. Typ aplikacji to PWA (100% w Lighthouse).",
     "weatherAlt": "Screenshot strony głównej Prostej aplikacji pogodowej",
     "weatherTitle": "Zobacz Prostą aplikację pogodową",

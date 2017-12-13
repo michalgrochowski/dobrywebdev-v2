@@ -66,7 +66,7 @@ self.addEventListener("activate", event => {
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames
-          .filter(name => name.includes("simple-weather") && name !== CACHE_NAME)
+          .filter(name => name.includes("dobrywebdev") && name !== CACHE_NAME)
           .map(name => caches.delete(name))
       )
     }).then(() => self.clients.claim())

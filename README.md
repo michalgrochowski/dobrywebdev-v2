@@ -16,4 +16,4 @@ Cool features:
 - Based on a time of day you get a different welcome text and loading overlay background color.
 - In v3.0 I've turned this website to PWA and now it is even faster than before - quite cool if you ask me. 
 
-Live: http://dobrywebdev.pl
+Live: https://dobrywebdev.pl

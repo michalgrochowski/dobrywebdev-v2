@@ -29,10 +29,10 @@
         projects.owlCarousel({
         navSpeed: 700,
         dots: false,
-        touchDrag: true,
+        touchDrag: false,
         mouseDrag: false,
-        pullDrag: true,
-        freeDrag: true,
+        pullDrag: false,
+        freeDrag: false,
         items: 1,
         slideBy: 1,
     });

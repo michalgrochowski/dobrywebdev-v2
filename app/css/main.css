@@ -1299,6 +1299,14 @@ body {
   overflow-x: hidden;
   overflow-y: hidden; }
 
+.ios-wrapper {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  -webkit-overflow-scrolling: touch; }
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;

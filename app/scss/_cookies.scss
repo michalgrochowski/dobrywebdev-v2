@@ -1,12 +1,13 @@
 .cookie-info {
     position: fixed;
-    bottom: 4rem;
+    bottom: 3rem;
     z-index: 5;
     border-radius: 1rem;
     padding: 0 2rem 0 2rem;
     @include mq-max(600px) {
         width: 90%;
         right: 5%;
+        bottom: 2rem;
     }
     @include mq-minmax(601px, 1000px) {
         width: 40rem;
@@ -15,7 +16,7 @@
     }
     @include mq-min(1001px) {
         width: 35rem;
-        right: 2rem;
+        right: 3rem;
     }
 }
 

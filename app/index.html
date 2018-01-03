@@ -22,8 +22,8 @@
 	<!-- Open Graph properties -->
 	<meta property="og:title" content="Dobrywebdev.pl - Michał Grochowski">
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://dobrywebdev.pl">
-	<meta property="og:image" content="http://dobrywebdev.pl/img/dobrywebdevfb.png">
+	<meta property="og:url" content="https://dobrywebdev.pl">
+	<meta property="og:image" content="https://dobrywebdev.pl/img/dobrywebdevfb.png">
 	<meta property="og:description" content="Portfolio prac Front-End Developera Michała Grochowskiego.">
 	<!-- Twitter cards -->
 	<meta name="twitter:card" content="summary">
@@ -46,8 +46,12 @@
 	<meta name="msapplication-TileImage" content="/mstile-144x144.png">
 	<meta name="theme-color" content="#272a33">
 </head>
-<!-- camelCased classes are not for styling, they serve only as hooks in JS -->
+<!-- camelCased classes are not for styling, they serve only as hooks in JS for swicthing language -->
 <body id="body" class="body light-theme"> 
+	<div class="body-border body-border--top dark-theme"></div>
+	<div class="body-border body-border--bottom dark-theme"></div>
+	<div class="body-border body-border--left dark-theme"></div>
+	<div class="body-border body-border--right dark-theme"></div>
 	<div class="overlay" aria-hidden="true">
 		<p class="overlay__text"></p>
 	</div>
@@ -110,8 +114,9 @@
 		<section class="section" id="about">
 			<h2 class="section__title aboutTitle">O mnie</h2>
 			<p class="section__subtitle aboutSubtitle">Nazywam się Michał Grochowski</p>
-			<p class="section__description aboutDescription">Tworzeniem stron internetowych zajmuję się stosunkowo od niedawna i wszystkiego uczę się sam przy pomocy książek, kursów internetowych i rozmaitych stron o tematyce front-endu. Z wykształcenia jestem technikiem informatykiem. Szybko się uczę i jestem głodny wiedzy, a wszystkie zlecone zadania oraz własne projekty staram się wykonywać najlepiej jak potrafię.</p>
-			<p class="section__subtitle skillsSubtitle">W swoich projektach korzystam z:</p>
+			<p class="section__description aboutDescription">I jestem <span id="myAge"></span> letnim Front-end developerem z Warszawy. Tworzenie stron i aplikacji internetowych od zawsze mnie fascynowało, dlatego też postanowiłem przekształcić to zainteresowanie w karierę. Mimo zdobycia sporej wiedzy w stosunkowo krókim czasie nie spoczywam na laurach i nieustannie staram się rozwijać, co pozwala mi pisać co raz lepszy kod i tworzyć bardziej skomplikowane projekty. Jestem ogromnym fanem metodologii BEM, semantyki i płaskiej specyficzności, a w designie stron internetowych preferuję minimalizm i prostotę od fajerwerków i zbędnych animacji.</p>
+			<p class="section__description aboutCooperation">Moje projekty znajdziesz w zakładce "Projekty", a jeśli jesteś zainteresowany/a współpracą, przejdź do sekcji "Kontakt".</p>
+			<p class="section__subtitle skillsSubtitle">Na co dzień w swoich projektach korzystam z:</p>
 			<ul class="skills">
 				<li class="skills__skill">
 					<span class="devicons devicons-html5" aria-hidden="true"></span>
@@ -174,7 +179,7 @@
 					<img class="projects__photo" src="img/interior.png" alt="Screenshot strony głównej Interiorideas.pl">
 					<h3 class="projects__title">interiorideas.pl</h3>
 					<p class="projects__description interiorDescription">Strona wykonana według projektu klienta, stworzona przy użyciu HTML5, CSS3 i jQuery. Za responsywność odpowiada w pełni Flexbox. Dodatkowo użyte pluginy: Lightbox.js.</p>
-					<a class="projects__link projectLive" href="http://interiorideas.pl/test" title="Zobacz interiorideas.pl" target="_blank">Zobacz projekt</a>
+					<a class="projects__link projectLive" href="http://interiorideas.pl" title="Zobacz interiorideas.pl" target="_blank">Zobacz projekt</a>
 				</section>
 				<section class="projects__project">
 					<img class="projects__photo" src="img/sleszynski.png" alt="Screenshot strony głównej msleszynski.pl">
@@ -277,7 +282,7 @@
 		</section>
 	</main>
 	<footer id="footer" class="footer light-theme">
-		<p class="footer__copyright">&copy; 2017 Michał Grochowski -  <a class="footer__link" href="http://dobrywebdev.pl">dobrywebdev.pl</a></p>
+		<p class="footer__copyright">&copy; <span id="footer__year"></span> Michał Grochowski -  <a class="footer__link" href="http://dobrywebdev.pl">dobrywebdev.pl</a></p>
 	</footer>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<!--build:js js/main.min.js -->
@@ -292,5 +297,6 @@
 	ga('create', 'UA-87019136-1', 'auto');
 	ga('send', 'pageview');
 	</script>
+	</div>
 </body>
 </html>

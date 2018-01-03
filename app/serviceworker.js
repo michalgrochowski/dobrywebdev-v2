@@ -44,7 +44,6 @@ const URLS_TO_CACHE  = [
     "/apple-touch-icon-152x152.png",
     "/apple-touch-icon-180x180.png",
     "/browserconfig.xml",
-    "/favicon.ico",
     "/favicon-16x16.png",
     "/favicon-32x32.png",
     "/mstile-150x150.png",

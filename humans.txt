@@ -1,7 +1,7 @@
 /* TEAM */
 	Author: Michał Grochowski
 	Contact: michal[at]dobrywebdev.pl
-    Website: http://dobrywebdev.pl
+    Website: https://dobrywebdev.pl
 	Twitter: @dobrywebdev
 	From: Warsaw, Poland
 

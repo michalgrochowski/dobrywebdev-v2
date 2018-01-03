@@ -4,7 +4,7 @@
     @include flex-center-row;
     width: 100vw;
     max-width: 100vw;
-    height: 6rem;
+    height: 8rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -14,6 +14,7 @@
 .nav__logo {
     width: 15rem;
     border-bottom: none;
+    margin: 1rem 0 0 1.5rem;
 }
 
 .nav__list {
@@ -70,6 +71,55 @@
 
 .nav__link {
     text-decoration: none;
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 100%;
+        right: 50%;
+        transform: tranlateX(50%);
+        height: 2px;
+        width: 0;
+        transition: all 0.3s;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 100%;
+        left: 50%;
+        transform: tranlateX(-50%);
+        height: 2px;
+        width: 0;
+        transition: all 0.3s;
+    }
+    &:hover::before, &:focus::before {
+        width: 55%;
+        transition: all 0.3s;
+    }
+    &:hover::after, &:focus::after {
+        width: 55%;
+        transition: all 0.3s;
+    }
+}
+
+.nav__link.light-theme--link {
+    &::before {
+        background-color: #555555;
+    }
+    &::after {
+        background-color: #555555;
+    }
+}
+
+.nav__link.dark-theme--link {
+    &::before {
+        background-color: #cccccc;
+    }
+    &::after {
+        background-color: #cccccc;
+    }
 }
 
 .nav__link--mobile {

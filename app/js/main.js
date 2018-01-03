@@ -42,6 +42,7 @@
 
 $(window).on("load", function() {
     checkTime();
+    howOldAmI();
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
     $(".cookie__close")
@@ -63,6 +64,10 @@ $(window).on("load", function() {
     }  else if (localStorage.getItem("icon") !== null) {
     $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
     $(".icon--theme").attr("class", JSON.parse(localStorage.getItem("icon")));
+    $(".body-border--top").attr("class", JSON.parse(localStorage.getItem("bodyBorderTop")));
+    $(".body-border--bottom").attr("class", JSON.parse(localStorage.getItem("bodyBorderBottom")));
+    $(".body-border--left").attr("class", JSON.parse(localStorage.getItem("bodyBorderLeft")));
+    $(".body-border--right").attr("class", JSON.parse(localStorage.getItem("bodyBorderRight")));
     $(".section").attr("class", JSON.parse(localStorage.getItem("section")));
     $(".nav").attr("class", JSON.parse(localStorage.getItem("nav")));
     $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
@@ -275,6 +280,7 @@ $(".nav__link--start").on("click", function(){
 $(".button--theme").on("click", function(){
     window.localStorage.clear();
     $(".icon--theme").toggleClass("icon-moon icon-sun");
+    $(".body-border").toggleClass("light-theme dark-theme");
     $(".section").toggleClass("light-theme dark-theme");
     $(".nav").toggleClass("light-theme dark-theme");
     $(".footer").toggleClass("light-theme dark-theme");
@@ -304,6 +310,10 @@ $(".button--theme").on("click", function(){
     $(".cookie-info__close").css("border-bottom", "none");
     // Items for localStorage
     localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
+    localStorage.setItem("bodyBorderTop", JSON.stringify($(".body-border--top").attr("class")));
+    localStorage.setItem("bodyBorderBottom", JSON.stringify($(".body-border--bottom").attr("class")));
+    localStorage.setItem("bodyBorderLeft", JSON.stringify($(".body-border--left").attr("class")));
+    localStorage.setItem("bodyBorderRight", JSON.stringify($(".body-border--right").attr("class")));
     localStorage.setItem("section", JSON.stringify($(".section").attr("class")));
     localStorage.setItem("nav", JSON.stringify($(".nav").attr("class")));
     localStorage.setItem("footer", JSON.stringify($(".footer").attr("class")));
@@ -361,7 +371,9 @@ $(".langENG").on("click", function() {
         $(".mainSubtitle").text(data.mainSubtitle);
         $(".aboutTitle").text(data.aboutTitle);
         $(".aboutSubtitle").text(data.aboutSubtitle);
-        $(".aboutDescription").text(data.aboutDescription);
+        $(".aboutDescription").html(data.aboutDescription);
+        howOldAmI();
+        $(".aboutCooperation").text(data.aboutCooperation);
         $(".skillsSubtitle").text(data.skillsSubtitle);
         $(".projectsTitle").text(data.projectsTitle);
         $(".weatherDescription").text(data.weatherDescription);
@@ -445,7 +457,9 @@ $(".langPL").on("click", function() {
         $(".mainSubtitle").text(data.mainSubtitle);
         $(".aboutTitle").text(data.aboutTitle);
         $(".aboutSubtitle").text(data.aboutSubtitle);
-        $(".aboutDescription").text(data.aboutDescription);
+        $(".aboutDescription").html(data.aboutDescription);
+        howOldAmI();
+        $(".aboutCooperation").text(data.aboutCooperation);
         $(".skillsSubtitle").text(data.skillsSubtitle);
         $(".projectsTitle").text(data.projectsTitle);
         $(".weatherDescription").text(data.weatherDescription);
@@ -587,4 +601,32 @@ $(function() {
         }
     });
 });
+
+// Copyright year in the footer and my age in "About" section
+
+(function getCurrentYear() {
+    var currentDate = new Date();
+    var currentYear = currentDate.getFullYear();
+    var footerYear = document.getElementById("footer__year");
+    footerYear.innerText = currentYear;
+})();
+
+// Get my current age and display it in "About" section
+
+function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+function howOldAmI() {
+    var myAge = document.getElementById("myAge");
+    myAge.innerText = getAge("1991/05/16");
+}
+
 })();

@@ -24,7 +24,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1; }
+  z-index: 5; }
 
 .nav__logo {
   width: 15rem;
@@ -540,7 +540,8 @@
   left: 0;
   width: 100vw;
   max-width: 100vw;
-  min-height: 5rem; }
+  min-height: 5rem;
+  z-index: 5; }
 
 .footer__copyright {
   font-size: 1.2rem;
@@ -1239,15 +1240,14 @@
 
 .cookie-info {
   position: fixed;
-  bottom: 3rem;
+  bottom: 5.5rem;
   z-index: 5;
   border-radius: 1rem;
   padding: 0 2rem 0 2rem; }
   @media screen and (max-width: 600px) {
     .cookie-info {
       width: 90%;
-      right: 5%;
-      bottom: 2rem; } }
+      right: 5%; } }
   @media screen and (min-width: 601px) and (max-width: 1000px) {
     .cookie-info {
       width: 40rem;
@@ -1286,8 +1286,7 @@ html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   max-width: 100vw;
-  overflow-x: hidden;
-  overflow-y: hidden; }
+  overflow-x: hidden; }
 
 body {
   -webkit-box-sizing: border-box;
@@ -1297,15 +1296,16 @@ body {
   max-width: 100vw;
   min-height: 100vh;
   overflow-x: hidden;
-  overflow-y: hidden; }
+  position: relative; }
 
-.ios-wrapper {
+.overflow-on {
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+.overflow-off {
   overflow-x: hidden;
   overflow-y: hidden;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  -webkit-overflow-scrolling: touch; }
+  overflow: hidden; }
 
 .container {
   display: -webkit-box;
@@ -1387,10 +1387,26 @@ body {
   flex-grow: 0;
   width: 100vw;
   max-width: 100vw;
-  min-height: 100vh; }
+  min-height: 100vh;
+  position: absolute;
+  z-index: 1;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all; }
   @media screen and (max-width: 800px) {
     .section {
-      padding: 5rem 0 2rem 0; } }
+      padding-top: 8rem; } }
+  .section--start {
+    top: 0;
+    left: 0; }
+  .section--about {
+    top: 0;
+    left: 100vw; }
+  .section--projects {
+    top: 0;
+    left: 200vw; }
+  .section--contact {
+    top: 0;
+    left: 300vw; }
 
 .section__title {
   font-size: 4rem; }
@@ -1576,6 +1592,9 @@ body {
   @media screen and (min-width: 600px) {
     .overlay__text {
       letter-spacing: 0.7rem; } }
+  @media screen and (max-width: 800px) {
+    .overlay__text {
+      font-size: 4rem; } }
 
 .button {
   background-color: transparent;

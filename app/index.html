@@ -47,8 +47,7 @@
 	<meta name="theme-color" content="#272a33">
 </head>
 <!-- camelCased classes are not for styling, they serve only as hooks in JS for swicthing language -->
-<body id="body" class="body light-theme"> 
-	<div class="ios-wrapper">
+<body id="body" class="body overflow-off"> 
 	<div class="body-border body-border--top dark-theme"></div>
 	<div class="body-border body-border--bottom dark-theme"></div>
 	<div class="body-border body-border--left dark-theme"></div>
@@ -107,12 +106,12 @@
 		<p class="cookie-info__text">Ta strona korzysta z plików cookies oraz localStorage twojej przeglądarki do przechowywania ustawień oraz prowadzenia statystyk odzwiedzin. Jeśli nie wyrażasz na to zgody, ustawienia dotyczące plików cookies możesz zmienić w swojej przeglądarce.</p>
 		<button class="cookie-info__close icon-cancel dark-theme--link dark-outline" tabindex="0"></button>
 	</div>
-	<main class="container owl-carousel owl-theme">
-		<header class="section light-theme" id="start">
+	<main class="container">
+		<header class="section section--start light-theme" id="start">
 			<h1 class="section__title--start mainTitle fade-in">Michał Grochowski</h1>
 			<p class="section__subtitle--start mainSubtitle fade-in">Front-end Developer</p>
 		</header>
-		<section class="section" id="about">
+		<section class="section section--about light-theme" id="about">
 			<h2 class="section__title aboutTitle">O mnie</h2>
 			<p class="section__subtitle aboutSubtitle">Nazywam się Michał Grochowski</p>
 			<p class="section__description aboutDescription">I jestem <span id="myAge"></span> letnim Front-end developerem z Warszawy. Tworzenie stron i aplikacji internetowych od zawsze mnie fascynowało, dlatego też postanowiłem przekształcić to zainteresowanie w karierę. Mimo zdobycia sporej wiedzy w stosunkowo krótkim czasie nie spoczywam na laurach i nieustannie staram się rozwijać, co pozwala mi pisać co raz lepszy kod i tworzyć bardziej skomplikowane projekty. Jestem ogromnym fanem metodologii BEM, semantyki i płaskiej specyficzności, a w designie stron internetowych preferuję minimalizm i prostotę od fajerwerków i zbędnych animacji.</p>
@@ -153,7 +152,7 @@
 				</li>
 			</ul>
 		</section>
-		<section class="section" id="projects">
+		<section class="section section--projects light-theme" id="projects">
 			<h2 class="section__title section__title--projects projectsTitle">Projekty</h2>
 			<nav class="projects__nav">
 				<ul class="projects__nav-list">
@@ -231,7 +230,7 @@
 				</section>
 			</div>
 		</section>
-		<section class="section" id="contact">
+		<section class="section section--contact light-theme" id="contact">
 			<h2 class="section__title contactTitle">Kontakt</h2>
 			<div class="contact">
 				<form class="form" action="formularz.php" method="POST">
@@ -298,7 +297,6 @@
 	ga('create', 'UA-87019136-1', 'auto');
 	ga('send', 'pageview');
 	</script>
-	</div>
 	</div>
 </body>
 </html>

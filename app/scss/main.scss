@@ -23,7 +23,6 @@ html {
     box-sizing: border-box;
     max-width: 100vw;
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 body {
@@ -33,16 +32,18 @@ body {
     max-width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
-    overflow-y: hidden;
+    position: relative;
 }
 
-.ios-wrapper {
+.overflow-on {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.overflow-off {
     overflow-x: hidden;
     overflow-y: hidden;
     overflow: hidden;
-    height: 100%;
-    width: 100%;
-    -webkit-overflow-scrolling: touch;
 }
 
 // Main layout
@@ -102,8 +103,27 @@ body {
     width: 100vw;
     max-width: 100vw;
     min-height: 100vh;
+    position: absolute;
+    z-index: 1;
+    transition: 0.3s all;
     @include mq-max(800px) {
-        padding: 5rem 0 2rem 0;
+        padding-top: 8rem;
+    }
+    &--start {
+        top: 0;
+        left: 0;
+    }
+    &--about {
+        top: 0;
+        left: 100vw;
+    }
+    &--projects {
+        top: 0;
+        left: 200vw;
+    }
+    &--contact {
+        top: 0;
+        left: 300vw;
     }
 }
 
@@ -231,6 +251,9 @@ body {
     animation: overlay-text 2s;
     @include mq-min(600px) {
         letter-spacing: 0.7rem;
+    }
+    @include mq-max(800px) {
+        font-size: 4rem;
     }
 }
 

@@ -8,29 +8,13 @@
     }
 
     var projects = $(".projects");
-    var container = $(".container");
-
     // OwlCarousel settings
     $(function() {
-        container.owlCarousel({
-        nav: false,
-        dots: false,
-        navSpeed: 700,
-        infinite: false,
-        rewind: false,
-        loop: false,
-        items: 1,
-        slideBy: 1,
-        touchDrag: false,
-        mouseDrag: false,
-        pullDrag: false,
-        freeDrag: false
-    });
         projects.owlCarousel({
         navSpeed: 700,
         dots: false,
-        touchDrag: false,
-        mouseDrag: false,
+        touchDrag: true,
+        mouseDrag: true,
         pullDrag: false,
         freeDrag: false,
         items: 1,
@@ -45,36 +29,33 @@ $(window).on("load", function() {
     howOldAmI();
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
-    $(".cookie__close")
     if (window.location.hash === "#start" || window.location.hash === "") {
         overflowOff();
-        showStart();
     } else if (window.location.hash === "#about") {
         overflowOn();
-        showAbout();
     } else if (window.location.hash === "#projects") {
         overflowOn();
-        showProjects();
     } else if (window.location.hash === "#contact") {
         overflowOn();
-        showContact();
-    } 
+    }
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
         return;
-    }  else if (localStorage.getItem("icon") !== null) {
+    } else if (localStorage.getItem("icon") !== null) {
     $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
     $(".icon--theme").attr("class", JSON.parse(localStorage.getItem("icon")));
     $(".body-border--top").attr("class", JSON.parse(localStorage.getItem("bodyBorderTop")));
     $(".body-border--bottom").attr("class", JSON.parse(localStorage.getItem("bodyBorderBottom")));
     $(".body-border--left").attr("class", JSON.parse(localStorage.getItem("bodyBorderLeft")));
     $(".body-border--right").attr("class", JSON.parse(localStorage.getItem("bodyBorderRight")));
-    $(".section").attr("class", JSON.parse(localStorage.getItem("section")));
+    $(".section--start").attr("class", JSON.parse(localStorage.getItem("sectionStart")));
+    $(".section--about").attr("class", JSON.parse(localStorage.getItem("sectionAbout")));
+    $(".section--projects").attr("class", JSON.parse(localStorage.getItem("sectionProjects")));
+    $(".section--contact").attr("class", JSON.parse(localStorage.getItem("sectionContact")));
     $(".nav").attr("class", JSON.parse(localStorage.getItem("nav")));
     $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
     $(".nav__hamburger").attr("class", JSON.parse(localStorage.getItem("hamburger")));
     $(".nav__close-menu").attr("class", JSON.parse(localStorage.getItem("closemenu")));
     $(".nav__list--mobile").attr("class", JSON.parse(localStorage.getItem("mobilelist")));
-    $("body").attr("class", JSON.parse(localStorage.getItem("body")));
     $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
     $(".projects__prev").attr("class", JSON.parse(localStorage.getItem("projectsPrev")));
     $(".projects__next").attr("class", JSON.parse(localStorage.getItem("projectsNext")));
@@ -95,10 +76,12 @@ $(window).on("load", function() {
         $(".nav__logo").attr("src", "img/logo-light.png");
         $('a').addClass("light-theme--link").removeClass("dark-theme--link");
         $(".nav__link--start").removeClass("light-theme--link");
+        $("body").addClass("light-theme");
     } else if ($("#theme").hasClass("icon-sun")) {
         $(".nav__logo").attr("src", "img/logo-dark.png");
         $('a').addClass("dark-theme--link").removeClass("light-theme--nav-link");
         $(".nav__link--start").removeClass("dark-theme--link");
+        $("body").addClass("dark-theme");
     }
     if ($(".langENG").hasClass("button--lang--active")) {
         $(".langENG").removeClass("button--lang--active");
@@ -126,45 +109,17 @@ function checkTime() {
 // Smaller functions
 
 function overflowOn() {
-    $("body").css("overflow-x", "hidden");
-    $("body").css("overflow-y", "auto");
-    $("html").css("overflow-x", "hidden");
-    $("html").css("overflow-y", "auto");
+    $("body").removeClass("overflow-off");
+    $("html").removeClass("overflow-off");
+    $("body").addClass("overflow-on");
+    $("html").addClass("overflow-on");
 }
 
 function overflowOff() {
-    $("body").css("overflow-x", "hidden");
-    $("body").css("overflow-y", "hidden");
-    $("html").css("overflow-x", "hidden");
-    $("html").css("overflow-y", "hidden");
-}
-
-function showStart() {
-    $("#start").css("visibility", "visible");
-    $("#about").css("visibility", "hidden");
-    $("#projects").css("visibility", "hidden");
-    $("#contact").css("visibility", "hidden");
-}
-
-function showAbout() {
-    $("#start").css("visibility", "hidden");
-    $("#about").css("visibility", "visible");
-    $("#projects").css("visibility", "hidden");
-    $("#contact").css("visibility", "hidden");
-}
-
-function showProjects() {
-    $("#start").css("visibility", "hidden");
-    $("#about").css("visibility", "hidden");
-    $("#projects").css("visibility", "visible");
-    $("#contact").css("visibility", "hidden");
-}
-
-function showContact() {
-    $("#start").css("visibility", "hidden");
-    $("#about").css("visibility", "hidden");
-    $("#projects").css("visibility", "hidden");
-    $("#contact").css("visibility", "visible");
+    $("body").removeClass("overflow-on");
+    $("html").removeClass("overflow-on");
+    $("body").addClass("overflow-off");
+    $("html").addClass("overflow-off");
 }
 
 function stopOwlPropagation(element) {
@@ -178,7 +133,6 @@ function stopOwlPropagation(element) {
 // Additional OwlCarousel functions
 
 stopOwlPropagation(projects);
-stopOwlPropagation(container);
 
 $('.projects__next').click(function() {
     projects.trigger('next.owl.carousel', [300]);
@@ -202,20 +156,6 @@ projects.on("translated.owl.carousel", function(){
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
 })
-
-// Showing and hiding specific sections so the others can't be reached with keyboard
-
-$(window).on("hashchange", function(){
-    if (window.location.hash === "#start" || window.location.hash === "") {
-        showStart();
-    } else if (window.location.hash === "#about") {
-        showAbout();
-    } else if (window.location.hash === "#projects") {
-        showProjects();
-    } else if (window.location.hash === "#contact") {
-        showContact();
-    }
-});
 
 // Turn on or off overflow-x depending on current hash
 
@@ -314,13 +254,15 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("bodyBorderBottom", JSON.stringify($(".body-border--bottom").attr("class")));
     localStorage.setItem("bodyBorderLeft", JSON.stringify($(".body-border--left").attr("class")));
     localStorage.setItem("bodyBorderRight", JSON.stringify($(".body-border--right").attr("class")));
-    localStorage.setItem("section", JSON.stringify($(".section").attr("class")));
+    localStorage.setItem("sectionStart", JSON.stringify($(".section--start").attr("class")));
+    localStorage.setItem("sectionAbout", JSON.stringify($(".section--about").attr("class")));
+    localStorage.setItem("sectionProjects", JSON.stringify($(".section--projects").attr("class")));
+    localStorage.setItem("sectionContact", JSON.stringify($(".section--contact").attr("class")));
     localStorage.setItem("nav", JSON.stringify($(".nav").attr("class")));
     localStorage.setItem("footer", JSON.stringify($(".footer").attr("class")));
     localStorage.setItem("hamburger", JSON.stringify($(".nav__hamburger").attr("class")));
     localStorage.setItem("closemenu", JSON.stringify($(".nav__close-menu").attr("class")));
     localStorage.setItem("mobilelist", JSON.stringify($(".nav__list--mobile").attr("class")));
-    localStorage.setItem("body", JSON.stringify($("body").attr("class")));
     localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));
     localStorage.setItem("projectsPrev", JSON.stringify($(".projects__prev").attr("class")));
     localStorage.setItem("projectsNext", JSON.stringify($(".projects__next").attr("class")));

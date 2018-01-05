@@ -22,6 +22,32 @@
     });
 });    
 
+// Extension to jQuery taken directly from jQuery UI
+
+$.extend($.expr[':'], {
+    data: function(elem, i, match) {
+        return !!$.data(elem, match[3]);
+    },
+  
+    focusable: function(element) {
+        var nodeName = element.nodeName.toLowerCase(),
+            tabIndex = $.attr(element, 'tabindex');
+        return (/input|select|textarea|button|object/.test(nodeName)
+        ? !element.disabled
+        : 'a' == nodeName || 'area' == nodeName
+            ? element.href || !isNaN(tabIndex)
+            : !isNaN(tabIndex))
+        // the element and all of its ancestors must be visible
+        // the browser may report that the area is hidden
+        && !$(element)['area' == nodeName ? 'parents' : 'closest'](':hidden').length;
+    },
+  
+    tabbable: function(element) {
+        var tabIndex = $.attr(element, 'tabindex');
+        return (isNaN(tabIndex) || tabIndex >= 0) && $(element).is(':focusable');
+    }
+});
+
 // Main function that loads theme settings from localStorage, displays welcome text and block projects links,
 
 $(window).on("load", function() {
@@ -120,35 +146,40 @@ function overflowOff() {
 }
 
 function showStart() {
-    $("#start").removeClass("visuallyhidden");
-    $("#about").addClass("visuallyhidden");
-    $("#projects").addClass("visuallyhidden");
-    $("#contact").addClass("visuallyhidden");
+    $("#start").removeClass("visuallyhidden--section");
+    $("#about").addClass("visuallyhidden--section");
+    $("#projects").addClass("visuallyhidden--section");
+    $("#contact").addClass("visuallyhidden--section");
 }
 
 function showAbout() {
-    $(".section--about").addClass(".fade-in-short");
-    $("#start").addClass("visuallyhidden");
-    $("#about").removeClass("visuallyhidden");
-    $("#projects").addClass("visuallyhidden");
-    $("#contact").addClass("visuallyhidden");
+    $("#start").addClass("visuallyhidden--section");
+    $("#about").removeClass("visuallyhidden--section");
+    $("#projects").addClass("visuallyhidden--section");
+    $("#contact").addClass("visuallyhidden--section");
+    console.log($("#projects").children(":focusable"));
+    $("#projects").children("*:focusable").disableTab();
 }
 
 function showProjects() {
-    $(".section--projects").addClass(".fade-in-short");
-    $("#start").addClass("visuallyhidden");
-    $("#about").addClass("visuallyhidden");
-    $("#projects").removeClass("visuallyhidden");
-    $("#contact").addClass("visuallyhidden");
+    $("#start").addClass("visuallyhidden--section");
+    $("#about").addClass("visuallyhidden--section");
+    $("#projects").removeClass("visuallyhidden--section");
+    $("#contact").addClass("visuallyhidden--section");
 }
 
 function showContact() {
-    $(".section--contact").addClass(".fade-in-short");
-    $("#start").addClass("visuallyhidden");
-    $("#about").addClass("visuallyhidden");
-    $("#projects").addClass("visuallyhidden");
-    $("#contact").removeClass("visuallyhidden");
+    $("#start").addClass("visuallyhidden--section");
+    $("#about").addClass("visuallyhidden--section");
+    $("#projects").addClass("visuallyhidden--section");
+    $("#contact").removeClass("visuallyhidden--section");
 }
+
+$.prototype.disableTab = function() {
+    this.each(function() {
+        $(this).attr('tabindex', '-1');
+    });
+};
 
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
@@ -215,6 +246,14 @@ $(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
 
 $(".overlay").on("animationend", function(){
     $(this).css("display", "none");
+});
+
+$(".section__title--start").on("animationend", function(){
+    $(this).removeClass("fade-in");
+});
+
+$(".section__subtitle--start").on("animationend", function() {
+    $(this).removeClass("fade-in");
 });
 
 // Check if cookies info was closed before and if so don't show it

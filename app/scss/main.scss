@@ -106,6 +106,8 @@ body {
     top: 0;
     left: 0;
     background-color: inherit;
+    opacity: 1;
+    transition: 0.5s opacity;
     @include mq-max(800px) {
         padding-top: 8rem;
     }
@@ -296,8 +298,17 @@ body {
     font-size: 3rem;
 }
 
+@import 'themes.scss';
+
 .visuallyhidden {
-    display: none;
+    position: absolute;
+    height: 1px; 
+    width: 1px; 
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
-@import 'themes.scss';
+.visuallyhidden--section {
+    margin-top: -10000px;
+    opacity: 0.01;
+}

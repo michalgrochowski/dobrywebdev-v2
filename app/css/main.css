@@ -1410,7 +1410,10 @@ body {
   transition: 0.3s all;
   top: 0;
   left: 0;
-  background-color: inherit; }
+  background-color: inherit;
+  opacity: 1;
+  -webkit-transition: 0.5s opacity;
+  transition: 0.5s opacity; }
   @media screen and (max-width: 800px) {
     .section {
       padding-top: 8rem; } }
@@ -1647,9 +1650,6 @@ body {
 .icon-moon, .icon-sun {
   font-size: 3rem; }
 
-.visuallyhidden {
-  display: none; }
-
 .icon--theme {
   cursor: pointer;
   -webkit-transition: background-color 0.5s, color 0.5s;
@@ -1801,3 +1801,14 @@ body {
   color: #ffffff;
   text-indent: 1rem;
   padding: 1rem; }
+
+.visuallyhidden {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px); }
+
+.visuallyhidden--section {
+  margin-top: -10000px;
+  opacity: 0.01; }

@@ -18,7 +18,7 @@
         pullDrag: false,
         freeDrag: false,
         items: 1,
-        slideBy: 1,
+        slideBy: 1
     });
 });    
 
@@ -41,20 +41,17 @@ $(window).on("load", function() {
     } else if (window.location.hash === "#contact") {
         overflowOn();
         showContact();
-    } 
+    }
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
         return;
     } else if (localStorage.getItem("icon") !== null) {
+    $(".container").attr("class", JSON.parse(localStorage.getItem("container")));
     $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
     $(".icon--theme").attr("class", JSON.parse(localStorage.getItem("icon")));
     $(".body-border--top").attr("class", JSON.parse(localStorage.getItem("bodyBorderTop")));
     $(".body-border--bottom").attr("class", JSON.parse(localStorage.getItem("bodyBorderBottom")));
     $(".body-border--left").attr("class", JSON.parse(localStorage.getItem("bodyBorderLeft")));
     $(".body-border--right").attr("class", JSON.parse(localStorage.getItem("bodyBorderRight")));
-    $(".section--start").attr("class", JSON.parse(localStorage.getItem("sectionStart")));
-    $(".section--about").attr("class", JSON.parse(localStorage.getItem("sectionAbout")));
-    $(".section--projects").attr("class", JSON.parse(localStorage.getItem("sectionProjects")));
-    $(".section--contact").attr("class", JSON.parse(localStorage.getItem("sectionContact")));
     $(".nav").attr("class", JSON.parse(localStorage.getItem("nav")));
     $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
     $(".nav__hamburger").attr("class", JSON.parse(localStorage.getItem("hamburger")));
@@ -114,44 +111,43 @@ function checkTime() {
 
 function overflowOn() {
     $("body").removeClass("overflow-off");
-    $("html").removeClass("overflow-off");
     $("body").addClass("overflow-on");
-    $("html").addClass("overflow-on");
 }
 
 function overflowOff() {
     $("body").removeClass("overflow-on");
-    $("html").removeClass("overflow-on");
     $("body").addClass("overflow-off");
-    $("html").addClass("overflow-off");
 }
 
 function showStart() {
-    $("#start").css("visibility", "visible");
-    $("#about").css("visibility", "hidden");
-    $("#projects").css("visibility", "hidden");
-    $("#contact").css("visibility", "hidden");
+    $("#start").removeClass("visuallyhidden");
+    $("#about").addClass("visuallyhidden");
+    $("#projects").addClass("visuallyhidden");
+    $("#contact").addClass("visuallyhidden");
 }
 
 function showAbout() {
-    $("#start").css("visibility", "hidden");
-    $("#about").css("visibility", "visible");
-    $("#projects").css("visibility", "hidden");
-    $("#contact").css("visibility", "hidden");
+    $(".section--about").addClass(".fade-in-short");
+    $("#start").addClass("visuallyhidden");
+    $("#about").removeClass("visuallyhidden");
+    $("#projects").addClass("visuallyhidden");
+    $("#contact").addClass("visuallyhidden");
 }
 
 function showProjects() {
-    $("#start").css("visibility", "hidden");
-    $("#about").css("visibility", "hidden");
-    $("#projects").css("visibility", "visible");
-    $("#contact").css("visibility", "hidden");
+    $(".section--projects").addClass(".fade-in-short");
+    $("#start").addClass("visuallyhidden");
+    $("#about").addClass("visuallyhidden");
+    $("#projects").removeClass("visuallyhidden");
+    $("#contact").addClass("visuallyhidden");
 }
 
 function showContact() {
-    $("#start").css("visibility", "hidden");
-    $("#about").css("visibility", "hidden");
-    $("#projects").css("visibility", "hidden");
-    $("#contact").css("visibility", "visible");
+    $(".section--contact").addClass(".fade-in-short");
+    $("#start").addClass("visuallyhidden");
+    $("#about").addClass("visuallyhidden");
+    $("#projects").addClass("visuallyhidden");
+    $("#contact").removeClass("visuallyhidden");
 }
 
 function stopOwlPropagation(element) {
@@ -165,12 +161,16 @@ function stopOwlPropagation(element) {
 $(window).on("hashchange", function(){
     if (window.location.hash === "#start" || window.location.hash === "") {
         showStart();
+        overflowOff();
     } else if (window.location.hash === "#about") {
         showAbout();
+        overflowOn();
     } else if (window.location.hash === "#projects") {
         showProjects();
+        overflowOn();
     } else if (window.location.hash === "#contact") {
         showContact();
+        overflowOn();
     }
 });
 
@@ -265,7 +265,7 @@ $(".button--theme").on("click", function(){
     window.localStorage.clear();
     $(".icon--theme").toggleClass("icon-moon icon-sun");
     $(".body-border").toggleClass("light-theme dark-theme");
-    $(".section").toggleClass("light-theme dark-theme");
+    $(".container").toggleClass("light-theme dark-theme");
     $(".nav").toggleClass("light-theme dark-theme");
     $(".footer").toggleClass("light-theme dark-theme");
     $('a').toggleClass("light-theme--link dark-theme--link");
@@ -293,15 +293,12 @@ $(".button--theme").on("click", function(){
     $(".projects__link").css("border-bottom", "none");
     $(".cookie-info__close").css("border-bottom", "none");
     // Items for localStorage
+    localStorage.setItem("container", JSON.stringify($(".container").attr("class")));
     localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
     localStorage.setItem("bodyBorderTop", JSON.stringify($(".body-border--top").attr("class")));
     localStorage.setItem("bodyBorderBottom", JSON.stringify($(".body-border--bottom").attr("class")));
     localStorage.setItem("bodyBorderLeft", JSON.stringify($(".body-border--left").attr("class")));
     localStorage.setItem("bodyBorderRight", JSON.stringify($(".body-border--right").attr("class")));
-    localStorage.setItem("sectionStart", JSON.stringify($(".section--start").attr("class")));
-    localStorage.setItem("sectionAbout", JSON.stringify($(".section--about").attr("class")));
-    localStorage.setItem("sectionProjects", JSON.stringify($(".section--projects").attr("class")));
-    localStorage.setItem("sectionContact", JSON.stringify($(".section--contact").attr("class")));
     localStorage.setItem("nav", JSON.stringify($(".nav").attr("class")));
     localStorage.setItem("footer", JSON.stringify($(".footer").attr("class")));
     localStorage.setItem("hamburger", JSON.stringify($(".nav__hamburger").attr("class")));

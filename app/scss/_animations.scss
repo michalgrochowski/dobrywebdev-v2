@@ -62,3 +62,19 @@
         opacity: 0;
     }
 }
+
+.fade-in-short {
+    animation: fade-in-short 1s;
+}
+
+@keyframes fade-in-short {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

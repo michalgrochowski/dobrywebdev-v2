@@ -31,13 +31,17 @@ $(window).on("load", function() {
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
     if (window.location.hash === "#start" || window.location.hash === "") {
         overflowOff();
+        showStart();
     } else if (window.location.hash === "#about") {
         overflowOn();
+        showAbout();
     } else if (window.location.hash === "#projects") {
         overflowOn();
+        showProjects();
     } else if (window.location.hash === "#contact") {
         overflowOn();
-    }
+        showContact();
+    } 
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
         return;
     } else if (localStorage.getItem("icon") !== null) {
@@ -122,6 +126,34 @@ function overflowOff() {
     $("html").addClass("overflow-off");
 }
 
+function showStart() {
+    $("#start").css("visibility", "visible");
+    $("#about").css("visibility", "hidden");
+    $("#projects").css("visibility", "hidden");
+    $("#contact").css("visibility", "hidden");
+}
+
+function showAbout() {
+    $("#start").css("visibility", "hidden");
+    $("#about").css("visibility", "visible");
+    $("#projects").css("visibility", "hidden");
+    $("#contact").css("visibility", "hidden");
+}
+
+function showProjects() {
+    $("#start").css("visibility", "hidden");
+    $("#about").css("visibility", "hidden");
+    $("#projects").css("visibility", "visible");
+    $("#contact").css("visibility", "hidden");
+}
+
+function showContact() {
+    $("#start").css("visibility", "hidden");
+    $("#about").css("visibility", "hidden");
+    $("#projects").css("visibility", "hidden");
+    $("#contact").css("visibility", "visible");
+}
+
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
@@ -129,6 +161,18 @@ function stopOwlPropagation(element) {
     $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
 }
+
+$(window).on("hashchange", function(){
+    if (window.location.hash === "#start" || window.location.hash === "") {
+        showStart();
+    } else if (window.location.hash === "#about") {
+        showAbout();
+    } else if (window.location.hash === "#projects") {
+        showProjects();
+    } else if (window.location.hash === "#contact") {
+        showContact();
+    }
+});
 
 // Additional OwlCarousel functions
 

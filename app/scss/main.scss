@@ -38,12 +38,12 @@ body {
 .overflow-on {
     overflow-x: hidden;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .overflow-off {
     overflow-x: hidden;
     overflow-y: hidden;
-    overflow: hidden;
 }
 
 // Main layout

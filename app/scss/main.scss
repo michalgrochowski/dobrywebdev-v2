@@ -136,16 +136,17 @@ body {
 }
 
 .section__title {
-    font-size: 4rem;
+    font-size: 2.5rem;
+    padding-top: 4rem;
     @include mq-max(800px) {
         width: 95%;
-        font-size: 2.5rem;
+        font-size: 2rem;
         text-align: center;
         padding-top: 1rem;
     }
     @include mq-minmax(801px, 1280px) {
         width: 90%;
-        font-size: 3rem;
+        font-size: 2.2rem;
         text-align: center;
         padding-top: 3.5rem;
     }
@@ -241,7 +242,7 @@ body {
     @include flex-center-row;
     opacity: 0;
     background-color: #ffffff;
-    animation: overlay 2s;
+    animation: overlay 2.5s;
     overflow: hidden;
     &--light {
         background-color: #DBD7CD;
@@ -256,7 +257,7 @@ body {
 .overlay__text {
     font-size: 5rem;
     opacity: 0;
-    animation: overlay-text 2s;
+    animation: overlay-text 3s;
     @include mq-min(600px) {
         letter-spacing: 0.7rem;
     }

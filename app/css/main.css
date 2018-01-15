@@ -349,7 +349,7 @@
   text-indent: 1rem;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  text-indent: 1rem; }
+  padding: 0; }
 
 .form__input:focus {
   -webkit-transition: all 0.5s;
@@ -1435,17 +1435,18 @@ body {
         padding-top: 6rem; } }
 
 .section__title {
-  font-size: 4rem; }
+  font-size: 2.5rem;
+  padding-top: 4rem; }
   @media screen and (max-width: 800px) {
     .section__title {
       width: 95%;
-      font-size: 2.5rem;
+      font-size: 2rem;
       text-align: center;
       padding-top: 1rem; } }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .section__title {
       width: 90%;
-      font-size: 3rem;
+      font-size: 2.2rem;
       text-align: center;
       padding-top: 3.5rem; } }
   .section__title--start {
@@ -1600,8 +1601,8 @@ body {
   flex-grow: 0;
   opacity: 0;
   background-color: #ffffff;
-  -webkit-animation: overlay 2s;
-  animation: overlay 2s;
+  -webkit-animation: overlay 2.5s;
+  animation: overlay 2.5s;
   overflow: hidden; }
   .overlay--light {
     background-color: #DBD7CD;
@@ -1613,8 +1614,8 @@ body {
 .overlay__text {
   font-size: 5rem;
   opacity: 0;
-  -webkit-animation: overlay-text 2s;
-  animation: overlay-text 2s; }
+  -webkit-animation: overlay-text 3s;
+  animation: overlay-text 3s; }
   @media screen and (min-width: 600px) {
     .overlay__text {
       letter-spacing: 0.7rem; } }

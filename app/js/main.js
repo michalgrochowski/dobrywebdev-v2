@@ -392,7 +392,6 @@ $(".langENG").on("click", function() {
         $(".mainTitle").text(data.mainTitle);
         $(".mainSubtitle").text(data.mainSubtitle);
         $(".aboutTitle").text(data.aboutTitle);
-        $(".aboutSubtitle").text(data.aboutSubtitle);
         $(".aboutDescription").html(data.aboutDescription);
         howOldAmI();
         $(".aboutCooperation").text(data.aboutCooperation);
@@ -478,7 +477,6 @@ $(".langPL").on("click", function() {
         $(".mainTitle").text(data.mainTitle);
         $(".mainSubtitle").text(data.mainSubtitle);
         $(".aboutTitle").text(data.aboutTitle);
-        $(".aboutSubtitle").text(data.aboutSubtitle);
         $(".aboutDescription").html(data.aboutDescription);
         howOldAmI();
         $(".aboutCooperation").text(data.aboutCooperation);

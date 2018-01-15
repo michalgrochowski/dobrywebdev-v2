@@ -123,7 +123,10 @@ body {
         }
     }
     &--projects {
-        @include mq-max(1366px) {
+        @include mq-max(800px) {
+            padding-top: 10rem;
+        }
+        @include mq-minmax(801px,1366px) {
             padding-top: 4rem;
         }
     }
@@ -136,17 +139,16 @@ body {
 }
 
 .section__title {
-    font-size: 2.5rem;
-    padding-top: 4rem;
+    font-size: 3.5rem;
     @include mq-max(800px) {
         width: 95%;
-        font-size: 2rem;
+        font-size: 2.5rem;
         text-align: center;
         padding-top: 1rem;
     }
     @include mq-minmax(801px, 1280px) {
         width: 90%;
-        font-size: 2.2rem;
+        font-size: 3rem;
         text-align: center;
         padding-top: 3.5rem;
     }

@@ -11,15 +11,28 @@
     // OwlCarousel settings
     $(function() {
         projects.owlCarousel({
-        navSpeed: 700,
+        navSpeed: 1000,
+        loop: false,
         dots: false,
         touchDrag: true,
         mouseDrag: true,
         pullDrag: false,
         freeDrag: false,
         items: 1,
-        slideBy: 1
+        slideBy: 1,
+        onInitialized: owlCallBack,
+        onTranslated: owlCallBack
     });
+    function owlCallBack() {
+        if ($('.owl-carousel .owl-item').first().hasClass('active')) {
+            $('.projects__prev').addClass("projects__prev--disabled");
+        } else if ($('.owl-carousel .owl-item').last().hasClass('active')) {
+            $('.projects__next').addClass("projects__next--disabled");
+        } else if (!$('.owl-carousel .owl-item').first().hasClass('active') && !$('.owl-carousel .owl-item').last().hasClass('active')) {
+            $('.projects__prev').removeClass("projects__prev--disabled");
+            $('.projects__next').removeClass("projects__next--disabled");
+        }
+    }
 });    
 
 // Extension to jQuery taken directly from jQuery UI
@@ -314,8 +327,8 @@ $(".button--theme").on("click", function(){
     $("body").toggleClass("light-theme dark-theme");
     $(".button--theme").toggleClass("dark-outline");
     $(".button--flag").toggleClass("dark-outline");
-    $(".projects__prev").toggleClass("dark-theme--button light-theme--button dark-outline");
-    $(".projects__next").toggleClass("dark-theme--button light-theme--button dark-outline");
+    $(".projects__prev").toggleClass("projects__prev--light projects__prev--dark dark-outline");
+    $(".projects__next").toggleClass("projects__next--light projects__next--dark dark-outline");
     $(".form__button").toggleClass("light-theme--button dark-theme--button dark-outline");
     $(".langPL").toggleClass("light-theme dark-theme dark-outline");
     $(".langENG").toggleClass("light-theme dark-theme dark-outline");
@@ -425,25 +438,23 @@ $(".langENG").on("click", function() {
         //Main title
         $(".projects__title").eq(0).text(data.weatherMaintitle);
         $(".projects__title").eq(4).text(data.todoMaintitle);
-        $(".projects__title").eq(9).text(data.formMaintitle);
         // Projects links titles
         $(".projects__link").eq(0).attr("title", data.weatherTitle);
         $(".projects__link").eq(1).attr("title", data.weatherCode);
         $(".projects__link").eq(2).attr("title", data.challengeTitle);
         $(".projects__link").eq(3).attr("title", data.challengeCode);
         $(".projects__link").eq(4).attr("title", data.interiorTitle);
-        $(".projects__link").eq(5).attr("title", data.sleszynskiTitle);
-        $(".projects__link").eq(6).attr("title", data.todoTitle);
-        $(".projects__link").eq(7).attr("title", data.todoCode);
-        $(".projects__link").eq(8).attr("title", data.interiorv1Title);
-        $(".projects__link").eq(9).attr("title", data.interiorv1Code);
-        $(".projects__link").eq(10).attr("title", data.dobrywebdevTitle);
-        $(".projects__link").eq(11).attr("title", data.dobrywebdevCode);
-        $(".projects__link").eq(12).attr("title", data.cvTitle);
-        $(".projects__link").eq(13).attr("title", data.interactiveTitle);
-        $(".projects__link").eq(14).attr("title", data.interactiveCode);
-        $(".projects__link").eq(15).attr("title", data.formTitle);
-        $(".projects__link").eq(16).attr("title", data.formCode);
+        $(".projects__link").eq(5).attr("title", data.interiorCode);
+        $(".projects__link").eq(6).attr("title", data.sleszynskiTitle);
+        $(".projects__link").eq(7).attr("title", data.sleszynskiCode);
+        $(".projects__link").eq(8).attr("title", data.todoTitle);
+        $(".projects__link").eq(9).attr("title", data.todoCode);
+        $(".projects__link").eq(10).attr("title", data.interiorv1Title);
+        $(".projects__link").eq(11).attr("title", data.interiorv1Code);
+        $(".projects__link").eq(12).attr("title", data.dobrywebdevTitle);
+        $(".projects__link").eq(13).attr("title", data.dobrywebdevCode);
+        $(".projects__link").eq(14).attr("title", data.interactiveTitle);
+        $(".projects__link").eq(15).attr("title", data.interactiveCode);
         // Projects photos alts
         $(".projects__photo").eq(0).attr("alt", data.weatherAlt);
         $(".projects__photo").eq(1).attr("alt", data.challengeAlt);
@@ -452,9 +463,7 @@ $(".langENG").on("click", function() {
         $(".projects__photo").eq(4).attr("alt", data.todoAlt);
         $(".projects__photo").eq(5).attr("alt", data.interiorv1Alt);
         $(".projects__photo").eq(6).attr("alt", data.dobrywebdevAlt);
-        $(".projects__photo").eq(7).attr("alt", data.cvAlt);
-        $(".projects__photo").eq(8).attr("alt", data.interactiveAlt);
-        $(".projects__photo").eq(9).attr("alt", data.formAlt);
+        $(".projects__photo").eq(7).attr("alt", data.interactiveAlt);
     });
 });
 
@@ -517,18 +526,17 @@ $(".langPL").on("click", function() {
         $(".projects__link").eq(2).attr("title", data.challengeTitle);
         $(".projects__link").eq(3).attr("title", data.challengeCode);
         $(".projects__link").eq(4).attr("title", data.interiorTitle);
-        $(".projects__link").eq(5).attr("title", data.sleszynskiTitle);
-        $(".projects__link").eq(6).attr("title", data.todoTitle);
-        $(".projects__link").eq(7).attr("title", data.todoCode);
-        $(".projects__link").eq(8).attr("title", data.interiorv1Title);
-        $(".projects__link").eq(9).attr("title", data.interiorv1Code);
-        $(".projects__link").eq(10).attr("title", data.dobrywebdevTitle);
-        $(".projects__link").eq(11).attr("title", data.dobrywebdevCode);
-        $(".projects__link").eq(12).attr("title", data.cvTitle);
-        $(".projects__link").eq(13).attr("title", data.interactiveTitle);
-        $(".projects__link").eq(14).attr("title", data.interactiveCode);
-        $(".projects__link").eq(15).attr("title", data.formTitle);
-        $(".projects__link").eq(16).attr("title", data.formCode);
+        $(".projects__link").eq(5).attr("title", data.interiorCode);
+        $(".projects__link").eq(6).attr("title", data.sleszynskiTitle);
+        $(".projects__link").eq(7).attr("title", data.sleszynskiCode);
+        $(".projects__link").eq(8).attr("title", data.todoTitle);
+        $(".projects__link").eq(9).attr("title", data.todoCode);
+        $(".projects__link").eq(10).attr("title", data.interiorv1Title);
+        $(".projects__link").eq(11).attr("title", data.interiorv1Code);
+        $(".projects__link").eq(12).attr("title", data.dobrywebdevTitle);
+        $(".projects__link").eq(13).attr("title", data.dobrywebdevCode);
+        $(".projects__link").eq(14).attr("title", data.interactiveTitle);
+        $(".projects__link").eq(15).attr("title", data.interactiveCode);
         // Projects photos alts
         $(".projects__photo").eq(0).attr("alt", data.weatherAlt);
         $(".projects__photo").eq(1).attr("alt", data.challengeAlt);

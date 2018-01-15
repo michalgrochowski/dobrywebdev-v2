@@ -56,3 +56,6 @@ dist/
 formularz.php
 phpmailer/
 
+# htaccess
+
+.htaccess

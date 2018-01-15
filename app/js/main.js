@@ -35,32 +35,6 @@
     }
 });    
 
-// Extension to jQuery taken directly from jQuery UI
-
-$.extend($.expr[':'], {
-    data: function(elem, i, match) {
-        return !!$.data(elem, match[3]);
-    },
-  
-    focusable: function(element) {
-        var nodeName = element.nodeName.toLowerCase(),
-            tabIndex = $.attr(element, 'tabindex');
-        return (/input|select|textarea|button|object/.test(nodeName)
-        ? !element.disabled
-        : 'a' == nodeName || 'area' == nodeName
-            ? element.href || !isNaN(tabIndex)
-            : !isNaN(tabIndex))
-        // the element and all of its ancestors must be visible
-        // the browser may report that the area is hidden
-        && !$(element)['area' == nodeName ? 'parents' : 'closest'](':hidden').length;
-    },
-  
-    tabbable: function(element) {
-        var tabIndex = $.attr(element, 'tabindex');
-        return (isNaN(tabIndex) || tabIndex >= 0) && $(element).is(':focusable');
-    }
-});
-
 // Main function that loads theme settings from localStorage, displays welcome text and block projects links,
 
 $(window).on("load", function() {
@@ -95,7 +69,6 @@ $(window).on("load", function() {
     $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
     $(".nav__hamburger").attr("class", JSON.parse(localStorage.getItem("hamburger")));
     $(".nav__close-menu").attr("class", JSON.parse(localStorage.getItem("closemenu")));
-    $(".nav__list--mobile").attr("class", JSON.parse(localStorage.getItem("mobilelist")));
     $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
     $(".projects__prev").attr("class", JSON.parse(localStorage.getItem("projectsPrev")));
     $(".projects__next").attr("class", JSON.parse(localStorage.getItem("projectsNext")));
@@ -247,7 +220,7 @@ projects.on("translated.owl.carousel", function(){
 
 // Turn on or off overflow-x depending on current hash
 
-$(".nav__link--mobile, .nav__link--start, .nav__link").on("click", function(){
+$(".nav__link--start, .nav__link").on("click", function(){
     if ($(this).attr("href") !== "#start") {
         overflowOn();
     } else if ($(this).attr("href") === "#start") {
@@ -283,27 +256,27 @@ document.addEventListener("DOMContentLoaded",function(){
 
 // Mobile menu scripts, showing hamburger etc.
 
-$(".nav__link--mobile").on('click', function() {
+$(".nav__link").on('click', function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
-    $(".nav__list--mobile").hide();
+    $(".nav__list").removeClass("nav__list--expanded");
 });
 
 $(".nav__hamburger").on("click", function() {
     $(".nav__hamburger").hide();
     $(".nav__close-menu").show();
-    $(".nav__list--mobile").show().attr("aria-expanded", "true");
+    $(".nav__list").addClass("nav__list--expanded").attr("aria-expanded", "true");
 });
 
 $(".nav__close-menu").on("click", function() {
     $(".nav__hamburger").show();
     $(".nav__close-menu").hide();
-    $(".nav__list--mobile").hide().attr("aria-expanded", "false");
+    $(".nav__list").removeClass("nav__list--expanded").attr("aria-expanded", "false");
 });
 
 $(".nav__link--start").on("click", function(){
-    if ($(".nav__list--mobile").css("display") === "block") {
-        $(".nav__list--mobile").hide();
+    if ($(".nav__list").hasClass("nav__list--expanded")) {
+        $(".nav__list").removeClass("nav__list--expanded");
         $(".nav__hamburger").show();
         $(".nav__close-menu").hide();
     } else {
@@ -323,7 +296,6 @@ $(".button--theme").on("click", function(){
     $('a').toggleClass("light-theme--link dark-theme--link");
     $(".nav__hamburger").toggleClass("light-theme dark-theme");
     $(".nav__close-menu").toggleClass("light-theme dark-theme");
-    $(".nav__list--mobile").toggleClass("light-theme dark-theme");
     $("body").toggleClass("light-theme dark-theme");
     $(".button--theme").toggleClass("dark-outline");
     $(".button--flag").toggleClass("dark-outline");
@@ -355,7 +327,6 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("footer", JSON.stringify($(".footer").attr("class")));
     localStorage.setItem("hamburger", JSON.stringify($(".nav__hamburger").attr("class")));
     localStorage.setItem("closemenu", JSON.stringify($(".nav__close-menu").attr("class")));
-    localStorage.setItem("mobilelist", JSON.stringify($(".nav__list--mobile").attr("class")));
     localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));
     localStorage.setItem("projectsPrev", JSON.stringify($(".projects__prev").attr("class")));
     localStorage.setItem("projectsNext", JSON.stringify($(".projects__next").attr("class")));

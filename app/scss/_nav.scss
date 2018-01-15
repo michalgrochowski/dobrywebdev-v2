@@ -8,7 +8,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 10;
 }
 
 .nav__logo {
@@ -23,7 +23,21 @@
     padding: 0;
     list-style: none;
     @include mq-max(850px) {
-        display: none;
+        @include flex-center-column;
+        position: fixed;
+        left: 0;
+        top: -100vh;
+        width: 100vw;
+        padding: 0;
+        z-index: 1;
+        list-style: none;
+        background-color: inherit;
+        height: 100vh;
+        transition: 0.3s all;
+        &--expanded {
+            top: 0;
+            transition: 0.3s all;
+        }
     }
     @include mq-minmax(851px, 1010px) {
         width: 60%;
@@ -35,18 +49,9 @@
     @include mq-min(1650px) {
         width: 40%;
     }
-}
-
-.nav__list--mobile {
-    @include flex-center-column;
-    position: fixed;
-    left: 0;
-    top: 4.4rem;
-    width: 100vw;
-    display: none;
-    padding: 0;
-    z-index: 4;
-    list-style: none;
+    &--mobile {
+        
+    }
 }
 
 .nav__item {
@@ -57,19 +62,19 @@
     font-weight: bold;
     letter-spacing: 0.2rem;
     @include flex-center-row;
-}
-
-.nav__item--mobile {
-    width: 100vw;
-    font-size: 1.8rem;
-    display: block;
-    text-align: center;
-    z-index: 4;
-    padding: 1rem 0 1rem 0;
+    @include mq-max(800px) {
+        width: 100vw;
+        font-size: 2.2rem;
+        display: block;
+        text-align: center;
+        z-index: 4;
+        padding: 1rem 0 1rem 0;
+    }
 }
 
 .nav__link {
     text-decoration: none;
+    z-index: 5;
     @include mq-min(801px) {
         position: relative;
         &::before {
@@ -103,6 +108,11 @@
             transition: all 0.3s;
         }
     }
+    &--start {
+        position: fixed;
+        top: 1.5rem;
+        left: 2rem;
+    }
 }
 
 .nav__link.light-theme--link {
@@ -123,17 +133,11 @@
     }
 }
 
-.nav__link--mobile {
-    z-index: 5;
-}
-
-.nav__link--start {
-    position: fixed;
-    top: 1.5rem;
-    left: 2rem;
-}
-
 .nav__hamburger, .nav__close-menu {
+    position: fixed;
+    top: 2rem;
+    right: 1rem;
+    z-index: 10;
     font-size: 3rem;
     border: none;
     background: none;

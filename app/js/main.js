@@ -33,13 +33,14 @@
             $('.projects__next').removeClass("projects__next--disabled");
         }
     }
-});    
+});
 
 // Main function that loads theme settings from localStorage, displays welcome text and block projects links,
 
 $(window).on("load", function() {
     checkTime();
     howOldAmI();
+    changeCallmeButton();
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
     if (window.location.hash === "#start" || window.location.hash === "") {
@@ -144,7 +145,6 @@ function showAbout() {
     $("#projects").addClass("visuallyhidden--section");
     $("#contact").addClass("visuallyhidden--section");
     console.log($("#projects").children(":focusable"));
-    $("#projects").children("*:focusable").disableTab();
 }
 
 function showProjects() {
@@ -218,6 +218,16 @@ projects.on("translated.owl.carousel", function(){
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
 })
 
+// In ofn desktop change text to phone number
+
+function changeCallmeButton() {
+    if (window.matchMedia("(min-width: 851px)").matches) {
+        $(".phone").text("509 581 510");
+    } else {
+        return;
+    }
+}
+
 // Turn on or off overflow-x depending on current hash
 
 $(".nav__link--start, .nav__link").on("click", function(){
@@ -257,9 +267,13 @@ document.addEventListener("DOMContentLoaded",function(){
 // Mobile menu scripts, showing hamburger etc.
 
 $(".nav__link").on('click', function() {
-    $(".nav__hamburger").show();
-    $(".nav__close-menu").hide();
-    $(".nav__list").removeClass("nav__list--expanded");
+    if (window.matchMedia("(max-width: 851px)").matches) {
+        $(".nav__hamburger").show();
+        $(".nav__close-menu").hide();
+        $(".nav__list").removeClass("nav__list--expanded");
+    } else {
+        return;
+    }
 });
 
 $(".nav__hamburger").on("click", function() {
@@ -275,10 +289,14 @@ $(".nav__close-menu").on("click", function() {
 });
 
 $(".nav__link--start").on("click", function(){
-    if ($(".nav__list").hasClass("nav__list--expanded")) {
+    if (window.matchMedia("(max-width: 851px)").matches) {
+        if ($(".nav__list").hasClass("nav__list--expanded")) {
         $(".nav__list").removeClass("nav__list--expanded");
         $(".nav__hamburger").show();
         $(".nav__close-menu").hide();
+        } else {
+            return;
+        }
     } else {
         return;
     }

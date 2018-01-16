@@ -1,5 +1,6 @@
 (function() {
     // Service worker registeration
+    'use strict';
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
           console.log('ServiceWorker registration successful!');
@@ -96,6 +97,10 @@ $(window).on("load", function() {
     }
 });
 
+$(window).on("hashchange", function(){
+    hideOrShowSections();
+});
+
 // Check what time it is and display welcome text based on that
 
 function checkTime() {
@@ -150,39 +155,7 @@ function showContact() {
     $("#contact").removeClass("visuallyhidden--section");
 }
 
-function stopOwlPropagation(element) {
-    $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
-    $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
-    $(element).on('prev.owl.carousel', function(e) { e.stopPropagation(); });
-    $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
-    $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
-}
-
-// Show or hide sections and turn overflow on or off based on windows hash 
-
-function hideOrShowSections() {
-    if (window.location.hash === "#start" || window.location.hash === "") {
-        overflowOff();
-        showStart();
-    } else if (window.location.hash === "#about") {
-        overflowOn();
-        showAbout();
-    } else if (window.location.hash === "#projects") {
-        overflowOn();
-        showProjects();
-    } else if (window.location.hash === "#contact") {
-        overflowOn();
-        showContact();
-    }
-}
-
-$(window).on("hashchange", function(){
-    hideOrShowSections();
-});
-
 // Additional OwlCarousel functions
-
-stopOwlPropagation(projects);
 
 $('.projects__next').click(function() {
     projects.trigger('next.owl.carousel', [300]);
@@ -202,10 +175,38 @@ $('.projects__prev').click(function() {
     }
 });
 
+function stopOwlPropagation(element) {
+    $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('prev.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
+    $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
+}
+
+stopOwlPropagation(projects);
+
 projects.on("translated.owl.carousel", function(){
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
-})
+});
+
+// Show or hide sections and turn overflow on or off based on windows hash 
+
+function hideOrShowSections() {
+    if (window.location.hash === "#start" || window.location.hash === "") {
+        overflowOff();
+        showStart();
+    } else if (window.location.hash === "#about") {
+        overflowOn();
+        showAbout();
+    } else if (window.location.hash === "#projects") {
+        overflowOn();
+        showProjects();
+    } else if (window.location.hash === "#contact") {
+        overflowOn();
+        showContact();
+    }
+}
 
 // If on desktop change text in phone social button to phone number
 
@@ -319,10 +320,6 @@ $(".button--theme").on("click", function(){
     $(".form__textarea").toggleClass("input-light input-dark");
     $(".cookie-info__close").toggleClass("dark-theme--link light-theme--link dark-outline");
     $(".nav__link--start").removeClass("light-theme--link dark-theme--link");
-    $(".footer__link").css("border-bottom", "none");
-    $(".socials__item").css("border-bottom", "none");
-    $(".projects__link").css("border-bottom", "none");
-    $(".cookie-info__close").css("border-bottom", "none");
     // Items for localStorage
     localStorage.setItem("container", JSON.stringify($(".container").attr("class")));
     localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
@@ -543,7 +540,7 @@ $(function() {
     });
 });
 
-// Copyright year in the footer and my age in "About" section
+// Copyright year in the footer
 
 (function getCurrentYear() {
     var currentDate = new Date();

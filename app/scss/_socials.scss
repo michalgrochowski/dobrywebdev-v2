@@ -8,6 +8,9 @@
         width: 100%;
         padding: 0;
     }
+    @include mq-minmax (801px,1366px) {
+        padding: 5rem;
+    }
 }
 
 .socials__list-item {

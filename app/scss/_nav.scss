@@ -4,7 +4,7 @@
     @include flex-center-row;
     width: 100vw;
     max-width: 100vw;
-    height: 8rem;
+    height: 7rem;
     position: fixed;
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@
 .nav__list {
     @include flex-center-row;
     justify-content: space-around;
-    padding: 0;
+    padding: 1rem 0 0 0;
     list-style: none;
     @include mq-max(850px) {
         @include flex-center-column;

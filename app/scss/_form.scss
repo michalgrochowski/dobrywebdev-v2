@@ -14,7 +14,8 @@
     height: 3rem;
     text-indent: 1rem;
     transition: all 0.5s;
-    padding: 0;
+    padding: 0 !important;
+    border-radius: 0 !important;
 }
 
 .form__input:focus {

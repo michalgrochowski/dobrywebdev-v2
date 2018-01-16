@@ -1,4 +1,5 @@
-(function(){
+(function() {
+    // Service worker registeration
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
           console.log('ServiceWorker registration successful!');
@@ -7,11 +8,11 @@
         });
     }
 
-    var projects = $(".projects");
     // OwlCarousel settings
+    var projects = $(".projects");
     $(function() {
         projects.owlCarousel({
-        navSpeed: 1000,
+        navSpeed: 500,
         loop: false,
         dots: false,
         touchDrag: true,
@@ -23,6 +24,7 @@
         onInitialized: owlCallBack,
         onTranslated: owlCallBack
     });
+    // Disable or enable buttons if at the start or end of carousel
     function owlCallBack() {
         if ($('.owl-carousel .owl-item').first().hasClass('active')) {
             $('.projects__prev').addClass("projects__prev--disabled");
@@ -35,7 +37,7 @@
     }
 });
 
-// Main function that loads theme settings from localStorage, displays welcome text and block projects links,
+// Main function that loads theme settings from localStorage, displays welcome text and block projects links
 
 $(window).on("load", function() {
     checkTime();
@@ -43,19 +45,7 @@ $(window).on("load", function() {
     changeCallmeButton();
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
-    if (window.location.hash === "#start" || window.location.hash === "") {
-        overflowOff();
-        showStart();
-    } else if (window.location.hash === "#about") {
-        overflowOn();
-        showAbout();
-    } else if (window.location.hash === "#projects") {
-        overflowOn();
-        showProjects();
-    } else if (window.location.hash === "#contact") {
-        overflowOn();
-        showContact();
-    }
+    hideOrShowSections();
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
         return;
     } else if (localStorage.getItem("icon") !== null) {
@@ -144,7 +134,6 @@ function showAbout() {
     $("#about").removeClass("visuallyhidden--section");
     $("#projects").addClass("visuallyhidden--section");
     $("#contact").addClass("visuallyhidden--section");
-    console.log($("#projects").children(":focusable"));
 }
 
 function showProjects() {
@@ -161,12 +150,6 @@ function showContact() {
     $("#contact").removeClass("visuallyhidden--section");
 }
 
-$.prototype.disableTab = function() {
-    this.each(function() {
-        $(this).attr('tabindex', '-1');
-    });
-};
-
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
     $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
@@ -175,20 +158,26 @@ function stopOwlPropagation(element) {
     $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
 }
 
-$(window).on("hashchange", function(){
+// Show or hide sections and turn overflow on or off based on windows hash 
+
+function hideOrShowSections() {
     if (window.location.hash === "#start" || window.location.hash === "") {
-        showStart();
         overflowOff();
+        showStart();
     } else if (window.location.hash === "#about") {
+        overflowOn();
         showAbout();
-        overflowOn();
     } else if (window.location.hash === "#projects") {
+        overflowOn();
         showProjects();
-        overflowOn();
     } else if (window.location.hash === "#contact") {
-        showContact();
         overflowOn();
+        showContact();
     }
+}
+
+$(window).on("hashchange", function(){
+    hideOrShowSections();
 });
 
 // Additional OwlCarousel functions
@@ -218,7 +207,7 @@ projects.on("translated.owl.carousel", function(){
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
 })
 
-// In ofn desktop change text to phone number
+// If on desktop change text in phone social button to phone number
 
 function changeCallmeButton() {
     if (window.matchMedia("(min-width: 851px)").matches) {
@@ -373,7 +362,83 @@ $(".cookie-info__close").on("click", function(){
     localStorage.setItem("cookieoff", "true");
 });
 
-// Language changing script
+// Function that changes language based on JSON data
+
+function changeLanguage(data) {
+    // Main texts
+    $(".navAbout").text(data.navAbout).attr("title", data.navAbout);
+    $(".navProjects").text(data.navProjects).attr("title", data.navProjects);
+    $(".navContact").text(data.navContact).attr("title", data.navContact);
+    $(".button--theme").attr("aria-label", data.buttonTheme).attr("title", data.buttonTheme);
+    $(".langPL").attr("title", data.langPL);
+    $(".langENG").attr("title", data.langENG);
+    $(".nav__hamburger").attr("title", data.hamburger);
+    $(".nav__close-menu").attr("title", data.closeMenu);
+    $(".mainTitle").text(data.mainTitle);
+    $(".mainSubtitle").text(data.mainSubtitle);
+    $(".aboutTitle").text(data.aboutTitle);
+    $(".aboutDescription").html(data.aboutDescription);
+    howOldAmI();
+    $(".aboutCooperation").text(data.aboutCooperation);
+    $(".skillsSubtitle").text(data.skillsSubtitle);
+    $(".projectsTitle").text(data.projectsTitle);
+    $(".weatherDescription").text(data.weatherDescription);
+    $(".challengeDescription").text(data.challengeDescription);
+    $(".interiorDescription").text(data.interiorDescription);
+    $(".sleszynskiDescription").text(data.sleszynskiDescription);
+    $(".todoDescription").text(data.todoDescription);
+    $(".interiorv1Description").text(data.interiorv1Description);
+    $(".dobrywebdevDescription").text(data.dobrywebdevDescription);
+    $(".cvDescription").text(data.cvDescription);
+    $(".interactiveDescription").text(data.interactiveDescription);
+    $(".formDescription").text(data.formDescription);
+    $(".projectLive").text(data.projectLive);
+    $(".projectCode").text(data.projectCode);
+    $(".contactTitle").text(data.contactTitle);
+    $(".mailLabel").text(data.mailLabel);
+    $(".phoneLabel").text(data.phoneLabel);
+    $(".nameLabel").text(data.nameLabel);
+    $(".textLabel").text(data.textLabel);
+    $(".sendButton").text(data.sendButton);
+    $(".phone").text(data.phone);
+    $(".mail").text(data.mail);
+    $(".form__input--mail").attr("placeholder", data.mailPlaceholder);
+    $(".form__input--name").attr("placeholder", data.namePlaceholder);
+    $(".form__textarea").attr("placeholder", data.textPlaceholder);
+    $(".form__button").attr("value", data.sendButton);
+    $(".cookie-info__text").text(data.cookies);
+    // Main titles
+    $(".projects__title").eq(0).text(data.weatherMaintitle);
+    $(".projects__title").eq(4).text(data.todoMaintitle);
+    // Projects links titles
+    $(".projects__link").eq(0).attr("title", data.weatherTitle);
+    $(".projects__link").eq(1).attr("title", data.weatherCode);
+    $(".projects__link").eq(2).attr("title", data.challengeTitle);
+    $(".projects__link").eq(3).attr("title", data.challengeCode);
+    $(".projects__link").eq(4).attr("title", data.interiorTitle);
+    $(".projects__link").eq(5).attr("title", data.interiorCode);
+    $(".projects__link").eq(6).attr("title", data.sleszynskiTitle);
+    $(".projects__link").eq(7).attr("title", data.sleszynskiCode);
+    $(".projects__link").eq(8).attr("title", data.todoTitle);
+    $(".projects__link").eq(9).attr("title", data.todoCode);
+    $(".projects__link").eq(10).attr("title", data.interiorv1Title);
+    $(".projects__link").eq(11).attr("title", data.interiorv1Code);
+    $(".projects__link").eq(12).attr("title", data.dobrywebdevTitle);
+    $(".projects__link").eq(13).attr("title", data.dobrywebdevCode);
+    $(".projects__link").eq(14).attr("title", data.interactiveTitle);
+    $(".projects__link").eq(15).attr("title", data.interactiveCode);
+    // Projects photos alts
+    $(".projects__photo").eq(0).attr("alt", data.weatherAlt);
+    $(".projects__photo").eq(1).attr("alt", data.challengeAlt);
+    $(".projects__photo").eq(2).attr("alt", data.interiorAlt);
+    $(".projects__photo").eq(3).attr("alt", data.sleszynskiAlt);
+    $(".projects__photo").eq(4).attr("alt", data.todoAlt);
+    $(".projects__photo").eq(5).attr("alt", data.interiorv1Alt);
+    $(".projects__photo").eq(6).attr("alt", data.dobrywebdevAlt);
+    $(".projects__photo").eq(7).attr("alt", data.interactiveAlt);
+}
+
+// Language changing on button click
 
 $(".langENG").on("click", function() {
     if ($(this).hasClass("button--lang--active")) {
@@ -383,76 +448,7 @@ $(".langENG").on("click", function() {
         $(".langPL").toggleClass("button--lang--active");
     }
     $.getJSON("json/content-eng.json", function(data) {
-        $(".navAbout").text(data.navAbout).attr("title", data.navAbout);
-        $(".navProjects").text(data.navProjects).attr("title", data.navProjects);
-        $(".navContact").text(data.navContact).attr("title", data.navContact);
-        $(".button--theme").attr("aria-label", data.buttonTheme).attr("title", data.buttonTheme);
-        $(".langPL").attr("title", data.langPL);
-        $(".langENG").attr("title", data.langENG);
-        $(".nav__hamburger").attr("title", data.hamburger);
-        $(".nav__close-menu").attr("title", data.closeMenu);
-        $(".mainTitle").text(data.mainTitle);
-        $(".mainSubtitle").text(data.mainSubtitle);
-        $(".aboutTitle").text(data.aboutTitle);
-        $(".aboutDescription").html(data.aboutDescription);
-        howOldAmI();
-        $(".aboutCooperation").text(data.aboutCooperation);
-        $(".skillsSubtitle").text(data.skillsSubtitle);
-        $(".projectsTitle").text(data.projectsTitle);
-        $(".weatherDescription").text(data.weatherDescription);
-        $(".challengeDescription").text(data.challengeDescription);
-        $(".interiorDescription").text(data.interiorDescription);
-        $(".sleszynskiDescription").text(data.sleszynskiDescription);
-        $(".todoDescription").text(data.todoDescription);
-        $(".interiorv1Description").text(data.interiorv1Description);
-        $(".dobrywebdevDescription").text(data.dobrywebdevDescription);
-        $(".cvDescription").text(data.cvDescription);
-        $(".interactiveDescription").text(data.interactiveDescription);
-        $(".formDescription").text(data.formDescription);
-        $(".projectLive").text(data.projectLive);
-        $(".projectCode").text(data.projectCode);
-        $(".contactTitle").text(data.contactTitle);
-        $(".mailLabel").text(data.mailLabel);
-        $(".phoneLabel").text(data.phoneLabel);
-        $(".nameLabel").text(data.nameLabel);
-        $(".textLabel").text(data.textLabel);
-        $(".sendButton").text(data.sendButton);
-        $(".phone").text(data.phone);
-        $(".mail").text(data.mail);
-        $(".form__input--mail").attr("placeholder", data.mailPlaceholder);
-        $(".form__input--name").attr("placeholder", data.namePlaceholder);
-        $(".form__textarea").attr("placeholder", data.textPlaceholder);
-        $(".form__button").attr("value", data.sendButton);
-        $(".cookie-info__text").text(data.cookies);
-        //Main title
-        $(".projects__title").eq(0).text(data.weatherMaintitle);
-        $(".projects__title").eq(4).text(data.todoMaintitle);
-        // Projects links titles
-        $(".projects__link").eq(0).attr("title", data.weatherTitle);
-        $(".projects__link").eq(1).attr("title", data.weatherCode);
-        $(".projects__link").eq(2).attr("title", data.challengeTitle);
-        $(".projects__link").eq(3).attr("title", data.challengeCode);
-        $(".projects__link").eq(4).attr("title", data.interiorTitle);
-        $(".projects__link").eq(5).attr("title", data.interiorCode);
-        $(".projects__link").eq(6).attr("title", data.sleszynskiTitle);
-        $(".projects__link").eq(7).attr("title", data.sleszynskiCode);
-        $(".projects__link").eq(8).attr("title", data.todoTitle);
-        $(".projects__link").eq(9).attr("title", data.todoCode);
-        $(".projects__link").eq(10).attr("title", data.interiorv1Title);
-        $(".projects__link").eq(11).attr("title", data.interiorv1Code);
-        $(".projects__link").eq(12).attr("title", data.dobrywebdevTitle);
-        $(".projects__link").eq(13).attr("title", data.dobrywebdevCode);
-        $(".projects__link").eq(14).attr("title", data.interactiveTitle);
-        $(".projects__link").eq(15).attr("title", data.interactiveCode);
-        // Projects photos alts
-        $(".projects__photo").eq(0).attr("alt", data.weatherAlt);
-        $(".projects__photo").eq(1).attr("alt", data.challengeAlt);
-        $(".projects__photo").eq(2).attr("alt", data.interiorAlt);
-        $(".projects__photo").eq(3).attr("alt", data.sleszynskiAlt);
-        $(".projects__photo").eq(4).attr("alt", data.todoAlt);
-        $(".projects__photo").eq(5).attr("alt", data.interiorv1Alt);
-        $(".projects__photo").eq(6).attr("alt", data.dobrywebdevAlt);
-        $(".projects__photo").eq(7).attr("alt", data.interactiveAlt);
+        changeLanguage(data);
     });
 });
 
@@ -464,79 +460,7 @@ $(".langPL").on("click", function() {
         $(".langENG").toggleClass("button--lang--active");
     }
     $.getJSON("json/content-pl.json", function(data) {
-        $(".navAbout").text(data.navAbout).attr("title", data.navAbout);
-        $(".navProjects").text(data.navProjects).attr("title", data.navProjects);
-        $(".navContact").text(data.navContact).attr("title", data.navContact);
-        $(".button--theme").attr("aria-label", data.buttonTheme).attr("title", data.buttonTheme);
-        $(".langPL").attr("title", data.langPL);
-        $(".langENG").attr("title", data.langENG);
-        $(".nav__hamburger").attr("title", data.hamburger);
-        $(".nav__close-menu").attr("title", data.closeMenu);
-        $(".mainTitle").text(data.mainTitle);
-        $(".mainSubtitle").text(data.mainSubtitle);
-        $(".aboutTitle").text(data.aboutTitle);
-        $(".aboutDescription").html(data.aboutDescription);
-        howOldAmI();
-        $(".aboutCooperation").text(data.aboutCooperation);
-        $(".skillsSubtitle").text(data.skillsSubtitle);
-        $(".projectsTitle").text(data.projectsTitle);
-        $(".weatherDescription").text(data.weatherDescription);
-        $(".challengeDescription").text(data.challengeDescription);
-        $(".interiorDescription").text(data.interiorDescription);
-        $(".sleszynskiDescription").text(data.sleszynskiDescription);
-        $(".todoDescription").text(data.todoDescription);
-        $(".interiorv1Description").text(data.interiorv1Description);
-        $(".dobrywebdevDescription").text(data.dobrywebdevDescription);
-        $(".cvDescription").text(data.cvDescription);
-        $(".interactiveDescription").text(data.interactiveDescription);
-        $(".formDescription").text(data.formDescription);
-        $(".projectLive").text(data.projectLive);
-        $(".projectCode").text(data.projectCode);
-        $(".contactTitle").text(data.contactTitle);
-        $(".mailLabel").text(data.mailLabel);
-        $(".phoneLabel").text(data.phoneLabel);
-        $(".nameLabel").text(data.nameLabel);
-        $(".textLabel").text(data.textLabel);
-        $(".sendButton").text(data.sendButton);
-        $(".phone").text(data.phone);
-        $(".mail").text(data.mail);
-        $(".form__input--mail").attr("placeholder", data.mailPlaceholder);
-        $(".form__input--name").attr("placeholder", data.namePlaceholder);
-        $(".form__textarea").attr("placeholder", data.textPlaceholder);
-        $(".form__button").attr("value", data.sendButton);
-        $(".cookie-info__text").text(data.cookies);
-        //Main title
-        $(".projects__title").eq(0).text(data.weatherMaintitle);
-        $(".projects__title").eq(4).text(data.todoMaintitle);
-        $(".projects__title").eq(9).text(data.formMaintitle);
-        // Projects links titles
-        $(".projects__link").eq(0).attr("title", data.weatherTitle);
-        $(".projects__link").eq(1).attr("title", data.weatherCode);
-        $(".projects__link").eq(2).attr("title", data.challengeTitle);
-        $(".projects__link").eq(3).attr("title", data.challengeCode);
-        $(".projects__link").eq(4).attr("title", data.interiorTitle);
-        $(".projects__link").eq(5).attr("title", data.interiorCode);
-        $(".projects__link").eq(6).attr("title", data.sleszynskiTitle);
-        $(".projects__link").eq(7).attr("title", data.sleszynskiCode);
-        $(".projects__link").eq(8).attr("title", data.todoTitle);
-        $(".projects__link").eq(9).attr("title", data.todoCode);
-        $(".projects__link").eq(10).attr("title", data.interiorv1Title);
-        $(".projects__link").eq(11).attr("title", data.interiorv1Code);
-        $(".projects__link").eq(12).attr("title", data.dobrywebdevTitle);
-        $(".projects__link").eq(13).attr("title", data.dobrywebdevCode);
-        $(".projects__link").eq(14).attr("title", data.interactiveTitle);
-        $(".projects__link").eq(15).attr("title", data.interactiveCode);
-        // Projects photos alts
-        $(".projects__photo").eq(0).attr("alt", data.weatherAlt);
-        $(".projects__photo").eq(1).attr("alt", data.challengeAlt);
-        $(".projects__photo").eq(2).attr("alt", data.interiorAlt);
-        $(".projects__photo").eq(3).attr("alt", data.sleszynskiAlt);
-        $(".projects__photo").eq(4).attr("alt", data.todoAlt);
-        $(".projects__photo").eq(5).attr("alt", data.interiorv1Alt);
-        $(".projects__photo").eq(6).attr("alt", data.dobrywebdevAlt);
-        $(".projects__photo").eq(7).attr("alt", data.cvAlt);
-        $(".projects__photo").eq(8).attr("alt", data.interactiveAlt);
-        $(".projects__photo").eq(9).attr("alt", data.formAlt);
+        changeLanguage(data);
     });
 });
 

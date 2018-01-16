@@ -60,15 +60,22 @@
 }
 
 .projects__title {
+    font-size: 2rem;
     font-style: italic;
     text-align: center;
+    font-weight: bold;
 }
 
 .projects__description {
     text-align: center;
     width: 70%;
+    font-size: 1.6rem;
     @include mq-max(800px) {
         width: 95%;
+        font-size: 1.4rem;
+    }
+    @include mq-minmax(801px,1366px) {
+        width: 80%;
         font-size: 1.4rem;
     }
 }
@@ -96,6 +103,9 @@
     @include mq-max(850px) {
         margin-top: 2rem;
         width: 80%;
+    }
+    @include mq-minmax(851px,1366px) {
+        width: 35%;
     }
 }
 

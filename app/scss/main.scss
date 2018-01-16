@@ -127,13 +127,13 @@ body {
             padding-top: 10rem;
         }
         @include mq-minmax(801px,1366px) {
-            padding-top: 4rem;
+            padding-top: 7rem;
         }
     }
     &--contact {
-        padding-bottom: 5rem;
+        padding-bottom: 3rem;
         @include mq-max(1366px) {
-            padding-top: 6rem;
+            padding-top: 7rem;
         }
     }
 }
@@ -165,6 +165,9 @@ body {
             padding-top: 5rem;
         }
     }
+    &--contact {
+        margin-bottom: 0;
+    }
 }
 
 .section__subtitle {
@@ -193,6 +196,9 @@ body {
         width: 90%;
         font-size: 1.4rem;
         padding: 1rem;
+    }
+    @include mq-minmax(801px,1366px) {
+        font-size: 1.6rem;
     }
 }
 
@@ -294,7 +300,7 @@ body {
 }
 
 .devicons {
-    font-size: 5rem;
+    font-size: 4rem;
 }
 
 .icon-moon, .icon-sun {

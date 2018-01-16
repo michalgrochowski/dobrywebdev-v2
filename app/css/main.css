@@ -20,7 +20,7 @@
   flex-grow: 0;
   width: 100vw;
   max-width: 100vw;
-  height: 8rem;
+  height: 7rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -52,7 +52,7 @@
   flex-grow: 0;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  padding: 0;
+  padding: 1rem 0 0 0;
   list-style: none; }
   @media screen and (max-width: 850px) {
     .nav__list {
@@ -297,15 +297,22 @@
   z-index: 0; }
 
 .projects__title {
+  font-size: 2rem;
   font-style: italic;
-  text-align: center; }
+  text-align: center;
+  font-weight: bold; }
 
 .projects__description {
   text-align: center;
-  width: 70%; }
+  width: 70%;
+  font-size: 1.6rem; }
   @media screen and (max-width: 800px) {
     .projects__description {
       width: 95%;
+      font-size: 1.4rem; } }
+  @media screen and (min-width: 801px) and (max-width: 1366px) {
+    .projects__description {
+      width: 80%;
       font-size: 1.4rem; } }
 
 .projects__link {
@@ -329,6 +336,9 @@
     .owl-carousel .owl-item img {
       margin-top: 2rem;
       width: 80%; } }
+  @media screen and (min-width: 851px) and (max-width: 1366px) {
+    .owl-carousel .owl-item img {
+      width: 35%; } }
 
 .owl-carousel {
   z-index: 0; }
@@ -360,7 +370,8 @@
   text-indent: 1rem;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  padding: 0; }
+  padding: 0 !important;
+  border-radius: 0 !important; }
 
 .form__input:focus {
   -webkit-transition: all 0.5s;
@@ -1441,12 +1452,12 @@ body {
       padding-top: 10rem; } }
   @media screen and (min-width: 801px) and (max-width: 1366px) {
     .section--projects {
-      padding-top: 4rem; } }
+      padding-top: 7rem; } }
   .section--contact {
-    padding-bottom: 5rem; }
+    padding-bottom: 3rem; }
     @media screen and (max-width: 1366px) {
       .section--contact {
-        padding-top: 6rem; } }
+        padding-top: 7rem; } }
 
 .section__title {
   font-size: 3.5rem; }
@@ -1473,6 +1484,8 @@ body {
     @media screen and (min-width: 801px) and (max-width: 1280px) {
       .section__title--projects {
         padding-top: 5rem; } }
+  .section__title--contact {
+    margin-bottom: 0; }
 
 .section__subtitle {
   font-size: 2.5rem;
@@ -1499,6 +1512,9 @@ body {
       width: 90%;
       font-size: 1.4rem;
       padding: 1rem; } }
+  @media screen and (min-width: 801px) and (max-width: 1366px) {
+    .section__description {
+      font-size: 1.6rem; } }
 
 .contact {
   display: -webkit-box;
@@ -1659,7 +1675,7 @@ body {
         transition: all 0.5s; }
 
 .devicons {
-  font-size: 5rem; }
+  font-size: 4rem; }
 
 .icon-moon, .icon-sun {
   font-size: 3rem; }

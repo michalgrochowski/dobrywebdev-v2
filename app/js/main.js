@@ -379,6 +379,7 @@ function changeLanguage(data) {
     $(".aboutCooperation").text(data.aboutCooperation);
     $(".skillsSubtitle").text(data.skillsSubtitle);
     $(".projectsTitle").text(data.projectsTitle);
+    $(".gridDescription").text(data.gridDescription);
     $(".weatherDescription").text(data.weatherDescription);
     $(".challengeDescription").text(data.challengeDescription);
     $(".interiorDescription").text(data.interiorDescription);
@@ -405,34 +406,37 @@ function changeLanguage(data) {
     $(".form__button").attr("value", data.sendButton);
     $(".cookie-info__text").text(data.cookies);
     // Main titles
-    $(".projects__title").eq(0).text(data.weatherMaintitle);
-    $(".projects__title").eq(4).text(data.todoMaintitle);
+    $(".projects__title").eq(1).text(data.weatherMaintitle);
+    $(".projects__title").eq(5).text(data.todoMaintitle);
     // Projects links titles
-    $(".projects__link").eq(0).attr("title", data.weatherTitle);
-    $(".projects__link").eq(1).attr("title", data.weatherCode);
-    $(".projects__link").eq(2).attr("title", data.challengeTitle);
-    $(".projects__link").eq(3).attr("title", data.challengeCode);
-    $(".projects__link").eq(4).attr("title", data.interiorTitle);
-    $(".projects__link").eq(5).attr("title", data.interiorCode);
-    $(".projects__link").eq(6).attr("title", data.sleszynskiTitle);
-    $(".projects__link").eq(7).attr("title", data.sleszynskiCode);
-    $(".projects__link").eq(8).attr("title", data.todoTitle);
-    $(".projects__link").eq(9).attr("title", data.todoCode);
-    $(".projects__link").eq(10).attr("title", data.interiorv1Title);
-    $(".projects__link").eq(11).attr("title", data.interiorv1Code);
-    $(".projects__link").eq(12).attr("title", data.dobrywebdevTitle);
-    $(".projects__link").eq(13).attr("title", data.dobrywebdevCode);
-    $(".projects__link").eq(14).attr("title", data.interactiveTitle);
-    $(".projects__link").eq(15).attr("title", data.interactiveCode);
+    $(".projects__link").eq(0).attr("title", data.gridTitle);
+    $(".projects__link").eq(1).attr("title", data.gridCode);
+    $(".projects__link").eq(2).attr("title", data.weatherTitle);
+    $(".projects__link").eq(3).attr("title", data.weatherCode);
+    $(".projects__link").eq(4).attr("title", data.challengeTitle);
+    $(".projects__link").eq(5).attr("title", data.challengeCode);
+    $(".projects__link").eq(6).attr("title", data.interiorTitle);
+    $(".projects__link").eq(7).attr("title", data.interiorCode);
+    $(".projects__link").eq(8).attr("title", data.sleszynskiTitle);
+    $(".projects__link").eq(9).attr("title", data.sleszynskiCode);
+    $(".projects__link").eq(10).attr("title", data.todoTitle);
+    $(".projects__link").eq(11).attr("title", data.todoCode);
+    $(".projects__link").eq(12).attr("title", data.interiorv1Title);
+    $(".projects__link").eq(13).attr("title", data.interiorv1Code);
+    $(".projects__link").eq(14).attr("title", data.dobrywebdevTitle);
+    $(".projects__link").eq(15).attr("title", data.dobrywebdevCode);
+    $(".projects__link").eq(16).attr("title", data.interactiveTitle);
+    $(".projects__link").eq(17).attr("title", data.interactiveCode);
     // Projects photos alts
-    $(".projects__photo").eq(0).attr("alt", data.weatherAlt);
-    $(".projects__photo").eq(1).attr("alt", data.challengeAlt);
-    $(".projects__photo").eq(2).attr("alt", data.interiorAlt);
-    $(".projects__photo").eq(3).attr("alt", data.sleszynskiAlt);
-    $(".projects__photo").eq(4).attr("alt", data.todoAlt);
-    $(".projects__photo").eq(5).attr("alt", data.interiorv1Alt);
-    $(".projects__photo").eq(6).attr("alt", data.dobrywebdevAlt);
-    $(".projects__photo").eq(7).attr("alt", data.interactiveAlt);
+    $(".projects__photo").eq(0).attr("alt", data.gridAlt);
+    $(".projects__photo").eq(1).attr("alt", data.weatherAlt);
+    $(".projects__photo").eq(2).attr("alt", data.challengeAlt);
+    $(".projects__photo").eq(3).attr("alt", data.interiorAlt);
+    $(".projects__photo").eq(4).attr("alt", data.sleszynskiAlt);
+    $(".projects__photo").eq(5).attr("alt", data.todoAlt);
+    $(".projects__photo").eq(6).attr("alt", data.interiorv1Alt);
+    $(".projects__photo").eq(7).attr("alt", data.dobrywebdevAlt);
+    $(".projects__photo").eq(8).attr("alt", data.interactiveAlt);
 }
 
 // Language changing on button click

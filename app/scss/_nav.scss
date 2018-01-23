@@ -35,7 +35,7 @@
         height: 100vh;
         transition: 0.3s all;
         &--expanded {
-            top: 0;
+            top: -5rem;
             transition: 0.3s all;
         }
     }

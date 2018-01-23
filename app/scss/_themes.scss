@@ -114,6 +114,48 @@
     }
 }
 
+div.owl-theme .owl-dots .owl-dot span.dot-light-theme {
+    background-color: #555555;
+    transition: 0.3s all;
+    opacity: 0.5;
+    &:hover, &:focus {
+        background-color: #333333;
+        transition: 0.3s all;
+        opacity: 0.7;
+    }
+    &:active {
+        background-color: #111111;
+        transition: 0.3s all;
+    }
+}
+
+div.owl-theme .owl-dots .owl-dot.active span.dot-light-theme {
+    background-color: #000000;
+    transition: 0.3s all;
+    opacity: 1;
+} 
+
+div.owl-theme .owl-dot span.dot-dark-theme {
+    background-color: #cccccc;
+    transition: 0.3s all;
+    opacity: 0.5;
+    &:hover, &:focus {
+        background-color: #eaeaea;
+        transition: 0.3s all;
+        opacity: 0.7;
+    }
+    &:active {
+        background-color: #ffffff;
+        transition: 0.3s all;
+    }
+}
+
+div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
+    background-color: #ffffff;
+    transition: 0.3s all;
+    opacity: 1;
+}
+
 .input-light::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #555555;
     text-indent: 1rem;

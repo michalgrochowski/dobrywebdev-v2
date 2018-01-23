@@ -15,7 +15,6 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/fontello.css">
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/main.css">
 	<!-- endbuild -->
 	<!-- Page info -->
@@ -131,12 +130,13 @@
 			</ul>
 		</section>
 		<div class="section section--projects visuallyhidden--section" id="projects">
+			<p class="projects__nav-info">(Przesuń palcem, żeby zobaczyć więcej)</p>
 			<button class="projects__prev projects__prev--disabled projects__prev--light"><span class='icon-left-open'></span></button>
-			<button class="projects__next projects__prev--light"><span class='icon-right-open'></span></button>
+			<button class="projects__next projects__next--light"><span class='icon-right-open'></span></button>
 			<div class="projects owl-carousel owl-theme">
 				<section class="projects__project">
 					<h3 class="projects__title">CSS Grid Playground</h3>
-					<img class="projects__photo" src="img/playground.jpg" alt="Screenshot strony głównej Prostej aplikacji pogodowej">
+					<img class="projects__photo" src="img/playground.png" alt="Screenshot strony głównej Prostej aplikacji pogodowej">
 					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/grid-playground/dist/" title="Zobacz CSS Grid Playground" target="_blank" rel=”noopener”>Zobacz projekt</a>
 					<p class="projects__description gridDescription">Aplikacja stworzona do nauki i zabawy CSS Grid. Napisana przy pomocy HTML, CSS (Flexbox + Grid) i JavaScript (ES6). To mój pierwszy projekt z poważnym wykorzystaniem ES6 i Babel.js. Dodatkowo jest to pełne PWA.</p>
 					<a class="projects__link projects__link--code projectCode" href="https://github.com/michalgrochowski/grid-playground" title="Zobacz kod źródłowy CSS Grid Playground" target="_blank" rel=”noopener”>Zobacz kod</a>
@@ -217,7 +217,7 @@
 					</div>
 					<div class="form__group form__group--msg">
 						<label for="inputText" class="textLabel">Treść wiadomości</label>
-						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się twoja strona." name="message"></textarea>
+						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się Twoja strona." name="message"></textarea>
 					</div>
 					<input type="submit" class="form__button light-theme--button" value="Wyślij" name="submit" id="buttonSubmit">
 				</form>
@@ -231,7 +231,7 @@
 					<li class="socials__list-item">
 						<a class="socials__item light-theme--link" href="mailto:michal@dobrywebdev.pl" target="_blank" rel=”noopener”>
 							<span class="icon icon-mail-alt" aria-hidden="true"></span>
-							<p class="mail">Napisz<span class="visuallyhidden"> do mnie maila</span></p>
+							<p class="mail">E-mail<span class="visuallyhidden"> Napisz do mnie maila</span></p>
 						</a>
 					</li>
 					<li class="socials__list-item">

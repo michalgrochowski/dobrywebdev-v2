@@ -9,13 +9,14 @@
 
 .form__input {
     font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
     width: 100%;
     border: none;
-    height: 3rem;
     text-indent: 1rem;
     transition: all 0.5s;
-    padding: 0 !important;
-    border-radius: 0 !important;
+    padding: 0.5rem;
+    border-radius: 0;
+    line-height: normal; // very important for iOS Safari placeholder issue
 }
 
 .form__input:focus {
@@ -29,14 +30,16 @@
 
 .form__textarea {
     font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
     width: 100%;
     height: 10rem;
     border: none;
     resize: none;
     text-indent: 1rem;
-    padding-top: 0.5rem;
+    padding: 0.5rem;
     transition: all 0.5s;
     text-indent: 1rem;
+    line-height: normal; // very important for iOS Safari placeholder issue
 }
 
 .form__textarea:focus {

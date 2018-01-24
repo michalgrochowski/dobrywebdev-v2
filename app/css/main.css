@@ -239,10 +239,17 @@
 .projects__nav-info {
   top: 6rem;
   position: absolute;
-  font-size: 1.4rem;
-  margin: 1rem 1rem 3rem 1rem; }
+  left: 0;
+  width: 90%;
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 1rem 5%;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all; }
   .projects__nav-info--hidden {
-    display: none; }
+    top: 0;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all; }
   @media screen and (min-width: 801px) {
     .projects__nav-info {
       display: none; } }
@@ -361,13 +368,13 @@
   height: 20px; }
   @media screen and (max-width: 800px) {
     .owl-theme .owl-dots {
-      top: -1rem; } }
+      top: 0rem; } }
   @media screen and (min-width: 801px) and (max-width: 1366px) {
     .owl-theme .owl-dots {
       bottom: 4rem; } }
   @media screen and (min-width: 1367px) {
     .owl-theme .owl-dots {
-      bottom: 0rem; } }
+      bottom: -4rem; } }
 
 .owl-theme .owl-dots .owl-dot {
   display: inline-block; }
@@ -410,14 +417,15 @@
 
 .form__input {
   font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
   width: 100%;
   border: none;
-  height: 3rem;
   text-indent: 1rem;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  padding: 0 !important;
-  border-radius: 0 !important; }
+  padding: 0.5rem;
+  border-radius: 0;
+  line-height: normal; }
 
 .form__input:focus {
   -webkit-transition: all 0.5s;
@@ -429,15 +437,17 @@
 
 .form__textarea {
   font-family: 'Poppins', sans-serif;
+  font-size: 1.6rem;
   width: 100%;
   height: 10rem;
   border: none;
   resize: none;
   text-indent: 1rem;
-  padding-top: 0.5rem;
+  padding: 0.5rem;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
-  text-indent: 1rem; }
+  text-indent: 1rem;
+  line-height: normal; }
 
 .form__textarea:focus {
   -webkit-transition: all 0.5s;
@@ -1878,49 +1888,73 @@ div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
   /* Chrome/Opera/Safari */
   color: #555555;
   text-indent: 1rem;
-  padding: 1rem; }
+  white-space: normal; }
 
 .input-dark::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: #ffffff;
   text-indent: 1rem;
-  padding: 1rem; }
-
-.input-light::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #555555;
-  text-indent: 1rem;
-  padding: 1rem; }
-
-.input-dark::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #ffffff;
-  text-indent: 1rem;
-  padding: 1rem; }
+  white-space: normal; }
 
 .input-light:-ms-input-placeholder {
   /* IE 10+ */
   color: #555555;
   text-indent: 1rem;
-  padding: 1rem; }
+  white-space: normal; }
 
 .input-dark:-ms-input-placeholder {
   /* IE 10+ */
   color: #ffffff;
   text-indent: 1rem;
-  padding: 1rem; }
+  white-space: normal; }
 
-.input-light:-moz-placeholder {
-  /* Firefox 18- */
+.input-light::-webkit-input-placeholder {
+  /* Supposed modern browser */
   color: #555555;
   text-indent: 1rem;
-  padding: 1rem; }
+  white-space: normal; }
 
-.input-dark:-moz-placeholder {
-  /* Firefox 18- */
+.input-light:-ms-input-placeholder {
+  /* Supposed modern browser */
+  color: #555555;
+  text-indent: 1rem;
+  white-space: normal; }
+
+.input-light::-ms-input-placeholder {
+  /* Supposed modern browser */
+  color: #555555;
+  text-indent: 1rem;
+  white-space: normal; }
+
+.input-light::placeholder {
+  /* Supposed modern browser */
+  color: #555555;
+  text-indent: 1rem;
+  white-space: normal; }
+
+.input-dark::-webkit-input-placeholder {
+  /* Supposed modern browser */
   color: #ffffff;
   text-indent: 1rem;
-  padding: 1rem; }
+  white-space: normal; }
+
+.input-dark:-ms-input-placeholder {
+  /* Supposed modern browser */
+  color: #ffffff;
+  text-indent: 1rem;
+  white-space: normal; }
+
+.input-dark::-ms-input-placeholder {
+  /* Supposed modern browser */
+  color: #ffffff;
+  text-indent: 1rem;
+  white-space: normal; }
+
+.input-dark::placeholder {
+  /* Supposed modern browser */
+  color: #ffffff;
+  text-indent: 1rem;
+  white-space: normal; }
 
 .visuallyhidden {
   position: absolute;

@@ -29,6 +29,7 @@
     function owlCallBack() {
         if ($('.owl-carousel .owl-item').first().hasClass('active')) {
             $('.projects__prev').addClass("projects__prev--disabled");
+            $(".projects__nav-info").removeClass("projects__nav-info--hidden");
         } else if ($('.owl-carousel .owl-item').last().hasClass('active')) {
             $('.projects__next').addClass("projects__next--disabled");
         } else if (!$('.owl-carousel .owl-item').first().hasClass('active') && !$('.owl-carousel .owl-item').last().hasClass('active')) {
@@ -382,7 +383,7 @@ function changeLanguage(data) {
     howOldAmI();
     $(".aboutCooperation").text(data.aboutCooperation);
     $(".skillsSubtitle").text(data.skillsSubtitle);
-    $(".projectsTitle").text(data.projectsTitle);
+    $(".projects__nav-info").text(data.projectsNavInfo);
     $(".gridDescription").text(data.gridDescription);
     $(".weatherDescription").text(data.weatherDescription);
     $(".challengeDescription").text(data.challengeDescription);

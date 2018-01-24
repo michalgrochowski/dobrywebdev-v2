@@ -158,48 +158,60 @@ div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
 
 .input-light::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #555555;
-    text-indent: 1rem;
-    padding: 1rem;
+    text-indent: 1rem;;
+    white-space: normal;
 }
 
 .input-dark::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     color: #ffffff;
     text-indent: 1rem;
-    padding: 1rem;
+    white-space: normal;
 }
 
 .input-light::-moz-placeholder { /* Firefox 19+ */
     color: #555555;
     text-indent: 1rem;
-    padding: 1rem;
+    white-space: normal;
 }
 
 .input-dark::-moz-placeholder { /* Firefox 19+ */
     color: #ffffff;
     text-indent: 1rem;
-    padding: 1rem;
+    white-space: normal;
 }
 
 .input-light:-ms-input-placeholder { /* IE 10+ */
     color: #555555;
     text-indent: 1rem;
-    padding: 1rem;
+    white-space: normal;
 }
 
 .input-dark:-ms-input-placeholder { /* IE 10+ */
     color: #ffffff;
     text-indent: 1rem;
-    padding: 1rem;
+    white-space: normal;
 }
 
 .input-light:-moz-placeholder { /* Firefox 18- */
     color: #555555;
     text-indent: 1rem;
-    padding: 1rem;
+    white-space: normal;
 }
 
 .input-dark:-moz-placeholder { /* Firefox 18- */
     color: #ffffff;
     text-indent: 1rem;
-    padding: 1rem;
+    white-space: normal;
+}
+
+.input-light::placeholder { /* Supposed modern browser */
+    color: #555555;
+    text-indent: 1rem;
+    white-space: normal;
+}
+
+.input-dark::placeholder { /* Supposed modern browser */
+    color: #ffffff;
+    text-indent: 1rem;
+    white-space: normal;
 }

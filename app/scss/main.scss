@@ -9,6 +9,7 @@
 @import 'animations.scss';
 @import 'devicons.scss';
 @import 'cookies.scss';
+@import 'icons.scss';
 
 // Main Styles
 
@@ -296,14 +297,6 @@ body {
             }
         }
     }
-}
-
-.devicons {
-    font-size: 4rem;
-}
-
-.icon-moon, .icon-sun {
-    font-size: 3rem;
 }
 
 @import 'themes.scss';

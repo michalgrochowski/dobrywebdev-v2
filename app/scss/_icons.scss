@@ -1,0 +1,43 @@
+.devicons {
+    font-size: 4rem;
+    transition: 0.5s all;
+    &:hover {
+        transition: 0.5s all;
+    }
+}
+
+.devicons-html5:hover {
+    color: #E34C26;
+}
+
+.devicons-css3:hover {
+    color: #0170BA;
+}
+
+.devicons-javascript_badge:hover {
+    color: #F0DB4F;
+}
+
+.devicons-jquery:hover {
+    color: #7ACEF4;
+}
+
+.devicons-sass:hover {
+    color: #c69;
+}
+
+.devicons-gulp:hover {
+    color: #EB4A4B;
+}
+
+.devicons-npm:hover {
+    color: #CB3837;
+}
+
+.devicons-visualstudio:hover {
+    color: #007ACC;
+}
+
+.icon-moon, .icon-sun {
+    font-size: 3rem;
+}

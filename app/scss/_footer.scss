@@ -7,13 +7,19 @@
     left: 0;
     width: 100vw;
     max-width: 100vw;
-    min-height: 5rem;
+    height: 5rem;
     z-index: 10;
+    @include mq-max(800px) {
+        height: 3.5rem;
+    }
 }
 
 .footer__copyright {
     font-size: 1.2rem;
     margin-bottom: 2rem;
+    @include mq-max(800px) {
+        margin-bottom: 2rem;
+    }
 }
 
 .footer__link {

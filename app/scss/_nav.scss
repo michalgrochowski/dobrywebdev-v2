@@ -9,12 +9,18 @@
     top: 0;
     left: 0;
     z-index: 10;
+    @include mq-max(800px) {
+        height: 5rem;
+    }
 }
 
 .nav__logo {
     width: 15rem;
     border-bottom: none;
     margin: 1rem 0 0 1.5rem;
+    @include mq-max(800px) {
+        width: 12rem;
+    }
 }
 
 .nav__list {
@@ -35,7 +41,7 @@
         height: 100vh;
         transition: 0.3s all;
         &--expanded {
-            top: -5rem;
+            top: -4rem;
             transition: 0.3s all;
         }
     }
@@ -48,9 +54,6 @@
     }
     @include mq-min(1650px) {
         width: 40%;
-    }
-    &--mobile {
-        
     }
 }
 
@@ -112,6 +115,11 @@
         position: fixed;
         top: 1.5rem;
         left: 2rem;
+        z-index: 5;
+        @include mq-max(800px) {
+            top: 0.5rem;
+            left: 1rem;
+        }
     }
 }
 
@@ -135,7 +143,7 @@
 
 .nav__hamburger, .nav__close-menu {
     position: fixed;
-    top: 2rem;
+    top: 1rem;
     right: 1rem;
     z-index: 10;
     font-size: 3rem;

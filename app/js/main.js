@@ -404,7 +404,6 @@ function changeLanguage(data) {
     $(".textLabel").text(data.textLabel);
     $(".sendButton").text(data.sendButton);
     $(".phone").text(data.phone);
-    $(".mail").text(data.mail);
     $(".form__input--mail").attr("placeholder", data.mailPlaceholder);
     $(".form__input--name").attr("placeholder", data.namePlaceholder);
     $(".form__textarea").attr("placeholder", data.textPlaceholder);

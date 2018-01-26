@@ -49,25 +49,6 @@ $(window).on("load", function() {
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
     hideOrShowSections();
-    if ($("#theme").hasClass("icon-moon")) {
-        $(".nav__logo").attr("src", "img/logo-light.png");
-        $('a').addClass("light-theme--link").removeClass("dark-theme--link");
-        $(".nav__link--start").removeClass("light-theme--link");
-        $("body").addClass("light-theme");
-        $(".owl-theme .owl-dots .owl-dot span").addClass("dot-light-theme");
-    } else if ($("#theme").hasClass("icon-sun")) {
-        $(".nav__logo").attr("src", "img/logo-dark.png");
-        $('a').addClass("dark-theme--link").removeClass("light-theme--nav-link");
-        $(".nav__link--start").removeClass("dark-theme--link");
-        $("body").addClass("dark-theme");
-        $(".owl-theme .owl-dots .owl-dot span").addClass("dot-dark-theme");
-    }
-    if ($(".langENG").hasClass("button--lang--active")) {
-        $(".langENG").removeClass("button--lang--active");
-        $(".langPL").addClass("button--lang--active");
-    } else if ($(".langPL").hasClass("button--lang--active")) {
-        return;
-    }
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
         return;
     } else if (localStorage.getItem("icon") !== null) {
@@ -98,6 +79,25 @@ $(window).on("load", function() {
     $(".socials__item").css("border-bottom", "none");
     $(".projects__link").css("border-bottom", "none");
     $(".cookie-info__close").css("border-bottom", "none");
+    }
+    if ($("#theme").hasClass("icon-moon")) {
+        $(".nav__logo").attr("src", "img/logo-light.png");
+        $('a').addClass("light-theme--link").removeClass("dark-theme--link");
+        $(".nav__link--start").removeClass("light-theme--link");
+        $("body").addClass("light-theme");
+        $(".owl-theme .owl-dots .owl-dot span").addClass("dot-light-theme");
+    } else if ($("#theme").hasClass("icon-sun")) {
+        $(".nav__logo").attr("src", "img/logo-dark.png");
+        $('a').addClass("dark-theme--link").removeClass("light-theme--nav-link");
+        $(".nav__link--start").removeClass("dark-theme--link");
+        $("body").addClass("dark-theme");
+        $(".owl-theme .owl-dots .owl-dot span").addClass("dot-dark-theme");
+    }
+    if ($(".langENG").hasClass("button--lang--active")) {
+        $(".langENG").removeClass("button--lang--active");
+        $(".langPL").addClass("button--lang--active");
+    } else if ($(".langPL").hasClass("button--lang--active")) {
+        return;
     }
 });
 

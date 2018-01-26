@@ -50,7 +50,7 @@ $(window).on("load", function() {
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
     hideOrShowSections();
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
-        return;
+        ;
     } else if (localStorage.getItem("icon") !== null) {
     $(".container").attr("class", JSON.parse(localStorage.getItem("container")));
     $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
@@ -97,7 +97,7 @@ $(window).on("load", function() {
         $(".langENG").removeClass("button--lang--active");
         $(".langPL").addClass("button--lang--active");
     } else if ($(".langPL").hasClass("button--lang--active")) {
-        return;
+        ;
     }
 });
 

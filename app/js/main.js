@@ -417,6 +417,7 @@ function changeLanguage(data) {
     $(".form__input--name").attr("placeholder", data.namePlaceholder);
     $(".form__textarea").attr("placeholder", data.textPlaceholder);
     $(".form__button").attr("value", data.sendButton);
+    $(".form__button").attr("aria-label", data.sendButtonAria);
     $(".cookie-info__text").text(data.cookies);
     $(".cookie-info__close").attr("title", data.cookiesClose);
     $(".cookie-info__close").attr("aria-label", data.cookiesClose);

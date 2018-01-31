@@ -53,6 +53,8 @@
     "interactiveCode": "Check Interactive Agency source code",
     "projectLive": "Live version",
     "projectCode": "Source code",
+    "projectsPrev": "Previous project",
+    "projectsNext": "Next project",
     "contactTitle": "Get in touch with me",
     "mailLabel": "E-mail address",
     "phoneLabel": "Phone number",
@@ -62,6 +64,8 @@
     "namePlaceholder": "John Smith",
     "textPlaceholder": "Hi! I really like your website.",
     "sendButton": "Send",
+    "sendButtonAria": "Send your messsage from the form",
     "phone": "Call me",
-    "cookies": "This website is using cookies and your browser localStorage to store some settings and collect info on the visitors to provide usage statistics. If you do not agree to this, you can change your cookies preferences in your browser."
+    "cookies": "This website is using cookies and your browser localStorage to store some settings and collect info on the visitors to provide usage statistics. If you do not agree to this, you can change your cookies preferences in your browser.",
+    "cookiesClose": "Close cookie policy info"
 }

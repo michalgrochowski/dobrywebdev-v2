@@ -53,6 +53,8 @@
     "interactiveCode": "Zobacz kod źródłowy Interactive Agency",
     "projectLive": "Zobacz projekt",
     "projectCode": "Kod źródłowy",
+    "projectsPrev": "Poprzedni projekt",
+    "projectsNext": "Następny projekt",
     "contactTitle": "Skontaktuj się ze mną",
     "mailLabel": "Adres e-mail",
     "phoneLabel": "Numer telefonu",
@@ -62,6 +64,8 @@
     "namePlaceholder": "Jan Kowalski",
     "textPlaceholder": "Cześć! Podoba mi się Twoja strona.",
     "sendButton": "Wyślij",
+    "sendButtonAria": "Wyślij wiadomość z formularza",
     "phone": "Zadzwoń",
-    "cookies": "Ta strona korzysta z plików cookies oraz localStorage twojej przeglądarki do przechowywania ustawień oraz prowadzenia statystyk odwiedzin. Jeśli nie wyrażasz na to zgody, ustawienia dotyczące plików cookies możesz zmienić w swojej przeglądarce."
+    "cookies": "Ta strona korzysta z plików cookies oraz localStorage twojej przeglądarki do przechowywania ustawień oraz prowadzenia statystyk odwiedzin. Jeśli nie wyrażasz na to zgody, ustawienia dotyczące plików cookies możesz zmienić w swojej przeglądarce.",
+    "cookiesClose": "Zamknij informację o polityce Cookies"
 }

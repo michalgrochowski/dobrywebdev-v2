@@ -74,16 +74,16 @@
 				</button>
 			</li>
 			<li class="nav__item">
-				<button class="button button--lang light-theme button--lang--active langPL" title="Zmień język strony na polski">PL</button>
-				<button class="button button--lang light-theme langENG" title="Zmień język strony na angielski">ENG</button>
+				<button class="button button--lang light-theme button--lang--active langPL" aria-label="Zmień język strony na polski" title="Zmień język strony na polski">PL</button>
+				<button class="button button--lang light-theme langENG" aria-label="Zmień język strony na angielski" title="Zmień język strony na angielski">ENG</button>
 			</li>
 		</ul>
-		<button class="nav__hamburger light-theme icon-menu" title="Otwórz menu"></button>
-		<button class="nav__close-menu light-theme icon-cancel" title="Zamknij menu"></button>
+		<button class="nav__hamburger light-theme icon-menu" aria-label="Otwórz menu" title="Otwórz menu"></button>
+		<button class="nav__close-menu light-theme icon-cancel" aria-label="Zamknij menu" title="Zamknij menu"></button>
 	</nav> 
 	<div class="cookie-info dark-theme">
 		<p class="cookie-info__text">Ta strona korzysta z plików cookies oraz localStorage twojej przeglądarki do przechowywania ustawień oraz prowadzenia statystyk odzwiedzin. Jeśli nie wyrażasz na to zgody, ustawienia dotyczące plików cookies możesz zmienić w swojej przeglądarce.</p>
-		<button class="cookie-info__close icon-cancel dark-theme--link dark-outline" tabindex="0"></button>
+		<button class="cookie-info__close icon-cancel dark-theme--link dark-outline" tabindex="0" aria-label="Zamknij informację o polityce Cookies" title="Zamknij informację o polityce Cookies"></button>
 	</div>
 	<main class="container light-theme">
 		<header class="section section--start" id="start">
@@ -131,19 +131,19 @@
 		</section>
 		<div class="section section--projects visuallyhidden--section" id="projects">
 			<p class="projects__nav-info">(Przesuń palcem, żeby zobaczyć więcej)</p>
-			<button class="projects__prev projects__prev--disabled projects__prev--light"><span class='icon-left-open'></span></button>
-			<button class="projects__next projects__next--light"><span class='icon-right-open'></span></button>
+			<button class="projects__prev projects__prev--disabled projects__prev--light" aria-label="Poprzedni projekt"><span class='icon-left-open' aria-hidden="true"></span></button>
+			<button class="projects__next projects__next--light" aria-label="Następny projekt"><span class="visuallyhidden">Następni projekt</span><span class='icon-right-open' aria-hidden="true"></span></button>
 			<div class="projects owl-carousel owl-theme">
 				<section class="projects__project">
 					<h3 class="projects__title">CSS Grid Playground</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Grid</span>
-						<span class="projects__tag dark-theme">Flexbox</span>
-						<span class="projects__tag dark-theme">JavaScript</span>
-						<span class="projects__tag dark-theme">ES6</span>
-						<span class="projects__tag dark-theme">PWA</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Grid</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Flexbox</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">JavaScript</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">ES6</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">PWA</span>
 					</div>
 					<img class="projects__photo" src="img/playground.png" alt="Screenshot strony głównej Prostej aplikacji pogodowej">
 					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/grid-playground/dist/" title="Zobacz CSS Grid Playground" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -153,13 +153,13 @@
 				<section class="projects__project">
 					<h3 class="projects__title">Prosta aplikacja pogodowa</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Flexbox</span>
-						<span class="projects__tag dark-theme">JavaScript</span>
-						<span class="projects__tag dark-theme">PWA</span>
-						<span class="projects__tag dark-theme">Fetch</span>
-						<span class="projects__tag dark-theme">API</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Flexbox</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">JavaScript</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">PWA</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Fetch</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">API</span>
 					</div>
 					<img class="projects__photo" src="img/simpleweather.png" alt="Screenshot strony głównej Prostej aplikacji pogodowej">
 					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/simple-weather-app/dist/" title="Zobacz Prostą aplikację pogodową" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -169,12 +169,12 @@
 				<section class="projects__project">
 					<h3 class="projects__title">Weekly Webdev Challenge 37</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Flexbox</span>
-						<span class="projects__tag dark-theme">jQuery</span>
-						<span class="projects__tag dark-theme">OwlCarousel</span>
-						<span class="projects__tag dark-theme">PSD2HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Flexbox</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">jQuery</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">OwlCarousel</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">PSD2HTML</span>
 					</div>
 					<img class="projects__photo" src="img/webdev37.png" alt="Screenshot strony głównej Weekly Webdev Challenge 37">
 					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/weekly-webdev-challenge-37/app/index.html" title="Zobacz Weekly Webdev Challenge 37" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -184,11 +184,11 @@
 				<section class="projects__project">
 					<h3 class="projects__title">interiorideas.pl</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Flexbox</span>
-						<span class="projects__tag dark-theme">jQuery</span>
-						<span class="projects__tag dark-theme">Lightbox.js</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Flexbox</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">jQuery</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Lightbox.js</span>
 					</div>
 					<img class="projects__photo" src="img/interior.png" alt="Screenshot strony głównej Interiorideas.pl">
 					<a class="projects__link projectLive" href="http://interiorideas.pl" title="Zobacz interiorideas.pl" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -198,11 +198,11 @@
 				<section class="projects__project">
 					<h3 class="projects__title">msleszynski.pl</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Bootstrap</span>
-						<span class="projects__tag dark-theme">JavaScript</span>
-						<span class="projects__tag dark-theme">Lightbox.js</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Bootstrap</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">JavaScript</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Lightbox.js</span>
 					</div>
 					<img class="projects__photo" src="img/sleszynski.png" alt="Screenshot strony głównej msleszynski.pl">
 					<a class="projects__link projectLive" href="http://msleszynski.pl" title="Zobacz msleszynski.pl" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -212,10 +212,10 @@
 				<section class="projects__project">
 					<h3 class="projects__title">Aplikacja To-Do</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Flexbox</span>
-						<span class="projects__tag dark-theme">JavaScript</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Flexbox</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">JavaScript</span>
 						<span class="projects__tag dark-theme">localStorage</span>
 					</div>
 					<img class="projects__photo" src="img/todo.png" alt="Screenshot strony głównej Aplikacja ToDo">
@@ -226,12 +226,12 @@
 				<section class="projects__project">
 					<h3 class="projects__title">interiorideas.pl - v1</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Flexbox</span>
-						<span class="projects__tag dark-theme">jQuery</span>
-						<span class="projects__tag dark-theme">Lightbox.js</span>
-						<span class="projects__tag dark-theme">Slick Carousel</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Flexbox</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">jQuery</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Lightbox.js</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Slick Carousel</span>
 					</div>
 					<img class="projects__photo" src="img/interior1.png" alt="Screenshot strony głównej Interiorideas.pl v1">
 					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/interiorideas1" title="Zobacz interiorideas.pl v1" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -241,11 +241,11 @@
 				<section class="projects__project">
 					<h3 class="projects__title">DobryWebdev v1</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Bootstrap</span>
-						<span class="projects__tag dark-theme">jQuery</span>
-						<span class="projects__tag dark-theme">OwlCarousel</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Bootstrap</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">jQuery</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">OwlCarousel</span>
 					</div>
 					<img class="projects__photo" src="img/dobrywebdev.png" alt="Screenshot strony głównej Dobrywebdev.pl v2">
 					<a class="projects__link projectLive" href="http://dobrywebdev.pl/old" title="Zobacz dobrywebdev.pl v1" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -255,10 +255,10 @@
 				<section class="projects__project">
 					<h3 class="projects__title">Inetractive Agency</h3>
 					<div class="projects__tags">
-						<span class="projects__tag dark-theme">HTML</span>
-						<span class="projects__tag dark-theme">CSS</span>
-						<span class="projects__tag dark-theme">Bootstrap</span>
-						<span class="projects__tag dark-theme">PSD2HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">HTML</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">CSS</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">Bootstrap</span>
+						<span class="projects__tag dark-theme" aria-hidden="true">PSD2HTML</span>
 					</div>
 					<img class="projects__photo" src="img/agency.png" alt="Screenshot strony głównej Interactive Agency">
 					<a class="projects__link projectLive" href="https://michalgrochowski.github.io/agency" title="Zobacz Interactive Agency" target="_blank" rel=”noopener”>Zobacz projekt</a>
@@ -287,7 +287,7 @@
 						<label for="inputText" class="textLabel">Treść wiadomości</label>
 						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się Twoja strona." name="message"></textarea>
 					</div>
-					<input type="submit" class="form__button light-theme--button" value="Wyślij" name="submit" id="buttonSubmit">
+					<input type="submit" class="form__button light-theme--button" value="Wyślij" aria-label="Wyślij wiadomość z formularza" name="submit" id="buttonSubmit">
 				</form>
 				<ul class="socials">
 					<li class="socials__list-item">

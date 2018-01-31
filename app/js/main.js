@@ -375,8 +375,12 @@ function changeLanguage(data) {
     $(".navProjects").text(data.navProjects).attr("title", data.navProjects);
     $(".navContact").text(data.navContact).attr("title", data.navContact);
     $(".button--theme").attr("aria-label", data.buttonTheme).attr("title", data.buttonTheme);
+    $(".langPL").attr("aria-label", data.langPL);
+    $(".langENG").attr("aria-label", data.langENG);
     $(".langPL").attr("title", data.langPL);
     $(".langENG").attr("title", data.langENG);
+    $(".nav__hamburger").attr("aria-label", data.hamburger);
+    $(".nav__close-menu").attr("aria-label", data.closeMenu);
     $(".nav__hamburger").attr("title", data.hamburger);
     $(".nav__close-menu").attr("title", data.closeMenu);
     $(".mainTitle").text(data.mainTitle);
@@ -400,6 +404,8 @@ function changeLanguage(data) {
     $(".formDescription").text(data.formDescription);
     $(".projectLive").text(data.projectLive);
     $(".projectCode").text(data.projectCode);
+    $(".projects__prev").attr("aria-label", data.projectssPrev);
+    $(".projects__next").attr("aria-label", data.projectssNext);
     $(".contactTitle").text(data.contactTitle);
     $(".mailLabel").text(data.mailLabel);
     $(".phoneLabel").text(data.phoneLabel);
@@ -412,6 +418,8 @@ function changeLanguage(data) {
     $(".form__textarea").attr("placeholder", data.textPlaceholder);
     $(".form__button").attr("value", data.sendButton);
     $(".cookie-info__text").text(data.cookies);
+    $(".cookie-info__close").attr("title", data.cookiesClose);
+    $(".cookie-info__close").attr("aria-label", data.cookiesClose);
     // Main titles
     $(".projects__title").eq(1).text(data.weatherMaintitle);
     $(".projects__title").eq(5).text(data.todoMaintitle);

@@ -1,6 +1,6 @@
 {
     "name": "DobryWebdev",
-    "start_url": "./index.html",
+    "start_url": "/",
     "short_name": "DobryWebdev",
     "icons": [
         {

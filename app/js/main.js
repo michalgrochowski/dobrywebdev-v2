@@ -3,7 +3,7 @@
     'use strict';
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
-          console.log('ServiceWorker registration successful!');
+          console.log('Service worker registration done, scope is:', registration.scope);
         }).catch(function(err) {
           console.log('ServiceWorker registration failed: ', err);
         });

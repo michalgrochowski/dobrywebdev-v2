@@ -1,5 +1,6 @@
-const CACHE_NAME = "dobrywebdev-v1";
+const CACHE_NAME = "dobrywebdev-v4";
 const URLS_TO_CACHE  = [
+    "/",
     "/index.html",
     "/manifest.json",
     "https://fonts.googleapis.com/css?family=Poppins:400,700&amp;subset=latin-ext",
@@ -16,6 +17,7 @@ const URLS_TO_CACHE  = [
     "/font/fontello.woff2",
     "/json/content-eng.json",
     "/json/content-pl.json",
+    "/img/playground.png",
     "/img/agency.png",
     "/img/cv.png",
     "/img/dobrywebdev.png",
@@ -56,6 +58,8 @@ self.addEventListener('install', function(event) {
         .then(function(cache) {
             console.log('Opened cache');
             return cache.addAll(URLS_TO_CACHE);
+        }).catch(function(error) {
+            console.log(error);
         })
     );
 });

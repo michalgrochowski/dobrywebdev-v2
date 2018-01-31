@@ -66,6 +66,7 @@ $(window).on("load", function() {
     $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
     $(".projects__prev").attr("class", JSON.parse(localStorage.getItem("projectsPrev")));
     $(".projects__next").attr("class", JSON.parse(localStorage.getItem("projectsNext")));
+    $(".projects__tag").attr("class", JSON.parse(localStorage.getItem("projectTag")));
     $(".form__button").attr("class", JSON.parse(localStorage.getItem("sendButton")));
     $(".langPL").attr("class", JSON.parse(localStorage.getItem("langPL")));
     $(".langENG").attr("class", JSON.parse(localStorage.getItem("langENG")));
@@ -313,6 +314,7 @@ $(".button--theme").on("click", function(){
     $(".button--flag").toggleClass("dark-outline");
     $(".projects__prev").toggleClass("projects__prev--light projects__prev--dark dark-outline");
     $(".projects__next").toggleClass("projects__next--light projects__next--dark dark-outline");
+    $(".projects__tag").toggleClass("light-theme dark-theme");
     $(".form__button").toggleClass("light-theme--button dark-theme--button dark-outline");
     $(".langPL").toggleClass("light-theme dark-theme dark-outline");
     $(".langENG").toggleClass("light-theme dark-theme dark-outline");
@@ -339,6 +341,7 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));
     localStorage.setItem("projectsPrev", JSON.stringify($(".projects__prev").attr("class")));
     localStorage.setItem("projectsNext", JSON.stringify($(".projects__next").attr("class")));
+    localStorage.setItem("projectTag", JSON.stringify($(".projects__tag").attr("class")));
     localStorage.setItem("sendButton", JSON.stringify($(".form__button").attr("class")));
     localStorage.setItem("langPL", JSON.stringify($(".langPL").attr("class")));
     localStorage.setItem("langENG", JSON.stringify($(".langENG").attr("class")));

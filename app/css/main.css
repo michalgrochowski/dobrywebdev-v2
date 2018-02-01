@@ -135,7 +135,6 @@
     .nav__item {
       width: 100vw;
       font-size: 2.2rem;
-      display: block;
       text-align: center;
       z-index: 4;
       padding: 1rem 0 1rem 0; } }
@@ -1461,8 +1460,80 @@
 .devicons-visualstudio:hover {
   color: #007ACC; }
 
-.icon-moon, .icon-sun {
-  font-size: 3rem; }
+.icon--theme {
+  font-size: 2.4rem; }
+
+.icon--light {
+  color: #333333; }
+
+.icon--dark {
+  color: #cccccc; }
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
+  .button--lang {
+    font-weight: bold;
+    opacity: 0.3;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s; }
+    .button--lang:hover {
+      opacity: 0.7;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s; }
+    .button--lang--active {
+      opacity: 0.8;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s; }
+      .button--lang--active:hover {
+        opacity: 1;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s; }
+  .button--theme {
+    border-radius: 1.5rem;
+    width: 8rem;
+    height: 3rem;
+    font-size: 2rem;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0; }
+    .button--theme--light {
+      border: 2px solid #333333; }
+    .button--theme--dark {
+      border: 2px solid #cccccc; }
+  .button__blob {
+    display: block;
+    width: 2.8rem;
+    height: 2.4rem;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background-color: #333333;
+    border-radius: 50%;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all; }
+    .button__blob--sun {
+      left: 0.2rem;
+      background-color: #272a33; }
+    .button__blob--moon {
+      left: calc(100% - 3.2rem);
+      background-color: #f4f0e6; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -1799,34 +1870,6 @@ body {
     .overlay__text {
       font-size: 4rem; } }
 
-.button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer; }
-  .button--lang {
-    font-weight: bold;
-    opacity: 0.3;
-    -webkit-transition: all 0.5s;
-    transition: all 0.5s; }
-    .button--lang:hover {
-      opacity: 0.7;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s; }
-    .button--lang--active {
-      opacity: 0.8;
-      -webkit-transition: all 0.5s;
-      transition: all 0.5s; }
-      .button--lang--active:hover {
-        opacity: 1;
-        -webkit-transition: all 0.5s;
-        transition: all 0.5s; }
-
-.icon--theme {
-  cursor: pointer;
-  -webkit-transition: background-color 0.5s, color 0.5s;
-  transition: background-color 0.5s, color 0.5s;
-  width: 20%; }
-
 .light-theme {
   background-color: #f4f0e6;
   color: #333333;
@@ -1858,26 +1901,6 @@ body {
   color: #ffffff;
   -webkit-transition: color 0.5s;
   transition: color 0.5s; }
-
-.icon-sun {
-  color: #cccccc;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s; }
-
-.button--theme:hover .icon-sun {
-  color: #ffffff;
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg); }
-
-.icon-moon {
-  color: #000000;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s; }
-
-.button--theme:hover .icon-moon {
-  color: #555555;
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg); }
 
 .dark-outline:focus {
   outline: 1px dashed #cccccc; }

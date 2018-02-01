@@ -300,8 +300,10 @@ $(".nav__link--start").on("click", function(){
 // Theme changing script that also saves settings in localStorage
 
 $(".button--theme").on("click", function(){
+    $(".button__blob").toggleClass("button__blob--sun button__blob--moon");
+    $(".button--theme").toggleClass("button--theme--light button--theme--dark")
     window.localStorage.clear();
-    $(".icon--theme").toggleClass("icon-moon icon-sun");
+    $(".icon--theme").toggleClass("icon--light icon--dark");
     $(".body-border").toggleClass("light-theme dark-theme");
     $(".container").toggleClass("light-theme dark-theme");
     $(".nav").toggleClass("light-theme dark-theme");

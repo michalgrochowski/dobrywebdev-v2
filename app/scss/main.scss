@@ -10,6 +10,7 @@
 @import 'devicons.scss';
 @import 'cookies.scss';
 @import 'icons.scss';
+@import 'buttons.scss';
 
 // Main Styles
 
@@ -275,29 +276,6 @@ body {
 }
 
 // Misc items
-
-.button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    &--lang {
-        font-weight: bold;
-        opacity: 0.3;
-        transition: all 0.5s;
-        &:hover {
-            opacity: 0.7;
-            transition: all 0.5s;
-        }
-        &--active {
-            opacity: 0.8;
-            transition: all 0.5s;
-            &:hover {
-                opacity: 1;
-                transition: all 0.5s;
-            }
-        }
-    }
-}
 
 @import 'themes.scss';
 

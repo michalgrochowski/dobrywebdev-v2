@@ -15,7 +15,7 @@
     text-indent: 1rem;
     transition: all 0.5s;
     padding: 0.5rem;
-    border-radius: 0;
+    border-radius: 1.5rem;
     line-height: normal; // very important for iOS Safari placeholder issue
 }
 
@@ -37,6 +37,7 @@
     resize: none;
     text-indent: 1rem;
     padding: 0.5rem;
+    border-radius: 1.5rem;
     transition: all 0.5s;
     text-indent: 1rem;
     line-height: normal; // very important for iOS Safari placeholder issue
@@ -54,6 +55,7 @@
     height: 3rem;
     border: none;
     transition: all 0.5s;
+    border-radius: 1.5rem;
 }
 
 .form__group {

@@ -77,6 +77,11 @@ gulp.task('php', function(){
         .pipe(gulp.dest('dist/phpmailer'))
 });
 
+gulp.task('errors', function(){
+    return gulp.src('app/errors/**/*')
+        .pipe(gulp.dest('dist/errors'))
+});
+
 gulp.task('form', function(){
     return gulp.src('app/formularz.php')
         .pipe(gulp.dest('dist'))
@@ -126,5 +131,5 @@ gulp.task('default', function(){
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'uglify', 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'errors', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'uglify', 'cssmin')
 });

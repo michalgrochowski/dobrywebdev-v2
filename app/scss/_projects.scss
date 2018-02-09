@@ -22,7 +22,7 @@
     margin: 1rem 5%;
     transition: 0.5s all;
     &--hidden {
-        top: 0;
+        top: -10rem;
         transition: 0.3s all;
     }
     @include mq-min(801px) {
@@ -99,7 +99,7 @@
     display: block;
     padding: 0rem 1rem;
     margin: 0.5rem 0.3rem;
-    border-radius: 0.5rem;
+    border-radius: 1.5rem;
     font-size: 1.4rem;
     transition: 0.5s all;
 }

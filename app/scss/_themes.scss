@@ -1,9 +1,3 @@
-.icon--theme {
-    cursor: pointer;
-    transition: background-color 0.5s, color 0.5s;
-    width: 20%;
-}
-
 .light-theme {
     background-color: #f4f0e6;
     color: #333333;
@@ -34,26 +28,6 @@
 .dark-theme--link:hover, .dark-theme--link:focus {
     color: #ffffff;
     transition: color 0.5s;
-}
-
-.icon-sun {
-    color: #cccccc;
-    transition: color 0.5s;
-}
-
-.button--theme:hover .icon-sun {
-    color: #ffffff;
-    transform: rotate(180deg);
-}
-
-.icon-moon {
-    color: #000000;
-    transition: color 0.5s;
-}
-
-.button--theme:hover .icon-moon {
-    color: #555555;
-    transform: rotate(180deg);
 }
 
 .dark-outline:focus {

@@ -10,6 +10,7 @@
 @import 'devicons.scss';
 @import 'cookies.scss';
 @import 'icons.scss';
+@import 'buttons.scss';
 
 // Main Styles
 
@@ -167,6 +168,9 @@ body {
     }
     &--contact {
         margin-bottom: 0;
+        @include mq-minmax(801px, 1366px) {
+            margin: 0;
+        }
     }
 }
 
@@ -246,7 +250,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    z-index: 15;
+    z-index: 25;
     @include flex-center-row;
     opacity: 0;
     background-color: #ffffff;
@@ -276,30 +280,8 @@ body {
 
 // Misc items
 
-.button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    &--lang {
-        font-weight: bold;
-        opacity: 0.3;
-        transition: all 0.5s;
-        &:hover {
-            opacity: 0.7;
-            transition: all 0.5s;
-        }
-        &--active {
-            opacity: 0.8;
-            transition: all 0.5s;
-            &:hover {
-                opacity: 1;
-                transition: all 0.5s;
-            }
-        }
-    }
-}
-
 @import 'themes.scss';
+@import 'error.scss';
 
 .visuallyhidden {
     position: absolute;

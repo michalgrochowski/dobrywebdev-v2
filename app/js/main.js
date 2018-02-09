@@ -25,6 +25,7 @@
         onInitialized: owlCallBack,
         onTranslated: owlCallBack
     });
+
     // Disable or enable buttons if at the start or end of carousel
     function owlCallBack() {
         if ($('.owl-carousel .owl-item').first().hasClass('active')) {
@@ -51,10 +52,13 @@ $(window).on("load", function() {
     hideOrShowSections();
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
         ;
-    } else if (localStorage.getItem("icon") !== null) {
+    } else if (localStorage.getItem("buttonBlob") !== null) {
     $(".container").attr("class", JSON.parse(localStorage.getItem("container")));
     $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
-    $(".icon--theme").attr("class", JSON.parse(localStorage.getItem("icon")));
+    $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
+    $(".button__blob").attr("class", JSON.parse(localStorage.getItem("buttonBlob")));
+    $(".icon-moon").attr("class", JSON.parse(localStorage.getItem("iconMoon")));
+    $(".icon-sun").attr("class", JSON.parse(localStorage.getItem("iconSun")));
     $(".body-border--top").attr("class", JSON.parse(localStorage.getItem("bodyBorderTop")));
     $(".body-border--bottom").attr("class", JSON.parse(localStorage.getItem("bodyBorderBottom")));
     $(".body-border--left").attr("class", JSON.parse(localStorage.getItem("bodyBorderLeft")));
@@ -63,7 +67,6 @@ $(window).on("load", function() {
     $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
     $(".nav__hamburger").attr("class", JSON.parse(localStorage.getItem("hamburger")));
     $(".nav__close-menu").attr("class", JSON.parse(localStorage.getItem("closemenu")));
-    $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
     $(".projects__prev").attr("class", JSON.parse(localStorage.getItem("projectsPrev")));
     $(".projects__next").attr("class", JSON.parse(localStorage.getItem("projectsNext")));
     $(".projects__tag").attr("class", JSON.parse(localStorage.getItem("projectTag")));
@@ -81,13 +84,13 @@ $(window).on("load", function() {
     $(".projects__link").css("border-bottom", "none");
     $(".cookie-info__close").css("border-bottom", "none");
     }
-    if ($("#theme").hasClass("icon-moon")) {
+    if ($(".button__blob").hasClass("button__blob--sun")) {
         $(".nav__logo").attr("src", "img/logo-light.png");
         $('a').addClass("light-theme--link").removeClass("dark-theme--link");
         $(".nav__link--start").removeClass("light-theme--link");
         $("body").addClass("light-theme");
         $(".owl-theme .owl-dots .owl-dot span").addClass("dot-light-theme");
-    } else if ($("#theme").hasClass("icon-sun")) {
+    } else if ($(".button__blob").hasClass("button__blob--moon")) {
         $(".nav__logo").attr("src", "img/logo-dark.png");
         $('a').addClass("dark-theme--link").removeClass("light-theme--nav-link");
         $(".nav__link--start").removeClass("dark-theme--link");
@@ -301,7 +304,10 @@ $(".nav__link--start").on("click", function(){
 
 $(".button--theme").on("click", function(){
     window.localStorage.clear();
-    $(".icon--theme").toggleClass("icon-moon icon-sun");
+    $(".button__blob").toggleClass("button__blob--sun button__blob--moon");
+    $(".button--theme").toggleClass("button--theme--light button--theme--dark")
+    $(".icon-moon").toggleClass("icon--light icon--dark");
+    $(".icon-sun").toggleClass("icon--light icon--dark");
     $(".body-border").toggleClass("light-theme dark-theme");
     $(".container").toggleClass("light-theme dark-theme");
     $(".nav").toggleClass("light-theme dark-theme");
@@ -329,7 +335,10 @@ $(".button--theme").on("click", function(){
     $(".owl-theme .owl-dots .owl-dot span").toggleClass("dot-dark-theme dot-light-theme");
     // Items for localStorage
     localStorage.setItem("container", JSON.stringify($(".container").attr("class")));
-    localStorage.setItem("icon", JSON.stringify($(".icon--theme").attr("class")));
+    localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));
+    localStorage.setItem("buttonBlob", JSON.stringify($(".button__blob").attr("class")));
+    localStorage.setItem("iconMoon", JSON.stringify($(".icon-moon").attr("class")));
+    localStorage.setItem("iconSun", JSON.stringify($(".icon-sun").attr("class")));
     localStorage.setItem("bodyBorderTop", JSON.stringify($(".body-border--top").attr("class")));
     localStorage.setItem("bodyBorderBottom", JSON.stringify($(".body-border--bottom").attr("class")));
     localStorage.setItem("bodyBorderLeft", JSON.stringify($(".body-border--left").attr("class")));
@@ -338,7 +347,6 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("footer", JSON.stringify($(".footer").attr("class")));
     localStorage.setItem("hamburger", JSON.stringify($(".nav__hamburger").attr("class")));
     localStorage.setItem("closemenu", JSON.stringify($(".nav__close-menu").attr("class")));
-    localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));
     localStorage.setItem("projectsPrev", JSON.stringify($(".projects__prev").attr("class")));
     localStorage.setItem("projectsNext", JSON.stringify($(".projects__next").attr("class")));
     localStorage.setItem("projectTag", JSON.stringify($(".projects__tag").attr("class")));
@@ -353,12 +361,21 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("textarea", JSON.stringify($(".form__textarea").attr("class")));
     localStorage.setItem("cookieClose", JSON.stringify($(".cookie-info__close").attr("class")));
     localStorage.setItem("navLink", JSON.stringify($(".nav__link").attr("class")));
-    if ($("#theme").hasClass("icon-moon")) {
-         $(".nav__logo").attr("src", "img/logo-light.png");
-    } else if ($("#theme").hasClass("icon-sun")) {
-         $(".nav__logo").attr("src", "img/logo-dark.png");
-    }
+    $(".nav__logo").toggleAttr("src", "img/logo-light.png", "img/logo-dark.png");
 });
+
+// Toggle attribute script by Mathias Bynens 
+// (https://gist.github.com/mathiasbynens/298591)
+
+$.fn.toggleAttr = function(attr, attr1, attr2) {
+    return this.each(function() {
+      var self = $(this);
+      if (self.attr(attr) == attr1)
+        self.attr(attr, attr2);
+      else
+        self.attr(attr, attr1);
+    });
+  };
 
 // Click function to hide cookies info
 

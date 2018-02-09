@@ -25,6 +25,7 @@
         onInitialized: owlCallBack,
         onTranslated: owlCallBack
     });
+
     // Disable or enable buttons if at the start or end of carousel
     function owlCallBack() {
         if ($('.owl-carousel .owl-item').first().hasClass('active')) {
@@ -360,15 +361,10 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("textarea", JSON.stringify($(".form__textarea").attr("class")));
     localStorage.setItem("cookieClose", JSON.stringify($(".cookie-info__close").attr("class")));
     localStorage.setItem("navLink", JSON.stringify($(".nav__link").attr("class")));
-    /*if ($(".button__blob").hasClass(".button__blob--sun")) {
-         $(".nav__logo").attr("src", "img/logo-light.png");
-    } else if ($(".button__blob").hasClass(".button__blob--moon")) {
-         $(".nav__logo").attr("src", "img/logo-dark.png");
-    }*/
     $(".nav__logo").toggleAttr("src", "img/logo-light.png", "img/logo-dark.png");
 });
 
-// Toggle attribute plugin by Mathias Bynens 
+// Toggle attribute script by Mathias Bynens 
 // (https://gist.github.com/mathiasbynens/298591)
 
 $.fn.toggleAttr = function(attr, attr1, attr2) {

@@ -26,6 +26,7 @@
 .input__fail {
     font-size: 1.4rem;
     color: #c71610;
+    margin-bottom: 0;
 }
 
 .form__textarea {
@@ -56,6 +57,9 @@
     border: none;
     transition: all 0.5s;
     border-radius: 1.5rem;
+    @include mq-minmax(801px, 1366px) {
+        margin: 1rem auto 1rem auto;
+    }
 }
 
 .form__group {

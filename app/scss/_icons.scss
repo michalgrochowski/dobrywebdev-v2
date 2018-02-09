@@ -39,6 +39,14 @@
 }
 
 .icon {
+    &--404 {
+        font-size: 10rem;
+        display: block;
+        &--arrow {
+            transform: rotate(90deg);
+            font-size: 2rem;
+        }
+    }
     &--theme {
         font-size: 2.5rem;
     }

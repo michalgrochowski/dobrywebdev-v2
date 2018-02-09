@@ -54,4 +54,12 @@
             background-color: #f4f0e6;
         }
     }
+    &--404 {
+        border-radius: 2rem;
+        height: 3.5rem;
+        padding: 0 1.5rem;
+        text-decoration: none;
+        @include flex-center-row;
+        transition: 0.3s all;
+    }
 }

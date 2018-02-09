@@ -1,7 +1,8 @@
-const CACHE_NAME = "dobrywebdev-v4";
+const CACHE_NAME = "dobrywebdev-v5";
 const URLS_TO_CACHE  = [
     "/",
     "/index.html",
+    "/errors/404.html",
     "/manifest.json",
     "https://fonts.googleapis.com/css?family=Poppins:400,700&amp;subset=latin-ext",
     "/css/main.min.css",

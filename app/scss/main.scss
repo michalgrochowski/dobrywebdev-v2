@@ -168,6 +168,9 @@ body {
     }
     &--contact {
         margin-bottom: 0;
+        @include mq-minmax(801px, 1366px) {
+            margin: 0;
+        }
     }
 }
 
@@ -278,6 +281,7 @@ body {
 // Misc items
 
 @import 'themes.scss';
+@import 'error.scss';
 
 .visuallyhidden {
     position: absolute;

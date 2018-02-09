@@ -257,7 +257,7 @@
   -webkit-transition: 0.5s all;
   transition: 0.5s all; }
   .projects__nav-info--hidden {
-    top: 0;
+    top: -10rem;
     -webkit-transition: 0.3s all;
     transition: 0.3s all; }
   @media screen and (min-width: 801px) {
@@ -360,7 +360,7 @@
   display: block;
   padding: 0rem 1rem;
   margin: 0.5rem 0.3rem;
-  border-radius: 0.5rem;
+  border-radius: 1.5rem;
   font-size: 1.4rem;
   -webkit-transition: 0.5s all;
   transition: 0.5s all; }
@@ -480,7 +480,8 @@
 
 .input__fail {
   font-size: 1.4rem;
-  color: #c71610; }
+  color: #c71610;
+  margin-bottom: 0; }
 
 .form__textarea {
   font-family: 'Poppins', sans-serif;
@@ -511,6 +512,9 @@
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   border-radius: 1.5rem; }
+  @media screen and (min-width: 801px) and (max-width: 1366px) {
+    .form__button {
+      margin: 1rem auto 1rem auto; } }
 
 .form__group {
   font-size: 1.8rem;
@@ -1462,6 +1466,14 @@
 .devicons-visualstudio:hover {
   color: #007ACC; }
 
+.icon--404 {
+  font-size: 10rem;
+  display: block; }
+  .icon--404--arrow {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    font-size: 2rem; }
+
 .icon--theme {
   font-size: 2.5rem; }
 
@@ -1536,6 +1548,31 @@
     .button__blob--moon {
       left: calc(100% - 3.3rem);
       background-color: #f4f0e6; }
+  .button--404 {
+    border-radius: 2rem;
+    height: 3.5rem;
+    padding: 0 1.5rem;
+    text-decoration: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -webkit-transition: 0.3s all;
+    transition: 0.3s all; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -1706,6 +1743,9 @@ body {
         padding-top: 5rem; } }
   .section__title--contact {
     margin-bottom: 0; }
+    @media screen and (min-width: 801px) and (max-width: 1366px) {
+      .section__title--contact {
+        margin: 0; } }
 
 .section__subtitle {
   font-size: 2.5rem;
@@ -2063,6 +2103,27 @@ div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
   color: #ffffff;
   text-indent: 1rem;
   white-space: normal; }
+
+.error-404 {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.error-404__title {
+  font-size: 8rem;
+  margin: 0; }
+  @media screen and (max-width: 800px) {
+    .error-404__title {
+      font-size: 4rem; } }
+
+.error-404__subtitle {
+  font-size: 2.5rem;
+  margin-bottom: 0; }
+  @media screen and (max-width: 800px) {
+    .error-404__subtitle {
+      margin-top: 0;
+      font-size: 2rem; } }
 
 .visuallyhidden {
   position: absolute;

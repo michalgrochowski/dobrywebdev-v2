@@ -26,6 +26,7 @@
         font-size: 2rem;
         position: relative;
         @include flex-row;
+        transition: all 0.5s;
         justify-content: space-between;
         padding: 0;
         &--light {
@@ -44,7 +45,7 @@
         transform: translateY(-50%);
         background-color: #333333;
         border-radius: 50%;
-        transition: 0.3s all;
+        transition: all 0.5s;
         &--sun {
             left: 0.3rem;
             background-color: #272a33;
@@ -60,6 +61,6 @@
         padding: 0 1.5rem;
         text-decoration: none;
         @include flex-center-row;
-        transition: 0.3s all;
+        transition: 0.5s all;
     }
 }

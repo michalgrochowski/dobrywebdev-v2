@@ -1522,6 +1522,8 @@
     -webkit-box-flex: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -1540,8 +1542,8 @@
     transform: translateY(-50%);
     background-color: #333333;
     border-radius: 50%;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all; }
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s; }
     .button__blob--sun {
       left: 0.3rem;
       background-color: #272a33; }
@@ -1571,8 +1573,8 @@
     -webkit-box-flex: 0;
     -ms-flex-positive: 0;
     flex-grow: 0;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all; }
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all; }
 
 * {
   -webkit-box-sizing: border-box;
@@ -1915,34 +1917,34 @@ body {
 .light-theme {
   background-color: #f4f0e6;
   color: #333333;
-  -webkit-transition: background-color 0.5s, color 0.5s;
-  transition: background-color 0.5s, color 0.5s; }
+  -webkit-transition: background-color 1s, color 1s;
+  transition: background-color 1s, color 1s; }
 
 .light-theme--link {
   color: #000000;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s; }
+  -webkit-transition: color 1s;
+  transition: color 1s; }
 
 .light-theme--link:hover, .light-theme--link:focus {
   color: #555555;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s; }
+  -webkit-transition: color 1s;
+  transition: color 1s; }
 
 .dark-theme {
   background-color: #272a33;
   color: #cccccc;
-  -webkit-transition: background-color 0.5s, color 0.5s;
-  transition: background-color 0.5s, color 0.5s; }
+  -webkit-transition: background-color 1s, color 1s;
+  transition: background-color 1s, color 1s; }
 
 .dark-theme--link {
   color: #cccccc;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s; }
+  -webkit-transition: color 1s;
+  transition: color 1s; }
 
 .dark-theme--link:hover, .dark-theme--link:focus {
   color: #ffffff;
-  -webkit-transition: color 0.5s;
-  transition: color 0.5s; }
+  -webkit-transition: color 1s;
+  transition: color 1s; }
 
 .dark-outline:focus {
   outline: 1px dashed #cccccc; }
@@ -1992,44 +1994,44 @@ body {
 
 div.owl-theme .owl-dots .owl-dot span.dot-light-theme {
   background-color: #555555;
-  -webkit-transition: 0.3s all;
-  transition: 0.3s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
   opacity: 0.5; }
   div.owl-theme .owl-dots .owl-dot span.dot-light-theme:hover, div.owl-theme .owl-dots .owl-dot span.dot-light-theme:focus {
     background-color: #333333;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all;
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all;
     opacity: 0.7; }
   div.owl-theme .owl-dots .owl-dot span.dot-light-theme:active {
     background-color: #111111;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all; }
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all; }
 
 div.owl-theme .owl-dots .owl-dot.active span.dot-light-theme {
   background-color: #000000;
-  -webkit-transition: 0.3s all;
-  transition: 0.3s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
   opacity: 1; }
 
 div.owl-theme .owl-dot span.dot-dark-theme {
   background-color: #cccccc;
-  -webkit-transition: 0.3s all;
-  transition: 0.3s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
   opacity: 0.5; }
   div.owl-theme .owl-dot span.dot-dark-theme:hover, div.owl-theme .owl-dot span.dot-dark-theme:focus {
     background-color: #eaeaea;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all;
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all;
     opacity: 0.7; }
   div.owl-theme .owl-dot span.dot-dark-theme:active {
     background-color: #ffffff;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all; }
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all; }
 
 div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
   background-color: #ffffff;
-  -webkit-transition: 0.3s all;
-  transition: 0.3s all;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
   opacity: 1; }
 
 .input-light::-webkit-input-placeholder {

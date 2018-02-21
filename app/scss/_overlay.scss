@@ -1,0 +1,33 @@
+.overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 25;
+    @include flex-center-row;
+    opacity: 0;
+    background-color: #ffffff;
+    animation: overlay 2.5s;
+    overflow: hidden;
+    &--light {
+        background-color: #DBD7CD;
+        color: #333333;
+    }
+    &--dark {
+        background-color: #41444D;
+        color: #cccccc;
+    }
+}
+
+.overlay__text {
+    font-size: 5rem;
+    opacity: 0;
+    animation: overlay-text 3s;
+    @include mq-min(600px) {
+        letter-spacing: 0.7rem;
+    }
+    @include mq-max(800px) {
+        font-size: 4rem;
+    }
+}

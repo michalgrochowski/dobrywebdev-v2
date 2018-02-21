@@ -23,7 +23,7 @@
     transition: 0.5s all;
     &--hidden {
         top: -10rem;
-        transition: 0.3s all;
+        transition: 0.5s all;
     }
     @include mq-min(801px) {
         display: none;
@@ -40,7 +40,7 @@
     margin: 0.5rem;
     background: none;
     border: none;
-    transition: 0.3s all;
+    transition: 0.5s all;
     &--light {
         color: #333333;
     }
@@ -51,7 +51,7 @@
         display: none;
     }
     &--disabled {
-        transition: 0.3s all;
+        transition: 0.5s all;
         cursor: not-allowed;
         opacity: 0.5;
     }
@@ -101,7 +101,6 @@
     margin: 0.5rem 0.3rem;
     border-radius: 1.5rem;
     font-size: 1.4rem;
-    transition: 0.5s all;
 }
 
 .projects__description {
@@ -188,5 +187,5 @@
 .owl-theme .owl-dots .owl-dot.active span {
     background-color: #333333; 
     opacity: 1;
-    transition: 0.3s all;
+    transition: 0.5s all;
 }

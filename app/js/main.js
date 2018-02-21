@@ -13,7 +13,8 @@
     var projects = $(".projects");
     $(function() {
         projects.owlCarousel({
-        navSpeed: 500,
+        dotsSpeed: 500,
+        lazyLoad: true,
         loop: false,
         dots: true,
         touchDrag: true,
@@ -166,7 +167,7 @@ function showContact() {
 // Additional OwlCarousel functions
 
 $('.projects__next').click(function() {
-    projects.trigger('next.owl.carousel', [300]);
+    projects.trigger('next.owl.carousel', [500]);
     if ($(".projects__project").parent().hasClass("active")) {
         $(this).find(".projects__link").attr("tabindex", "0");
     } else {
@@ -175,7 +176,7 @@ $('.projects__next').click(function() {
 });
 
 $('.projects__prev').click(function() {
-    projects.trigger('prev.owl.carousel', [300]);
+    projects.trigger('prev.owl.carousel', [500]);
     if ($(".projects__project").parent().hasClass("active")) {
         $(this).find(".projects__link").attr("tabindex", "0");
     } else {

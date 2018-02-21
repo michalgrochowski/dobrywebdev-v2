@@ -2,6 +2,7 @@
     "name": "DobryWebdev",
     "start_url": "/",
     "short_name": "DobryWebdev",
+    "author": "Michał Grochowski",
     "icons": [
         {
             "src": "/android-chrome-36x36.png",

@@ -1,33 +1,33 @@
 .light-theme {
     background-color: #f4f0e6;
     color: #333333;
-    transition: background-color 1s, color 1s;
+    transition: all 0.7s;
 }
 
 .light-theme--link {
     color: #000000;
-    transition: color 1s;
+    transition: all 0.7s;
 }
 
 .light-theme--link:hover, .light-theme--link:focus {
     color: #555555;
-    transition: color 1s;
+    transition: all 0.7s;
 }
 
 .dark-theme {
     background-color: #272a33;
     color: #cccccc;
-    transition: background-color 1s, color 1s;
+    transition: all 0.7s;
 }
 
 .dark-theme--link {
     color: #cccccc;
-    transition: color 1s;
+    transition: all 0.7s;
 }
 
 .dark-theme--link:hover, .dark-theme--link:focus {
     color: #ffffff;
-    transition: color 1s;
+    transition: all 0.7s;
 }
 
 .dark-outline:focus {
@@ -90,43 +90,43 @@
 
 div.owl-theme .owl-dots .owl-dot span.dot-light-theme {
     background-color: #555555;
-    transition: 0.5s all;
+    transition: all 0.7s;
     opacity: 0.5;
     &:hover, &:focus {
         background-color: #333333;
-        transition: 0.5s all;
+        transition: all 0.7s;
         opacity: 0.7;
     }
     &:active {
         background-color: #111111;
-        transition: 0.5s all;
+        transition: all 0.7s;
     }
 }
 
 div.owl-theme .owl-dots .owl-dot.active span.dot-light-theme {
     background-color: #000000;
-    transition: 0.5s all;
+    transition: all 0.7s;
     opacity: 1;
 } 
 
 div.owl-theme .owl-dot span.dot-dark-theme {
     background-color: #cccccc;
-    transition: 0.5s all;
+    transition: all 0.7s;
     opacity: 0.5;
     &:hover, &:focus {
         background-color: #eaeaea;
-        transition: 0.5s all;
+        transition: all 0.7s;
         opacity: 0.7;
     }
     &:active {
         background-color: #ffffff;
-        transition: 0.5s all;
+        transition: all 0.7s;
     }
 }
 
 div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
     background-color: #ffffff;
-    transition: 0.5s all;
+    transition: all 0.7s;
     opacity: 1;
 }
 

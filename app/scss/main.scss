@@ -2,6 +2,7 @@
 
 @import 'mixins.scss';
 @import 'nav.scss';
+@import 'section.scss';
 @import 'projects.scss';
 @import 'form.scss';
 @import 'socials.scss';
@@ -11,6 +12,7 @@
 @import 'cookies.scss';
 @import 'icons.scss';
 @import 'buttons.scss';
+@import 'overlay.scss';
 
 // Main Styles
 
@@ -54,158 +56,6 @@ body {
     max-width: 100vw;
 }
 
-.body-border {
-    position: fixed;
-    z-index: 20;
-    &--top {
-        top: 0;
-        left: 0;
-        min-height: 1.5rem;
-        min-width: 100vw;
-        @include mq-max(800px) {
-            min-height: 0.5rem;
-        }
-    }
-    &--bottom {
-        bottom: 0;
-        left: 0;
-        min-height: 1.5rem;
-        min-width: 100vw;
-        @include mq-max(800px) {
-            min-height: 0.5rem;
-        }
-    }
-    &--left {
-        top: 0;
-        left: 0;
-        min-width: 1.5rem;
-        min-height: 100vh;
-        @include mq-max(800px) {
-            min-width: 0.5rem;
-        }
-    }
-    &--right {
-        top: 0;
-        right: 0;
-        min-width: 1.5rem;
-        min-height: 100vh;
-        @include mq-max(800px) {
-            min-width: 0.5rem;
-        }
-    }
-}
-
-// Sections styles
-
-.section {
-    @include flex-center-column;
-    width: 100vw;
-    max-width: 100vw;
-    min-height: 100vh;
-    position: absolute;
-    z-index: 1;
-    transition: 0.3s all;
-    top: 0;
-    left: 0;
-    background-color: inherit;
-    opacity: 1;
-    transition: 0.5s opacity;
-    @include mq-max(800px) {
-        padding-top: 8rem;
-    }
-    &--start {
-        @include mq-max(800px) {
-            padding-top: 0;
-        }
-    }
-    &--about {
-        padding-bottom: 5rem;
-        @include mq-max(1366px) {
-            padding-top: 6rem;
-        }
-    }
-    &--projects {
-        @include mq-max(800px) {
-            padding-top: 10rem;
-        }
-        @include mq-minmax(801px,1366px) {
-            padding-top: 7rem;
-        }
-    }
-    &--contact {
-        padding-bottom: 3rem;
-        @include mq-max(1366px) {
-            padding-top: 7rem;
-        }
-    }
-}
-
-.section__title {
-    font-size: 3.5rem;
-    @include mq-max(800px) {
-        width: 95%;
-        font-size: 2.5rem;
-        text-align: center;
-        padding-top: 1rem;
-    }
-    @include mq-minmax(801px, 1366px) {
-        width: 90%;
-        font-size: 3rem;
-        text-align: center;
-    }
-    &--start {
-        font-size: 7rem;
-        @include mq-max(800px) {
-            font-size: 4rem;
-            text-align: center;
-        }
-    }
-    &--projects {
-        padding-top: 2rem;
-        @include mq-minmax(801px, 1280px) {
-            padding-top: 5rem;
-        }
-    }
-    &--contact {
-        margin-bottom: 0;
-        @include mq-minmax(801px, 1366px) {
-            margin: 0;
-        }
-    }
-}
-
-.section__subtitle {
-    font-size: 2.5rem;
-    font-weight: bold;
-    @include mq-max(800px) {
-        width: 95%;
-        font-size: 1.8rem;
-        text-align: center;
-        padding: 1rem;
-    }
-    &--start {
-        font-size: 4rem;
-        font-weight: bold;
-        @include mq-max(800px) {
-            font-size: 2rem;
-        }
-    }
-}
-
-.section__description {
-    font-size: 1.8rem;
-    width: 70%;
-    text-align: center;
-    @include mq-max(800px) {
-        width: 90%;
-        font-size: 1.4rem;
-        padding: 1rem;
-    }
-    @include mq-minmax(801px,1366px) {
-        font-size: 1.6rem;
-    }
-}
-
 // Specific elements styles, which are too small to be in a component
 
 .contact {
@@ -244,44 +94,11 @@ body {
     }
 }
 
-.overlay {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 25;
-    @include flex-center-row;
-    opacity: 0;
-    background-color: #ffffff;
-    animation: overlay 2.5s;
-    overflow: hidden;
-    &--light {
-        background-color: #DBD7CD;
-        color: #333333;
-    }
-    &--dark {
-        background-color: #41444D;
-        color: #cccccc;
-    }
-}
-
-.overlay__text {
-    font-size: 5rem;
-    opacity: 0;
-    animation: overlay-text 3s;
-    @include mq-min(600px) {
-        letter-spacing: 0.7rem;
-    }
-    @include mq-max(800px) {
-        font-size: 4rem;
-    }
-}
-
 // Misc items
 
 @import 'themes.scss';
 @import 'error.scss';
+@import 'body-border.scss';
 
 .visuallyhidden {
     position: absolute;

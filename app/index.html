@@ -10,7 +10,7 @@
 	<meta name="author" content="Michał Grochowski">
 	<link type="text/plain" rel="author" href="https://dobrywebdev.pl/humans.txt">
 	<!-- CSS files -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,700&amp;subset=latin-ext"> 
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto+Slab:400,700&amp;subset=latin-ext" rel="stylesheet">
 	<!--build:css css/main.min.css -->
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/fontello.css">
@@ -68,16 +68,16 @@
 			<li class="nav__item">
 				<a class="nav__link light-theme--link navContact" href="#contact" title="Kontakt">Kontakt</a>
 			</li>
-			<li class="nav__item">
+			<li class="nav__item nav__item--controls">
+				<div class="nav__item-box">
+					<button class="button button--lang light-theme button--lang--active langPL" aria-label="Zmień język strony na polski" title="Zmień język strony na polski">PL</button>
+					<button class="button button--lang light-theme langENG" aria-label="Zmień język strony na angielski" title="Zmień język strony na angielski">ENG</button>
+				</div>
 				<button class="button button--theme button--theme--light" aria-label="Zmień motyw kolorystyczny strony" title="Zmień motyw kolorystyczny strony">
 					<span class="icon icon--theme icon--light icon-moon" aria-hidden="true"></span>
 					<span class="icon icon--theme icon--light icon-sun" aria-hidden="true"></span>
 					<span class="button__blob button__blob--sun"></span>
 				</button>
-			</li>
-			<li class="nav__item">
-				<button class="button button--lang light-theme button--lang--active langPL" aria-label="Zmień język strony na polski" title="Zmień język strony na polski">PL</button>
-				<button class="button button--lang light-theme langENG" aria-label="Zmień język strony na angielski" title="Zmień język strony na angielski">ENG</button>
 			</li>
 		</ul>
 		<button class="nav__hamburger light-theme icon-menu" aria-label="Otwórz menu" title="Otwórz menu"></button>
@@ -282,13 +282,13 @@
 						<input type="email" class="form__input form__input--mail input-light" id="inputMail" placeholder="adres@email.pl" name="email">
 					</div>
 					<div class="form__group form__group--phone">
-						<label for="inputPhone" class="phoneLabel">Numer telefonu</label>
-						<input type="tel" maxlength="9" class="form__input form__input--phone input-light" id="inputPhone" placeholder="555555555" name="phone" title="9 cyfrowy numer telefonu">
+						<label for="inputPhone" class="phoneLabel">Numer telefonu <span class="form__optional">(opcjonalnie)</span></label>
+						<input type="tel" maxlength="9" class="form__input form__input--phone input-light" id="inputPhone" placeholder="555555555 (opcjonalnie)" name="phone" title="9 cyfrowy numer telefonu">
 					</div>
-					<div class="form__group form__group--name">
-						<label for="inputName" class="nameLabel">Imię i nazwisko</label>
-						<input type="text" class="form__input form__input--name input-light" id="inputName" placeholder="Jan Kowalski" name="name">
-					</div>
+					<!--<div class="form__group form__group--msg">
+						<label for="inputText" class="textLabel">Treść wiadomości</label>
+						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się Twoja strona." name="message"></textarea>
+					</div>-->
 					<div class="form__group form__group--msg">
 						<label for="inputText" class="textLabel">Treść wiadomości</label>
 						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się Twoja strona." name="message"></textarea>
@@ -298,26 +298,26 @@
 				<ul class="socials">
 					<li class="socials__list-item">
 						<a class="socials__item light-theme--link" href="tel:509581510" target="_blank" rel=”noopener”>
-							<span class="icon icon-phone" aria-hidden="true"></span>
-							<p class="phone">Zadzwoń<span class="visuallyhidden"> do mnie</span></p>
+							<span class="icon icon--social icon-phone" aria-hidden="true"></span>
+							<p class="phone">Zadzwoń do mnie - 509 581 510</p>
 						</a>
 					</li>
 					<li class="socials__list-item">
 						<a class="socials__item light-theme--link" href="mailto:michal@dobrywebdev.pl" target="_blank" rel=”noopener”>
-							<span class="icon icon-mail-alt" aria-hidden="true"></span>
-							<p class="mail">E-mail<span class="visuallyhidden"> Napisz do mnie maila</span></p>
+							<span class="icon icon--social icon-mail-alt" aria-hidden="true"></span>
+							<p class="mail">mic.grochowski@gmail.com</p>
 						</a>
 					</li>
 					<li class="socials__list-item">
 						<a class="socials__item light-theme--link" href="https://github.com/michalgrochowski" target="_blank" rel=”noopener”>
-							<span class="icon icon-github-circled" aria-hidden="true"></span>
-							<p><span class="visuallyhidden" >Mój profil na </span>GitHub</p>
+							<span class="icon icon--social icon-github-circled" aria-hidden="true"></span>
+							<p>Mój profil na GitHub</p>
 						</a>
 					</li>
 					<li class="socials__list-item">
 						<a class="socials__item light-theme--link" href="https://www.linkedin.com/in/michał-grochowski-962a45131/" target="_blank" rel=”noopener”>
-							<span class="icon icon-linkedin-squared" aria-hidden="true"></span>
-							<p><span class="visuallyhidden" >Mój profil na </span>LinkedIn</p>
+							<span class="icon icon--social icon-linkedin-squared" aria-hidden="true"></span>
+							<p>Mój profil na LinkedIn</p>
 						</a>
 					</li>
 				</ul>

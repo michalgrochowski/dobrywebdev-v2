@@ -3,9 +3,11 @@
     border: none;
     cursor: pointer;
     &--lang {
+        font-family: 'Roboto Slab', serif;
         font-weight: bold;
         opacity: 0.3;
         transition: all 0.5s;
+        font-size: 2rem;
         &:hover {
             opacity: 0.7;
             transition: all 0.5s;
@@ -21,8 +23,8 @@
     }
     &--theme {
         border-radius: 2rem;
-        width: 8rem;
-        height: 3.5rem;
+        width: 7rem;
+        height: 3rem;
         font-size: 2rem;
         position: relative;
         @include flex-row;
@@ -38,8 +40,8 @@
     }
     &__blob {
         display: block;
-        width: 3rem;
-        height: 2.7rem;
+        width: 2.4rem;
+        height: 2.2rem;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -51,7 +53,7 @@
             background-color: #272a33;
         }
         &--moon {
-            left: calc(100% - 3.3rem);
+            left: calc(100% - 2.7rem);
             background-color: #f4f0e6;
         }
     }

@@ -48,12 +48,15 @@
         }
     }
     &--theme {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     &--light {
         color: #333333;
     }
     &--dark {
         color: #cccccc;
+    }
+    &--social {
+        font-size: 4rem;
     }
 }

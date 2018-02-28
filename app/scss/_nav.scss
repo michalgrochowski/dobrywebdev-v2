@@ -9,7 +9,8 @@
     top: 0;
     left: 0;
     z-index: 10;
-    @include mq-max(800px) {
+    font-family: 'Roboto Slab', serif;
+    @include mq-max(850px) {
         height: 5rem;
     }
 }
@@ -18,15 +19,14 @@
     width: 15rem;
     border-bottom: none;
     margin: 1rem 0 0 1.5rem;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         width: 12rem;
     }
 }
 
 .nav__list {
     @include flex-center-row;
-    justify-content: space-around;
-    padding: 1rem 0 0 0;
+    padding: 3rem 0 0 0;
     list-style: none;
     @include mq-max(850px) {
         @include flex-center-column;
@@ -45,39 +45,48 @@
             transition: 0.3s all;
         }
     }
-    @include mq-minmax(851px, 1010px) {
-        width: 60%;
-        margin-left: auto;
-    }
-    @include mq-minmax(1011px, 1649px) {
-        width: 65%;
-    }
-    @include mq-min(1650px) {
-        width: 40%;
-    }
 }
 
 .nav__item {
-    font-size: 1.8rem;
+    font-size: 2rem;
     display: block;
-    width: 20%;
     padding: 1rem;
     font-weight: bold;
     letter-spacing: 0.2rem;
+    margin: 0 2rem;
     @include flex-center-row;
-    @include mq-max(800px) {
+    @include mq-max(850px) {
         width: 100vw;
         font-size: 2.2rem;
         text-align: center;
         z-index: 4;
         padding: 1rem 0 1rem 0;
     }
+    &--controls {
+        @include mq-max(850px) {
+            @include flex-center-column;
+        }
+        @include mq-min(851px) {
+            position: fixed;
+            right: 2rem;
+            top: 2.5rem;
+        }
+    }
+}
+
+.nav__item-box {
+    @include mq-max(850px) {
+        margin: 1rem 0 2rem 0;
+    }
+    @include mq-min(851px) {
+        margin: 0 2rem 0 0;
+    }
 }
 
 .nav__link {
     text-decoration: none;
     z-index: 5;
-    @include mq-min(801px) {
+    @include mq-min(851px) {
         position: relative;
         &::before {
             content: "";
@@ -112,10 +121,10 @@
     }
     &--start {
         position: fixed;
-        top: 1.5rem;
-        left: 2rem;
+        top: 2rem;
+        left: 3rem;
         z-index: 5;
-        @include mq-max(800px) {
+        @include mq-max(850px) {
             top: 0.5rem;
             left: 1rem;
         }

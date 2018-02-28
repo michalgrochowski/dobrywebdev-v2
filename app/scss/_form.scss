@@ -1,9 +1,12 @@
 .form {
     @include flex-column;
     position: relative;
-    width: 50%;
+    width: 35%;
     @include mq-max (800px) {
         width: 90%;
+    }
+    @include mq-minmax (801px,1366px) {
+        width: 40%;
     }
 }
 
@@ -94,4 +97,9 @@
 
 .form__fail {
     background-color: #c71610;
+}
+
+.form__optional {
+    opacity: 0.54;
+    font-size: 1.4rem;
 }

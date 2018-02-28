@@ -44,6 +44,9 @@
 
 .section__title {
     font-size: 3.5rem;
+    margin-bottom: 0;
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
     @include mq-max(800px) {
         width: 95%;
         font-size: 2.5rem;
@@ -56,7 +59,9 @@
         text-align: center;
     }
     &--start {
-        font-size: 7rem;
+        font-size: 6rem;
+        margin-bottom: 0;
+        font-family: 'Roboto Slab', serif;
         @include mq-max(800px) {
             font-size: 4rem;
             text-align: center;
@@ -69,7 +74,7 @@
         }
     }
     &--contact {
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
         @include mq-minmax(801px, 1366px) {
             margin: 0;
         }
@@ -79,6 +84,8 @@
 .section__subtitle {
     font-size: 2.5rem;
     font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+    margin-bottom: 0;
     @include mq-max(800px) {
         width: 95%;
         font-size: 1.8rem;
@@ -86,8 +93,10 @@
         padding: 1rem;
     }
     &--start {
-        font-size: 4rem;
-        font-weight: bold;
+        font-size: 3rem;
+        margin-top: 0;
+        font-weight: normal;
+        font-family: 'Poppins', serif;
         @include mq-max(800px) {
             font-size: 2rem;
         }

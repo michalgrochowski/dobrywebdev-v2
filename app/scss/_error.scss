@@ -5,6 +5,7 @@
 .error-404__title {
   font-size: 8rem;
   margin: 0;
+  font-family: 'Roboto Slab', serif;
   @include mq-max(800px) {
     font-size: 4rem;
   }

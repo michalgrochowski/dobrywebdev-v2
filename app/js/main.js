@@ -76,7 +76,7 @@ $(window).on("load", function() {
     $(".langENG").attr("class", JSON.parse(localStorage.getItem("langENG")));
     $(".form__input--mail").attr("class", JSON.parse(localStorage.getItem("inputMail")));
     $(".form__input--phone").attr("class", JSON.parse(localStorage.getItem("inputPhone")));
-    $(".form__input--name").attr("class", JSON.parse(localStorage.getItem("inputName")));
+    //$(".form__input--name").attr("class", JSON.parse(localStorage.getItem("inputName")));
     $(".form__textarea").attr("class", JSON.parse(localStorage.getItem("textarea")));
     $(".cookie-info__close").attr("class", JSON.parse(localStorage.getItem("cookieClose")));
     $('a').removeClass("light-theme--link dark-theme--link");
@@ -166,23 +166,41 @@ function showContact() {
 
 // Additional OwlCarousel functions
 
-$('.projects__next').click(function() {
+function goToNextSlide() {
     projects.trigger('next.owl.carousel', [500]);
     if ($(".projects__project").parent().hasClass("active")) {
         $(this).find(".projects__link").attr("tabindex", "0");
     } else {
         return;
     }
-});
+}
 
-$('.projects__prev').click(function() {
+function goToPreviousSlide() {
     projects.trigger('prev.owl.carousel', [500]);
     if ($(".projects__project").parent().hasClass("active")) {
         $(this).find(".projects__link").attr("tabindex", "0");
     } else {
         return;
     }
+}
+
+$('.projects__next').click(function() {
+    goToNextSlide();
 });
+
+$('.projects__prev').click(function() {
+    goToPreviousSlide();
+});
+
+if (window.location.hash === "#projects") {
+    document.addEventListener("keyup", function(event) {
+        if (event.key === "ArrowRight") {
+            goToNextSlide();
+        } else if (event.key === "ArrowLeft") {
+            goToPreviousSlide();
+        }
+    })
+}
 
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
@@ -329,7 +347,7 @@ $(".button--theme").on("click", function(){
     $(".overlay").toggleClass("overlay--light overlay--dark");
     $(".form__input--mail").toggleClass("input-light input-dark");
     $(".form__input--phone").toggleClass("input-light input-dark");
-    $(".form__input--name").toggleClass("input-light input-dark");
+    //$(".form__input--name").toggleClass("input-light input-dark");
     $(".form__textarea").toggleClass("input-light input-dark");
     $(".cookie-info__close").toggleClass("dark-theme--link light-theme--link dark-outline");
     $(".nav__link--start").removeClass("light-theme--link dark-theme--link");
@@ -358,7 +376,7 @@ $(".button--theme").on("click", function(){
     localStorage.setItem("overlay", JSON.stringify($(".overlay").attr("class")));
     localStorage.setItem("inputMail", JSON.stringify($(".form__input--mail").attr("class")));
     localStorage.setItem("inputPhone", JSON.stringify($(".form__input--phone").attr("class")));
-    localStorage.setItem("inputName", JSON.stringify($(".form__input--name").attr("class")));
+    //localStorage.setItem("inputName", JSON.stringify($(".form__input--name").attr("class")));
     localStorage.setItem("textarea", JSON.stringify($(".form__textarea").attr("class")));
     localStorage.setItem("cookieClose", JSON.stringify($(".cookie-info__close").attr("class")));
     localStorage.setItem("navLink", JSON.stringify($(".nav__link").attr("class")));
@@ -432,7 +450,7 @@ function changeLanguage(data) {
     $(".sendButton").text(data.sendButton);
     $(".phone").text(data.phone);
     $(".form__input--mail").attr("placeholder", data.mailPlaceholder);
-    $(".form__input--name").attr("placeholder", data.namePlaceholder);
+    //$(".form__input--name").attr("placeholder", data.namePlaceholder);
     $(".form__textarea").attr("placeholder", data.textPlaceholder);
     $(".form__button").attr("value", data.sendButton);
     $(".form__button").attr("aria-label", data.sendButtonAria);
@@ -505,12 +523,12 @@ $(function() {
     $('.form').submit(function(event) {
         event.preventDefault();
         var form = $(this);
-        var checkphone = /^[5-9]{1}[0-9]{8}$/;
+        var checkphone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
         var checkmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;
+        /*var checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
         var email = $(".form__input--mail").val();
         var phone = $(".form__input--phone").val();
-        var name = $(".form__input--name").val();
+        //var name = $(".form__input--name").val();
         var message = $(".form__textarea").val();
         $(".input__fail").remove();
         if (checkmail.test(email) === false) {
@@ -531,7 +549,7 @@ $(function() {
             }
             $(phonefail).hide().appendTo(".form__group--phone").fadeIn(500);
             return false;
-        } else if (checkname.test(name) === false) {
+        } /*else if (checkname.test(name) === false) {
             var namefail;
             if ($(".langPL").hasClass("button--lang--active")) {
                 namefail = "<p class='input__fail'>Podaj prawidłowe imię i nazwisko</p>";
@@ -540,7 +558,7 @@ $(function() {
             }
             $(namefail).hide().appendTo(".form__group--name").fadeIn(500);
             return false;
-        } else if (message === "") {
+        } */else if (message === "") {
             var msgfail;
             if ($(".langPL").hasClass("button--lang--active")) {
                 msgfail = "<p class='input__fail'>Wiadomość nie może być pusta</p>";

@@ -47,7 +47,6 @@
 $(window).on("load", function() {
     checkTime();
     howOldAmI();
-    changeCallmeButton();
     $(".projects__link").attr("tabindex", "-1");
     $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
     hideOrShowSections();
@@ -192,15 +191,15 @@ $('.projects__prev').click(function() {
     goToPreviousSlide();
 });
 
-if (window.location.hash === "#projects") {
-    document.addEventListener("keyup", function(event) {
+document.addEventListener("keyup", function(event) {
+    if (window.location.hash === "#projects") {
         if (event.key === "ArrowRight") {
-            goToNextSlide();
+        goToNextSlide();
         } else if (event.key === "ArrowLeft") {
             goToPreviousSlide();
         }
-    })
-}
+    }
+})
 
 function stopOwlPropagation(element) {
     $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
@@ -232,16 +231,6 @@ function hideOrShowSections() {
     } else if (window.location.hash === "#contact") {
         overflowOn();
         showContact();
-    }
-}
-
-// If on desktop change text in phone social button to phone number
-
-function changeCallmeButton() {
-    if (window.matchMedia("(min-width: 851px)").matches) {
-        $(".phone").text("509 581 510");
-    } else {
-        return;
     }
 }
 
@@ -448,7 +437,6 @@ function changeLanguage(data) {
     $(".nameLabel").text(data.nameLabel);
     $(".textLabel").text(data.textLabel);
     $(".sendButton").text(data.sendButton);
-    $(".phone").text(data.phone);
     $(".github").text(data.github);
     $(".linkedin").text(data.linkedin);
     $(".form__input--mail").attr("placeholder", data.mailPlaceholder);

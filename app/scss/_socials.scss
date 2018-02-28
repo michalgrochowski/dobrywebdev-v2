@@ -1,14 +1,14 @@
 .socials {
     @include flex-center-column;
     width: 40%;
-    padding: 2rem 10rem 5rem 0rem;
+    padding: 2rem 5rem 5rem 0rem;
     list-style: none;
     @include mq-max (800px) {
         width: 100%;
         padding: 0;
     }
     @include mq-minmax (801px,1366px) {
-        padding: 2rem 5rem 5rem 2rem;
+        padding: 2rem 0rem 5rem 2rem;
     }
 }
 

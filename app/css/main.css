@@ -101,7 +101,7 @@
   padding: 1rem;
   font-weight: bold;
   letter-spacing: 0.2rem;
-  margin: 0 2rem;
+  margin: 0 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,7 +126,8 @@
       font-size: 2.2rem;
       text-align: center;
       z-index: 4;
-      padding: 1rem 0 1rem 0; } }
+      padding: 1rem 0 1rem 0;
+      margin: 0 1rem; } }
   @media screen and (max-width: 850px) {
     .nav__item--controls {
       display: -webkit-box;
@@ -155,7 +156,7 @@
 
 @media screen and (max-width: 850px) {
   .nav__item-box {
-    margin: 1rem 0 2rem 0; } }
+    margin: 0rem 0 2.5rem 0; } }
 
 @media screen and (min-width: 851px) {
   .nav__item-box {
@@ -502,7 +503,7 @@
 .projects__tag {
   display: block;
   padding: 0rem 1rem;
-  margin: 0.5rem 0.3rem;
+  margin: 0.5rem 0.7rem;
   border-radius: 1.5rem;
   font-size: 1.4rem; }
 
@@ -733,7 +734,7 @@
   -ms-flex-positive: 0;
   flex-grow: 0;
   width: 40%;
-  padding: 2rem 10rem 5rem 0rem;
+  padding: 2rem 5rem 5rem 0rem;
   list-style: none; }
   @media screen and (max-width: 800px) {
     .socials {
@@ -741,7 +742,7 @@
       padding: 0; } }
   @media screen and (min-width: 801px) and (max-width: 1366px) {
     .socials {
-      padding: 2rem 5rem 5rem 2rem; } }
+      padding: 2rem 0rem 5rem 2rem; } }
 
 .socials__list-item {
   width: 100%; }
@@ -1645,7 +1646,8 @@
     opacity: 0.3;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    font-size: 2rem; }
+    font-size: 2rem;
+    padding: 0 0.3rem; }
     .button--lang:hover {
       opacity: 0.7;
       -webkit-transition: all 0.5s;

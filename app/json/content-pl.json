@@ -57,7 +57,7 @@
     "projectsNext": "Następny projekt",
     "contactTitle": "Skontaktuj się ze mną",
     "mailLabel": "Adres e-mail",
-    "phoneLabel": "Numer telefonu",
+    "phoneLabel": "Numer telefonu <span class=\"form__optional\">(opcjonalnie)</span>",
     "nameLabel": "Imię i nazwisko",
     "textLabel": "Treść wiadomości",
     "mailPlaceholder": "adres@email.pl",
@@ -66,6 +66,8 @@
     "sendButton": "Wyślij",
     "sendButtonAria": "Wyślij wiadomość z formularza",
     "phone": "Zadzwoń",
+    "github": "Mój profil na GitHub",
+    "linkedin": "Mój profil na LinkedIn",
     "cookies": "Ta strona korzysta z plików cookies oraz localStorage twojej przeglądarki do przechowywania ustawień oraz prowadzenia statystyk odwiedzin. Jeśli nie wyrażasz na to zgody, ustawienia dotyczące plików cookies możesz zmienić w swojej przeglądarce.",
     "cookiesClose": "Zamknij informację o polityce Cookies"
 }

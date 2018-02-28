@@ -444,11 +444,13 @@ function changeLanguage(data) {
     $(".projects__next").attr("aria-label", data.projectssNext);
     $(".contactTitle").text(data.contactTitle);
     $(".mailLabel").text(data.mailLabel);
-    $(".phoneLabel").text(data.phoneLabel);
+    $(".phoneLabel").html(data.phoneLabel);
     $(".nameLabel").text(data.nameLabel);
     $(".textLabel").text(data.textLabel);
     $(".sendButton").text(data.sendButton);
     $(".phone").text(data.phone);
+    $(".github").text(data.github);
+    $(".linkedin").text(data.linkedin);
     $(".form__input--mail").attr("placeholder", data.mailPlaceholder);
     //$(".form__input--name").attr("placeholder", data.namePlaceholder);
     $(".form__textarea").attr("placeholder", data.textPlaceholder);

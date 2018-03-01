@@ -48,7 +48,25 @@
         }
     }
     &--theme {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &--sun {
+            left: -4.5rem;
+            @include mq-max(850px) {
+                left: -5.5rem;
+            }
+        }
+        &--moon {
+            right: -4.5rem;
+            @include mq-max(850px) {
+                right: -5.5rem;
+            }
+        }
+        @include mq-max(850px) {
+            font-size: 3rem;
+        }
     }
     &--light {
         color: #333333;

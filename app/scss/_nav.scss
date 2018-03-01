@@ -55,7 +55,7 @@
     letter-spacing: 0.2rem;
     margin: 0 3rem;
     @include flex-center-row;
-    @include mq-max(850px) {
+    @include mq-max(767px) {
         width: 100vw;
         font-size: 2.2rem;
         text-align: center;
@@ -63,13 +63,19 @@
         padding: 1rem 0 1rem 0;
         margin: 0 1rem;
     }
+    @include mq-minmax(768px,950px) {
+        margin: 0 1rem;
+    }
+    @include mq-minmax(951px,1200px) {
+        margin: 0 2rem;
+    }
     &--controls {
         @include mq-max(850px) {
             @include flex-center-column;
         }
         @include mq-min(851px) {
             position: fixed;
-            right: 2rem;
+            right: 4rem;
             top: 2.5rem;
         }
     }
@@ -80,7 +86,7 @@
         margin: 0rem 0 2.5rem 0;
     }
     @include mq-min(851px) {
-        margin: 0 2rem 0 0;
+        margin: 0 5rem 0 0;
     }
 }
 

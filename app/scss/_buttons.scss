@@ -21,11 +21,14 @@
                 transition: all 0.5s;
             }
         }
+        @include mq-max(850px) {
+            font-size: 2.5rem;
+        }
     }
     &--theme {
         border-radius: 2rem;
-        width: 7rem;
-        height: 3rem;
+        width: 4.5rem;
+        height: 1.7rem;
         font-size: 2rem;
         position: relative;
         @include flex-row;
@@ -33,16 +36,20 @@
         justify-content: space-between;
         padding: 0;
         &--light {
-            border: 2px solid #333333;
+            background-color: rgba(51,51,51,0.7);
         }
         &--dark {
-            border: 2px solid #cccccc;
+            background-color: rgba(204,204,204,0.7);
+        }
+        @include mq-max(850px) {
+            height: 2rem;
+            width: 6rem;
         }
     }
     &__blob {
         display: block;
-        width: 2.4rem;
-        height: 2.2rem;
+        width: 2.6rem;
+        height: 2.6rem;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
@@ -50,12 +57,22 @@
         border-radius: 50%;
         transition: all 0.4s;
         &--sun {
-            left: 0.3rem;
+            left: -0.5rem;
             background-color: #272a33;
+            @include mq-max(850px) {
+                left: -0.5rem;
+            }
         }
         &--moon {
-            left: calc(100% - 2.7rem);
+            left: calc(100% - 2.1rem);
             background-color: #f4f0e6;
+            @include mq-max(850px) {
+                left: calc(100% - 2.7rem);
+            }
+        }
+        @include mq-max(850px) {
+            width: 3.2rem;
+            height: 3.2rem;
         }
     }
     &--404 {

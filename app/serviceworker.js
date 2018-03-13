@@ -1,4 +1,4 @@
-const CACHE_NAME = "dobrywebdev-v6";
+const CACHE_NAME = "dobrywebdev-1520935802273";
 const URLS_TO_CACHE  = [
     "/",
     "/index.html",

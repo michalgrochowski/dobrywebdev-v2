@@ -10,6 +10,8 @@ var cache = require('gulp-cache');
 var sequence = require('run-sequence');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-cssmin');
+var cachebust = require('gulp-cache-bust');
+var replace = require('gulp-replace');
 
 gulp.task('sass', function() {
     return gulp.src('app/scss/**/*.scss')
@@ -41,6 +43,15 @@ gulp.task('browserSync', function() {
 gulp.task('useref', function(){
     return gulp.src('app/*.html')
         .pipe(useref())
+        .pipe(gulp.dest('dist'))
+});
+
+
+gulp.task('cachebust', function(){
+    return gulp.src('dist/*.html')
+        .pipe(cachebust({
+            type: 'timestamp'
+        }))
         .pipe(gulp.dest('dist'))
 });
 
@@ -126,10 +137,19 @@ gulp.task('clean:dist', function(){
     return del.sync('dist');
 });
 
+gulp.task('serviceWorkerCache', function(){
+    gulp.src(['dist/serviceworker.js'])
+      .pipe(replace(/(dobrywebdev-\d{0,13})/g, function(match, p1, offset, string) {
+        var currentDate = Date.now();
+        return 'dobrywebdev-' + currentDate;
+      }))
+      .pipe(gulp.dest('dist'));
+  });
+
 gulp.task('default', function(){
     sequence(['sass', 'browserSync', 'watch'])
 });
 
 gulp.task('build', function(){
-    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'errors', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'uglify', 'cssmin')
+    sequence('clean:dist', ['sass', 'useref', 'img', 'font', 'fonts', 'php', 'errors', 'json', 'form', 'favicons', 'xml', 'favicon-svg', 'manifest', 'ico', 'serviceWorker'], 'uglify', 'cssmin', 'cachebust', 'serviceWorkerCache')
 });

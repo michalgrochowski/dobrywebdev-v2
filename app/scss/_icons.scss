@@ -1,80 +1,80 @@
 .devicons {
-    font-size: 4rem;
+  font-size: 4rem;
+  transition: 0.5s all;
+  &:hover {
     transition: 0.5s all;
-    &:hover {
-        transition: 0.5s all;
-    }
+  }
 }
 
 .devicons-html5:hover {
-    color: #E34C26;
+  color: #E34C26;
 }
 
 .devicons-css3:hover {
-    color: #0170BA;
+  color: #0170BA;
 }
 
 .devicons-javascript_badge:hover {
-    color: #F0DB4F;
+  color: #F0DB4F;
 }
 
 .devicons-jquery:hover {
-    color: #7ACEF4;
+  color: #7ACEF4;
 }
 
 .devicons-sass:hover {
-    color: #c69;
+  color: #c69;
 }
 
 .devicons-gulp:hover {
-    color: #EB4A4B;
+  color: #EB4A4B;
 }
 
 .devicons-npm:hover {
-    color: #CB3837;
+  color: #CB3837;
 }
 
 .devicons-visualstudio:hover {
-    color: #007ACC;
+  color: #007ACC;
 }
 
 .icon {
-    &--404 {
-        font-size: 10rem;
-        display: block;
-        &--arrow {
-            transform: rotate(90deg);
-            font-size: 2rem;
-        }
+  &--404 {
+    font-size: 10rem;
+    display: block;
+    &--arrow {
+      transform: rotate(90deg);
+      font-size: 2rem;
     }
-    &--theme {
-        font-size: 2.5rem;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        &--sun {
-            left: -4.5rem;
-            @include mq-max(850px) {
-                left: -5.5rem;
-            }
-        }
-        &--moon {
-            right: -4.5rem;
-            @include mq-max(850px) {
-                right: -5.5rem;
-            }
-        }
-        @include mq-max(850px) {
-            font-size: 3rem;
-        }
+  }
+  &--theme {
+    font-size: 2.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &--sun {
+      left: -4.5rem;
+      @include mq-max(850px) {
+        left: -5.5rem;
+      }
     }
-    &--light {
-        color: #333333;
+    &--moon {
+      right: -4.5rem;
+      @include mq-max(850px) {
+        right: -5.5rem;
+      }
     }
-    &--dark {
-        color: #cccccc;
+    @include mq-max(850px) {
+      font-size: 3rem;
     }
-    &--social {
-        font-size: 4rem;
-    }
+  }
+  &--light {
+    color: #333333;
+  }
+  &--dark {
+    color: #cccccc;
+  }
+  &--social {
+    font-size: 4rem;
+  }
 }

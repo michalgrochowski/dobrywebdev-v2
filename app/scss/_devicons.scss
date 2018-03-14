@@ -220,16 +220,11 @@ $devicons:	(git "\e602"),
 			(vim "\e6c5");
 
 @each $devicon in $devicons {
-	  $iconClass: nth($devicon, 1);
-	  $iconClassBefore: nth($devicon, 2);
-	  .devicons-#{$iconClass}{
-	  	&:before{
-	  		content: "#{$iconClassBefore}";	
-	  	}
-	  	
-	  
+	$iconClass: nth($devicon, 1);
+	$iconClassBefore: nth($devicon, 2);
+	.devicons-#{$iconClass} {
+	  &:before{
+	  	content: "#{$iconClassBefore}";	
 	  }
-}	
-
-
-
+	}
+}

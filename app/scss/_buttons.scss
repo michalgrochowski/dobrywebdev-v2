@@ -1,86 +1,86 @@
 .button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    &--lang {
-        font-family: 'Roboto Slab', serif;
-        font-weight: bold;
-        opacity: 0.3;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  &--lang {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    opacity: 0.3;
+    transition: all 0.5s;
+    font-size: 2rem;
+    padding: 0 0.3rem;
+    &:hover {
+      opacity: 0.7;
+      transition: all 0.5s;
+    }
+    &--active {
+      opacity: 0.8;
+      transition: all 0.5s;
+      &:hover {
+        opacity: 1;
         transition: all 0.5s;
-        font-size: 2rem;
-        padding: 0 0.3rem;
-        &:hover {
-            opacity: 0.7;
-            transition: all 0.5s;
-        }
-        &--active {
-            opacity: 0.8;
-            transition: all 0.5s;
-            &:hover {
-                opacity: 1;
-                transition: all 0.5s;
-            }
-        }
-        @include mq-max(850px) {
-            font-size: 2.5rem;
-        }
+      }
     }
-    &--theme {
-        border-radius: 2rem;
-        width: 4.5rem;
-        height: 1.7rem;
-        font-size: 2rem;
-        position: relative;
-        @include flex-row;
-        transition: all 0.5s;
-        justify-content: space-between;
-        padding: 0;
-        &--light {
-            background-color: rgba(51,51,51,0.7);
-        }
-        &--dark {
-            background-color: rgba(204,204,204,0.7);
-        }
-        @include mq-max(850px) {
-            height: 2rem;
-            width: 6rem;
-        }
+    @include mq-max(850px) {
+      font-size: 2.5rem;
     }
-    &__blob {
-        display: block;
-        width: 2.6rem;
-        height: 2.6rem;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background-color: #333333;
-        border-radius: 50%;
-        transition: all 0.4s;
-        &--sun {
-            left: -0.5rem;
-            background-color: #272a33;
-            @include mq-max(850px) {
-                left: -0.5rem;
-            }
-        }
-        &--moon {
-            left: calc(100% - 2.1rem);
-            background-color: #f4f0e6;
-            @include mq-max(850px) {
-                left: calc(100% - 2.7rem);
-            }
-        }
-        @include mq-max(850px) {
-            width: 3.2rem;
-            height: 3.2rem;
-        }
+  }
+  &--theme {
+    border-radius: 2rem;
+    width: 4.5rem;
+    height: 1.7rem;
+    font-size: 2rem;
+    position: relative;
+    @include flex-row;
+    transition: all 0.5s;
+    justify-content: space-between;
+    padding: 0;
+    &--light {
+      background-color: rgba(51,51,51,0.7);
     }
-    &--404 {
-        border-radius: 2rem;
-        height: 3.5rem;
-        padding: 0 1.5rem;
-        text-decoration: none;
-        @include flex-center-row;
-        transition: 0.5s all;
+    &--dark {
+      background-color: rgba(204,204,204,0.7);
     }
+    @include mq-max(850px) {
+      height: 2rem;
+      width: 6rem;
+    }
+  }
+  &__blob {
+    display: block;
+    width: 2.6rem;
+    height: 2.6rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333333;
+    border-radius: 50%;
+    transition: all 0.4s;
+    &--sun {
+      left: -0.5rem;
+      background-color: #272a33;
+      @include mq-max(850px) {
+        left: -0.5rem;
+      }
+    }
+    &--moon {
+      left: calc(100% - 2.1rem);
+      background-color: #f4f0e6;
+      @include mq-max(850px) {
+        left: calc(100% - 2.7rem);
+      }
+    }
+    @include mq-max(850px) {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+  &--404 {
+    border-radius: 2rem;
+    height: 3.5rem;
+    padding: 0 1.5rem;
+    text-decoration: none;
+    @include flex-center-row;
+    transition: 0.5s all;
+  }
 }

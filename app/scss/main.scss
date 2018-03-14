@@ -17,89 +17,89 @@
 // Main Styles
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    box-sizing: border-box;
-    max-width: 100vw;
-    @include mq-max(850px) {
-        font-size: 9px;
-    }
-    @include mq-minmax(851px, 1366px) {
-        font-size: 10px;
-    }
-    @include mq-min(1367px) {
-        font-size: 11px;
-    }
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  box-sizing: border-box;
+  max-width: 100vw;
+  @include mq-max(850px) {
+    font-size: 9px;
+  }
+  @include mq-minmax(851px, 1366px) {
+    font-size: 10px;
+  }
+  @include mq-min(1367px) {
+    font-size: 11px;
+  }
 }
 
 body {
-    box-sizing: border-box;
-    font-size: 1.6rem;
-    width: 100vw;
-    max-width: 100vw;
-    min-height: 100vh;
-    position: relative;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  position: relative;
 }
 
 .overflow-on {
-    overflow-x: hidden;
-    overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .overflow-off {
-    overflow-x: hidden;
-    overflow-y: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 // Main layout
 
 .container {
-    @include flex-center-row;
-    min-height: 100vh;
-    width: 100vw;
-    max-width: 100vw;
+  @include flex-center-row;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
 }
 
 // Specific elements styles, which are too small to be in a component
 
 .contact {
-    @include flex-center-row;
-    width: 70%;
-    @include mq-max(800px) {
-        flex-direction: column;
-        width: 100%;
-    }
-    @include mq-minmax(801px, 1200px) {
-        width: 90%;
-    }
+  @include flex-center-row;
+  width: 70%;
+  @include mq-max(800px) {
+    flex-direction: column;
+    width: 100%;
+  }
+  @include mq-minmax(801px, 1200px) {
+    width: 90%;
+  }
 }
 
 .skills {
-    @include flex-center-row;
-    flex-wrap: wrap;
-    padding: 0;
-    @include mq-max(800px) {
-        margin-bottom: 4rem;
-    }
+  @include flex-center-row;
+  flex-wrap: wrap;
+  padding: 0;
+  @include mq-max(800px) {
+    margin-bottom: 4rem;
+  }
 }
 
 .skills__skill {
-    @include flex-center-column;
-    margin: 0 2rem 0 2rem;
-    @include mq-max(800px) {
-        flex-basis: 20%;
-        margin: 0 0.5rem 0 0.5rem;
-    }
+  @include flex-center-column;
+  margin: 0 2rem 0 2rem;
+  @include mq-max(800px) {
+    flex-basis: 20%;
+    margin: 0 0.5rem 0 0.5rem;
+  }
 }
 
 .skills__text {
-    @include mq-max(800px) {
-        font-size: 1.4rem;
-    }
+  @include mq-max(800px) {
+    font-size: 1.4rem;
+  }
 }
 
 // Misc items
@@ -109,14 +109,14 @@ body {
 @import 'body-border.scss';
 
 .visuallyhidden {
-    position: absolute;
-    height: 1px; 
-    width: 1px; 
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
+  position: absolute;
+  height: 1px; 
+  width: 1px; 
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
 }
 
 .visuallyhidden--section {
-    margin-top: -10000px;
-    opacity: 0.01;
+  margin-top: -10000px;
+  opacity: 0.01;
 }

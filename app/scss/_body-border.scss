@@ -1,41 +1,41 @@
 .body-border {
-    position: fixed;
-    z-index: 20;
-    transition: 0.7s background-color;
-    &--top {
-        top: 0;
-        left: 0;
-        min-height: 1.5rem;
-        min-width: 100vw;
-        @include mq-max(850px) {
-            min-height: 0.5rem;
-        }
+  position: fixed;
+  z-index: 20;
+  transition: 0.7s background-color;
+  &--top {
+    top: 0;
+    left: 0;
+    min-height: 1.5rem;
+    min-width: 100vw;
+    @include mq-max(850px) {
+      min-height: 0.5rem;
     }
-    &--bottom {
-        bottom: 0;
-        left: 0;
-        min-height: 1.5rem;
-        min-width: 100vw;
-        @include mq-max(850px) {
-            min-height: 0.5rem;
-        }
+  }
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    min-height: 1.5rem;
+    min-width: 100vw;
+    @include mq-max(850px) {
+      min-height: 0.5rem;
     }
-    &--left {
-        top: 0;
-        left: 0;
-        min-width: 1.5rem;
-        min-height: 100vh;
-        @include mq-max(850px) {
-            min-width: 0.5rem;
-        }
+  }
+  &--left {
+    top: 0;
+    left: 0;
+    min-width: 1.5rem;
+    min-height: 100vh;
+    @include mq-max(850px) {
+      min-width: 0.5rem;
     }
-    &--right {
-        top: 0;
-        right: 0;
-        min-width: 1.5rem;
-        min-height: 100vh;
-        @include mq-max(850px) {
-            min-width: 0.5rem;
-        }
+  }
+  &--right {
+    top: 0;
+    right: 0;
+    min-width: 1.5rem;
+    min-height: 100vh;
+    @include mq-max(850px) {
+      min-width: 0.5rem;
     }
+  }
 }

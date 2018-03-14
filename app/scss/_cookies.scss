@@ -1,39 +1,39 @@
 .cookie-info {
-    position: fixed;
-    bottom: 5.5rem;
-    z-index: 5;
-    border-radius: 1rem;
-    padding: 0 2rem 0 2rem;
-    @include mq-max(600px) {
-        width: 90%;
-        right: 5%;
-    }
-    @include mq-minmax(601px, 1000px) {
-        width: 40rem;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    @include mq-min(1001px) {
-        width: 35rem;
-        right: 3rem;
-    }
+  position: fixed;
+  bottom: 5.5rem;
+  z-index: 5;
+  border-radius: 1rem;
+  padding: 0 2rem 0 2rem;
+  @include mq-max(600px) {
+    width: 90%;
+    right: 5%;
+  }
+  @include mq-minmax(601px, 1000px) {
+    width: 40rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @include mq-min(1001px) {
+    width: 35rem;
+    right: 3rem;
+  }
 }
 
 .cookie-info__text {
-    font-size: 1.1rem;
-    position: relative;
+  font-size: 1.1rem;
+  position: relative;
 }
 
 .cookie-info__close {
-    position: absolute;
-    top: 0.5rem;
-    right: 0;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    border-bottom: none;
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-bottom: none;
 }
 
 .cookie-info__close:hover {
-    border-bottom: none;
+  border-bottom: none;
 }

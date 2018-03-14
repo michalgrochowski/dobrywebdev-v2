@@ -1,176 +1,176 @@
 // Nav
 
 .nav {
-    @include flex-center-row;
-    width: 100vw;
-    max-width: 100vw;
-    height: 7rem;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 10;
-    font-family: 'Roboto Slab', serif;
-    @include mq-max(850px) {
-        height: 5rem;
-    }
+  @include flex-center-row;
+  width: 100vw;
+  max-width: 100vw;
+  height: 7rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  font-family: 'Roboto Slab', serif;
+  @include mq-max(850px) {
+    height: 5rem;
+  }
 }
 
 .nav__logo {
-    width: 15rem;
-    border-bottom: none;
-    margin: 1rem 0 0 1.5rem;
-    @include mq-max(850px) {
-        width: 12rem;
-    }
+  width: 15rem;
+  border-bottom: none;
+  margin: 1rem 0 0 1.5rem;
+  @include mq-max(850px) {
+    width: 12rem;
+  }
 }
 
 .nav__list {
-    @include flex-center-row;
-    padding: 3rem 0 0 0;
+  @include flex-center-row;
+  padding: 3rem 0 0 0;
+  list-style: none;
+  @include mq-max(850px) {
+    @include flex-center-column;
+    position: fixed;
+    left: 0;
+    top: -100vh;
+    width: 100vw;
+    padding: 0;
+    z-index: 1;
     list-style: none;
-    @include mq-max(850px) {
-        @include flex-center-column;
-        position: fixed;
-        left: 0;
-        top: -100vh;
-        width: 100vw;
-        padding: 0;
-        z-index: 1;
-        list-style: none;
-        background-color: inherit;
-        height: 100vh;
-        transition: 0.3s all;
-        &--expanded {
-            top: -4rem;
-            transition: 0.3s all;
-        }
+    background-color: inherit;
+    height: 100vh;
+    transition: 0.3s all;
+    &--expanded {
+      top: -4rem;
+      transition: 0.3s all;
     }
+  }
 }
 
 .nav__item {
-    font-size: 2rem;
-    display: block;
-    padding: 1rem;
-    font-weight: bold;
-    letter-spacing: 0.2rem;
-    margin: 0 3rem;
-    @include flex-center-row;
-    @include mq-max(767px) {
-        width: 100vw;
-        font-size: 2.2rem;
-        text-align: center;
-        z-index: 4;
-        padding: 1rem 0 1rem 0;
-        margin: 0 1rem;
+  font-size: 2rem;
+  display: block;
+  padding: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.2rem;
+  margin: 0 3rem;
+  @include flex-center-row;
+  @include mq-max(767px) {
+    width: 100vw;
+    font-size: 2.2rem;
+    text-align: center;
+    z-index: 4;
+    padding: 1rem 0 1rem 0;
+    margin: 0 1rem;
+  }
+  @include mq-minmax(768px,950px) {
+    margin: 0 1rem;
+  }
+  @include mq-minmax(951px,1200px) {
+    margin: 0 2rem;
+  }
+  &--controls {
+    @include mq-max(850px) {
+      @include flex-center-column;
     }
-    @include mq-minmax(768px,950px) {
-        margin: 0 1rem;
+    @include mq-min(851px) {
+      position: fixed;
+      right: 4rem;
+      top: 2.5rem;
     }
-    @include mq-minmax(951px,1200px) {
-        margin: 0 2rem;
-    }
-    &--controls {
-        @include mq-max(850px) {
-            @include flex-center-column;
-        }
-        @include mq-min(851px) {
-            position: fixed;
-            right: 4rem;
-            top: 2.5rem;
-        }
-    }
+  }
 }
 
 .nav__item-box {
-    @include mq-max(850px) {
-        margin: 0rem 0 2.5rem 0;
-    }
-    @include mq-min(851px) {
-        margin: 0 5rem 0 0;
-    }
+  @include mq-max(850px) {
+    margin: 0rem 0 2.5rem 0;
+  }
+  @include mq-min(851px) {
+     margin: 0 5rem 0 0;
+  }
 }
 
 .nav__link {
-    text-decoration: none;
+  text-decoration: none;
+  z-index: 5;
+  @include mq-min(851px) {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 100%;
+      right: 50%;
+      transform: tranlateX(50%);
+      height: 2px;
+      width: 0;
+      transition: all 0.3s;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      top: 100%;
+      left: 50%;
+      transform: tranlateX(-50%);
+      height: 2px;
+      width: 0;
+      transition: all 0.3s;
+    }
+    &:hover::before, &:focus::before {
+      width: 55%;
+      transition: all 0.3s;
+    }
+    &:hover::after, &:focus::after {
+      width: 55%;
+      transition: all 0.3s;
+    }
+  }
+  &--start {
+    position: fixed;
+    top: 2rem;
+    left: 3rem;
     z-index: 5;
-    @include mq-min(851px) {
-        position: relative;
-        &::before {
-            content: "";
-            position: absolute;
-            display: block;
-            top: 100%;
-            right: 50%;
-            transform: tranlateX(50%);
-            height: 2px;
-            width: 0;
-            transition: all 0.3s;
-        }
-        &::after {
-            content: "";
-            position: absolute;
-            display: block;
-            top: 100%;
-            left: 50%;
-            transform: tranlateX(-50%);
-            height: 2px;
-            width: 0;
-            transition: all 0.3s;
-        }
-        &:hover::before, &:focus::before {
-            width: 55%;
-            transition: all 0.3s;
-        }
-        &:hover::after, &:focus::after {
-            width: 55%;
-            transition: all 0.3s;
-        }
+    @include mq-max(850px) {
+      top: 0.5rem;
+      left: 1rem;
     }
-    &--start {
-        position: fixed;
-        top: 2rem;
-        left: 3rem;
-        z-index: 5;
-        @include mq-max(850px) {
-            top: 0.5rem;
-            left: 1rem;
-        }
-    }
+  }
 }
 
 .nav__link.light-theme--link {
-    &::before {
-        background-color: #555555;
-    }
-    &::after {
-        background-color: #555555;
-    }
+  &::before {
+    background-color: #555555;
+  }
+  &::after {
+    background-color: #555555;
+  }
 }
 
 .nav__link.dark-theme--link {
-    &::before {
-        background-color: #cccccc;
-    }
-    &::after {
-        background-color: #cccccc;
-    }
+  &::before {
+    background-color: #cccccc;
+  }
+  &::after {
+    background-color: #cccccc;
+  }
 }
 
 .nav__hamburger, .nav__close-menu {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 10;
-    font-size: 3rem;
-    border: none;
-    background: none;
-    margin-left: auto;
-    cursor: pointer;
-    @include mq-min(851px) {
-        display: none;
-    }
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  font-size: 3rem;
+  border: none;
+  background: none;
+  margin-left: auto;
+  cursor: pointer;
+  @include mq-min(851px) {
+    display: none;
+  }
 }
 
 .nav__close-menu {
-    display: none;
+  display: none;
 }

@@ -26,7 +26,7 @@ html {
   box-sizing: border-box;
   max-width: 100vw;
   @include mq-max(850px) {
-    font-size: 9px;
+    font-size: 9.5px;
   }
   @include mq-minmax(851px, 1366px) {
     font-size: 10px;

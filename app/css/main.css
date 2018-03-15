@@ -530,55 +530,52 @@
   text-decoration: underline;
   border-bottom: none; }
 
-.owl-carousel .owl-item img {
-  width: 40%; }
-  @media screen and (max-width: 850px) {
-    .owl-carousel .owl-item img {
-      margin-top: 2rem;
-      width: 80%; } }
-  @media screen and (min-width: 851px) and (max-width: 1366px) {
-    .owl-carousel .owl-item img {
-      width: 35%; } }
-
-.owl-carousel {
-  z-index: 0; }
-
-.owl-theme .owl-dots {
+.projects__dots {
   text-align: center;
-  position: absolute;
   width: 100%;
-  left: 0;
   z-index: 10;
-  height: 20px; }
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-flex: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0; }
   @media screen and (max-width: 800px) {
-    .owl-theme .owl-dots {
+    .projects__dots {
       top: 0rem; } }
   @media screen and (min-width: 801px) and (max-width: 1366px) {
-    .owl-theme .owl-dots {
+    .projects__dots {
       bottom: 4rem; } }
-  @media screen and (min-width: 1367px) {
-    .owl-theme .owl-dots {
-      bottom: -4rem; } }
 
-.owl-theme .owl-dots .owl-dot {
-  display: inline-block; }
-
-.owl-theme .owl-dots .owl-dot span {
+.projects__dot {
+  cursor: pointer;
   display: block;
-  height: 1rem;
-  width: 1rem;
+  height: 1.3rem;
   margin: 5px 5px;
+  border: none;
   border-radius: 50%; }
   @media screen and (max-width: 800px) {
-    .owl-theme .owl-dots .owl-dot span {
+    .projects__dot {
       height: 0.7rem;
       width: 0.7rem; } }
-
-.owl-theme .owl-dots .owl-dot.active span {
-  background-color: #333333;
-  opacity: 1;
-  -webkit-transition: 0.5s all;
-  transition: 0.5s all; }
+  .projects__dot--active {
+    background-color: #333333;
+    opacity: 1;
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all; }
 
 .form {
   display: -webkit-box;
@@ -763,7 +760,7 @@
   border-bottom: none; }
   @media screen and (max-width: 850px) {
     .socials__item {
-      margin: 0 10% 0 10%; } }
+      margin: 0 5% 0 5%; } }
   .socials__item p {
     margin-left: 2rem; }
     @media screen and (max-width: 850px) {
@@ -1812,7 +1809,7 @@ html {
   max-width: 100vw; }
   @media screen and (max-width: 850px) {
     html {
-      font-size: 9px; } }
+      font-size: 9.5px; } }
   @media screen and (min-width: 851px) and (max-width: 1366px) {
     html {
       font-size: 10px; } }
@@ -2025,43 +2022,43 @@ body {
     background-color: #444444;
     color: #ffffff; }
 
-div.owl-theme .owl-dots .owl-dot span.dot-light-theme {
+.projects__dot--light-theme {
   background-color: #555555;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
   opacity: 0.5; }
-  div.owl-theme .owl-dots .owl-dot span.dot-light-theme:hover, div.owl-theme .owl-dots .owl-dot span.dot-light-theme:focus {
+  .projects__dot--light-theme:hover, .projects__dot--light-theme:focus {
     background-color: #333333;
     -webkit-transition: all 0.7s;
     transition: all 0.7s;
     opacity: 0.7; }
-  div.owl-theme .owl-dots .owl-dot span.dot-light-theme:active {
+  .projects__dot--light-theme:active {
     background-color: #111111;
     -webkit-transition: all 0.7s;
     transition: all 0.7s; }
 
-div.owl-theme .owl-dots .owl-dot.active span.dot-light-theme {
+.projects__dot--light-theme.projects__dot--active {
   background-color: #000000;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
   opacity: 1; }
 
-div.owl-theme .owl-dot span.dot-dark-theme {
+.projects__dot--dark-theme {
   background-color: #cccccc;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;
   opacity: 0.5; }
-  div.owl-theme .owl-dot span.dot-dark-theme:hover, div.owl-theme .owl-dot span.dot-dark-theme:focus {
+  .projects__dot--dark-theme:hover, .projects__dot--dark-theme:focus {
     background-color: #eaeaea;
     -webkit-transition: all 0.7s;
     transition: all 0.7s;
     opacity: 0.7; }
-  div.owl-theme .owl-dot span.dot-dark-theme:active {
+  .projects__dot--dark-theme:active {
     background-color: #ffffff;
     -webkit-transition: all 0.7s;
     transition: all 0.7s; }
 
-div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
+.projects__dot--dark-theme.projects__dot--active {
   background-color: #ffffff;
   -webkit-transition: all 0.7s;
   transition: all 0.7s;

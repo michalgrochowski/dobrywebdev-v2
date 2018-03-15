@@ -14,67 +14,65 @@
   const prev = document.querySelector('.projects__prev');
   const next = document.querySelector('.projects__next');
 
-  const mySiema = new Siema({
-    selector: '.projects',
-    duration: 500,
-    easing: 'ease-in',
-    perPage: 1,
-    draggable: true,
-    threshold: 5,
-    onInit: checkSlide,
-    onChange: checkSlide
-  });  
+  class mySiema extends Siema {
+    addDots() {
+      this.dots = document.createElement('div');
+      this.dots.classList.add('projects__dots');
+      for (let i = 0; i < this.innerElements.length; i++) {
+        const dot = document.createElement('button');
+        dot.classList.add('projects__dot');
+        dot.classList.add('projects__dot--light-theme');
+        dot.addEventListener('click', () => {
+          this.goTo(i);
+        })
+        this.dots.appendChild(dot);
+      }
+      this.selector.parentNode.insertBefore(this.dots, this.selector.nextSibling);
+    }
 
-  function checkSlide() {
-    const slide = this.currentSlide;
-      console.log(slide);
+    checkSlide() {
+      const slide = this.currentSlide;
+      const navInfo = document.querySelector(".projects__nav-info");
       if (slide === 0) {
-        console.log("pierwszy");
         prev.classList.add("projects__prev--disabled");
+        navInfo.classList.remove("projects__nav-info--hidden");
       } else if (slide === 8) {
         next.classList.add("projects__next--disabled");
       } else {
+        navInfo.classList.add("projects__nav-info--hidden");
         prev.classList.remove("projects__prev--disabled");
         next.classList.remove("projects__next--disabled");
       }
-  }
+    }
 
-  prev.addEventListener('click', () => mySiema.prev());
-  next.addEventListener('click', () => mySiema.next());
-
-  // OwlCarousel settings
-
-  /*var projects = $(".projects");
-  $(function() {
-    projects.owlCarousel({
-      dotsSpeed: 500,
-      lazyLoad: true,
-      loop: false,
-      dots: true,
-      touchDrag: true,
-      mouseDrag: true,
-      pullDrag: false,
-      freeDrag: false,
-      items: 1,
-      slideBy: 1,
-      onInitialized: owlCallBack,
-      onTranslated: owlCallBack
-    });
-
-  // Disable or enable buttons if at the start or end of carousel
-  function owlCallBack() {
-    if ($('.owl-carousel .owl-item').first().hasClass('active')) {
-      $('.projects__prev').addClass("projects__prev--disabled");
-      $(".projects__nav-info").removeClass("projects__nav-info--hidden");
-    } else if ($('.owl-carousel .owl-item').last().hasClass('active')) {
-      $('.projects__next').addClass("projects__next--disabled");
-    } else if (!$('.owl-carousel .owl-item').first().hasClass('active') && !$('.owl-carousel .owl-item').last().hasClass('active')) {
-      $('.projects__next').removeClass("projects__next--disabled");
-      $('.projects__prev').removeClass("projects__prev--disabled");
-      $(".projects__nav-info").addClass("projects__nav-info--hidden");
+    updateDots() {
+      for (let i = 0; i < this.dots.querySelectorAll('button').length; i++) {
+        const addOrRemove = this.currentSlide === i ? 'add' : 'remove';
+        this.dots.querySelectorAll('button')[i].classList[addOrRemove]('projects__dot--active');
+      }
     }
   }
-});*/
+
+  const mySiemaWithDots = new mySiema({
+    selector: '.projects',
+    duration: 500,
+    easing: 'cubic-bezier(0.250, 0.100, 0.250, 1.000)',
+    perPage: 1,
+    draggable: true,
+    threshold: 5,
+    onInit: function(){
+      this.addDots();
+      this.updateDots();
+      this.checkSlide();
+    },
+    onChange: function(){
+      this.updateDots();
+      this.checkSlide();
+    },
+  });
+
+  prev.addEventListener('click', () => mySiemaWithDots.prev());
+  next.addEventListener('click', () => mySiemaWithDots.next());
 
 // Main function that loads theme settings from localStorage, displays welcome text and block projects links
 
@@ -159,97 +157,50 @@ function checkTime() {
 
 // Smaller functions
 
+const body = document.getElementById("body");
+const start = document.getElementById("start");
+const about = document.getElementById("about");
+const projects = document.getElementById("projects");
+const contact = document.getElementById("contact");
+
 function overflowOn() {
-  $("body").removeClass("overflow-off");
-  $("body").addClass("overflow-on");
+  body.classList.remove("overflow-off");
+  body.classList.add("overflow-on");
 }
 
 function overflowOff() {
-  $("body").removeClass("overflow-on");
-  $("body").addClass("overflow-off");
+  body.classList.remove("overflow-on");
+  body.classList.add("overflow-off");
 }
 
 function showStart() {
-  $("#start").removeClass("visuallyhidden--section");
-  $("#about").addClass("visuallyhidden--section");
-  $("#projects").addClass("visuallyhidden--section");
-  $("#contact").addClass("visuallyhidden--section");
+  start.classList.remove("visuallyhidden--section");
+  about.classList.add("visuallyhidden--section");
+  projects.classList.add("visuallyhidden--section");
+  contact.classList.add("visuallyhidden--section");
 }
 
 function showAbout() {
-  $("#start").addClass("visuallyhidden--section");
-  $("#about").removeClass("visuallyhidden--section");
-  $("#projects").addClass("visuallyhidden--section");
-  $("#contact").addClass("visuallyhidden--section");
+  start.classList.add("visuallyhidden--section");
+  about.classList.remove("visuallyhidden--section");
+  projects.classList.add("visuallyhidden--section");
+  contact.classList.add("visuallyhidden--section");
 }
 
 function showProjects() {
-  $("#start").addClass("visuallyhidden--section");
-  $("#about").addClass("visuallyhidden--section");
-  $("#projects").removeClass("visuallyhidden--section");
-  $("#contact").addClass("visuallyhidden--section");
+  start.classList.add("visuallyhidden--section");
+  about.classList.add("visuallyhidden--section");
+  projects.classList.remove("visuallyhidden--section");
+  contact.classList.add("visuallyhidden--section");
 }
 
 function showContact() {
-  $("#start").addClass("visuallyhidden--section");
-  $("#about").addClass("visuallyhidden--section");
-  $("#projects").addClass("visuallyhidden--section");
-  $("#contact").removeClass("visuallyhidden--section");
+  start.classList.add("visuallyhidden--section");
+  about.classList.add("visuallyhidden--section");
+  projects.classList.add("visuallyhidden--section");
+  contact.classList.remove("visuallyhidden--section");
 }
 
-// Additional OwlCarousel functions
-/*
-function goToNextSlide() {
-  projects.trigger('next.owl.carousel', [500]);
-  if ($(".projects__project").parent().hasClass("active")) {
-    $(this).find(".projects__link").attr("tabindex", "0");
-  } else {
-    return;
-  }
-}
-
-function goToPreviousSlide() {
-  projects.trigger('prev.owl.carousel', [500]);
-  if ($(".projects__project").parent().hasClass("active")) {
-    $(this).find(".projects__link").attr("tabindex", "0");
-  } else {
-    return;
-  }
-}
-
-$('.projects__next').click(function() {
-  goToNextSlide();
-});
-
-$('.projects__prev').click(function() {
-  goToPreviousSlide();
-});
-
-document.addEventListener("keyup", function(event) {
-  if (window.location.hash === "#projects") {
-    if (event.key === "ArrowRight") {
-      goToNextSlide();
-    } else if (event.key === "ArrowLeft") {
-      goToPreviousSlide();
-    }
-  }
-})
-
-function stopOwlPropagation(element) {
-  $(element).on('to.owl.carousel', function(e) { e.stopPropagation(); });
-  $(element).on('next.owl.carousel', function(e) { e.stopPropagation(); });
-  $(element).on('prev.owl.carousel', function(e) { e.stopPropagation(); });
-  $(element).on('destroy.owl.carousel', function(e) { e.stopPropagation(); });
-  $(element).on('changed.owl.carousel', function(e) { e.stopPropagation(); });
-}
-
-stopOwlPropagation(projects);
-
-projects.on("translated.owl.carousel", function(){
-  $(".projects__link").attr("tabindex", "-1");
-  $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
-});
-*/
 // Show or hide sections and turn overflow on or off based on windows hash 
 
 function hideOrShowSections() {
@@ -270,13 +221,19 @@ function hideOrShowSections() {
 
 // Turn on or off overflow-x depending on current hash
 
-$(".nav__link--start, .nav__link").on("click", function(){
-  if ($(this).attr("href") !== "#start") {
+const navLinkStart = document.querySelector(".nav__link--start");
+const navLink = document.querySelector(".nav__link");
+
+function checkHashAndHideSections(e) {
+  if (e.target.getAttribute("href") !== "#start") {
     overflowOn();
-  } else if ($(this).attr("href") === "#start") {
+  } else if (e.target.getAttribute("href") === "#start") {
     overflowOff();
   }
-});
+}
+
+navLinkStart.addEventListener("click", checkHashAndHideSections);
+navLink.addEventListener("click", checkHashAndHideSections);
 
 // Hide the overlay after animation is finished
 
@@ -421,10 +378,13 @@ $.fn.toggleAttr = function(attr, attr1, attr2) {
 
 // Click function to hide cookies info
 
-$(".cookie-info__close").on("click", function(){
-  $(".cookie-info").addClass("visuallyhidden");
+const cookieInfo = document.querySelector(".cookie-info");
+const cookieInfoButton = document.querySelector(".cookie-info__close");
+
+cookieInfoButton.addEventListener("click", () => {
+  cookieInfo.classList.add("visuallyhidden");
   localStorage.setItem("cookieoff", "true");
-});
+})
 
 // Function that changes language based on JSON data
 
@@ -622,19 +582,19 @@ $(function() {
 // Copyright year in the footer
 
 (function getCurrentYear() {
-  var currentDate = new Date();
-  var currentYear = currentDate.getFullYear();
-  var footerYear = document.getElementById("footer__year");
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const footerYear = document.getElementById("footer__year");
   footerYear.innerText = currentYear;
 })();
 
 // Get my current age and display it in "About" section
 
 function getAge(dateString) {
-  var today = new Date();
-  var birthDate = new Date(dateString);
-  var age = today.getFullYear() - birthDate.getFullYear();
-  var m = today.getMonth() - birthDate.getMonth();
+  const today = new Date();
+  const birthDate = new Date(dateString);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
   if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
     age--;
   }
@@ -642,7 +602,7 @@ function getAge(dateString) {
 }
 
 function howOldAmI() {
-  var myAge = document.getElementById("myAge");
+  const myAge = document.getElementById("myAge");
   myAge.innerText = getAge("1991/05/16");
 }
 

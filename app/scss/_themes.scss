@@ -88,7 +88,7 @@
   }
 }
 
-div.owl-theme .owl-dots .owl-dot span.dot-light-theme {
+.projects__dot--light-theme {
   background-color: #555555;
   transition: all 0.7s;
   opacity: 0.5;
@@ -103,13 +103,13 @@ div.owl-theme .owl-dots .owl-dot span.dot-light-theme {
   }
 }
 
-div.owl-theme .owl-dots .owl-dot.active span.dot-light-theme {
+.projects__dot--light-theme.projects__dot--active {
   background-color: #000000;
   transition: all 0.7s;
   opacity: 1;
 } 
 
-div.owl-theme .owl-dot span.dot-dark-theme {
+.projects__dot--dark-theme {
   background-color: #cccccc;
   transition: all 0.7s;
   opacity: 0.5;
@@ -124,7 +124,7 @@ div.owl-theme .owl-dot span.dot-dark-theme {
   }
 }
 
-div.owl-theme .owl-dots .owl-dot.active span.dot-dark-theme {
+.projects__dot--dark-theme.projects__dot--active {
   background-color: #ffffff;
   transition: all 0.7s;
   opacity: 1;

@@ -9,12 +9,34 @@
     });
   }
 
-  // Siema settings
+  // All necessary elements
 
   const prev = document.querySelector('.projects__prev');
   const next = document.querySelector('.projects__next');
+  const navInfo = document.querySelector(".projects__nav-info");
+  const overlay = document.querySelector(".overlay");
+  const overlayText = document.querySelector(".overlay__text");
+  const sectionTitleStart = document.querySelector(".section__title--start");
+  const sectionSubtitleStart = document.querySelector(".section__subtitle--start");
+  const body = document.getElementById("body");
+  const start = document.getElementById("start");
+  const about = document.getElementById("about");
+  const projects = document.getElementById("projects");
+  const contact = document.getElementById("contact");
+  const navLinkStart = document.querySelector(".nav__link--start");
+  const navLinks = document.querySelectorAll(".nav__link");
+  const hamburger = document.querySelector(".nav__hamburger");
+  const closeHamburger = document.querySelector(".nav__close-menu");
+  const navList = document.querySelector(".nav__list");
+  const cookieInfo = document.querySelector(".cookie-info");
+  const cookieInfoButton = document.querySelector(".cookie-info__close");
+  const myAge = document.getElementById("myAge");
+  const footerYear = document.getElementById("footer__year");
+
+  // Siema settings
 
   class mySiema extends Siema {
+    // Create dots for all slides
     addDots() {
       this.dots = document.createElement('div');
       this.dots.classList.add('projects__dots');
@@ -31,12 +53,19 @@
     }
 
     checkSlide() {
-      const slide = this.currentSlide;
-      const navInfo = document.querySelector(".projects__nav-info");
-      if (slide === 0) {
+      // Add or remove a "active" class for current slide
+      const activeSlide = this.currentSlide;
+      this.slides = document.querySelectorAll(".projects__project");
+      let currentActiveSlide = this.slides.item(this.currentSlide);
+      for (let slide of this.slides) {
+        slide.classList.remove("projects__project--active");
+      }
+      currentActiveSlide.classList.add("projects__project--active");
+      // Disable or enable nav buttons depending of current slide index
+      if (activeSlide === 0) {
         prev.classList.add("projects__prev--disabled");
         navInfo.classList.remove("projects__nav-info--hidden");
-      } else if (slide === 8) {
+      } else if (activeSlide === 8) {
         next.classList.add("projects__next--disabled");
       } else {
         navInfo.classList.add("projects__nav-info--hidden");
@@ -46,6 +75,7 @@
     }
 
     updateDots() {
+      // Add or remove a "active" class for current dot
       for (let i = 0; i < this.dots.querySelectorAll('button').length; i++) {
         const addOrRemove = this.currentSlide === i ? 'add' : 'remove';
         this.dots.querySelectorAll('button')[i].classList[addOrRemove]('projects__dot--active');
@@ -144,24 +174,18 @@ $(window).on("hashchange", function(){
 // Check what time it is and display welcome text based on that
 
 function checkTime() {
-  var date = new Date();
-  var currentTime = date.getHours();
+  const date = new Date();
+  const currentTime = date.getHours();
   if (currentTime >= 6 && currentTime <= 18) {
-    $(".overlay").addClass("overlay--light");
-    $(".overlay__text").text("Dzień dobry");
+    overlay.classList.add("overlay--light");
+    overlayText.innerText = "Dzień dobry";
   } else {
-    $(".overlay__text").text("Dobry wieczór");
-    $(".overlay").addClass("overlay--dark");
+    overlay.classList.add("overlay--light");
+    overlayText.innerText = "Dobry wieczór";
   }
 }
 
 // Smaller functions
-
-const body = document.getElementById("body");
-const start = document.getElementById("start");
-const about = document.getElementById("about");
-const projects = document.getElementById("projects");
-const contact = document.getElementById("contact");
 
 function overflowOn() {
   body.classList.remove("overflow-off");
@@ -221,9 +245,6 @@ function hideOrShowSections() {
 
 // Turn on or off overflow-x depending on current hash
 
-const navLinkStart = document.querySelector(".nav__link--start");
-const navLink = document.querySelector(".nav__link");
-
 function checkHashAndHideSections(e) {
   if (e.target.getAttribute("href") !== "#start") {
     overflowOn();
@@ -233,28 +254,27 @@ function checkHashAndHideSections(e) {
 }
 
 navLinkStart.addEventListener("click", checkHashAndHideSections);
-navLink.addEventListener("click", checkHashAndHideSections);
 
 // Hide the overlay after animation is finished
 
-$(".overlay").on("animationend", function(){
-  $(this).css("display", "none");
-});
+overlay.addEventListener("animationend", function(e){
+  e.target.style.display = "none";
+})
 
-$(".section__title--start").on("animationend", function(){
-  $(this).removeClass("fade-in");
-});
+sectionTitleStart.addEventListener("animationend", function(e){
+  e.target.classList.remove("fade-in");
+})
 
-$(".section__subtitle--start").on("animationend", function() {
-  $(this).removeClass("fade-in");
-});
+sectionSubtitleStart.addEventListener("animationend", function(e){
+  e.target.classList.remove("fade-in");
+})
 
 // Check if cookies info was closed before and if so don't show it
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", () => {
   setTimeout(function(){
-    if (localStorage.getItem("cookieoff") === "true" && $(".cookie-info").hasClass("visuallyhidden") === false) {
-      $(".cookie-info").addClass("visuallyhidden");
+    if (localStorage.getItem("cookieoff") === "true" && cookieInfo.classList.contains("visuallyhidden") === false) {
+      cookieInfo.classList.add("visuallyhidden");
     } else {
       return;
     }
@@ -263,41 +283,44 @@ document.addEventListener("DOMContentLoaded",function(){
 
 // Mobile menu scripts, showing hamburger etc.
 
-$(".nav__link").on('click', function() {
+hamburger.addEventListener("click", () => {
+  hamburger.style.display = "none";
+  closeHamburger.style.display = "block";
+  navList.classList.add("nav__list--expanded");
+})
+
+closeHamburger.addEventListener("click", () => {
+  hamburger.style.display = "block";
+  closeHamburger.style.display = "none";
+  navList.classList.remove("nav__list--expanded");
+})
+
+for (let link of navLinks) {
+  link.addEventListener("click", (e) => {
+    checkHashAndHideSections(e);
+    if (window.matchMedia("(max-width: 851px)").matches) {
+      hamburger.style.display = "block";
+      closeHamburger.style.display = "none";
+      navList.classList.remove("nav__list--expanded")
+    } else {
+      return;
+    }
+  })
+}
+
+navLinkStart.addEventListener("click", () => {
   if (window.matchMedia("(max-width: 851px)").matches) {
-    $(".nav__hamburger").show();
-    $(".nav__close-menu").hide();
-    $(".nav__list").removeClass("nav__list--expanded");
-  } else {
-    return;
-  }
-});
-
-$(".nav__hamburger").on("click", function() {
-  $(".nav__hamburger").hide();
-  $(".nav__close-menu").show();
-  $(".nav__list").addClass("nav__list--expanded").attr("aria-expanded", "true");
-});
-
-$(".nav__close-menu").on("click", function() {
-  $(".nav__hamburger").show();
-  $(".nav__close-menu").hide();
-  $(".nav__list").removeClass("nav__list--expanded").attr("aria-expanded", "false");
-});
-
-$(".nav__link--start").on("click", function(){
-  if (window.matchMedia("(max-width: 851px)").matches) {
-    if ($(".nav__list").hasClass("nav__list--expanded")) {
-      $(".nav__list").removeClass("nav__list--expanded");
-      $(".nav__hamburger").show();
-      $(".nav__close-menu").hide();
+    if (navList.classList.contains("nav__list--expanded")) {
+      navList.classList.remove("nav__list--expanded");
+      hamburger.style.display = "block";
+      closeHamburger.style.display = "none";
     } else {
       return;
     }
   } else {
     return;
   }
-});
+})
 
 // Theme changing script that also saves settings in localStorage
 
@@ -377,9 +400,6 @@ $.fn.toggleAttr = function(attr, attr1, attr2) {
 };
 
 // Click function to hide cookies info
-
-const cookieInfo = document.querySelector(".cookie-info");
-const cookieInfoButton = document.querySelector(".cookie-info__close");
 
 cookieInfoButton.addEventListener("click", () => {
   cookieInfo.classList.add("visuallyhidden");
@@ -584,7 +604,6 @@ $(function() {
 (function getCurrentYear() {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
-  const footerYear = document.getElementById("footer__year");
   footerYear.innerText = currentYear;
 })();
 
@@ -602,7 +621,6 @@ function getAge(dateString) {
 }
 
 function howOldAmI() {
-  const myAge = document.getElementById("myAge");
   myAge.innerText = getAge("1991/05/16");
 }
 

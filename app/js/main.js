@@ -1,6 +1,8 @@
 (function() {
-  // Service worker registeration
   'use strict';
+
+  // Service worker registeration
+
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
       console.log('Service worker registration done, scope is:', registration.scope);
@@ -167,9 +169,9 @@ $(window).on("load", function() {
   }
 });
 
-$(window).on("hashchange", function(){
+window.addEventListener("hashchange", () => {
   hideOrShowSections();
-});
+})
 
 // Check what time it is and display welcome text based on that
 
@@ -180,7 +182,7 @@ function checkTime() {
     overlay.classList.add("overlay--light");
     overlayText.innerText = "Dzień dobry";
   } else {
-    overlay.classList.add("overlay--light");
+    overlay.classList.add("overlay--dark");
     overlayText.innerText = "Dobry wieczór";
   }
 }

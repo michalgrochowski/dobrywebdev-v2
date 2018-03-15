@@ -1,8 +1,6 @@
 .projects {
-  @include flex-center-row;
   width: 100%;
   height: 100%;
-  position: relative;
   @include mq-max(800px) {
     width: 100%;
     padding-top: 0rem;
@@ -69,10 +67,18 @@
   @include flex-center-column;
   padding: 0 2rem 1rem 2rem;
   z-index: 0;
+  width: 100;
 }
 
 .projects__photo {
-  z-index: 0;
+  width: 40%;
+  @include mq-max(850px) {
+    margin-top: 2rem;
+    width: 80%;
+  }
+  @include mq-minmax(851px,1366px) {
+    width: 35%;
+  }
 }
 
 .projects__title {

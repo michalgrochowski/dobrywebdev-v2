@@ -9,9 +9,42 @@
     });
   }
 
+  // Siema settings
+
+  const prev = document.querySelector('.projects__prev');
+  const next = document.querySelector('.projects__next');
+
+  const mySiema = new Siema({
+    selector: '.projects',
+    duration: 500,
+    easing: 'ease-in',
+    perPage: 1,
+    draggable: true,
+    threshold: 5,
+    onInit: checkSlide,
+    onChange: checkSlide
+  });  
+
+  function checkSlide() {
+    const slide = this.currentSlide;
+      console.log(slide);
+      if (slide === 0) {
+        console.log("pierwszy");
+        prev.classList.add("projects__prev--disabled");
+      } else if (slide === 8) {
+        next.classList.add("projects__next--disabled");
+      } else {
+        prev.classList.remove("projects__prev--disabled");
+        next.classList.remove("projects__next--disabled");
+      }
+  }
+
+  prev.addEventListener('click', () => mySiema.prev());
+  next.addEventListener('click', () => mySiema.next());
+
   // OwlCarousel settings
 
-  var projects = $(".projects");
+  /*var projects = $(".projects");
   $(function() {
     projects.owlCarousel({
       dotsSpeed: 500,
@@ -41,7 +74,7 @@
       $(".projects__nav-info").addClass("projects__nav-info--hidden");
     }
   }
-});
+});*/
 
 // Main function that loads theme settings from localStorage, displays welcome text and block projects links
 
@@ -165,7 +198,7 @@ function showContact() {
 }
 
 // Additional OwlCarousel functions
-
+/*
 function goToNextSlide() {
   projects.trigger('next.owl.carousel', [500]);
   if ($(".projects__project").parent().hasClass("active")) {
@@ -216,7 +249,7 @@ projects.on("translated.owl.carousel", function(){
   $(".projects__link").attr("tabindex", "-1");
   $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
 });
-
+*/
 // Show or hide sections and turn overflow on or off based on windows hash 
 
 function hideOrShowSections() {

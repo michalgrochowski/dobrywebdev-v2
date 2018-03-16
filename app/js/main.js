@@ -457,38 +457,65 @@ $.fn.toggleAttr = function(attr, attr1, attr2) {
 // Function that changes language based on JSON data
 
 function changeLanguage(data) {
+  const navAbout = document.querySelector(".navAbout");
+  const navProjects = document.querySelector(".navProjects");
+  const navContact = document.querySelector(".navContact");
+  const mainTitle = document.querySelector(".mainTitle");
+  const mainSubtitle = document.querySelector(".mainSubtitle");
+  const aboutTitle = document.querySelector(".aboutTitle");
+  const aboutDescription = document.querySelector(".aboutDescription");
+  const skillsSubtitle = document.querySelector(".skillsSubtitle");
+  const projectsNavInfo = document.querySelector(".projects__nav-info");
+  const gridDescription = document.querySelector(".gridDescription");
+  const weatherDescription = document.querySelector(".weatherDescription");
+  const challengeDescription = document.querySelector(".challengeDescription");
+  const interiorDescription = document.querySelector(".interiorDescription");
+  const sleszynskiDescription = document.querySelector(".sleszynskiDescription");
+  const todoDescription = document.querySelector(".todoDescription");
+  const interiorv1Description = document.querySelector(".interiorv1Description");
+  const dobrywebdevDescription = document.querySelector(".dobrywebdevDescription");
+  const interactiveDescription = document.querySelector(".interactiveDescription");
+  const projectLive = document.querySelectorAll(".projectLive");
+  const projectCode = document.querySelectorAll(".projectCode");
+  const contactTitle = document.querySelector(".contactTitle");
+  const mailLabel = document.querySelector(".mailLabel");
+  const phoneLabel = document.querySelector(".phoneLabel");
+  const textLabel = document.querySelector(".textLabel");
+  const sendButton = document.querySelector(".sendButton");
   // Main texts
-  $(".navAbout").text(data.navAbout).attr("title", data.navAbout);
-  $(".navProjects").text(data.navProjects).attr("title", data.navProjects);
-  $(".navContact").text(data.navContact).attr("title", data.navContact);
-  $(".button--theme").attr("aria-label", data.buttonTheme).attr("title", data.buttonTheme);
-  $(".langPL").attr("aria-label", data.langPL);
-  $(".langENG").attr("aria-label", data.langENG);
-  $(".langPL").attr("title", data.langPL);
-  $(".langENG").attr("title", data.langENG);
-  $(".nav__hamburger").attr("aria-label", data.hamburger);
-  $(".nav__close-menu").attr("aria-label", data.closeMenu);
-  $(".nav__hamburger").attr("title", data.hamburger);
-  $(".nav__close-menu").attr("title", data.closeMenu);
-  $(".mainTitle").text(data.mainTitle);
-  $(".mainSubtitle").text(data.mainSubtitle);
-  $(".aboutTitle").text(data.aboutTitle);
-  $(".aboutDescription").html(data.aboutDescription);
+  navAbout.innerText = data.navAbout;
+  navAbout.setAttribute("title", data.navAbout);
+  navProjects.innerText = data.navProjects;
+  navProjects.setAttribute("title", data.navProjects);
+  navContact.innerText = data.navContact;
+  navContact.setAttribute("title", data.navContact);
+  buttonTheme.setAttribute("aria-label", data.buttonTheme);
+  buttonTheme.setAttribute("title", data.buttonTheme);
+  langPL.setAttribute("title", data.langPL);
+  langENG.setAttribute("title", data.langENG);
+  langPL.setAttribute("aria-label", data.langPL);
+  langENG.setAttribute("aria-label", data.langENG);
+  hamburger.setAttribute("aria-label", data.hamburger);
+  hamburger.setAttribute("title", data.hamburger);
+  closeHamburger.setAttribute("aria-label", data.closeMenu);
+  closeHamburger.setAttribute("title", data.closeMenu);
+  mainTitle.innerText = data.mainTitle;
+  mainSubtitle.innerText = data.mainSubtitle;
+  aboutTitle.innerText = data.aboutTitle;
+  // TODO: age not showing up after change
+  aboutDescription.innerHTML = data.aboutDescription;
+  skillsSubtitle.innerText = data.skillsSubtitle;
   howOldAmI();
-  $(".aboutCooperation").text(data.aboutCooperation);
-  $(".skillsSubtitle").text(data.skillsSubtitle);
+  gridDescription.innerText = data.gridDescription;
+  weatherDescription.innerText = data.weatherDescription;
+  challengeDescription.innerText = data.challengeDescription;
+  interiorDescription.innerText = data.interiorDescription;
+  sleszynskiDescription.innerText = data.sleszynskiDescription;
+  todoDescription.innerText = data.todoDescription;
+  interiorv1Description.innerText = data.interiorv1Description;
+  dobrywebdevDescription.innerText = data.dobrywebdevDescription;
+  interactiveDescription.innerText = data.interactiveDescription;
   $(".projects__nav-info").text(data.projectsNavInfo);
-  $(".gridDescription").text(data.gridDescription);
-  $(".weatherDescription").text(data.weatherDescription);
-  $(".challengeDescription").text(data.challengeDescription);
-  $(".interiorDescription").text(data.interiorDescription);
-  $(".sleszynskiDescription").text(data.sleszynskiDescription);
-  $(".todoDescription").text(data.todoDescription);
-  $(".interiorv1Description").text(data.interiorv1Description);
-  $(".dobrywebdevDescription").text(data.dobrywebdevDescription);
-  $(".cvDescription").text(data.cvDescription);
-  $(".interactiveDescription").text(data.interactiveDescription);
-  $(".formDescription").text(data.formDescription);
   $(".projectLive").text(data.projectLive);
   $(".projectCode").text(data.projectCode);
   $(".projects__prev").attr("aria-label", data.projectssPrev);
@@ -557,6 +584,9 @@ function changeLanguage(data) {
       .then(data => {
         changeLanguage(data);
       })
+      .catch(function(error) {
+        console.log(error);
+      })
   })
 
   langPL.addEventListener("click", () => {
@@ -570,6 +600,9 @@ function changeLanguage(data) {
       .then(response => response.json())
       .then(data => {
         changeLanguage(data);
+      })
+      .catch(function(error) {
+        console.log(error);
       })
   })
 

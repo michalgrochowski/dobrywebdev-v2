@@ -43,7 +43,7 @@
       this.dots = document.createElement('div');
       this.dots.classList.add('projects__dots');
       for (let i = 0; i < this.innerElements.length; i++) {
-        const dot = document.createElement('button');
+        const dot = document.createElement('span');
         dot.classList.add('projects__dot');
         dot.classList.add('projects__dot--light-theme');
         dot.addEventListener('click', () => {
@@ -56,7 +56,6 @@
 
     checkSlide() {
       // Add or remove a "active" class for current slide
-      const activeSlide = this.currentSlide;
       this.slides = document.querySelectorAll(".projects__project");
       let currentActiveSlide = this.slides.item(this.currentSlide);
       for (let slide of this.slides) {
@@ -64,10 +63,10 @@
       }
       currentActiveSlide.classList.add("projects__project--active");
       // Disable or enable nav buttons depending of current slide index
-      if (activeSlide === 0) {
+      if (this.currentSlide === 0) {
         prev.classList.add("projects__prev--disabled");
         navInfo.classList.remove("projects__nav-info--hidden");
-      } else if (activeSlide === 8) {
+      } else if (this.currentSlide === 8) {
         next.classList.add("projects__next--disabled");
       } else {
         navInfo.classList.add("projects__nav-info--hidden");
@@ -78,9 +77,9 @@
 
     updateDots() {
       // Add or remove a "active" class for current dot
-      for (let i = 0; i < this.dots.querySelectorAll('button').length; i++) {
+      for (let i = 0; i < this.dots.querySelectorAll('span').length; i++) {
         const addOrRemove = this.currentSlide === i ? 'add' : 'remove';
-        this.dots.querySelectorAll('button')[i].classList[addOrRemove]('projects__dot--active');
+        this.dots.querySelectorAll('span')[i].classList[addOrRemove]('projects__dot--active');
       }
     }
   }

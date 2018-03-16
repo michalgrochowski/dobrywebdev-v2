@@ -28,10 +28,10 @@
   }
   &--projects {
     @include mq-max(800px) {
-      padding-top: 10rem;
+      margin-top: -2rem;
     }
     @include mq-minmax(801px,1366px) {
-      padding-top: 7rem;
+      margin-top: -3rem;
     }
   }
   &--contact {

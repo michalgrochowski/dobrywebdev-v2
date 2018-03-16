@@ -288,10 +288,10 @@
         padding-top: 6rem; } }
   @media screen and (max-width: 800px) {
     .section--projects {
-      padding-top: 10rem; } }
+      margin-top: -2rem; } }
   @media screen and (min-width: 801px) and (max-width: 1366px) {
     .section--projects {
-      padding-top: 7rem; } }
+      margin-top: -3rem; } }
   .section--contact {
     padding-bottom: 3rem; }
     @media screen and (max-width: 1366px) {
@@ -367,15 +367,20 @@
       font-size: 1.6rem; } }
 
 .projects {
+  margin-top: 5rem;
   width: 100%;
   height: 100%; }
   @media screen and (max-width: 800px) {
     .projects {
-      width: 100%;
-      padding-top: 0rem; } }
-  @media screen and (max-height: 800px) {
-    .projects {
+      padding-top: 0rem;
+      margin-top: 2rem;
       padding-bottom: 5rem; } }
+  @media screen and (min-width: 801px) and (max-width: 1366px) {
+    .projects {
+      padding-top: 3rem; } }
+  @media screen and (min-width: 1367px) {
+    .projects {
+      padding-top: 0; } }
 
 .projects__nav-info {
   top: 6rem;
@@ -513,7 +518,8 @@
   @media screen and (min-width: 801px) and (max-width: 1366px) {
     .projects__description {
       width: 80%;
-      font-size: 1.4rem; } }
+      font-size: 1.4rem;
+      margin: 0.5rem 0; } }
 
 .projects__link {
   color: #333;
@@ -524,6 +530,9 @@
   margin: 2rem 0 0 0; }
   .projects__link--code {
     margin: 0; }
+  @media screen and (min-width: 801px) and (max-width: 1366px) {
+    .projects__link {
+      margin: 1rem 0 0 0; } }
 
 .projects__link:hover, .projects__link:focus {
   color: #666;
@@ -535,6 +544,10 @@
   width: 100%;
   z-index: 10;
   height: 20px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -555,15 +568,19 @@
   flex-grow: 0; }
   @media screen and (max-width: 800px) {
     .projects__dots {
-      top: 0rem; } }
+      top: 10rem; } }
   @media screen and (min-width: 801px) and (max-width: 1366px) {
     .projects__dots {
-      bottom: 4rem; } }
+      bottom: 2rem; } }
+  @media screen and (min-width: 1367px) {
+    .projects__dots {
+      bottom: 7rem; } }
 
 .projects__dot {
   cursor: pointer;
   display: block;
-  height: 1.3rem;
+  height: 1rem;
+  width: 1rem;
   margin: 5px 5px;
   border: none;
   border-radius: 50%; }

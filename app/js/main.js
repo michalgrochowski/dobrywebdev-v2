@@ -86,6 +86,15 @@
         slide.classList.remove("projects__project--active");
       }
       currentActiveSlide.classList.add("projects__project--active");
+      for (let link of projectsLinks) {
+        link.setAttribute("tabIndex", "-1");
+      }
+      // TODO: 
+      // Need to improve that so that it works only in projects section
+      let activeLinks = currentActiveSlide.querySelectorAll(".projects__link");
+      for (let link of activeLinks) {
+        link.setAttribute("tabIndex", "0");
+      }
       // Disable or enable nav buttons depending of current slide index
       if (this.currentSlide === 0) {
         prev.classList.add("projects__prev--disabled");
@@ -139,236 +148,228 @@
     }
   })
   
-
   // Main function that loads theme settings from localStorage, displays welcome text and block projects links
 
-$(window).on("load", function() {
-  checkTime();
-  howOldAmI();
-  $(".projects__link").attr("tabindex", "-1");
-  $(".owl-item.active .projects__project .projects__link").attr("tabindex", "0");
-  hideOrShowSections();
-  if (window.localStorage.length === 0 || window.localStorage.length === 1) {
-    ;
-  } else if (localStorage.getItem("buttonBlob") !== null) {
-    container.className = JSON.parse(localStorage.getItem("container"));
-    cookieInfo.className = JSON.parse(localStorage.getItem("cookie"));
-    buttonTheme.className = JSON.parse(localStorage.getItem("buttonTheme"));
-    buttonBlob.className = JSON.parse(localStorage.getItem("buttonBlob"));
-    iconMoon.className = JSON.parse(localStorage.getItem("iconMoon"));
-    iconSun.className = JSON.parse(localStorage.getItem("iconSun"));
-    bodyBorderTop.className = JSON.parse(localStorage.getItem("bodyBorderTop"));
-    bodyBorderBottom.className = JSON.parse(localStorage.getItem("bodyBorderBottom"));
-    bodyBorderLeft.className = JSON.parse(localStorage.getItem("bodyBorderLeft"));
-    bodyBorderRight.className = JSON.parse(localStorage.getItem("bodyBorderRight"));
-    nav.className = JSON.parse(localStorage.getItem("nav"));
-    footer.className = JSON.parse(localStorage.getItem("footer"));
-    hamburger.className = JSON.parse(localStorage.getItem("hamburger"));
-    closeHamburger.className = JSON.parse(localStorage.getItem("closemenu"));
-    prev.className = JSON.parse(localStorage.getItem("projectsPrev"));
-    next.className = JSON.parse(localStorage.getItem("projectsNext"));
-    formButton.className = JSON.parse(localStorage.getItem("sendButton"));
-    langPL.className = JSON.parse(localStorage.getItem("langPL"));
-    langENG.className = JSON.parse(localStorage.getItem("langENG"));
-    for (let tag of projectTag) {
-      tag.className = JSON.parse(localStorage.getItem("projectTag"));
+  document.addEventListener("DOMContentLoaded", () => {
+    checkTime();
+    howOldAmI();
+    hideOrShowSections();
+    if (window.localStorage.length === 0 || window.localStorage.length === 1) {
+      ;
+    } else if (localStorage.getItem("buttonBlob") !== null) {
+      container.className = JSON.parse(localStorage.getItem("container"));
+      cookieInfo.className = JSON.parse(localStorage.getItem("cookie"));
+      buttonTheme.className = JSON.parse(localStorage.getItem("buttonTheme"));
+      buttonBlob.className = JSON.parse(localStorage.getItem("buttonBlob"));
+      iconMoon.className = JSON.parse(localStorage.getItem("iconMoon"));
+      iconSun.className = JSON.parse(localStorage.getItem("iconSun"));
+      bodyBorderTop.className = JSON.parse(localStorage.getItem("bodyBorderTop"));
+      bodyBorderBottom.className = JSON.parse(localStorage.getItem("bodyBorderBottom"));
+      bodyBorderLeft.className = JSON.parse(localStorage.getItem("bodyBorderLeft"));
+      bodyBorderRight.className = JSON.parse(localStorage.getItem("bodyBorderRight"));
+      nav.className = JSON.parse(localStorage.getItem("nav"));
+      footer.className = JSON.parse(localStorage.getItem("footer"));
+      hamburger.className = JSON.parse(localStorage.getItem("hamburger"));
+      closeHamburger.className = JSON.parse(localStorage.getItem("closemenu"));
+      prev.className = JSON.parse(localStorage.getItem("projectsPrev"));
+      next.className = JSON.parse(localStorage.getItem("projectsNext"));
+      formButton.className = JSON.parse(localStorage.getItem("sendButton"));
+      langPL.className = JSON.parse(localStorage.getItem("langPL"));
+      langENG.className = JSON.parse(localStorage.getItem("langENG"));
+      for (let tag of projectTag) {
+        tag.className = JSON.parse(localStorage.getItem("projectTag"));
+      }
+      inputMail.className = JSON.parse(localStorage.getItem("inputMail"));
+      inputPhone.className = JSON.parse(localStorage.getItem("inputPhone"));
+      // inputName.className = JSON.parse(localStorage.getItem("inputName"));
+      textarea.className = JSON.parse(localStorage.getItem("textarea"));
+      cookieInfoButton.className = JSON.parse(localStorage.getItem("cookieClose"));
+      cookieInfoButton.style.borderBottom = "none";
+      footerLink.style.borderBottom = "none";
+      for (let link of projectsLinks) {
+        link.style.borderBottom = "none";
+      }
+      for (let item of socialItems) {
+        item.style.borderBottom = "none";
+      }
+      
+      for (let link of allLinks) {
+        link.classList.remove("light-theme--link");
+        link.classList.remove("dark-theme--link");
+      }
     }
-    inputMail.className = JSON.parse(localStorage.getItem("inputMail"));
-    inputPhone.className = JSON.parse(localStorage.getItem("inputPhone"));
-    // inputName.className = JSON.parse(localStorage.getItem("inputName"));
-    textarea.className = JSON.parse(localStorage.getItem("textarea"));
-    cookieInfoButton.className = JSON.parse(localStorage.getItem("cookieClose"));
-    cookieInfoButton.style.borderBottom = "none";
-    footerLink.style.borderBottom = "none";
-    for (let link of projectsLinks) {
-      link.style.borderBottom = "none";
+    if (buttonBlob.classList.contains("button__blob--sun")) {
+      navLogo.setAttribute("src", "img/logo-light.png")
+      for (let link of allLinks) {
+        link.classList.add("light-theme--link");
+      }
+      navLinkStart.classList.remove("light-theme--link")
+      body.classList.add("light-theme");
+    } else if (buttonBlob.classList.contains("button__blob--moon")) {
+      navLogo.setAttribute("src", "img/logo-dark.png")
+      for (let link of allLinks) {
+        link.classList.add("dark-theme--link");
+      }
+      navLinkStart.classList.remove("dark-theme--link")
+      body.classList.add("dark-theme");
     }
-    for (let item of socialItems) {
-      item.style.borderBottom = "none";
+    if (langENG.classList.contains("button--lang--active")) {
+      langENG.classList.remove("button--lang--active");
+      langPL.classList.add("button--lang--active");
+    } else if (langPL.classList.contains("button--lang--active")) {
+      ;
     }
-    
-    for (let link of allLinks) {
-      link.classList.remove("light-theme--link");
-      link.classList.remove("dark-theme--link");
-    }
-  }
-  if (buttonBlob.classList.contains("button__blob--sun")) {
-    navLogo.setAttribute("src", "img/logo-light.png")
-    for (let link of allLinks) {
-      link.classList.add("light-theme--link");
-    }
-    navLinkStart.classList.remove("light-theme--link")
-    body.classList.add("light-theme");
-  } else if (buttonBlob.classList.contains("button__blob--moon")) {
-    navLogo.setAttribute("src", "img/logo-dark.png")
-    for (let link of allLinks) {
-      link.classList.add("dark-theme--link");
-    }
-    navLinkStart.classList.remove("dark-theme--link")
-    body.classList.add("dark-theme");
-  }
-  if (langENG.classList.contains("button--lang--active")) {
-    langENG.classList.remove("button--lang--active");
-    langPL.classList.add("button--lang--active");
-  } else if (langPL.classList.contains("button--lang--active")) {
-    ;
-  }
-});
+    setTimeout(function(){
+      if (localStorage.getItem("cookieoff") === "true" && cookieInfo.classList.contains("visuallyhidden") === false) {
+        cookieInfo.classList.add("visuallyhidden");
+      } else {
+        return;
+      }
+    }, 500);
+  });
 
-window.addEventListener("hashchange", () => {
-  hideOrShowSections();
-})
+  window.addEventListener("hashchange", () => {
+    hideOrShowSections();
+  })
 
-// Check what time it is and display welcome text based on that
+  // Check what time it is and display welcome text based on that
 
-function checkTime() {
-  const date = new Date();
-  const currentTime = date.getHours();
-  if (currentTime >= 6 && currentTime <= 18) {
-    overlay.classList.add("overlay--light");
-    overlayText.innerText = "Dzień dobry";
-  } else {
-    overlay.classList.add("overlay--dark");
-    overlayText.innerText = "Dobry wieczór";
-  }
-}
-
-// Smaller functions
-
-function overflowOn() {
-  body.classList.remove("overflow-off");
-  body.classList.add("overflow-on");
-}
-
-function overflowOff() {
-  body.classList.remove("overflow-on");
-  body.classList.add("overflow-off");
-}
-
-function showStart() {
-  start.classList.remove("visuallyhidden--section");
-  about.classList.add("visuallyhidden--section");
-  projects.classList.add("visuallyhidden--section");
-  contact.classList.add("visuallyhidden--section");
-}
-
-function showAbout() {
-  start.classList.add("visuallyhidden--section");
-  about.classList.remove("visuallyhidden--section");
-  projects.classList.add("visuallyhidden--section");
-  contact.classList.add("visuallyhidden--section");
-}
-
-function showProjects() {
-  start.classList.add("visuallyhidden--section");
-  about.classList.add("visuallyhidden--section");
-  projects.classList.remove("visuallyhidden--section");
-  contact.classList.add("visuallyhidden--section");
-}
-
-function showContact() {
-  start.classList.add("visuallyhidden--section");
-  about.classList.add("visuallyhidden--section");
-  projects.classList.add("visuallyhidden--section");
-  contact.classList.remove("visuallyhidden--section");
-}
-
-// Show or hide sections and turn overflow on or off based on windows hash 
-
-function hideOrShowSections() {
-  if (window.location.hash === "#start" || window.location.hash === "") {
-    overflowOff();
-    showStart();
-  } else if (window.location.hash === "#about") {
-    overflowOn();
-    showAbout();
-  } else if (window.location.hash === "#projects") {
-    overflowOn();
-    showProjects();
-  } else if (window.location.hash === "#contact") {
-    overflowOn();
-    showContact();
-  }
-}
-
-// Turn on or off overflow-x depending on current hash
-
-function checkHashAndHideSections(e) {
-  if (e.target.getAttribute("href") !== "#start") {
-    overflowOn();
-  } else if (e.target.getAttribute("href") === "#start") {
-    overflowOff();
-  }
-}
-
-navLinkStart.addEventListener("click", checkHashAndHideSections);
-
-// Hide the overlay after animation is finished
-
-overlay.addEventListener("animationend", function(e){
-  e.target.style.display = "none";
-})
-
-sectionTitleStart.addEventListener("animationend", function(e){
-  e.target.classList.remove("fade-in");
-})
-
-sectionSubtitleStart.addEventListener("animationend", function(e){
-  e.target.classList.remove("fade-in");
-})
-
-// Check if cookies info was closed before and if so don't show it
-
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(function(){
-    if (localStorage.getItem("cookieoff") === "true" && cookieInfo.classList.contains("visuallyhidden") === false) {
-      cookieInfo.classList.add("visuallyhidden");
+  function checkTime() {
+    const date = new Date();
+    const currentTime = date.getHours();
+    if (currentTime >= 6 && currentTime <= 18) {
+      overlay.classList.add("overlay--light");
+      overlayText.innerText = "Dzień dobry";
     } else {
-      return;
+      overlay.classList.add("overlay--dark");
+      overlayText.innerText = "Dobry wieczór";
     }
-  }, 500);
-});
+  }
 
-// Mobile menu scripts, showing hamburger etc.
+  // Smaller functions
 
-hamburger.addEventListener("click", () => {
-  hamburger.style.display = "none";
-  closeHamburger.style.display = "block";
-  navList.classList.add("nav__list--expanded");
-})
+  function overflowOn() {
+    body.classList.remove("overflow-off");
+    body.classList.add("overflow-on");
+  }
 
-closeHamburger.addEventListener("click", () => {
-  hamburger.style.display = "block";
-  closeHamburger.style.display = "none";
-  navList.classList.remove("nav__list--expanded");
-})
+  function overflowOff() {
+    body.classList.remove("overflow-on");
+    body.classList.add("overflow-off");
+  }
 
-for (let link of navLinks) {
-  link.addEventListener("click", (e) => {
-    checkHashAndHideSections(e);
+  function showStart() {
+    start.classList.remove("visuallyhidden--section");
+    about.classList.add("visuallyhidden--section");
+    projects.classList.add("visuallyhidden--section");
+    contact.classList.add("visuallyhidden--section");
+  }
+
+  function showAbout() {
+    start.classList.add("visuallyhidden--section");
+    about.classList.remove("visuallyhidden--section");
+    projects.classList.add("visuallyhidden--section");
+    contact.classList.add("visuallyhidden--section");
+  }
+
+  function showProjects() {
+    start.classList.add("visuallyhidden--section");
+    about.classList.add("visuallyhidden--section");
+    projects.classList.remove("visuallyhidden--section");
+    contact.classList.add("visuallyhidden--section");
+  }
+
+  function showContact() {
+    start.classList.add("visuallyhidden--section");
+    about.classList.add("visuallyhidden--section");
+    projects.classList.add("visuallyhidden--section");
+    contact.classList.remove("visuallyhidden--section");
+  }
+
+  // Show or hide sections and turn overflow on or off based on windows hash 
+
+  function hideOrShowSections() {
+    if (window.location.hash === "#start" || window.location.hash === "") {
+      overflowOff();
+      showStart();
+    } else if (window.location.hash === "#about") {
+      overflowOn();
+      showAbout();
+    } else if (window.location.hash === "#projects") {
+      overflowOn();
+      showProjects();
+    } else if (window.location.hash === "#contact") {
+      overflowOn();
+      showContact();
+    }
+  }
+
+  // Turn on or off overflow-x depending on current hash
+
+  function checkHashAndHideSections(e) {
+    if (e.target.getAttribute("href") !== "#start") {
+      overflowOn();
+    } else if (e.target.getAttribute("href") === "#start") {
+      overflowOff();
+    }
+  }
+
+  navLinkStart.addEventListener("click", checkHashAndHideSections);
+
+  // Hide the overlay after animation is finished
+
+  overlay.addEventListener("animationend", function(e){
+    e.target.style.display = "none";
+  })
+
+  sectionTitleStart.addEventListener("animationend", function(e){
+    e.target.classList.remove("fade-in");
+  })
+
+  sectionSubtitleStart.addEventListener("animationend", function(e){
+    e.target.classList.remove("fade-in");
+  })
+
+  // Mobile menu scripts, showing hamburger etc.
+
+  hamburger.addEventListener("click", () => {
+    hamburger.style.display = "none";
+    closeHamburger.style.display = "block";
+    navList.classList.add("nav__list--expanded");
+  })
+
+  closeHamburger.addEventListener("click", () => {
+    hamburger.style.display = "block";
+    closeHamburger.style.display = "none";
+    navList.classList.remove("nav__list--expanded");
+  })
+
+  for (let link of navLinks) {
+    link.addEventListener("click", (e) => {
+      checkHashAndHideSections(e);
+      if (window.matchMedia("(max-width: 851px)").matches) {
+        hamburger.style.display = "block";
+        closeHamburger.style.display = "none";
+        navList.classList.remove("nav__list--expanded")
+      } else {
+        return;
+      }
+    })
+  }
+
+  navLinkStart.addEventListener("click", () => {
     if (window.matchMedia("(max-width: 851px)").matches) {
-      hamburger.style.display = "block";
-      closeHamburger.style.display = "none";
-      navList.classList.remove("nav__list--expanded")
+      if (navList.classList.contains("nav__list--expanded")) {
+        navList.classList.remove("nav__list--expanded");
+        hamburger.style.display = "block";
+        closeHamburger.style.display = "none";
+      } else {
+        return;
+      }
     } else {
       return;
     }
   })
-}
-
-navLinkStart.addEventListener("click", () => {
-  if (window.matchMedia("(max-width: 851px)").matches) {
-    if (navList.classList.contains("nav__list--expanded")) {
-      navList.classList.remove("nav__list--expanded");
-      hamburger.style.display = "block";
-      closeHamburger.style.display = "none";
-    } else {
-      return;
-    }
-  } else {
-    return;
-  }
-})
 
 // Theme changing script that also saves settings in localStorage
 
@@ -446,12 +447,12 @@ $.fn.toggleAttr = function(attr, attr1, attr2) {
   });
 };
 
-// Click function to hide cookies info
+  // Click function to hide cookies info
 
-cookieInfoButton.addEventListener("click", () => {
-  cookieInfo.classList.add("visuallyhidden");
-  localStorage.setItem("cookieoff", "true");
-})
+  cookieInfoButton.addEventListener("click", () => {
+    cookieInfo.classList.add("visuallyhidden");
+    localStorage.setItem("cookieoff", "true");
+  })
 
 // Function that changes language based on JSON data
 
@@ -542,31 +543,35 @@ function changeLanguage(data) {
   $(".projects__photo").eq(8).attr("alt", data.interactiveAlt);
 }
 
-// Language changing on button click
+  // Language changing on button click
 
-$(".langENG").on("click", function() {
-  if ($(this).hasClass("button--lang--active")) {
-    return;
-  } else {
-    $(this).toggleClass("button--lang--active");
-    $(".langPL").toggleClass("button--lang--active");
-  }
-  $.getJSON("json/content-eng.json", function(data) {
-    changeLanguage(data);
-  });
-});
+  langENG.addEventListener("click", () => {
+    if (langENG.classList.contains("button--lang--active")) {
+      return;
+    } else {
+      langENG.classList.toggle("button--lang--active");
+      langPL.classList.toggle("button--lang--active");
+    }
+    fetch("json/content-eng.json")
+      .then(response => response.json())
+      .then(data => {
+        changeLanguage(data);
+      })
+  })
 
-$(".langPL").on("click", function() {
-  if ($(this).hasClass("button--lang--active")) {
-    return;
-  } else {
-    $(this).toggleClass("button--lang--active");
-    $(".langENG").toggleClass("button--lang--active");
-  }
-  $.getJSON("json/content-pl.json", function(data) {
-    changeLanguage(data);
-  });
-});
+  langPL.addEventListener("click", () => {
+    if (langPL.classList.contains("button--lang--active")) {
+      return;
+    } else {
+      langPL.classList.toggle("button--lang--active");
+      langENG.classList.toggle("button--lang--active");
+    }
+    fetch("json/content-pl.json")
+      .then(response => response.json())
+      .then(data => {
+        changeLanguage(data);
+      })
+  })
 
 // Form validation
 

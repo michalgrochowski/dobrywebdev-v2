@@ -13,6 +13,7 @@
 
   // All necessary elements
 
+  const container = document.querySelector(".container");
   const prev = document.querySelector('.projects__prev');
   const next = document.querySelector('.projects__next');
   const navInfo = document.querySelector(".projects__nav-info");
@@ -34,6 +35,29 @@
   const cookieInfoButton = document.querySelector(".cookie-info__close");
   const myAge = document.getElementById("myAge");
   const footerYear = document.getElementById("footer__year");
+  const buttonTheme = document.querySelector(".button--theme");
+  const buttonBlob = document.querySelector(".button__blob");
+  const iconMoon = document.querySelector(".icon-moon");
+  const iconSun = document.querySelector(".icon-sun");
+  const bodyBorderTop = document.querySelector(".body-border--top");
+  const bodyBorderBottom = document.querySelector(".body-border--bottom");
+  const bodyBorderLeft = document.querySelector(".body-border--left");
+  const bodyBorderRight = document.querySelector(".body-border--right");
+  const nav = document.querySelector(".nav");
+  const footer = document.querySelector(".footer");
+  const formButton = document.querySelector(".form__button");
+  const langPL = document.querySelector(".langPL");
+  const langENG = document.querySelector(".langENG");
+  const inputMail = document.querySelector(".form__input--mail");
+  const inputPhone = document.querySelector(".form__input--phone");
+  const textarea = document.querySelector(".form__textarea");
+  //const inputName = document.querySelector(".form__input--name");
+  const allLinks = document.getElementsByTagName("a");
+  const footerLink = document.querySelector(".footer__link");
+  const projectsLinks = document.querySelectorAll(".projects__link");
+  const socialItems = document.querySelectorAll(".socials__item");
+  const navLogo = document.querySelector(".nav__logo");
+  const projectTag = document.querySelectorAll(".projects__tag");
 
   // Siema settings
 
@@ -105,7 +129,18 @@
   prev.addEventListener('click', () => mySiemaWithDots.prev());
   next.addEventListener('click', () => mySiemaWithDots.next());
 
-// Main function that loads theme settings from localStorage, displays welcome text and block projects links
+  document.addEventListener("keyup", (event) => {
+    if (window.location.hash === "#projects") {
+      if (event.key === "ArrowRight") {
+        mySiemaWithDots.next();
+      } else if (event.key === "ArrowLeft") {
+        mySiemaWithDots.prev();
+      }
+    }
+  })
+  
+
+  // Main function that loads theme settings from localStorage, displays welcome text and block projects links
 
 $(window).on("load", function() {
   checkTime();
@@ -116,54 +151,66 @@ $(window).on("load", function() {
   if (window.localStorage.length === 0 || window.localStorage.length === 1) {
     ;
   } else if (localStorage.getItem("buttonBlob") !== null) {
-    $(".container").attr("class", JSON.parse(localStorage.getItem("container")));
-    $(".cookie-info").attr("class", JSON.parse(localStorage.getItem("cookie")));
-    $(".button--theme").attr("class", JSON.parse(localStorage.getItem("buttonTheme")));
-    $(".button__blob").attr("class", JSON.parse(localStorage.getItem("buttonBlob")));
-    $(".icon-moon").attr("class", JSON.parse(localStorage.getItem("iconMoon")));
-    $(".icon-sun").attr("class", JSON.parse(localStorage.getItem("iconSun")));
-    $(".body-border--top").attr("class", JSON.parse(localStorage.getItem("bodyBorderTop")));
-    $(".body-border--bottom").attr("class", JSON.parse(localStorage.getItem("bodyBorderBottom")));
-    $(".body-border--left").attr("class", JSON.parse(localStorage.getItem("bodyBorderLeft")));
-    $(".body-border--right").attr("class", JSON.parse(localStorage.getItem("bodyBorderRight")));
-    $(".nav").attr("class", JSON.parse(localStorage.getItem("nav")));
-    $(".footer").attr("class", JSON.parse(localStorage.getItem("footer")));
-    $(".nav__hamburger").attr("class", JSON.parse(localStorage.getItem("hamburger")));
-    $(".nav__close-menu").attr("class", JSON.parse(localStorage.getItem("closemenu")));
-    $(".projects__prev").attr("class", JSON.parse(localStorage.getItem("projectsPrev")));
-    $(".projects__next").attr("class", JSON.parse(localStorage.getItem("projectsNext")));
-    $(".projects__tag").attr("class", JSON.parse(localStorage.getItem("projectTag")));
-    $(".form__button").attr("class", JSON.parse(localStorage.getItem("sendButton")));
-    $(".langPL").attr("class", JSON.parse(localStorage.getItem("langPL")));
-    $(".langENG").attr("class", JSON.parse(localStorage.getItem("langENG")));
-    $(".form__input--mail").attr("class", JSON.parse(localStorage.getItem("inputMail")));
-    $(".form__input--phone").attr("class", JSON.parse(localStorage.getItem("inputPhone")));
-    //$(".form__input--name").attr("class", JSON.parse(localStorage.getItem("inputName")));
-    $(".form__textarea").attr("class", JSON.parse(localStorage.getItem("textarea")));
-    $(".cookie-info__close").attr("class", JSON.parse(localStorage.getItem("cookieClose")));
-    $('a').removeClass("light-theme--link dark-theme--link");
-    $(".footer__link").css("border-bottom", "none");
-    $(".socials__item").css("border-bottom", "none");
-    $(".projects__link").css("border-bottom", "none");
-    $(".cookie-info__close").css("border-bottom", "none");
+    container.className = JSON.parse(localStorage.getItem("container"));
+    cookieInfo.className = JSON.parse(localStorage.getItem("cookie"));
+    buttonTheme.className = JSON.parse(localStorage.getItem("buttonTheme"));
+    buttonBlob.className = JSON.parse(localStorage.getItem("buttonBlob"));
+    iconMoon.className = JSON.parse(localStorage.getItem("iconMoon"));
+    iconSun.className = JSON.parse(localStorage.getItem("iconSun"));
+    bodyBorderTop.className = JSON.parse(localStorage.getItem("bodyBorderTop"));
+    bodyBorderBottom.className = JSON.parse(localStorage.getItem("bodyBorderBottom"));
+    bodyBorderLeft.className = JSON.parse(localStorage.getItem("bodyBorderLeft"));
+    bodyBorderRight.className = JSON.parse(localStorage.getItem("bodyBorderRight"));
+    nav.className = JSON.parse(localStorage.getItem("nav"));
+    footer.className = JSON.parse(localStorage.getItem("footer"));
+    hamburger.className = JSON.parse(localStorage.getItem("hamburger"));
+    closeHamburger.className = JSON.parse(localStorage.getItem("closemenu"));
+    prev.className = JSON.parse(localStorage.getItem("projectsPrev"));
+    next.className = JSON.parse(localStorage.getItem("projectsNext"));
+    formButton.className = JSON.parse(localStorage.getItem("sendButton"));
+    langPL.className = JSON.parse(localStorage.getItem("langPL"));
+    langENG.className = JSON.parse(localStorage.getItem("langENG"));
+    for (let tag of projectTag) {
+      tag.className = JSON.parse(localStorage.getItem("projectTag"));
+    }
+    inputMail.className = JSON.parse(localStorage.getItem("inputMail"));
+    inputPhone.className = JSON.parse(localStorage.getItem("inputPhone"));
+    // inputName.className = JSON.parse(localStorage.getItem("inputName"));
+    textarea.className = JSON.parse(localStorage.getItem("textarea"));
+    cookieInfoButton.className = JSON.parse(localStorage.getItem("cookieClose"));
+    cookieInfoButton.style.borderBottom = "none";
+    footerLink.style.borderBottom = "none";
+    for (let link of projectsLinks) {
+      link.style.borderBottom = "none";
+    }
+    for (let item of socialItems) {
+      item.style.borderBottom = "none";
+    }
+    
+    for (let link of allLinks) {
+      link.classList.remove("light-theme--link");
+      link.classList.remove("dark-theme--link");
+    }
   }
-  if ($(".button__blob").hasClass("button__blob--sun")) {
-    $(".nav__logo").attr("src", "img/logo-light.png");
-    $('a').addClass("light-theme--link").removeClass("dark-theme--link");
-    $(".nav__link--start").removeClass("light-theme--link");
-    $("body").addClass("light-theme");
-    $(".owl-theme .owl-dots .owl-dot span").addClass("dot-light-theme");
-  } else if ($(".button__blob").hasClass("button__blob--moon")) {
-    $(".nav__logo").attr("src", "img/logo-dark.png");
-    $('a').addClass("dark-theme--link").removeClass("light-theme--nav-link");
-    $(".nav__link--start").removeClass("dark-theme--link");
-    $("body").addClass("dark-theme");
-    $(".owl-theme .owl-dots .owl-dot span").addClass("dot-dark-theme");
+  if (buttonBlob.classList.contains("button__blob--sun")) {
+    navLogo.setAttribute("src", "img/logo-light.png")
+    for (let link of allLinks) {
+      link.classList.add("light-theme--link");
+    }
+    navLinkStart.classList.remove("light-theme--link")
+    body.classList.add("light-theme");
+  } else if (buttonBlob.classList.contains("button__blob--moon")) {
+    navLogo.setAttribute("src", "img/logo-dark.png")
+    for (let link of allLinks) {
+      link.classList.add("dark-theme--link");
+    }
+    navLinkStart.classList.remove("dark-theme--link")
+    body.classList.add("dark-theme");
   }
-  if ($(".langENG").hasClass("button--lang--active")) {
-    $(".langENG").removeClass("button--lang--active");
-    $(".langPL").addClass("button--lang--active");
-  } else if ($(".langPL").hasClass("button--lang--active")) {
+  if (langENG.classList.contains("button--lang--active")) {
+    langENG.classList.remove("button--lang--active");
+    langPL.classList.add("button--lang--active");
+  } else if (langPL.classList.contains("button--lang--active")) {
     ;
   }
 });
@@ -355,7 +402,6 @@ $(".button--theme").on("click", function(){
   $(".form__textarea").toggleClass("input-light input-dark");
   $(".cookie-info__close").toggleClass("dark-theme--link light-theme--link dark-outline");
   $(".nav__link--start").removeClass("light-theme--link dark-theme--link");
-  $(".owl-theme .owl-dots .owl-dot span").toggleClass("dot-dark-theme dot-light-theme");
   // Items for localStorage
   localStorage.setItem("container", JSON.stringify($(".container").attr("class")));
   localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));

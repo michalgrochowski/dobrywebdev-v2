@@ -37,8 +37,10 @@
   const footerYear = document.getElementById("footer__year");
   const buttonTheme = document.querySelector(".button--theme");
   const buttonBlob = document.querySelector(".button__blob");
+  const buttonFlag = document.querySelectorAll(".button--flag");
   const iconMoon = document.querySelector(".icon-moon");
   const iconSun = document.querySelector(".icon-sun");
+  const bodyBorder = document.querySelectorAll(".body-border");
   const bodyBorderTop = document.querySelector(".body-border--top");
   const bodyBorderBottom = document.querySelector(".body-border--bottom");
   const bodyBorderLeft = document.querySelector(".body-border--left");
@@ -371,38 +373,68 @@
     }
   })
 
-// Theme changing script that also saves settings in localStorage
+  // Theme changing script that also saves settings in localStorage
+
+  /*buttonTheme.addEventListener("click", () => {
+    window.localStorage.clear();
+    buttonBlob.classList.toggle("button__blob--sun")
+  })*/
+
+  function toggleMultipleClasses(element, firstClass, secondClass, thirdClass) {
+    element.classList.toggle(firstClass);
+    element.classList.toggle(secondClass);
+    element.classList.toggle(thirdClass);
+  }
+
+  function toggleMutlipleClassesOnList(elements, firstClass, secondClass) {
+    for (let item of elements) {
+      item.classList.toggle(firstClass);
+      item.classList.toggle(secondClass);
+    }
+  }
+
+  function toggleAttribute(element, attribute, firstValue, secondaValue) {
+    if (element.getAttribute(attribute) === firstValue) {
+      element.setAttribute(attribute, secondaValue)
+    } else if (element.getAttribute(attribute) === secondaValue) {
+      element.setAttribute(attribute, firstValue)
+    } else {
+      console.log("Coś tu nie gra");
+    }
+  }
 
 $(".button--theme").on("click", function(){
   window.localStorage.clear();
-  $(".button__blob").toggleClass("button__blob--sun button__blob--moon");
-  $(".button--theme").toggleClass("button--theme--light button--theme--dark")
-  $(".icon-moon").toggleClass("icon--light icon--dark");
-  $(".icon-sun").toggleClass("icon--light icon--dark");
-  $(".body-border").toggleClass("light-theme dark-theme");
-  $(".container").toggleClass("light-theme dark-theme");
-  $(".nav").toggleClass("light-theme dark-theme");
-  $(".footer").toggleClass("light-theme dark-theme");
+  toggleMultipleClasses(buttonBlob, "button__blob--sun", "button__blob--moon");
+  toggleMultipleClasses(buttonTheme, "button--theme--light", "button--theme--dark");
+  toggleMultipleClasses(iconMoon, "icon--light", "icon--dark");
+  toggleMultipleClasses(iconSun, "icon--light", "icon--dark");
+  toggleMutlipleClassesOnList(bodyBorder, "light-theme", "dark-theme");
+  toggleMultipleClasses(container, "light-theme", "dark-theme");
+  toggleMultipleClasses(nav, "light-theme", "dark-theme");
+  toggleMultipleClasses(footer, "light-theme", "dark-theme");
+  toggleMultipleClasses(hamburger, "light-theme", "dark-theme");
+  toggleMultipleClasses(closeHamburger, "light-theme", "dark-theme");
+  toggleMultipleClasses(body, "light-theme", "dark-theme");
   $('a').toggleClass("light-theme--link dark-theme--link");
-  $(".nav__hamburger").toggleClass("light-theme dark-theme");
-  $(".nav__close-menu").toggleClass("light-theme dark-theme");
-  $("body").toggleClass("light-theme dark-theme");
-  $(".button--theme").toggleClass("dark-outline");
-  $(".button--flag").toggleClass("dark-outline");
-  $(".projects__prev").toggleClass("projects__prev--light projects__prev--dark dark-outline");
-  $(".projects__next").toggleClass("projects__next--light projects__next--dark dark-outline");
-  $(".projects__tag").toggleClass("light-theme dark-theme");
-  $(".form__button").toggleClass("light-theme--button dark-theme--button dark-outline");
-  $(".langPL").toggleClass("light-theme dark-theme dark-outline");
-  $(".langENG").toggleClass("light-theme dark-theme dark-outline");
-  $(".cookie-info").toggleClass("light-theme dark-theme");
-  $(".overlay").toggleClass("overlay--light overlay--dark");
-  $(".form__input--mail").toggleClass("input-light input-dark");
-  $(".form__input--phone").toggleClass("input-light input-dark");
-  //$(".form__input--name").toggleClass("input-light input-dark");
-  $(".form__textarea").toggleClass("input-light input-dark");
-  $(".cookie-info__close").toggleClass("dark-theme--link light-theme--link dark-outline");
-  $(".nav__link--start").removeClass("light-theme--link dark-theme--link");
+  buttonTheme.classList.toggle("dark-outline");
+  for (let item of buttonFlag) {
+    item.classList.toggle("dark-outline");
+  }
+  toggleMultipleClasses(prev, "projects__prev--light", "projects__prev--dark", "dark-outline");
+  toggleMultipleClasses(next, "projects__prev--light", "projects__prev--dark", "dark-outline");
+  toggleMutlipleClassesOnList(projectTag, "light-theme", "dark-theme");
+  toggleMultipleClasses(formButton, "light-theme--button", "dark-theme--button", "dark-outline");
+  toggleMultipleClasses(langPL, "light-theme", "dark-theme", "dark-outline");
+  toggleMultipleClasses(langENG, "light-theme", "dark-theme", "dark-outline");
+  toggleMultipleClasses(cookieInfo, "light-theme", "dark-theme");
+  toggleMultipleClasses(overlay, "overlay--light", "overlay--dark");
+  toggleMultipleClasses(inputMail, "input-light", "input-dark");
+  toggleMultipleClasses(inputPhone, "input-light", "input-dark");
+  // toggleMultipleClasses(inputName, "input-light", "input-dark");
+  toggleMultipleClasses(textarea, "input-light", "input-dark");
+  toggleMultipleClasses(cookieInfoButton, "dark-theme--link", "light-theme--link", "dark-outline");
+  toggleMultipleClasses(navLinkStart, "light-theme--link", "dark-theme--link");
   // Items for localStorage
   localStorage.setItem("container", JSON.stringify($(".container").attr("class")));
   localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));
@@ -431,21 +463,8 @@ $(".button--theme").on("click", function(){
   localStorage.setItem("textarea", JSON.stringify($(".form__textarea").attr("class")));
   localStorage.setItem("cookieClose", JSON.stringify($(".cookie-info__close").attr("class")));
   localStorage.setItem("navLink", JSON.stringify($(".nav__link").attr("class")));
-  $(".nav__logo").toggleAttr("src", "img/logo-light.png", "img/logo-dark.png");
+  toggleAttribute(navLogo, "src", "img/logo-light.png", "img/logo-dark.png");
 });
-
-// Toggle attribute script by Mathias Bynens 
-// (https://gist.github.com/mathiasbynens/298591)
-
-$.fn.toggleAttr = function(attr, attr1, attr2) {
-  return this.each(function() {
-    var self = $(this);
-    if (self.attr(attr) == attr1)
-      self.attr(attr, attr2);
-    else
-      self.attr(attr, attr1);
-  });
-};
 
   // Click function to hide cookies info
 

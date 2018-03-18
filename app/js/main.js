@@ -160,7 +160,7 @@
     easing: "cubic-bezier(0.250, 0.100, 0.250, 1.000)",
     perPage: 1,
     draggable: true,
-    threshold: 5,
+    threshold: 0,
     onInit: function(){
       this.addDots();
       this.updateDots();
@@ -240,8 +240,7 @@
         link.classList.add("light-theme--link");
       }
       for (let dot of projectsDot) {
-        dot.classList.remove("projects__dot--dark-theme");
-        dot.classList.add("projects__dot--light-theme");
+        dot.classList.remove("projects__dot--light-theme");
       }
       navLinkStart.classList.remove("light-theme--link")
       body.classList.add("light-theme");
@@ -252,7 +251,6 @@
       }
       for (let dot of projectsDot) {
         dot.classList.remove("projects__dot--light-theme");
-        dot.classList.add("projects__dot--dark-theme");
       }
       navLinkStart.classList.remove("dark-theme--link")
       body.classList.add("dark-theme");
@@ -468,8 +466,8 @@
     toggleMultipleClasses(next, "projects__prev--light", "projects__prev--dark", "dark-outline");
     toggleMutlipleClassesOnList(projectTag, "light-theme", "dark-theme");
     toggleMultipleClasses(formButton, "light-theme--button", "dark-theme--button", "dark-outline");
-    toggleMultipleClasses(langPL, "light-theme", "dark-theme", "dark-outline");
-    toggleMultipleClasses(langENG, "light-theme", "dark-theme", "dark-outline");
+    toggleMultipleClasses(langPL, "light-theme--link", "dark-theme--link", "dark-outline");
+    toggleMultipleClasses(langENG, "light-theme--link", "dark-theme--link", "dark-outline");
     toggleMultipleClasses(infoCookies, "light-theme", "dark-theme");
     toggleMultipleClasses(overlay, "overlay--light", "overlay--dark");
     toggleMultipleClasses(inputMail, "input-light", "input-dark");

@@ -31,8 +31,8 @@
   const hamburger = document.querySelector(".nav__hamburger");
   const closeHamburger = document.querySelector(".nav__close-menu");
   const navList = document.querySelector(".nav__list");
-  const cookieInfo = document.querySelector(".cookie-info");
-  const cookieInfoButton = document.querySelector(".cookie-info__close");
+  const infoCookies = document.querySelector(".cookie-info");
+  const closeCookiesInfo = document.querySelector(".cookie-info__close");
   const myAge = document.getElementById("myAge");
   const footerYear = document.getElementById("footer__year");
   const buttonTheme = document.querySelector(".button--theme");
@@ -60,6 +60,31 @@
   const socialItems = document.querySelectorAll(".socials__item");
   const navLogo = document.querySelector(".nav__logo");
   const projectTag = document.querySelectorAll(".projects__tag");
+  const navAbout = document.querySelector(".navAbout");
+  const navProjects = document.querySelector(".navProjects");
+  const navContact = document.querySelector(".navContact");
+  const mainTitle = document.querySelector(".mainTitle");
+  const mainSubtitle = document.querySelector(".mainSubtitle");
+  const aboutTitle = document.querySelector(".aboutTitle");
+  const aboutDescription = document.querySelector(".aboutDescription");
+  const skillsSubtitle = document.querySelector(".skillsSubtitle");
+  const projectsNavInfo = document.querySelector(".projects__nav-info");
+  const gridDescription = document.querySelector(".gridDescription");
+  const weatherDescription = document.querySelector(".weatherDescription");
+  const challengeDescription = document.querySelector(".challengeDescription");
+  const interiorDescription = document.querySelector(".interiorDescription");
+  const sleszynskiDescription = document.querySelector(".sleszynskiDescription");
+  const todoDescription = document.querySelector(".todoDescription");
+  const interiorv1Description = document.querySelector(".interiorv1Description");
+  const dobrywebdevDescription = document.querySelector(".dobrywebdevDescription");
+  const interactiveDescription = document.querySelector(".interactiveDescription");
+  const projectLive = document.querySelectorAll(".projectLive");
+  const projectCode = document.querySelectorAll(".projectCode");
+  const contactTitle = document.querySelector(".contactTitle");
+  const mailLabel = document.querySelector(".mailLabel");
+  const phoneLabel = document.querySelector(".phoneLabel");
+  const textLabel = document.querySelector(".textLabel");
+  const sendButton = document.querySelector(".sendButton");
 
   // Siema settings
 
@@ -160,7 +185,7 @@
       ;
     } else if (localStorage.getItem("buttonBlob") !== null) {
       container.className = JSON.parse(localStorage.getItem("container"));
-      cookieInfo.className = JSON.parse(localStorage.getItem("cookie"));
+      infoCookies.className = JSON.parse(localStorage.getItem("infoCookies"));
       buttonTheme.className = JSON.parse(localStorage.getItem("buttonTheme"));
       buttonBlob.className = JSON.parse(localStorage.getItem("buttonBlob"));
       iconMoon.className = JSON.parse(localStorage.getItem("iconMoon"));
@@ -172,7 +197,7 @@
       nav.className = JSON.parse(localStorage.getItem("nav"));
       footer.className = JSON.parse(localStorage.getItem("footer"));
       hamburger.className = JSON.parse(localStorage.getItem("hamburger"));
-      closeHamburger.className = JSON.parse(localStorage.getItem("closemenu"));
+      closeHamburger.className = JSON.parse(localStorage.getItem("closeHamburger"));
       prev.className = JSON.parse(localStorage.getItem("projectsPrev"));
       next.className = JSON.parse(localStorage.getItem("projectsNext"));
       formButton.className = JSON.parse(localStorage.getItem("sendButton"));
@@ -185,8 +210,8 @@
       inputPhone.className = JSON.parse(localStorage.getItem("inputPhone"));
       // inputName.className = JSON.parse(localStorage.getItem("inputName"));
       textarea.className = JSON.parse(localStorage.getItem("textarea"));
-      cookieInfoButton.className = JSON.parse(localStorage.getItem("cookieClose"));
-      cookieInfoButton.style.borderBottom = "none";
+      closeCookiesInfo.className = JSON.parse(localStorage.getItem("closeCookiesInfo"));
+      closeCookiesInfo.style.borderBottom = "none";
       footerLink.style.borderBottom = "none";
       for (let link of projectsLinks) {
         link.style.borderBottom = "none";
@@ -222,8 +247,8 @@
       ;
     }
     setTimeout(function(){
-      if (localStorage.getItem("cookieoff") === "true" && cookieInfo.classList.contains("visuallyhidden") === false) {
-        cookieInfo.classList.add("visuallyhidden");
+      if (localStorage.getItem("cookiesOff") === "true" && infoCookies.classList.contains("visuallyhidden") === false) {
+        infoCookies.classList.add("visuallyhidden");
       } else {
         return;
       }
@@ -375,21 +400,21 @@
 
   // Theme changing script that also saves settings in localStorage
 
-  /*buttonTheme.addEventListener("click", () => {
-    window.localStorage.clear();
-    buttonBlob.classList.toggle("button__blob--sun")
-  })*/
-
   function toggleMultipleClasses(element, firstClass, secondClass, thirdClass) {
     element.classList.toggle(firstClass);
     element.classList.toggle(secondClass);
-    element.classList.toggle(thirdClass);
+    if (thirdClass !== undefined) {
+      element.classList.toggle(thirdClass);
+    }
   }
 
-  function toggleMutlipleClassesOnList(elements, firstClass, secondClass) {
-    for (let item of elements) {
+  function toggleMutlipleClassesOnList(elementsList, firstClass, secondClass, thirdClass) {
+    for (let item of elementsList) {
       item.classList.toggle(firstClass);
       item.classList.toggle(secondClass);
+      if (thirdClass !== undefined) {
+        item.classList.toggle(thirdClass);
+      }
     }
   }
 
@@ -403,104 +428,79 @@
     }
   }
 
-$(".button--theme").on("click", function(){
-  window.localStorage.clear();
-  toggleMultipleClasses(buttonBlob, "button__blob--sun", "button__blob--moon");
-  toggleMultipleClasses(buttonTheme, "button--theme--light", "button--theme--dark");
-  toggleMultipleClasses(iconMoon, "icon--light", "icon--dark");
-  toggleMultipleClasses(iconSun, "icon--light", "icon--dark");
-  toggleMutlipleClassesOnList(bodyBorder, "light-theme", "dark-theme");
-  toggleMultipleClasses(container, "light-theme", "dark-theme");
-  toggleMultipleClasses(nav, "light-theme", "dark-theme");
-  toggleMultipleClasses(footer, "light-theme", "dark-theme");
-  toggleMultipleClasses(hamburger, "light-theme", "dark-theme");
-  toggleMultipleClasses(closeHamburger, "light-theme", "dark-theme");
-  toggleMultipleClasses(body, "light-theme", "dark-theme");
-  $('a').toggleClass("light-theme--link dark-theme--link");
-  buttonTheme.classList.toggle("dark-outline");
-  for (let item of buttonFlag) {
-    item.classList.toggle("dark-outline");
-  }
-  toggleMultipleClasses(prev, "projects__prev--light", "projects__prev--dark", "dark-outline");
-  toggleMultipleClasses(next, "projects__prev--light", "projects__prev--dark", "dark-outline");
-  toggleMutlipleClassesOnList(projectTag, "light-theme", "dark-theme");
-  toggleMultipleClasses(formButton, "light-theme--button", "dark-theme--button", "dark-outline");
-  toggleMultipleClasses(langPL, "light-theme", "dark-theme", "dark-outline");
-  toggleMultipleClasses(langENG, "light-theme", "dark-theme", "dark-outline");
-  toggleMultipleClasses(cookieInfo, "light-theme", "dark-theme");
-  toggleMultipleClasses(overlay, "overlay--light", "overlay--dark");
-  toggleMultipleClasses(inputMail, "input-light", "input-dark");
-  toggleMultipleClasses(inputPhone, "input-light", "input-dark");
-  // toggleMultipleClasses(inputName, "input-light", "input-dark");
-  toggleMultipleClasses(textarea, "input-light", "input-dark");
-  toggleMultipleClasses(cookieInfoButton, "dark-theme--link", "light-theme--link", "dark-outline");
-  toggleMultipleClasses(navLinkStart, "light-theme--link", "dark-theme--link");
-  // Items for localStorage
-  localStorage.setItem("container", JSON.stringify($(".container").attr("class")));
-  localStorage.setItem("buttonTheme", JSON.stringify($(".button--theme").attr("class")));
-  localStorage.setItem("buttonBlob", JSON.stringify($(".button__blob").attr("class")));
-  localStorage.setItem("iconMoon", JSON.stringify($(".icon-moon").attr("class")));
-  localStorage.setItem("iconSun", JSON.stringify($(".icon-sun").attr("class")));
-  localStorage.setItem("bodyBorderTop", JSON.stringify($(".body-border--top").attr("class")));
-  localStorage.setItem("bodyBorderBottom", JSON.stringify($(".body-border--bottom").attr("class")));
-  localStorage.setItem("bodyBorderLeft", JSON.stringify($(".body-border--left").attr("class")));
-  localStorage.setItem("bodyBorderRight", JSON.stringify($(".body-border--right").attr("class")));
-  localStorage.setItem("nav", JSON.stringify($(".nav").attr("class")));
-  localStorage.setItem("footer", JSON.stringify($(".footer").attr("class")));
-  localStorage.setItem("hamburger", JSON.stringify($(".nav__hamburger").attr("class")));
-  localStorage.setItem("closemenu", JSON.stringify($(".nav__close-menu").attr("class")));
-  localStorage.setItem("projectsPrev", JSON.stringify($(".projects__prev").attr("class")));
-  localStorage.setItem("projectsNext", JSON.stringify($(".projects__next").attr("class")));
-  localStorage.setItem("projectTag", JSON.stringify($(".projects__tag").attr("class")));
-  localStorage.setItem("sendButton", JSON.stringify($(".form__button").attr("class")));
-  localStorage.setItem("langPL", JSON.stringify($(".langPL").attr("class")));
-  localStorage.setItem("langENG", JSON.stringify($(".langENG").attr("class")));
-  localStorage.setItem("cookie", JSON.stringify($(".cookie-info").attr("class")));
-  localStorage.setItem("overlay", JSON.stringify($(".overlay").attr("class")));
-  localStorage.setItem("inputMail", JSON.stringify($(".form__input--mail").attr("class")));
-  localStorage.setItem("inputPhone", JSON.stringify($(".form__input--phone").attr("class")));
-  //localStorage.setItem("inputName", JSON.stringify($(".form__input--name").attr("class")));
-  localStorage.setItem("textarea", JSON.stringify($(".form__textarea").attr("class")));
-  localStorage.setItem("cookieClose", JSON.stringify($(".cookie-info__close").attr("class")));
-  localStorage.setItem("navLink", JSON.stringify($(".nav__link").attr("class")));
-  toggleAttribute(navLogo, "src", "img/logo-light.png", "img/logo-dark.png");
-});
+  buttonTheme.addEventListener("click", () => {
+    window.localStorage.clear();
+    toggleMultipleClasses(buttonBlob, "button__blob--sun", "button__blob--moon");
+    toggleMultipleClasses(buttonTheme, "button--theme--light", "button--theme--dark");
+    toggleMultipleClasses(iconMoon, "icon--light", "icon--dark");
+    toggleMultipleClasses(iconSun, "icon--light", "icon--dark");
+    toggleMutlipleClassesOnList(bodyBorder, "light-theme", "dark-theme");
+    toggleMultipleClasses(container, "light-theme", "dark-theme");
+    toggleMultipleClasses(nav, "light-theme", "dark-theme");
+    toggleMultipleClasses(footer, "light-theme", "dark-theme");
+    toggleMultipleClasses(hamburger, "light-theme", "dark-theme");
+    toggleMultipleClasses(closeHamburger, "light-theme", "dark-theme");
+    toggleMultipleClasses(body, "light-theme", "dark-theme");
+    toggleMutlipleClassesOnList(allLinks, "light-theme--link", "dark-theme--link");
+    buttonTheme.classList.toggle("dark-outline");
+    for (let item of buttonFlag) {
+      item.classList.toggle("dark-outline");
+    }
+    toggleMultipleClasses(prev, "projects__prev--light", "projects__prev--dark", "dark-outline");
+    toggleMultipleClasses(next, "projects__prev--light", "projects__prev--dark", "dark-outline");
+    toggleMutlipleClassesOnList(projectTag, "light-theme", "dark-theme");
+    toggleMultipleClasses(formButton, "light-theme--button", "dark-theme--button", "dark-outline");
+    toggleMultipleClasses(langPL, "light-theme", "dark-theme", "dark-outline");
+    toggleMultipleClasses(langENG, "light-theme", "dark-theme", "dark-outline");
+    toggleMultipleClasses(infoCookies, "light-theme", "dark-theme");
+    toggleMultipleClasses(overlay, "overlay--light", "overlay--dark");
+    toggleMultipleClasses(inputMail, "input-light", "input-dark");
+    toggleMultipleClasses(inputPhone, "input-light", "input-dark");
+    // toggleMultipleClasses(inputName, "input-light", "input-dark");
+    toggleMultipleClasses(textarea, "input-light", "input-dark");
+    toggleMultipleClasses(closeCookiesInfo, "dark-theme--link", "light-theme--link", "dark-outline");
+    toggleMultipleClasses(navLinkStart, "light-theme--link", "dark-theme--link");
+    // Items for localStorage
+    localStorage.setItem("container", JSON.stringify(container.className));
+    localStorage.setItem("buttonTheme", JSON.stringify(buttonTheme.className));
+    localStorage.setItem("buttonBlob", JSON.stringify(buttonBlob.className));
+    localStorage.setItem("iconMoon", JSON.stringify(iconMoon.className));
+    localStorage.setItem("iconSun", JSON.stringify(iconSun.className));
+    localStorage.setItem("bodyBorderTop", JSON.stringify(bodyBorderTop.className));
+    localStorage.setItem("bodyBorderBottom", JSON.stringify(bodyBorderBottom.className));
+    localStorage.setItem("bodyBorderLeft", JSON.stringify(bodyBorderLeft.className));
+    localStorage.setItem("bodyBorderRight", JSON.stringify(bodyBorderRight.className));
+    localStorage.setItem("nav", JSON.stringify(nav.className));
+    localStorage.setItem("footer", JSON.stringify(footer.className));
+    localStorage.setItem("hamburger", JSON.stringify(hamburger.className));
+    localStorage.setItem("closeHamburger", JSON.stringify(closeHamburger.className));
+    localStorage.setItem("projectsPrev", JSON.stringify(prev.className));
+    localStorage.setItem("projectsNext", JSON.stringify(next.className));
+    localStorage.setItem("sendButton", JSON.stringify(formButton.className));
+    localStorage.setItem("langPL", JSON.stringify(langPL.className));
+    localStorage.setItem("langENG", JSON.stringify(langENG.className));
+    localStorage.setItem("infoCookies", JSON.stringify(infoCookies.className));
+    localStorage.setItem("closeCookiesInfo", JSON.stringify(closeCookiesInfo.className));
+    localStorage.setItem("overlay", JSON.stringify(overlay.className));
+    localStorage.setItem("inputMail", JSON.stringify(inputMail.className));
+    localStorage.setItem("inputPhone", JSON.stringify(inputPhone.className));
+    // localStorage.setItem("inputName", JSON.stringify(inputName.className));
+    localStorage.setItem("textarea", JSON.stringify(textarea.className));
+    localStorage.setItem("projectTag", JSON.stringify(projectTag[0].className));
+    toggleAttribute(navLogo, "src", "img/logo-light.png", "img/logo-dark.png");
+  });
 
   // Click function to hide cookies info
 
-  cookieInfoButton.addEventListener("click", () => {
-    cookieInfo.classList.add("visuallyhidden");
-    localStorage.setItem("cookieoff", "true");
+  closeCookiesInfo.addEventListener("click", () => {
+    infoCookies.classList.add("visuallyhidden");
+    localStorage.setItem("cookiesOff", "true");
   })
 
 // Function that changes language based on JSON data
 
 function changeLanguage(data) {
-  const navAbout = document.querySelector(".navAbout");
-  const navProjects = document.querySelector(".navProjects");
-  const navContact = document.querySelector(".navContact");
-  const mainTitle = document.querySelector(".mainTitle");
-  const mainSubtitle = document.querySelector(".mainSubtitle");
-  const aboutTitle = document.querySelector(".aboutTitle");
-  const aboutDescription = document.querySelector(".aboutDescription");
-  const skillsSubtitle = document.querySelector(".skillsSubtitle");
-  const projectsNavInfo = document.querySelector(".projects__nav-info");
-  const gridDescription = document.querySelector(".gridDescription");
-  const weatherDescription = document.querySelector(".weatherDescription");
-  const challengeDescription = document.querySelector(".challengeDescription");
-  const interiorDescription = document.querySelector(".interiorDescription");
-  const sleszynskiDescription = document.querySelector(".sleszynskiDescription");
-  const todoDescription = document.querySelector(".todoDescription");
-  const interiorv1Description = document.querySelector(".interiorv1Description");
-  const dobrywebdevDescription = document.querySelector(".dobrywebdevDescription");
-  const interactiveDescription = document.querySelector(".interactiveDescription");
-  const projectLive = document.querySelectorAll(".projectLive");
-  const projectCode = document.querySelectorAll(".projectCode");
-  const contactTitle = document.querySelector(".contactTitle");
-  const mailLabel = document.querySelector(".mailLabel");
-  const phoneLabel = document.querySelector(".phoneLabel");
-  const textLabel = document.querySelector(".textLabel");
-  const sendButton = document.querySelector(".sendButton");
+  
   // Main texts
   navAbout.innerText = data.navAbout;
   navAbout.setAttribute("title", data.navAbout);
@@ -534,9 +534,13 @@ function changeLanguage(data) {
   interiorv1Description.innerText = data.interiorv1Description;
   dobrywebdevDescription.innerText = data.dobrywebdevDescription;
   interactiveDescription.innerText = data.interactiveDescription;
-  $(".projects__nav-info").text(data.projectsNavInfo);
-  $(".projectLive").text(data.projectLive);
-  $(".projectCode").text(data.projectCode);
+  projectsNavInfo.innerText = data.projectsNavInfo;
+  for (let item of projectLive) {
+    item.innerText = data.projectLive;
+  }
+  for (let item of projectCode) {
+    item.innerText = data.projectCode;
+  }
   $(".projects__prev").attr("aria-label", data.projectssPrev);
   $(".projects__next").attr("aria-label", data.projectssNext);
   $(".contactTitle").text(data.contactTitle);

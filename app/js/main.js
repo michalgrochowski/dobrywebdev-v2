@@ -3,19 +3,19 @@
 
   // Service worker registeration
 
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/serviceworker.js').then(function(registration) {
-      console.log('Service worker registration done, scope is:', registration.scope);
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/serviceworker.js").then(function(registration) {
+      console.log("Service worker registration done, scope is:", registration.scope);
     }).catch(function(err) {
-      console.log('ServiceWorker registration failed: ', err);
+      console.log("ServiceWorker registration failed: ", err);
     });
   }
 
   // All necessary elements
 
   const container = document.querySelector(".container");
-  const prev = document.querySelector('.projects__prev');
-  const next = document.querySelector('.projects__next');
+  const prev = document.querySelector(".projects__prev");
+  const next = document.querySelector(".projects__next");
   const navInfo = document.querySelector(".projects__nav-info");
   const overlay = document.querySelector(".overlay");
   const overlayText = document.querySelector(".overlay__text");
@@ -57,6 +57,9 @@
   const allLinks = document.getElementsByTagName("a");
   const footerLink = document.querySelector(".footer__link");
   const projectsLinks = document.querySelectorAll(".projects__link");
+  const projectPhoto = document.querySelectorAll(".projects__photo");
+  const projectTitle = document.querySelectorAll(".projects__title");
+  const projectsDot = document.querySelectorAll(".projects__dot");
   const socialItems = document.querySelectorAll(".socials__item");
   const navLogo = document.querySelector(".nav__logo");
   const projectTag = document.querySelectorAll(".projects__tag");
@@ -84,20 +87,27 @@
   const mailLabel = document.querySelector(".mailLabel");
   const phoneLabel = document.querySelector(".phoneLabel");
   const textLabel = document.querySelector(".textLabel");
-  const sendButton = document.querySelector(".sendButton");
+  const github = document.querySelector(".github");
+  const linkedin = document.querySelector(".linkedin");
+  const infoCookiesText = document.querySelector(".cookie-info__text");
+  const form = document.querySelector(".form");
+  const inputFail = document.querySelector(".input__fail");
+  const checkPhone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
+  const checkmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  /* const checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
 
   // Siema settings
 
   class mySiema extends Siema {
     // Create dots for all slides
     addDots() {
-      this.dots = document.createElement('div');
-      this.dots.classList.add('projects__dots');
+      this.dots = document.createElement("div");
+      this.dots.classList.add("projects__dots");
       for (let i = 0; i < this.innerElements.length; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('projects__dot');
-        dot.classList.add('projects__dot--light-theme');
-        dot.addEventListener('click', () => {
+        const dot = document.createElement("span");
+        dot.classList.add("projects__dot");
+        dot.classList.add("projects__dot--light-theme");
+        dot.addEventListener("click", () => {
           this.goTo(i);
         })
         this.dots.appendChild(dot);
@@ -137,17 +147,17 @@
 
     updateDots() {
       // Add or remove a "active" class for current dot
-      for (let i = 0; i < this.dots.querySelectorAll('span').length; i++) {
-        const addOrRemove = this.currentSlide === i ? 'add' : 'remove';
-        this.dots.querySelectorAll('span')[i].classList[addOrRemove]('projects__dot--active');
+      for (let i = 0; i < this.dots.querySelectorAll("span").length; i++) {
+        const addOrRemove = this.currentSlide === i ? "add" : "remove";
+        this.dots.querySelectorAll("span")[i].classList[addOrRemove]("projects__dot--active");
       }
     }
   }
 
   const mySiemaWithDots = new mySiema({
-    selector: '.projects',
+    selector: ".projects",
     duration: 500,
-    easing: 'cubic-bezier(0.250, 0.100, 0.250, 1.000)',
+    easing: "cubic-bezier(0.250, 0.100, 0.250, 1.000)",
     perPage: 1,
     draggable: true,
     threshold: 5,
@@ -162,8 +172,8 @@
     },
   });
 
-  prev.addEventListener('click', () => mySiemaWithDots.prev());
-  next.addEventListener('click', () => mySiemaWithDots.next());
+  prev.addEventListener("click", () => mySiemaWithDots.prev());
+  next.addEventListener("click", () => mySiemaWithDots.next());
 
   document.addEventListener("keyup", (event) => {
     if (window.location.hash === "#projects") {
@@ -200,7 +210,7 @@
       closeHamburger.className = JSON.parse(localStorage.getItem("closeHamburger"));
       prev.className = JSON.parse(localStorage.getItem("projectsPrev"));
       next.className = JSON.parse(localStorage.getItem("projectsNext"));
-      formButton.className = JSON.parse(localStorage.getItem("sendButton"));
+      formButton.className = JSON.parse(localStorage.getItem("formButton"));
       langPL.className = JSON.parse(localStorage.getItem("langPL"));
       langENG.className = JSON.parse(localStorage.getItem("langENG"));
       for (let tag of projectTag) {
@@ -219,7 +229,6 @@
       for (let item of socialItems) {
         item.style.borderBottom = "none";
       }
-      
       for (let link of allLinks) {
         link.classList.remove("light-theme--link");
         link.classList.remove("dark-theme--link");
@@ -230,12 +239,20 @@
       for (let link of allLinks) {
         link.classList.add("light-theme--link");
       }
+      for (let dot of projectsDot) {
+        dot.classList.remove("projects__dot--dark-theme");
+        dot.classList.add("projects__dot--light-theme");
+      }
       navLinkStart.classList.remove("light-theme--link")
       body.classList.add("light-theme");
     } else if (buttonBlob.classList.contains("button__blob--moon")) {
       navLogo.setAttribute("src", "img/logo-dark.png")
       for (let link of allLinks) {
         link.classList.add("dark-theme--link");
+      }
+      for (let dot of projectsDot) {
+        dot.classList.remove("projects__dot--light-theme");
+        dot.classList.add("projects__dot--dark-theme");
       }
       navLinkStart.classList.remove("dark-theme--link")
       body.classList.add("dark-theme");
@@ -442,6 +459,7 @@
     toggleMultipleClasses(closeHamburger, "light-theme", "dark-theme");
     toggleMultipleClasses(body, "light-theme", "dark-theme");
     toggleMutlipleClassesOnList(allLinks, "light-theme--link", "dark-theme--link");
+    toggleMutlipleClassesOnList(projectsDot, "projects__dot--light-theme", "projects__dot--dark-theme");
     buttonTheme.classList.toggle("dark-outline");
     for (let item of buttonFlag) {
       item.classList.toggle("dark-outline");
@@ -476,7 +494,7 @@
     localStorage.setItem("closeHamburger", JSON.stringify(closeHamburger.className));
     localStorage.setItem("projectsPrev", JSON.stringify(prev.className));
     localStorage.setItem("projectsNext", JSON.stringify(next.className));
-    localStorage.setItem("sendButton", JSON.stringify(formButton.className));
+    localStorage.setItem("formButton", JSON.stringify(formButton.className));
     localStorage.setItem("langPL", JSON.stringify(langPL.className));
     localStorage.setItem("langENG", JSON.stringify(langENG.className));
     localStorage.setItem("infoCookies", JSON.stringify(infoCookies.className));
@@ -497,101 +515,100 @@
     localStorage.setItem("cookiesOff", "true");
   })
 
-// Function that changes language based on JSON data
+  // Function that changes language based on JSON data
 
-function changeLanguage(data) {
-  
-  // Main texts
-  navAbout.innerText = data.navAbout;
-  navAbout.setAttribute("title", data.navAbout);
-  navProjects.innerText = data.navProjects;
-  navProjects.setAttribute("title", data.navProjects);
-  navContact.innerText = data.navContact;
-  navContact.setAttribute("title", data.navContact);
-  buttonTheme.setAttribute("aria-label", data.buttonTheme);
-  buttonTheme.setAttribute("title", data.buttonTheme);
-  langPL.setAttribute("title", data.langPL);
-  langENG.setAttribute("title", data.langENG);
-  langPL.setAttribute("aria-label", data.langPL);
-  langENG.setAttribute("aria-label", data.langENG);
-  hamburger.setAttribute("aria-label", data.hamburger);
-  hamburger.setAttribute("title", data.hamburger);
-  closeHamburger.setAttribute("aria-label", data.closeMenu);
-  closeHamburger.setAttribute("title", data.closeMenu);
-  mainTitle.innerText = data.mainTitle;
-  mainSubtitle.innerText = data.mainSubtitle;
-  aboutTitle.innerText = data.aboutTitle;
-  // TODO: age not showing up after change
-  aboutDescription.innerHTML = data.aboutDescription;
-  skillsSubtitle.innerText = data.skillsSubtitle;
-  howOldAmI();
-  gridDescription.innerText = data.gridDescription;
-  weatherDescription.innerText = data.weatherDescription;
-  challengeDescription.innerText = data.challengeDescription;
-  interiorDescription.innerText = data.interiorDescription;
-  sleszynskiDescription.innerText = data.sleszynskiDescription;
-  todoDescription.innerText = data.todoDescription;
-  interiorv1Description.innerText = data.interiorv1Description;
-  dobrywebdevDescription.innerText = data.dobrywebdevDescription;
-  interactiveDescription.innerText = data.interactiveDescription;
-  projectsNavInfo.innerText = data.projectsNavInfo;
-  for (let item of projectLive) {
-    item.innerText = data.projectLive;
+  function changeLanguage(data) {
+    // Main texts
+    navAbout.innerText = data.navAbout;
+    navAbout.setAttribute("title", data.navAbout);
+    navProjects.innerText = data.navProjects;
+    navProjects.setAttribute("title", data.navProjects);
+    navContact.innerText = data.navContact;
+    navContact.setAttribute("title", data.navContact);
+    buttonTheme.setAttribute("aria-label", data.buttonTheme);
+    buttonTheme.setAttribute("title", data.buttonTheme);
+    langPL.setAttribute("title", data.langPL);
+    langENG.setAttribute("title", data.langENG);
+    langPL.setAttribute("aria-label", data.langPL);
+    langENG.setAttribute("aria-label", data.langENG);
+    hamburger.setAttribute("aria-label", data.hamburger);
+    hamburger.setAttribute("title", data.hamburger);
+    closeHamburger.setAttribute("aria-label", data.closeMenu);
+    closeHamburger.setAttribute("title", data.closeMenu);
+    mainTitle.innerText = data.mainTitle;
+    mainSubtitle.innerText = data.mainSubtitle;
+    aboutTitle.innerText = data.aboutTitle;
+    // TODO: age not showing up after change
+    aboutDescription.innerHTML = data.aboutDescription;
+    skillsSubtitle.innerText = data.skillsSubtitle;
+    howOldAmI();
+    gridDescription.innerText = data.gridDescription;
+    weatherDescription.innerText = data.weatherDescription;
+    challengeDescription.innerText = data.challengeDescription;
+    interiorDescription.innerText = data.interiorDescription;
+    sleszynskiDescription.innerText = data.sleszynskiDescription;
+    todoDescription.innerText = data.todoDescription;
+    interiorv1Description.innerText = data.interiorv1Description;
+    dobrywebdevDescription.innerText = data.dobrywebdevDescription;
+    interactiveDescription.innerText = data.interactiveDescription;
+    projectsNavInfo.innerText = data.projectsNavInfo;
+    for (let item of projectLive) {
+      item.innerText = data.projectLive;
+    }
+    for (let item of projectCode) {
+      item.innerText = data.projectCode;
+    }
+    prev.setAttribute("aria-label", data.projectsPrev);
+    next.setAttribute("aria-label", data.projectsNext)
+    contactTitle.innerText = data.contactTitle;
+    mailLabel.innerText = data.contactTitle;
+    phoneLabel.innerHTML = data.phoneLabel;
+    // nameLabel.innerText = data.nameLabel;
+    textLabel.innerText = data.textLabel;
+    formButton.innerText = data.sendButton;
+    formButton.setAttribute("aria-label", data.sendButtonAria);
+    formButton.setAttribute("value", data.sendButton);
+    inputMail.setAttribute("placeholder", data.mailPlaceholder);
+    // inputName.setAttribute("placeholder", data.namePlaceholder);
+    textarea.setAttribute("placeholder", data.textPlaceholder);
+    github.innerText = data.github;
+    linkedin.innerText = data.linkedin;
+    closeCookiesInfo.setAttribute("title", data.cookiesClose);
+    closeCookiesInfo.setAttribute("aria-label", data.cookiesClose);
+    infoCookiesText.innerText = data.cookies;
+    // Main titles
+    projectTitle[1].innerText = data.weatherMaintitle;
+    projectTitle[5].innerText = data.todoMaintitle;
+    // Projects links titles
+    projectsLinks[0].setAttribute("title", data.gridTitle);
+    projectsLinks[1].setAttribute("title", data.gridCode);
+    projectsLinks[2].setAttribute("title", data.weatherTitle);
+    projectsLinks[3].setAttribute("title", data.weatherCode);
+    projectsLinks[4].setAttribute("title", data.challengeTitle);
+    projectsLinks[5].setAttribute("title", data.challengeCode);
+    projectsLinks[6].setAttribute("title", data.interiorTitle);
+    projectsLinks[7].setAttribute("title", data.interiorCode);
+    projectsLinks[8].setAttribute("title", data.sleszynskiTitle);
+    projectsLinks[9].setAttribute("title", data.sleszynskiCode);
+    projectsLinks[10].setAttribute("title", data.todoTitle);
+    projectsLinks[11].setAttribute("title", data.todoCode);
+    projectsLinks[12].setAttribute("title", data.interiorv1Title);
+    projectsLinks[13].setAttribute("title", data.interiorv1Code);
+    projectsLinks[14].setAttribute("title", data.dobrywebdevTitle);
+    projectsLinks[15].setAttribute("title", data.dobrywebdevCode);
+    projectsLinks[16].setAttribute("title", data.interactiveTitle);
+    projectsLinks[17].setAttribute("title", data.interactiveCode);
+    // Projects photos alts
+    projectPhoto[0].setAttribute("alt", data.gridAlt);
+    projectPhoto[1].setAttribute("alt", data.weatherAlt);
+    projectPhoto[2].setAttribute("alt", data.challengeAlt);
+    projectPhoto[3].setAttribute("alt", data.interiorAlt);
+    projectPhoto[4].setAttribute("alt", data.sleszynskiAlt);
+    projectPhoto[5].setAttribute("alt", data.todoAlt);
+    projectPhoto[6].setAttribute("alt", data.interiorv1Alt);
+    projectPhoto[7].setAttribute("alt", data.dobrywebdevAlt);
+    projectPhoto[8].setAttribute("alt", data.interactiveAlt);
   }
-  for (let item of projectCode) {
-    item.innerText = data.projectCode;
-  }
-  $(".projects__prev").attr("aria-label", data.projectssPrev);
-  $(".projects__next").attr("aria-label", data.projectssNext);
-  $(".contactTitle").text(data.contactTitle);
-  $(".mailLabel").text(data.mailLabel);
-  $(".phoneLabel").html(data.phoneLabel);
-  $(".nameLabel").text(data.nameLabel);
-  $(".textLabel").text(data.textLabel);
-  $(".sendButton").text(data.sendButton);
-  $(".github").text(data.github);
-  $(".linkedin").text(data.linkedin);
-  $(".form__input--mail").attr("placeholder", data.mailPlaceholder);
-  //$(".form__input--name").attr("placeholder", data.namePlaceholder);
-  $(".form__textarea").attr("placeholder", data.textPlaceholder);
-  $(".form__button").attr("value", data.sendButton);
-  $(".form__button").attr("aria-label", data.sendButtonAria);
-  $(".cookie-info__text").text(data.cookies);
-  $(".cookie-info__close").attr("title", data.cookiesClose);
-  $(".cookie-info__close").attr("aria-label", data.cookiesClose);
-  // Main titles
-  $(".projects__title").eq(1).text(data.weatherMaintitle);
-  $(".projects__title").eq(5).text(data.todoMaintitle);
-  // Projects links titles
-  $(".projects__link").eq(0).attr("title", data.gridTitle);
-  $(".projects__link").eq(1).attr("title", data.gridCode);
-  $(".projects__link").eq(2).attr("title", data.weatherTitle);
-  $(".projects__link").eq(3).attr("title", data.weatherCode);
-  $(".projects__link").eq(4).attr("title", data.challengeTitle);
-  $(".projects__link").eq(5).attr("title", data.challengeCode);
-  $(".projects__link").eq(6).attr("title", data.interiorTitle);
-  $(".projects__link").eq(7).attr("title", data.interiorCode);
-  $(".projects__link").eq(8).attr("title", data.sleszynskiTitle);
-  $(".projects__link").eq(9).attr("title", data.sleszynskiCode);
-  $(".projects__link").eq(10).attr("title", data.todoTitle);
-  $(".projects__link").eq(11).attr("title", data.todoCode);
-  $(".projects__link").eq(12).attr("title", data.interiorv1Title);
-  $(".projects__link").eq(13).attr("title", data.interiorv1Code);
-  $(".projects__link").eq(14).attr("title", data.dobrywebdevTitle);
-  $(".projects__link").eq(15).attr("title", data.dobrywebdevCode);
-  $(".projects__link").eq(16).attr("title", data.interactiveTitle);
-  $(".projects__link").eq(17).attr("title", data.interactiveCode);
-  // Projects photos alts
-  $(".projects__photo").eq(0).attr("alt", data.gridAlt);
-  $(".projects__photo").eq(1).attr("alt", data.weatherAlt);
-  $(".projects__photo").eq(2).attr("alt", data.challengeAlt);
-  $(".projects__photo").eq(3).attr("alt", data.interiorAlt);
-  $(".projects__photo").eq(4).attr("alt", data.sleszynskiAlt);
-  $(".projects__photo").eq(5).attr("alt", data.todoAlt);
-  $(".projects__photo").eq(6).attr("alt", data.interiorv1Alt);
-  $(".projects__photo").eq(7).attr("alt", data.dobrywebdevAlt);
-  $(".projects__photo").eq(8).attr("alt", data.interactiveAlt);
-}
 
   // Language changing on button click
 
@@ -631,8 +648,19 @@ function changeLanguage(data) {
 
 // Form validation
 
+
+
+/*form.addEventListener("submit", (e) => {
+  event.preventDefault();
+  let emailValue = inputMail.value;
+  let phoneValue = inputPhone.value;
+  // let nameValue = inputName.value;
+  let message = textarea.value;
+  inputFail.parentNode.removeChild(inputFail);
+})*/
+
 $(function() {
-  $('.form').submit(function(event) {
+  $(".form").submit(function(event) {
     event.preventDefault();
     var form = $(this);
     var checkphone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;

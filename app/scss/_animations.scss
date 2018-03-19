@@ -1,5 +1,24 @@
 // Animations
 
+.fade-in-out {
+  animation: fade-in-out 5s;
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .fade-out {
   animation: fade-out 2s;
 }

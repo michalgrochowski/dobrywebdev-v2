@@ -755,11 +755,48 @@
     if (validateForm()) {
       const formData = new FormData(form);
       const xhr = new XMLHttpRequest();
-      xhr.addEventListener("load", e => {
-        console.log(e.target.responseText);
-      });
       xhr.addEventListener("error", e => {
-        console.log(e);
+        console.log("error");
+        const failPL = "Nie udało się, spróbuj jeszcze raz.";
+        const failENG = "Something went wrong, please try again.";
+        const postFail = document.createElement("div");
+        const failText = document.createElement("p");
+        postFail.classList.add("form__fail");
+        postFail.classList.add("fade-in-out");
+        if (langPL.classList.contains("button--lang--active")) {
+          failText.innerText = failPL;
+          postFail.appendChild(failText);
+          form.appendChild(postFail);
+        } else {
+          failText.innerText = failENG;
+          postFail.appendChild(failText);
+          form.appendChild(postFail);
+        }
+        setTimeout(() => {
+          postFail.remove();
+        }, 5000)
+      });
+      xhr.addEventListener("load ", e => {
+        console.log("success");
+        const successPl = 'Dziękuję za wiadomość!';
+        const successENG = 'Thank you for your message!';
+        const postSuccess = document.createElement("div");
+        const successText = document.createElement("p");
+        postSuccess.classList.add("form__success");
+        postSuccess.classList.add("fade-in-out");
+        form.reset();
+        if (langPL.classList.contains("button--lang--active")) {
+          successText.innerText = successPl;
+          postFail.appendChild(successText);
+          form.appendChild(postSuccess);
+        } else {
+          successText.innerText = successENG;
+          postFail.appendChild(successText);
+          form.appendChild(postSuccess);
+        }
+        setTimeout(() => {
+          postSuccess.remove();
+        }, 5000)
       });
       xhr.open("POST", form.action);
       xhr.send(formData);

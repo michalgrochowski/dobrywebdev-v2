@@ -93,8 +93,8 @@
   const form = document.querySelector(".form");
   const inputFail = document.querySelector(".input__fail");
   const checkPhone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
-  const checkmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  /* const checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
+  const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  /* const checkName = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
 
   // Siema settings
 
@@ -646,24 +646,86 @@
 
 // Form validation
 
-
-
-/*form.addEventListener("submit", (e) => {
-  event.preventDefault();
+function validateForm() {
+  if (inputFail !== null) {
+    inputFail.remove();
+  }
   let emailValue = inputMail.value;
   let phoneValue = inputPhone.value;
-  // let nameValue = inputName.value;
   let message = textarea.value;
-  inputFail.parentNode.removeChild(inputFail);
-})*/
+  // let nameValue = inputName.value;
+  if (checkMail.test(emailValue) === false) {
+    let mailfail;
+    const mailFailPL = "Podaj prawidłowy adres e-mail";
+    const mailFailENG = "Please provide a valid email address";
+    let newP = document.createElement("p");
+    newP.classList.add("input__fail");
+    if (langPL.classList.contains("button--lang--active")) {
+      newP.innerText = mailFailPL;
+    } else {
+      newP.innerText = mailFailENG;
+    }
+    document.querySelector(".form__group--mail").appendChild(newP);
+    return false;
+  } else if (checkPhone.test(phoneValue) === false) {
+    let phoneFail;
+    const phoneFailPL = "Podaj prawidłowy, 9 cyfrowy numer telefonu";
+    const phoneFailENG = "Please provide a valid, 9 digit mobile number";
+    let newP = document.createElement("p");
+    newP.classList.add("input__fail");
+    if (langPL.classList.contains("button--lang--active")) {
+      newP.innerText = phoneFailPL;
+    } else {
+      newP.innerText = phoneFailENG;
+    }
+    document.querySelector(".form__group--phone").appendChild(newP);
+    return false;
+  } /*else if (checkname.test(nameValue) === false) {
+    let nameFail;
+    const nameFailPL = "Podaj prawidłowe imię i nazwisko";
+    const nameFailENG = "Please provide a valid first and last name";
+    let newP = document.createElement("p");
+    newP.classList.add("input__fail");
+    if (langPL.classList.contains("button--lang--active")) {
+      newP.innerText = nameFailPL;
+    } else {
+      newP.innerText = nameFailENG;
+    }
+    document.querySelector(".form__group--name").appendChild(newP);
+    return false;
+    }*/ else if (message === "") {
+    let msgFail;
+    const msgFailPL = "Wiadomość nie może być pusta";
+    const msgFailENG = "The message cannot be empty";
+    let newP = document.createElement("p");
+    newP.classList.add("input__fail");
+    if (langPL.classList.contains("button--lang--active")) {
+      newP.innerText = msgFailPL;
+    } else {
+      newP.innerText = msgFailENG;
+    }
+    document.querySelector(".form__group--msg").appendChild(newP);
+    return false;
+  } else {
+    return true;
+  }
+}
 
-$(function() {
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  if (inputFail !== null) {
+    inputFail.remove();
+  }
+  setTimeout(validateForm(), 500);
+})
+
+/*$(function() {
   $(".form").submit(function(event) {
     event.preventDefault();
     var form = $(this);
     var checkphone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
     var checkmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    /*var checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
+    var checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;
     var email = $(".form__input--mail").val();
     var phone = $(".form__input--phone").val();
     //var name = $(".form__input--name").val();
@@ -687,7 +749,7 @@ $(function() {
         }
         $(phonefail).hide().appendTo(".form__group--phone").fadeIn(500);
         return false;
-      } /*else if (checkname.test(name) === false) {
+      } else if (checkname.test(name) === false) {
         var namefail;
         if ($(".langPL").hasClass("button--lang--active")) {
           namefail = "<p class='input__fail'>Podaj prawidłowe imię i nazwisko</p>";
@@ -696,7 +758,7 @@ $(function() {
         }
         $(namefail).hide().appendTo(".form__group--name").fadeIn(500);
         return false;
-      } */else if (message === "") {
+      } else if (message === "") {
         var msgfail;
         if ($(".langPL").hasClass("button--lang--active")) {
           msgfail = "<p class='input__fail'>Wiadomość nie może być pusta</p>";
@@ -731,7 +793,7 @@ $(function() {
         });
       }
   });
-});
+});*/
 
 // Copyright year in the footer
 

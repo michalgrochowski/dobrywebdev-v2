@@ -13,56 +13,78 @@
 
   // All necessary elements
 
+  // Basic elements
+  const body = document.getElementById("body");
   const container = document.querySelector(".container");
-  const prev = document.querySelector(".projects__prev");
-  const next = document.querySelector(".projects__next");
-  const navInfo = document.querySelector(".projects__nav-info");
+  const allLinks = document.getElementsByTagName("a");
   const overlay = document.querySelector(".overlay");
   const overlayText = document.querySelector(".overlay__text");
-  const sectionTitleStart = document.querySelector(".section__title--start");
-  const sectionSubtitleStart = document.querySelector(".section__subtitle--start");
-  const body = document.getElementById("body");
+  const infoCookies = document.querySelector(".cookie-info");
+  const closeCookiesInfo = document.querySelector(".cookie-info__close");
+
+  // Section elements
   const start = document.getElementById("start");
   const about = document.getElementById("about");
   const projects = document.getElementById("projects");
   const contact = document.getElementById("contact");
+  const sectionTitleStart = document.querySelector(".section__title--start");
+  const sectionSubtitleStart = document.querySelector(".section__subtitle--start");
+
+  // Nav elements
+  const nav = document.querySelector(".nav");
+  const navList = document.querySelector(".nav__list");
+  const navLogo = document.querySelector(".nav__logo");
   const navLinkStart = document.querySelector(".nav__link--start");
   const navLinks = document.querySelectorAll(".nav__link");
   const hamburger = document.querySelector(".nav__hamburger");
   const closeHamburger = document.querySelector(".nav__close-menu");
-  const navList = document.querySelector(".nav__list");
-  const infoCookies = document.querySelector(".cookie-info");
-  const closeCookiesInfo = document.querySelector(".cookie-info__close");
-  const myAge = document.getElementById("myAge");
-  const footerYear = document.getElementById("footer__year");
+
+  // Theme and language related elements
+  
+  const langPL = document.querySelector(".langPL");
+  const langENG = document.querySelector(".langENG");
   const buttonTheme = document.querySelector(".button--theme");
   const buttonBlob = document.querySelector(".button__blob");
-  const buttonFlag = document.querySelectorAll(".button--flag");
   const iconMoon = document.querySelector(".icon-moon");
   const iconSun = document.querySelector(".icon-sun");
+
+  // Projects elements
+  const projectTitle = document.querySelectorAll(".projects__title");
+  const projectTag = document.querySelectorAll(".projects__tag");
+  const projectPhoto = document.querySelectorAll(".projects__photo");
+  const projectsLinks = document.querySelectorAll(".projects__link");
+  const navInfo = document.querySelector(".projects__nav-info");
+  const prev = document.querySelector(".projects__prev");
+  const next = document.querySelector(".projects__next");
+  const projectsDots = document.getElementsByClassName("projects__dot");
+
+  // Body borders
   const bodyBorder = document.querySelectorAll(".body-border");
   const bodyBorderTop = document.querySelector(".body-border--top");
   const bodyBorderBottom = document.querySelector(".body-border--bottom");
   const bodyBorderLeft = document.querySelector(".body-border--left");
   const bodyBorderRight = document.querySelector(".body-border--right");
-  const nav = document.querySelector(".nav");
+
+  // Footer elements
   const footer = document.querySelector(".footer");
+  const footerYear = document.getElementById("footer__year");
+  const footerLink = document.querySelector(".footer__link");
+
+  // Form elements
+  const form = document.querySelector(".form");
   const formButton = document.querySelector(".form__button");
-  const langPL = document.querySelector(".langPL");
-  const langENG = document.querySelector(".langENG");
   const inputMail = document.querySelector(".form__input--mail");
   const inputPhone = document.querySelector(".form__input--phone");
+  // const inputName = document.querySelector(".form__input--name");
   const textarea = document.querySelector(".form__textarea");
-  //const inputName = document.querySelector(".form__input--name");
-  const allLinks = document.getElementsByTagName("a");
-  const footerLink = document.querySelector(".footer__link");
-  const projectsLinks = document.querySelectorAll(".projects__link");
-  const projectPhoto = document.querySelectorAll(".projects__photo");
-  const projectTitle = document.querySelectorAll(".projects__title");
-  let projectsDots = document.getElementsByClassName("projects__dot");
-  const socialItems = document.querySelectorAll(".socials__item");
-  const navLogo = document.querySelector(".nav__logo");
-  const projectTag = document.querySelectorAll(".projects__tag");
+  const inputFail = document.getElementsByClassName("input__fail");
+
+  // Form RegEx checks
+  const checkPhone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
+  const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  /* const checkName = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
+
+  // Language hooks
   const navAbout = document.querySelector(".navAbout");
   const navProjects = document.querySelector(".navProjects");
   const navContact = document.querySelector(".navContact");
@@ -90,11 +112,10 @@
   const github = document.querySelector(".github");
   const linkedin = document.querySelector(".linkedin");
   const infoCookiesText = document.querySelector(".cookie-info__text");
-  const form = document.querySelector(".form");
-  let inputFail = document.getElementsByClassName("input__fail");
-  const checkPhone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
-  const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  /* const checkName = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
+
+  // Others
+  const myAge = document.getElementsByClassName("myAge")[0];
+  const socialItems = document.querySelectorAll(".socials__item");
 
   // Siema settings
 
@@ -184,12 +205,13 @@
     }
   })
   
-  // Main function that loads theme settings from localStorage, displays welcome text and block projects links
+  // Main function that loads theme settings from localStorage, displays welcome text and blocks projects links
 
   document.addEventListener("DOMContentLoaded", () => {
     checkTime();
     howOldAmI();
     hideOrShowSections();
+    getCurrentYear();
     if (window.localStorage.length === 0 || window.localStorage.length === 1) {
       ;
     } else if (localStorage.getItem("buttonBlob") !== null) {
@@ -212,9 +234,6 @@
       formButton.className = JSON.parse(localStorage.getItem("formButton"));
       langPL.className = JSON.parse(localStorage.getItem("langPL"));
       langENG.className = JSON.parse(localStorage.getItem("langENG"));
-      for (let tag of projectTag) {
-        tag.className = JSON.parse(localStorage.getItem("projectTag"));
-      }
       inputMail.className = JSON.parse(localStorage.getItem("inputMail"));
       inputPhone.className = JSON.parse(localStorage.getItem("inputPhone"));
       // inputName.className = JSON.parse(localStorage.getItem("inputName"));
@@ -222,6 +241,9 @@
       closeCookiesInfo.className = JSON.parse(localStorage.getItem("closeCookiesInfo"));
       closeCookiesInfo.style.borderBottom = "none";
       footerLink.style.borderBottom = "none";
+      for (let tag of projectTag) {
+        tag.className = JSON.parse(localStorage.getItem("projectTag"));
+      }
       for (let link of projectsLinks) {
         link.style.borderBottom = "none";
       }
@@ -234,7 +256,8 @@
       }
     }
     if (buttonBlob.classList.contains("button__blob--sun")) {
-      navLogo.setAttribute("src", "img/logo-light.png")
+      navLogo.setAttribute("src", "img/logo-light.png");
+      body.classList.add("light-theme");
       for (let link of allLinks) {
         link.classList.add("light-theme--link");
       }
@@ -242,9 +265,9 @@
         dot.classList.add("projects__dot--light-theme");
       }
       navLinkStart.classList.remove("light-theme--link")
-      body.classList.add("light-theme");
     } else if (buttonBlob.classList.contains("button__blob--moon")) {
-      navLogo.setAttribute("src", "img/logo-dark.png")
+      navLogo.setAttribute("src", "img/logo-dark.png");
+      body.classList.add("dark-theme");
       for (let link of allLinks) {
         link.classList.add("dark-theme--link");
       }
@@ -252,7 +275,6 @@
         dot.classList.add("projects__dot--dark-theme");
       }
       navLinkStart.classList.remove("dark-theme--link")
-      body.classList.add("dark-theme");
     }
     if (langENG.classList.contains("button--lang--active")) {
       langENG.classList.remove("button--lang--active");
@@ -288,6 +310,35 @@
   }
 
   // Smaller functions
+
+  // Copyright year in the footer
+
+  function getCurrentYear() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    footerYear.innerHTML = currentYear.toString();
+  }
+
+  // Get my current age and display it in "About" section
+
+  function getAge(dateString) {
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  // Return my age - changes after my birthday
+
+  function howOldAmI() {
+    if (myAge) {
+      myAge.innerHTML = getAge("1991/05/16");
+    }
+  }
 
   function overflowOn() {
     body.classList.remove("overflow-off");
@@ -359,15 +410,15 @@
 
   // Hide the overlay after animation is finished
 
-  overlay.addEventListener("animationend", function(e){
+  overlay.addEventListener("animationend", e => {
     e.target.style.display = "none";
   })
 
-  sectionTitleStart.addEventListener("animationend", function(e){
+  sectionTitleStart.addEventListener("animationend", e => {
     e.target.classList.remove("fade-in");
   })
 
-  sectionSubtitleStart.addEventListener("animationend", function(e){
+  sectionSubtitleStart.addEventListener("animationend", e => {
     e.target.classList.remove("fade-in");
   })
 
@@ -386,7 +437,7 @@
   })
 
   for (let link of navLinks) {
-    link.addEventListener("click", (e) => {
+    link.addEventListener("click", e => {
       checkHashAndHideSections(e);
       if (window.matchMedia("(max-width: 851px)").matches) {
         hamburger.style.display = "block";
@@ -437,8 +488,6 @@
       element.setAttribute(attribute, secondaValue)
     } else if (element.getAttribute(attribute) === secondaValue) {
       element.setAttribute(attribute, firstValue)
-    } else {
-      console.log("Coś tu nie gra");
     }
   }
 
@@ -457,9 +506,6 @@
     toggleMultipleClasses(body, "light-theme", "dark-theme");
     toggleMutlipleClassesOnList(allLinks, "light-theme--link", "dark-theme--link");
     buttonTheme.classList.toggle("dark-outline");
-    for (let item of buttonFlag) {
-      item.classList.toggle("dark-outline");
-    }
     toggleMutlipleClassesOnList(projectsDots, "projects__dot--light-theme", "projects__dot--dark-theme");
     toggleMultipleClasses(prev, "projects__prev--light", "projects__prev--dark", "dark-outline");
     toggleMultipleClasses(next, "projects__prev--light", "projects__prev--dark", "dark-outline");
@@ -505,7 +551,7 @@
     toggleAttribute(navLogo, "src", "img/logo-light.png", "img/logo-dark.png");
   });
 
-  // Click function to hide cookies info
+  // Function that hides cookies info
 
   closeCookiesInfo.addEventListener("click", () => {
     infoCookies.classList.add("visuallyhidden");
@@ -537,8 +583,8 @@
     aboutTitle.innerText = data.aboutTitle;
     // TODO: age not showing up after change
     aboutDescription.innerHTML = data.aboutDescription;
-    skillsSubtitle.innerText = data.skillsSubtitle;
     howOldAmI();
+    skillsSubtitle.innerText = data.skillsSubtitle;
     gridDescription.innerText = data.gridDescription;
     weatherDescription.innerText = data.weatherDescription;
     challengeDescription.innerText = data.challengeDescription;
@@ -605,6 +651,7 @@
     projectPhoto[6].setAttribute("alt", data.interiorv1Alt);
     projectPhoto[7].setAttribute("alt", data.dobrywebdevAlt);
     projectPhoto[8].setAttribute("alt", data.interactiveAlt);
+    // Place my current age in the description
   }
 
   // Language changing on button click
@@ -709,10 +756,10 @@
       const formData = new FormData(form);
       const xhr = new XMLHttpRequest();
       xhr.addEventListener("load", e => {
-          console.log(e.target.responseText);
+        console.log(e.target.responseText);
       });
       xhr.addEventListener("error", e => {
-          console.log(e);
+        console.log(e);
       });
       xhr.open("POST", form.action);
       xhr.send(formData);
@@ -795,28 +842,4 @@
     });
   });*/
 
-  // Copyright year in the footer
-
-  (function getCurrentYear() {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    footerYear.innerText = currentYear;
-  })();
-
-  // Get my current age and display it in "About" section
-
-  function getAge(dateString) {
-    const today = new Date();
-    const birthDate = new Date(dateString);
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-    }
-    return age;
-  }
-
-  function howOldAmI() {
-    myAge.innerText = getAge("1991/05/16");
-  }
 })();

@@ -10,7 +10,7 @@
   "mainTitle": "Michał Grochowski",
   "mainSubtitle": "Front-end Developer",
   "aboutTitle": "Nazywam się Michał Grochowski",
-  "aboutDescription": "I jestem <span id=\"myAge\"></span> letnim Front-end developerem z Warszawy. Tworzenie stron i aplikacji internetowych od zawsze mnie fascynowało, dlatego też postanowiłem przekształcić to zainteresowanie w karierę. Mimo zdobycia sporej wiedzy w stosunkowo krótkim czasie nie spoczywam na laurach i nieustannie staram się rozwijać, co pozwala mi pisać coraz lepszy kod i tworzyć bardziej skomplikowane projekty. Jestem ogromnym fanem metodologii BEM, semantyki i płaskiej specyficzności, a w designie stron internetowych preferuję minimalizm i prostotę od fajerwerków i zbędnych animacji.",
+  "aboutDescription": "I jestem <span class=\"myAge\"></span> letnim Front-end developerem z Warszawy. Tworzenie stron i aplikacji internetowych od zawsze mnie fascynowało, dlatego też postanowiłem przekształcić to zainteresowanie w karierę. Mimo zdobycia sporej wiedzy w stosunkowo krótkim czasie nie spoczywam na laurach i nieustannie staram się rozwijać, co pozwala mi pisać coraz lepszy kod i tworzyć bardziej skomplikowane projekty. Jestem ogromnym fanem metodologii BEM, semantyki i płaskiej specyficzności, a w designie stron internetowych preferuję minimalizm i prostotę od fajerwerków i zbędnych animacji.",
   "skillsSubtitle": "Na co dzień w swoich projektach korzystam z:",
   "projectsNavInfo": "(Przesuń palcem, żeby zobaczyć więcej)",
   "gridDescription": "Aplikacja stworzona do nauki i zabawy CSS Grid. Napisana przy pomocy HTML, CSS (Flexbox + Grid) i JavaScript (ES6). To mój pierwszy projekt z poważnym wykorzystaniem ES6 i Babel.js. Dodatkowo jest to pełne PWA.",

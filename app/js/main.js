@@ -59,7 +59,7 @@
   const projectsLinks = document.querySelectorAll(".projects__link");
   const projectPhoto = document.querySelectorAll(".projects__photo");
   const projectTitle = document.querySelectorAll(".projects__title");
-  const projectsDot = document.querySelectorAll(".projects__dot");
+  let projectsDots = document.getElementsByClassName("projects__dot");
   const socialItems = document.querySelectorAll(".socials__item");
   const navLogo = document.querySelector(".nav__logo");
   const projectTag = document.querySelectorAll(".projects__tag");
@@ -91,7 +91,7 @@
   const linkedin = document.querySelector(".linkedin");
   const infoCookiesText = document.querySelector(".cookie-info__text");
   const form = document.querySelector(".form");
-  const inputFail = document.querySelector(".input__fail");
+  let inputFail = document.getElementsByClassName("input__fail");
   const checkPhone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
   const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   /* const checkName = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
@@ -106,7 +106,6 @@
       for (let i = 0; i < this.innerElements.length; i++) {
         const dot = document.createElement("span");
         dot.classList.add("projects__dot");
-        dot.classList.add("projects__dot--light-theme");
         dot.addEventListener("click", () => {
           this.goTo(i);
         })
@@ -239,8 +238,8 @@
       for (let link of allLinks) {
         link.classList.add("light-theme--link");
       }
-      for (let dot of projectsDot) {
-        dot.classList.remove("projects__dot--light-theme");
+      for (let dot of projectsDots) {
+        dot.classList.add("projects__dot--light-theme");
       }
       navLinkStart.classList.remove("light-theme--link")
       body.classList.add("light-theme");
@@ -249,8 +248,8 @@
       for (let link of allLinks) {
         link.classList.add("dark-theme--link");
       }
-      for (let dot of projectsDot) {
-        dot.classList.remove("projects__dot--light-theme");
+      for (let dot of projectsDots) {
+        dot.classList.add("projects__dot--dark-theme");
       }
       navLinkStart.classList.remove("dark-theme--link")
       body.classList.add("dark-theme");
@@ -457,11 +456,11 @@
     toggleMultipleClasses(closeHamburger, "light-theme", "dark-theme");
     toggleMultipleClasses(body, "light-theme", "dark-theme");
     toggleMutlipleClassesOnList(allLinks, "light-theme--link", "dark-theme--link");
-    toggleMutlipleClassesOnList(projectsDot, "projects__dot--light-theme", "projects__dot--dark-theme");
     buttonTheme.classList.toggle("dark-outline");
     for (let item of buttonFlag) {
       item.classList.toggle("dark-outline");
     }
+    toggleMutlipleClassesOnList(projectsDots, "projects__dot--light-theme", "projects__dot--dark-theme");
     toggleMultipleClasses(prev, "projects__prev--light", "projects__prev--dark", "dark-outline");
     toggleMultipleClasses(next, "projects__prev--light", "projects__prev--dark", "dark-outline");
     toggleMutlipleClassesOnList(projectTag, "light-theme", "dark-theme");
@@ -644,180 +643,180 @@
       })
   })
 
-// Form validation
+  // Form validation
 
-function validateForm() {
-  if (inputFail !== null) {
-    inputFail.remove();
-  }
-  let emailValue = inputMail.value;
-  let phoneValue = inputPhone.value;
-  let message = textarea.value;
-  // let nameValue = inputName.value;
-  if (checkMail.test(emailValue) === false) {
-    let mailfail;
-    const mailFailPL = "Podaj prawidłowy adres e-mail";
-    const mailFailENG = "Please provide a valid email address";
-    let newP = document.createElement("p");
-    newP.classList.add("input__fail");
-    if (langPL.classList.contains("button--lang--active")) {
-      newP.innerText = mailFailPL;
-    } else {
-      newP.innerText = mailFailENG;
-    }
-    document.querySelector(".form__group--mail").appendChild(newP);
-    return false;
-  } else if (checkPhone.test(phoneValue) === false) {
-    let phoneFail;
-    const phoneFailPL = "Podaj prawidłowy, 9 cyfrowy numer telefonu";
-    const phoneFailENG = "Please provide a valid, 9 digit mobile number";
-    let newP = document.createElement("p");
-    newP.classList.add("input__fail");
-    if (langPL.classList.contains("button--lang--active")) {
-      newP.innerText = phoneFailPL;
-    } else {
-      newP.innerText = phoneFailENG;
-    }
-    document.querySelector(".form__group--phone").appendChild(newP);
-    return false;
-  } /*else if (checkname.test(nameValue) === false) {
-    let nameFail;
-    const nameFailPL = "Podaj prawidłowe imię i nazwisko";
-    const nameFailENG = "Please provide a valid first and last name";
-    let newP = document.createElement("p");
-    newP.classList.add("input__fail");
-    if (langPL.classList.contains("button--lang--active")) {
-      newP.innerText = nameFailPL;
-    } else {
-      newP.innerText = nameFailENG;
-    }
-    document.querySelector(".form__group--name").appendChild(newP);
-    return false;
-    }*/ else if (message === "") {
-    let msgFail;
-    const msgFailPL = "Wiadomość nie może być pusta";
-    const msgFailENG = "The message cannot be empty";
-    let newP = document.createElement("p");
-    newP.classList.add("input__fail");
-    if (langPL.classList.contains("button--lang--active")) {
-      newP.innerText = msgFailPL;
-    } else {
-      newP.innerText = msgFailENG;
-    }
-    document.querySelector(".form__group--msg").appendChild(newP);
-    return false;
-  } else {
-    return true;
-  }
-}
-
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  if (inputFail !== null) {
-    inputFail.remove();
-  }
-  setTimeout(validateForm(), 500);
-})
-
-/*$(function() {
-  $(".form").submit(function(event) {
-    event.preventDefault();
-    var form = $(this);
-    var checkphone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
-    var checkmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    var checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;
-    var email = $(".form__input--mail").val();
-    var phone = $(".form__input--phone").val();
-    //var name = $(".form__input--name").val();
-    var message = $(".form__textarea").val();
-    $(".input__fail").remove();
-      if (checkmail.test(email) === false) {
-        var mailfail;
-        if ($(".langPL").hasClass("button--lang--active")) {
-          mailfail = "<p class='input__fail'>Podaj prawidłowy adres e-mail</p>";
-        } else {
-          mailfail = "<p class='input__fail'>Please provide a valid email address</p>";
-        }
-        $(mailfail).hide().appendTo(".form__group--mail").fadeIn(500);
-        return false;
-      } else if (checkphone.test(phone) === false) {
-        var phonefail;
-        if ($(".langPL").hasClass("button--lang--active")) {
-          phonefail = "<p class='input__fail'>Podaj prawidłowy, 9 cyfrowy numer telefonu</p>";
-        } else {
-          phonefail = "<p class='input__fail'>Please provide a valid, 9 digit mobile number</p>";
-        }
-        $(phonefail).hide().appendTo(".form__group--phone").fadeIn(500);
-        return false;
-      } else if (checkname.test(name) === false) {
-        var namefail;
-        if ($(".langPL").hasClass("button--lang--active")) {
-          namefail = "<p class='input__fail'>Podaj prawidłowe imię i nazwisko</p>";
-        } else {
-          namefail = "<p class='input__fail'>Please provide a valid first and last name</p>";
-        }
-        $(namefail).hide().appendTo(".form__group--name").fadeIn(500);
-        return false;
-      } else if (message === "") {
-        var msgfail;
-        if ($(".langPL").hasClass("button--lang--active")) {
-          msgfail = "<p class='input__fail'>Wiadomość nie może być pusta</p>";
-        } else {
-          msgfail = "<p class='input__fail'>The message cannot be empty</p>";
-        }
-        $(msgfail).hide().appendTo(".form__group--msg").fadeIn(500);
-        return false;
+  function validateForm() {
+    let emailValue = inputMail.value;
+    let phoneValue = inputPhone.value;
+    let message = textarea.value;
+    // let nameValue = inputName.value;
+    if (checkMail.test(emailValue) === false) {
+      const mailFailPL = "Podaj prawidłowy adres e-mail";
+      const mailFailENG = "Please provide a valid email address";
+      let newP = document.createElement("p");
+      newP.classList.add("input__fail");
+      if (langPL.classList.contains("button--lang--active")) {
+        newP.innerText = mailFailPL;
       } else {
-        $(".input__fail").remove();
-        $.ajax({
-          type: form.attr('method'),
-          url: form.attr('action'),
-          data: form.serialize()
-        }).done(function(data) {
-          var successPl = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
-          var successEng = '<div class="form__success"><p>Thank you for your message!</p></div>';
-          $(".form").trigger("reset");
-          if ($(".langPL").hasClass("button--lang--active")) {
-            $(successPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-          } else {
-            $(successEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-          }
-        }).fail(function(data) {
-          var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
-          var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
-          if ($(".langPL").hasClass("button--lang--active")) {
-            $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-          } else {
-            $(failEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-          }
-        });
+        newP.innerText = mailFailENG;
       }
-  });
-});*/
-
-// Copyright year in the footer
-
-(function getCurrentYear() {
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  footerYear.innerText = currentYear;
-})();
-
-// Get my current age and display it in "About" section
-
-function getAge(dateString) {
-  const today = new Date();
-  const birthDate = new Date(dateString);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  const m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-    age--;
+      document.querySelector(".form__group--mail").appendChild(newP);
+    } 
+    if (checkPhone.test(phoneValue) === false) {
+      const phoneFailPL = "Podaj prawidłowy numer telefonu";
+      const phoneFailENG = "Please provide a valid mobile number";
+      let newP = document.createElement("p");
+      newP.classList.add("input__fail");
+      if (langPL.classList.contains("button--lang--active")) {
+        newP.innerText = phoneFailPL;
+      } else {
+        newP.innerText = phoneFailENG;
+      }
+      document.querySelector(".form__group--phone").appendChild(newP);
+    } /* if (checkname.test(nameValue) === false) {
+      const nameFailPL = "Podaj prawidłowe imię i nazwisko";
+      const nameFailENG = "Please provide a valid first and last name";
+      let newP = document.createElement("p");
+      newP.classList.add("input__fail");
+      if (langPL.classList.contains("button--lang--active")) {
+        newP.innerText = nameFailPL;
+      } else {
+        newP.innerText = nameFailENG;
+      }
+      document.querySelector(".form__group--name").appendChild(newP);
+      }*/ if (message === "") {
+      const msgFailPL = "Wiadomość nie może być pusta";
+      const msgFailENG = "The message cannot be empty";
+      let newP = document.createElement("p");
+      newP.classList.add("input__fail");
+      if (langPL.classList.contains("button--lang--active")) {
+        newP.innerText = msgFailPL;
+      } else {
+        newP.innerText = msgFailENG;
+      }
+      document.querySelector(".form__group--msg").appendChild(newP);
+    } if (checkMail.test(emailValue) && checkPhone.test(phoneValue) && message) {
+      return true;
+    }
   }
-  return age;
-}
 
-function howOldAmI() {
-  myAge.innerText = getAge("1991/05/16");
-}
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    for (let i = inputFail.length; i--; ) {
+      inputFail[i].remove();
+    }
+    if (validateForm()) {
+      const formData = new FormData(form);
+      const xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", e => {
+          console.log(e.target.responseText);
+      });
+      xhr.addEventListener("error", e => {
+          console.log(e);
+      });
+      xhr.open("POST", form.action);
+      xhr.send(formData);
+    }
+  })
 
+  /*$(function() {
+    $(".form").submit(function(event) {
+      event.preventDefault();
+      var form = $(this);
+      var checkphone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
+      var checkmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      var checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;
+      var email = $(".form__input--mail").val();
+      var phone = $(".form__input--phone").val();
+      //var name = $(".form__input--name").val();
+      var message = $(".form__textarea").val();
+      $(".input__fail").remove();
+        if (checkmail.test(email) === false) {
+          var mailfail;
+          if ($(".langPL").hasClass("button--lang--active")) {
+            mailfail = "<p class='input__fail'>Podaj prawidłowy adres e-mail</p>";
+          } else {
+            mailfail = "<p class='input__fail'>Please provide a valid email address</p>";
+          }
+          $(mailfail).hide().appendTo(".form__group--mail").fadeIn(500);
+          return false;
+        } else if (checkphone.test(phone) === false) {
+          var phonefail;
+          if ($(".langPL").hasClass("button--lang--active")) {
+            phonefail = "<p class='input__fail'>Podaj prawidłowy, 9 cyfrowy numer telefonu</p>";
+          } else {
+            phonefail = "<p class='input__fail'>Please provide a valid, 9 digit mobile number</p>";
+          }
+          $(phonefail).hide().appendTo(".form__group--phone").fadeIn(500);
+          return false;
+        } else if (checkname.test(name) === false) {
+          var namefail;
+          if ($(".langPL").hasClass("button--lang--active")) {
+            namefail = "<p class='input__fail'>Podaj prawidłowe imię i nazwisko</p>";
+          } else {
+            namefail = "<p class='input__fail'>Please provide a valid first and last name</p>";
+          }
+          $(namefail).hide().appendTo(".form__group--name").fadeIn(500);
+          return false;
+        } else if (message === "") {
+          var msgfail;
+          if ($(".langPL").hasClass("button--lang--active")) {
+            msgfail = "<p class='input__fail'>Wiadomość nie może być pusta</p>";
+          } else {
+            msgfail = "<p class='input__fail'>The message cannot be empty</p>";
+          }
+          $(msgfail).hide().appendTo(".form__group--msg").fadeIn(500);
+          return false;
+        } else {
+          $(".input__fail").remove();
+          $.ajax({
+            type: form.attr('method'),
+            url: form.attr('action'),
+            data: form.serialize()
+          }).done(function(data) {
+            var successPl = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
+            var successEng = '<div class="form__success"><p>Thank you for your message!</p></div>';
+            $(".form").trigger("reset");
+            if ($(".langPL").hasClass("button--lang--active")) {
+              $(successPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+            } else {
+              $(successEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+            }
+          }).fail(function(data) {
+            var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
+            var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
+            if ($(".langPL").hasClass("button--lang--active")) {
+              $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+            } else {
+              $(failEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
+            }
+          });
+        }
+    });
+  });*/
+
+  // Copyright year in the footer
+
+  (function getCurrentYear() {
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    footerYear.innerText = currentYear;
+  })();
+
+  // Get my current age and display it in "About" section
+
+  function getAge(dateString) {
+    const today = new Date();
+    const birthDate = new Date(dateString);
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  }
+
+  function howOldAmI() {
+    myAge.innerText = getAge("1991/05/16");
+  }
 })();

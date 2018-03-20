@@ -114,7 +114,6 @@
   const infoCookiesText = document.querySelector(".cookie-info__text");
 
   // Others
-  const myAge = document.getElementsByClassName("myAge")[0];
   const socialItems = document.querySelectorAll(".socials__item");
 
   // Siema settings
@@ -319,7 +318,7 @@
     footerYear.innerHTML = currentYear.toString();
   }
 
-  // Get my current age and display it in "About" section
+  // Get current age based on provided date
 
   function getAge(dateString) {
     const today = new Date();
@@ -332,12 +331,11 @@
     return age;
   }
 
-  // Return my age - changes after my birthday
+  // Return my age in full years
 
   function howOldAmI() {
-    if (myAge) {
-      myAge.innerHTML = getAge("1991/05/16");
-    }
+    let myAge = document.getElementsByClassName("myAge")[0];
+    myAge.innerText = getAge("1991/05/16");
   }
 
   function overflowOn() {
@@ -581,9 +579,8 @@
     mainTitle.innerText = data.mainTitle;
     mainSubtitle.innerText = data.mainSubtitle;
     aboutTitle.innerText = data.aboutTitle;
-    // TODO: age not showing up after change
+    // TODO: age not showing up after language change
     aboutDescription.innerHTML = data.aboutDescription;
-    howOldAmI();
     skillsSubtitle.innerText = data.skillsSubtitle;
     gridDescription.innerText = data.gridDescription;
     weatherDescription.innerText = data.weatherDescription;
@@ -651,7 +648,6 @@
     projectPhoto[6].setAttribute("alt", data.interiorv1Alt);
     projectPhoto[7].setAttribute("alt", data.dobrywebdevAlt);
     projectPhoto[8].setAttribute("alt", data.interactiveAlt);
-    // Place my current age in the description
   }
 
   // Language changing on button click
@@ -668,9 +664,14 @@
       .then(data => {
         changeLanguage(data);
       })
+      .then(() => {
+        let myAge = document.getElementsByClassName("myAge")[0];
+        myAge.innerText = getAge("1991/05/16");
+      })
       .catch(function(error) {
         console.log(error);
       })
+    
   })
 
   langPL.addEventListener("click", () => {
@@ -684,6 +685,10 @@
       .then(response => response.json())
       .then(data => {
         changeLanguage(data);
+      })
+      .then(() => {
+        let myAge = document.getElementsByClassName("myAge")[0];
+        myAge.innerText = getAge("1991/05/16");
       })
       .catch(function(error) {
         console.log(error);
@@ -756,7 +761,6 @@
       const formData = new FormData(form);
       const xhr = new XMLHttpRequest();
       xhr.addEventListener("error", e => {
-        console.log("error");
         const failPL = "Nie udało się, spróbuj jeszcze raz.";
         const failENG = "Something went wrong, please try again.";
         const postFail = document.createElement("div");
@@ -777,7 +781,6 @@
         }, 5000)
       });
       xhr.addEventListener("load ", e => {
-        console.log("success");
         const successPl = 'Dziękuję za wiadomość!';
         const successENG = 'Thank you for your message!';
         const postSuccess = document.createElement("div");
@@ -787,11 +790,11 @@
         form.reset();
         if (langPL.classList.contains("button--lang--active")) {
           successText.innerText = successPl;
-          postFail.appendChild(successText);
+          postSuccess.appendChild(successText);
           form.appendChild(postSuccess);
         } else {
           successText.innerText = successENG;
-          postFail.appendChild(successText);
+          postSuccess.appendChild(successText);
           form.appendChild(postSuccess);
         }
         setTimeout(() => {
@@ -802,81 +805,5 @@
       xhr.send(formData);
     }
   })
-
-  /*$(function() {
-    $(".form").submit(function(event) {
-      event.preventDefault();
-      var form = $(this);
-      var checkphone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
-      var checkmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      var checkname = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;
-      var email = $(".form__input--mail").val();
-      var phone = $(".form__input--phone").val();
-      //var name = $(".form__input--name").val();
-      var message = $(".form__textarea").val();
-      $(".input__fail").remove();
-        if (checkmail.test(email) === false) {
-          var mailfail;
-          if ($(".langPL").hasClass("button--lang--active")) {
-            mailfail = "<p class='input__fail'>Podaj prawidłowy adres e-mail</p>";
-          } else {
-            mailfail = "<p class='input__fail'>Please provide a valid email address</p>";
-          }
-          $(mailfail).hide().appendTo(".form__group--mail").fadeIn(500);
-          return false;
-        } else if (checkphone.test(phone) === false) {
-          var phonefail;
-          if ($(".langPL").hasClass("button--lang--active")) {
-            phonefail = "<p class='input__fail'>Podaj prawidłowy, 9 cyfrowy numer telefonu</p>";
-          } else {
-            phonefail = "<p class='input__fail'>Please provide a valid, 9 digit mobile number</p>";
-          }
-          $(phonefail).hide().appendTo(".form__group--phone").fadeIn(500);
-          return false;
-        } else if (checkname.test(name) === false) {
-          var namefail;
-          if ($(".langPL").hasClass("button--lang--active")) {
-            namefail = "<p class='input__fail'>Podaj prawidłowe imię i nazwisko</p>";
-          } else {
-            namefail = "<p class='input__fail'>Please provide a valid first and last name</p>";
-          }
-          $(namefail).hide().appendTo(".form__group--name").fadeIn(500);
-          return false;
-        } else if (message === "") {
-          var msgfail;
-          if ($(".langPL").hasClass("button--lang--active")) {
-            msgfail = "<p class='input__fail'>Wiadomość nie może być pusta</p>";
-          } else {
-            msgfail = "<p class='input__fail'>The message cannot be empty</p>";
-          }
-          $(msgfail).hide().appendTo(".form__group--msg").fadeIn(500);
-          return false;
-        } else {
-          $(".input__fail").remove();
-          $.ajax({
-            type: form.attr('method'),
-            url: form.attr('action'),
-            data: form.serialize()
-          }).done(function(data) {
-            var successPl = '<div class="form__success"><p>Dziękuję za wiadomość!</p></div>';
-            var successEng = '<div class="form__success"><p>Thank you for your message!</p></div>';
-            $(".form").trigger("reset");
-            if ($(".langPL").hasClass("button--lang--active")) {
-              $(successPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-            } else {
-              $(successEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-            }
-          }).fail(function(data) {
-            var failPl = '<div class="form__fail"><p>Nie udało się, spróbuj jeszcze raz.</p></div>';
-            var failEng = '<div class="form__fail"><p>Something went wrong, please try again.</p></div>';
-            if ($(".langPL").hasClass("button--lang--active")) {
-              $(failPl).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-            } else {
-              $(failEng).hide().appendTo(".form").fadeIn(1000).fadeOut(4000);
-            }
-          });
-        }
-    });
-  });*/
 
 })();

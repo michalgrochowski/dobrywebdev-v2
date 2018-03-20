@@ -1,5 +1,5 @@
 (function() {
-  'use strict';
+  "use strict";
 
   // Service worker registeration
 
@@ -40,7 +40,7 @@
   const closeHamburger = document.querySelector(".nav__close-menu");
 
   // Theme and language related elements
-  
+
   const langPL = document.querySelector(".langPL");
   const langENG = document.querySelector(".langENG");
   const buttonTheme = document.querySelector(".button--theme");
@@ -81,7 +81,7 @@
 
   // Form RegEx checks
   const checkPhone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
-  const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   /* const checkName = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
 
   // Language hooks
@@ -128,7 +128,7 @@
         dot.classList.add("projects__dot");
         dot.addEventListener("click", () => {
           this.goTo(i);
-        })
+        });
         this.dots.appendChild(dot);
       }
       this.selector.parentNode.insertBefore(this.dots, this.selector.nextSibling);
@@ -202,8 +202,8 @@
         mySiemaWithDots.prev();
       }
     }
-  })
-  
+  });
+
   // Main function that loads theme settings from localStorage, displays welcome text and blocks projects links
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -211,9 +211,7 @@
     howOldAmI();
     hideOrShowSections();
     getCurrentYear();
-    if (window.localStorage.length === 0 || window.localStorage.length === 1) {
-      ;
-    } else if (localStorage.getItem("buttonBlob") !== null) {
+    if (localStorage.getItem("buttonBlob") !== null) {
       container.className = JSON.parse(localStorage.getItem("container"));
       infoCookies.className = JSON.parse(localStorage.getItem("infoCookies"));
       buttonTheme.className = JSON.parse(localStorage.getItem("buttonTheme"));
@@ -263,7 +261,7 @@
       for (let dot of projectsDots) {
         dot.classList.add("projects__dot--light-theme");
       }
-      navLinkStart.classList.remove("light-theme--link")
+      navLinkStart.classList.remove("light-theme--link");
     } else if (buttonBlob.classList.contains("button__blob--moon")) {
       navLogo.setAttribute("src", "img/logo-dark.png");
       body.classList.add("dark-theme");
@@ -273,13 +271,11 @@
       for (let dot of projectsDots) {
         dot.classList.add("projects__dot--dark-theme");
       }
-      navLinkStart.classList.remove("dark-theme--link")
+      navLinkStart.classList.remove("dark-theme--link");
     }
     if (langENG.classList.contains("button--lang--active")) {
       langENG.classList.remove("button--lang--active");
       langPL.classList.add("button--lang--active");
-    } else if (langPL.classList.contains("button--lang--active")) {
-      ;
     }
     setTimeout(function(){
       if (localStorage.getItem("cookiesOff") === "true" && infoCookies.classList.contains("visuallyhidden") === false) {
@@ -292,7 +288,7 @@
 
   window.addEventListener("hashchange", () => {
     hideOrShowSections();
-  })
+  });
 
   // Check what time it is and display welcome text based on that
 
@@ -334,7 +330,7 @@
   // Return my age in full years
 
   function howOldAmI() {
-    let myAge = document.getElementsByClassName("myAge")[0];
+    let myAge = document.querySelector(".myAge");
     myAge.innerText = getAge("1991/05/16");
   }
 
@@ -410,15 +406,15 @@
 
   overlay.addEventListener("animationend", e => {
     e.target.style.display = "none";
-  })
+  });
 
   sectionTitleStart.addEventListener("animationend", e => {
     e.target.classList.remove("fade-in");
-  })
+  });
 
   sectionSubtitleStart.addEventListener("animationend", e => {
     e.target.classList.remove("fade-in");
-  })
+  });
 
   // Mobile menu scripts, showing hamburger etc.
 
@@ -426,13 +422,13 @@
     hamburger.style.display = "none";
     closeHamburger.style.display = "block";
     navList.classList.add("nav__list--expanded");
-  })
+  });
 
   closeHamburger.addEventListener("click", () => {
     hamburger.style.display = "block";
     closeHamburger.style.display = "none";
     navList.classList.remove("nav__list--expanded");
-  })
+  });
 
   for (let link of navLinks) {
     link.addEventListener("click", e => {
@@ -440,11 +436,11 @@
       if (window.matchMedia("(max-width: 851px)").matches) {
         hamburger.style.display = "block";
         closeHamburger.style.display = "none";
-        navList.classList.remove("nav__list--expanded")
+        navList.classList.remove("nav__list--expanded");
       } else {
         return;
       }
-    })
+    });
   }
 
   navLinkStart.addEventListener("click", () => {
@@ -459,7 +455,7 @@
     } else {
       return;
     }
-  })
+  });
 
   // Theme changing script that also saves settings in localStorage
 
@@ -483,9 +479,9 @@
 
   function toggleAttribute(element, attribute, firstValue, secondaValue) {
     if (element.getAttribute(attribute) === firstValue) {
-      element.setAttribute(attribute, secondaValue)
+      element.setAttribute(attribute, secondaValue);
     } else if (element.getAttribute(attribute) === secondaValue) {
-      element.setAttribute(attribute, firstValue)
+      element.setAttribute(attribute, firstValue);
     }
   }
 
@@ -554,7 +550,7 @@
   closeCookiesInfo.addEventListener("click", () => {
     infoCookies.classList.add("visuallyhidden");
     localStorage.setItem("cookiesOff", "true");
-  })
+  });
 
   // Function that changes language based on JSON data
 
@@ -599,7 +595,7 @@
       item.innerText = data.projectCode;
     }
     prev.setAttribute("aria-label", data.projectsPrev);
-    next.setAttribute("aria-label", data.projectsNext)
+    next.setAttribute("aria-label", data.projectsNext);
     contactTitle.innerText = data.contactTitle;
     mailLabel.innerText = data.contactTitle;
     phoneLabel.innerHTML = data.phoneLabel;
@@ -665,14 +661,13 @@
         changeLanguage(data);
       })
       .then(() => {
-        let myAge = document.getElementsByClassName("myAge")[0];
+        let myAge = document.querySelector(".myAge");
         myAge.innerText = getAge("1991/05/16");
       })
       .catch(function(error) {
         console.log(error);
-      })
-    
-  })
+      });
+  });
 
   langPL.addEventListener("click", () => {
     if (langPL.classList.contains("button--lang--active")) {
@@ -687,13 +682,13 @@
         changeLanguage(data);
       })
       .then(() => {
-        let myAge = document.getElementsByClassName("myAge")[0];
+        let myAge = document.querySelector(".myAge");
         myAge.innerText = getAge("1991/05/16");
       })
       .catch(function(error) {
         console.log(error);
-      })
-  })
+      });
+  });
 
   // Form validation
 
@@ -713,7 +708,7 @@
         newP.innerText = mailFailENG;
       }
       document.querySelector(".form__group--mail").appendChild(newP);
-    } 
+    }
     if (checkPhone.test(phoneValue) === false) {
       const phoneFailPL = "Podaj prawidłowy numer telefonu";
       const phoneFailENG = "Please provide a valid mobile number";
@@ -760,7 +755,7 @@
     if (validateForm()) {
       const formData = new FormData(form);
       const xhr = new XMLHttpRequest();
-      xhr.addEventListener("error", e => {
+      xhr.addEventListener("error", () => {
         const failPL = "Nie udało się, spróbuj jeszcze raz.";
         const failENG = "Something went wrong, please try again.";
         const postFail = document.createElement("div");
@@ -778,11 +773,11 @@
         }
         setTimeout(() => {
           postFail.remove();
-        }, 5000)
+        }, 5000);
       });
-      xhr.addEventListener("load ", e => {
-        const successPl = 'Dziękuję za wiadomość!';
-        const successENG = 'Thank you for your message!';
+      xhr.addEventListener("load ", () => {
+        const successPl = "Dziękuję za wiadomość!";
+        const successENG = "Thank you for your message!";
         const postSuccess = document.createElement("div");
         const successText = document.createElement("p");
         postSuccess.classList.add("form__success");
@@ -799,11 +794,10 @@
         }
         setTimeout(() => {
           postSuccess.remove();
-        }, 5000)
+        }, 5000);
       });
       xhr.open("POST", form.action);
       xhr.send(formData);
     }
-  })
-
+  });
 })();

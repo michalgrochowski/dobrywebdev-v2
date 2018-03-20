@@ -112,6 +112,9 @@
   margin: 0.5rem 0.7rem;
   border-radius: 1.5rem;
   font-size: 1.4rem;
+  @include mq-minmax(801px,1366px) {
+    margin: 0.5rem 0.5rem;
+  }
 }
 
 .projects__description {

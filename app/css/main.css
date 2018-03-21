@@ -690,7 +690,6 @@
   transform: translateY(-50%) translateX(-50%);
   width: 70%;
   height: 20%;
-  background-color: #4CD964;
   -webkit-box-shadow: 0px 0px 15px 5px rgba(51, 51, 51, 0.3);
   box-shadow: 0px 0px 15px 5px rgba(51, 51, 51, 0.3);
   border-radius: 1.5rem;
@@ -722,8 +721,11 @@
       width: 90%;
       text-align: center; } }
 
+.form__success {
+  background-color: #279b3a; }
+
 .form__fail {
-  background-color: #c71610; }
+  background-color: #c9201a; }
 
 .form__optional {
   opacity: 0.54;
@@ -852,16 +854,16 @@
   font-size: 1.3rem; }
 
 .fade-in-out {
-  -webkit-animation: fade-in-out 5s;
-  animation: fade-in-out 5s; }
+  -webkit-animation: fade-in-out 4s;
+  animation: fade-in-out 4s; }
 
 @-webkit-keyframes fade-in-out {
   0% {
     opacity: 0; }
   10% {
     opacity: 1; }
-  90% {
-    opacity: 0; }
+  80% {
+    opacity: 1; }
   100% {
     opacity: 0; } }
 
@@ -870,8 +872,8 @@
     opacity: 0; }
   10% {
     opacity: 1; }
-  90% {
-    opacity: 0; }
+  80% {
+    opacity: 1; }
   100% {
     opacity: 0; } }
 

@@ -297,10 +297,10 @@
     const currentTime = date.getHours();
     if (currentTime >= 6 && currentTime <= 18) {
       overlay.classList.add("overlay--light");
-      overlayText.innerText = "Dzień dobry";
+      overlayText.textContent = "Dzień dobry";
     } else {
       overlay.classList.add("overlay--dark");
-      overlayText.innerText = "Dobry wieczór";
+      overlayText.textContent = "Dobry wieczór";
     }
   }
 
@@ -331,7 +331,7 @@
 
   function howOldAmI() {
     let myAge = document.querySelector(".myAge");
-    myAge.innerText = getAge("1991/05/16");
+    myAge.textContent = getAge("1991/05/16");
   }
 
   function overflowOn() {
@@ -556,11 +556,11 @@
 
   function changeLanguage(data) {
     // Main texts
-    navAbout.innerText = data.navAbout;
+    navAbout.textContent = data.navAbout;
     navAbout.setAttribute("title", data.navAbout);
-    navProjects.innerText = data.navProjects;
+    navProjects.textContent = data.navProjects;
     navProjects.setAttribute("title", data.navProjects);
-    navContact.innerText = data.navContact;
+    navContact.textContent = data.navContact;
     navContact.setAttribute("title", data.navContact);
     buttonTheme.setAttribute("aria-label", data.buttonTheme);
     buttonTheme.setAttribute("title", data.buttonTheme);
@@ -572,49 +572,48 @@
     hamburger.setAttribute("title", data.hamburger);
     closeHamburger.setAttribute("aria-label", data.closeMenu);
     closeHamburger.setAttribute("title", data.closeMenu);
-    mainTitle.innerText = data.mainTitle;
-    mainSubtitle.innerText = data.mainSubtitle;
-    aboutTitle.innerText = data.aboutTitle;
-    // TODO: age not showing up after language change
+    mainTitle.textContent = data.mainTitle;
+    mainSubtitle.textContent = data.mainSubtitle;
+    aboutTitle.textContent = data.aboutTitle;
     aboutDescription.innerHTML = data.aboutDescription;
-    skillsSubtitle.innerText = data.skillsSubtitle;
-    gridDescription.innerText = data.gridDescription;
-    weatherDescription.innerText = data.weatherDescription;
-    challengeDescription.innerText = data.challengeDescription;
-    interiorDescription.innerText = data.interiorDescription;
-    sleszynskiDescription.innerText = data.sleszynskiDescription;
-    todoDescription.innerText = data.todoDescription;
-    interiorv1Description.innerText = data.interiorv1Description;
-    dobrywebdevDescription.innerText = data.dobrywebdevDescription;
-    interactiveDescription.innerText = data.interactiveDescription;
-    projectsNavInfo.innerText = data.projectsNavInfo;
+    skillsSubtitle.textContent = data.skillsSubtitle;
+    gridDescription.textContent = data.gridDescription;
+    weatherDescription.textContent = data.weatherDescription;
+    challengeDescription.textContent = data.challengeDescription;
+    interiorDescription.textContent = data.interiorDescription;
+    sleszynskiDescription.textContent = data.sleszynskiDescription;
+    todoDescription.textContent = data.todoDescription;
+    interiorv1Description.textContent = data.interiorv1Description;
+    dobrywebdevDescription.textContent = data.dobrywebdevDescription;
+    interactiveDescription.textContent = data.interactiveDescription;
+    projectsNavInfo.textContent = data.projectsNavInfo;
     for (let item of projectLive) {
-      item.innerText = data.projectLive;
+      item.textContent = data.projectLive;
     }
     for (let item of projectCode) {
-      item.innerText = data.projectCode;
+      item.textContent = data.projectCode;
     }
     prev.setAttribute("aria-label", data.projectsPrev);
     next.setAttribute("aria-label", data.projectsNext);
-    contactTitle.innerText = data.contactTitle;
-    mailLabel.innerText = data.contactTitle;
+    contactTitle.textContent = data.contactTitle;
+    mailLabel.textContent = data.contactTitle;
     phoneLabel.innerHTML = data.phoneLabel;
-    // nameLabel.innerText = data.nameLabel;
-    textLabel.innerText = data.textLabel;
-    formButton.innerText = data.sendButton;
+    // nameLabel.textContent = data.nameLabel;
+    textLabel.textContent = data.textLabel;
+    formButton.textContent = data.sendButton;
     formButton.setAttribute("aria-label", data.sendButtonAria);
     formButton.setAttribute("value", data.sendButton);
     inputMail.setAttribute("placeholder", data.mailPlaceholder);
     // inputName.setAttribute("placeholder", data.namePlaceholder);
     textarea.setAttribute("placeholder", data.textPlaceholder);
-    github.innerText = data.github;
-    linkedin.innerText = data.linkedin;
+    github.textContent = data.github;
+    linkedin.textContent = data.linkedin;
     closeCookiesInfo.setAttribute("title", data.cookiesClose);
     closeCookiesInfo.setAttribute("aria-label", data.cookiesClose);
-    infoCookiesText.innerText = data.cookies;
+    infoCookiesText.textContent = data.cookies;
     // Main titles
-    projectTitle[1].innerText = data.weatherMaintitle;
-    projectTitle[5].innerText = data.todoMaintitle;
+    projectTitle[1].textContent = data.weatherMaintitle;
+    projectTitle[5].textContent = data.todoMaintitle;
     // Projects links titles
     projectsLinks[0].setAttribute("title", data.gridTitle);
     projectsLinks[1].setAttribute("title", data.gridCode);
@@ -662,7 +661,7 @@
       })
       .then(() => {
         let myAge = document.querySelector(".myAge");
-        myAge.innerText = getAge("1991/05/16");
+        myAge.textContent = getAge("1991/05/16");
       })
       .catch(function(error) {
         console.log(error);
@@ -683,7 +682,7 @@
       })
       .then(() => {
         let myAge = document.querySelector(".myAge");
-        myAge.innerText = getAge("1991/05/16");
+        myAge.textContent = getAge("1991/05/16");
       })
       .catch(function(error) {
         console.log(error);
@@ -703,9 +702,9 @@
       let newP = document.createElement("p");
       newP.classList.add("input__fail");
       if (langPL.classList.contains("button--lang--active")) {
-        newP.innerText = mailFailPL;
+        newP.textContent = mailFailPL;
       } else {
-        newP.innerText = mailFailENG;
+        newP.textContent = mailFailENG;
       }
       document.querySelector(".form__group--mail").appendChild(newP);
     }
@@ -715,9 +714,9 @@
       let newP = document.createElement("p");
       newP.classList.add("input__fail");
       if (langPL.classList.contains("button--lang--active")) {
-        newP.innerText = phoneFailPL;
+        newP.textContent = phoneFailPL;
       } else {
-        newP.innerText = phoneFailENG;
+        newP.textContent = phoneFailENG;
       }
       document.querySelector(".form__group--phone").appendChild(newP);
     } /* if (checkname.test(nameValue) === false) {
@@ -726,9 +725,9 @@
       let newP = document.createElement("p");
       newP.classList.add("input__fail");
       if (langPL.classList.contains("button--lang--active")) {
-        newP.innerText = nameFailPL;
+        newP.textContent = nameFailPL;
       } else {
-        newP.innerText = nameFailENG;
+        newP.textContent = nameFailENG;
       }
       document.querySelector(".form__group--name").appendChild(newP);
       }*/ if (message === "") {
@@ -737,9 +736,9 @@
       let newP = document.createElement("p");
       newP.classList.add("input__fail");
       if (langPL.classList.contains("button--lang--active")) {
-        newP.innerText = msgFailPL;
+        newP.textContent = msgFailPL;
       } else {
-        newP.innerText = msgFailENG;
+        newP.textContent = msgFailENG;
       }
       document.querySelector(".form__group--msg").appendChild(newP);
     } if (checkMail.test(emailValue) && checkPhone.test(phoneValue) && message) {
@@ -763,19 +762,19 @@
         postFail.classList.add("form__fail");
         postFail.classList.add("fade-in-out");
         if (langPL.classList.contains("button--lang--active")) {
-          failText.innerText = failPL;
+          failText.textContent = failPL;
           postFail.appendChild(failText);
           form.appendChild(postFail);
         } else {
-          failText.innerText = failENG;
+          failText.textContent = failENG;
           postFail.appendChild(failText);
           form.appendChild(postFail);
         }
         setTimeout(() => {
           postFail.remove();
-        }, 5000);
+        }, 4000)
       });
-      xhr.addEventListener("load ", () => {
+      xhr.addEventListener("load", () => {
         const successPl = "Dziękuję za wiadomość!";
         const successENG = "Thank you for your message!";
         const postSuccess = document.createElement("div");
@@ -784,17 +783,17 @@
         postSuccess.classList.add("fade-in-out");
         form.reset();
         if (langPL.classList.contains("button--lang--active")) {
-          successText.innerText = successPl;
+          successText.textContent = successPl;
           postSuccess.appendChild(successText);
           form.appendChild(postSuccess);
         } else {
-          successText.innerText = successENG;
+          successText.textContent = successENG;
           postSuccess.appendChild(successText);
           form.appendChild(postSuccess);
         }
         setTimeout(() => {
           postSuccess.remove();
-        }, 5000);
+        }, 4000)
       });
       xhr.open("POST", form.action);
       xhr.send(formData);

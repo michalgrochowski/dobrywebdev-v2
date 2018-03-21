@@ -1,7 +1,7 @@
 // Animations
 
 .fade-in-out {
-  animation: fade-in-out 5s;
+  animation: fade-in-out 4s;
 }
 
 @keyframes fade-in-out {
@@ -11,8 +11,8 @@
   10% {
     opacity: 1;
   }
-  90% {
-    opacity: 0;
+  80% {
+    opacity: 1;
   }
   100% {
     opacity: 0;

@@ -19,7 +19,10 @@ Cool features:
 These are some of the bigger changes, you can check the rest in the commits tab.
 
 v5.0.0
-- A big update: I've completly removed jQuery and rewrote all of the scripts to vanilla ES6 and switched OwlCarousel for Siema.js. Still have to test the performance and compare it to jQuery version, will update this later.
+- A big update: I've completly removed jQuery and rewrote all of the scripts to vanilla ES6 and switched OwlCarousel for Siema.js. Here is the performance data:
+![Performance and page size data from Firefox, Chrome, Opera and Edge](https://i.imgur.com/4R9eopo.png "Performance and page size data from Firefox, Chrome, Opera and Edge")
+
+So to answer the big questions: was it worth it? Propably not. Would I do it again? Maybe. Have I learned something? I think so. And finally - is it faster? Not really.
 
 v4.7.0
 - Added a different font for headings, changed the navigation, improved responsiveness, modified form, added triggering slides on arrow keys.

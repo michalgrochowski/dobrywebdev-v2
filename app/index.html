@@ -278,16 +278,12 @@
 				<form class="form" action="formularz.php" method="POST">
 					<div class="form__group form__group--mail">
 						<label for="inputMail" class="mailLabel">Adres e-mail</label>
-						<input type="email" class="form__input form__input--mail input-light" id="inputMail" placeholder="adres@email.pl" name="email">
+						<input type="email" class="form__input form__input--mail input-light" id="inputMail" placeholder="adres@email.pl" name="email" autocomplete="email">
 					</div>
 					<div class="form__group form__group--phone">
 						<label for="inputPhone" class="phoneLabel">Numer telefonu <span class="form__optional">(opcjonalnie)</span></label>
-						<input type="tel" maxlength="9" class="form__input form__input--phone input-light" id="inputPhone" placeholder="555555555" name="phone" title="9 cyfrowy numer telefonu">
+						<input type="tel" maxlength="9" class="form__input form__input--phone input-light" id="inputPhone" placeholder="555555555" name="phone" title="9 cyfrowy numer telefonu" autocomplete="tel">
 					</div>
-					<!--<div class="form__group form__group--msg">
-						<label for="inputText" class="textLabel">Treść wiadomości</label>
-						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się Twoja strona." name="message"></textarea>
-					</div>-->
 					<div class="form__group form__group--msg">
 						<label for="inputText" class="textLabel">Treść wiadomości</label>
 						<textarea id="inputText" class="form__textarea input-light" placeholder="Cześć! Podoba mi się Twoja strona." name="message"></textarea>

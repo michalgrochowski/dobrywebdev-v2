@@ -20,6 +20,9 @@
   padding: 0.5rem;
   border-radius: 1.5rem;
   line-height: normal; // very important for iOS Safari placeholder issue
+  &--invalidated {
+    background-color: rgba(207, 101, 97, 0.3) !important;
+  }
 }
 
 .form__input:focus {
@@ -27,9 +30,9 @@
 }
 
 .input__fail {
-  font-size: 1.4rem;
-  color: #c71610;
-  margin-bottom: 0;
+  font-size: 1.2rem;
+  color: #bd5855;
+  margin: 0;
 }
 
 .form__textarea {

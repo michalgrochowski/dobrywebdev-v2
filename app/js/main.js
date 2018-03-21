@@ -75,14 +75,12 @@
   const formButton = document.querySelector(".form__button");
   const inputMail = document.querySelector(".form__input--mail");
   const inputPhone = document.querySelector(".form__input--phone");
-  // const inputName = document.querySelector(".form__input--name");
   const textarea = document.querySelector(".form__textarea");
   const inputFail = document.getElementsByClassName("input__fail");
 
   // Form RegEx checks
   const checkPhone = /(^[5-9]{1}[0-9]{8}$)|(^$)/;
   const checkMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  /* const checkName = /^([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-zęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,}'?-?[a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{2,}\s?([a-zęóąśłżźćńĘÓĄŚŁŻŹĆŃA-ZęóąśłżźćńĘÓĄŚŁŻŹĆŃ]{1,})?)/;*/
 
   // Language hooks
   const navAbout = document.querySelector(".navAbout");
@@ -233,11 +231,13 @@
       langENG.className = JSON.parse(localStorage.getItem("langENG"));
       inputMail.className = JSON.parse(localStorage.getItem("inputMail"));
       inputPhone.className = JSON.parse(localStorage.getItem("inputPhone"));
-      // inputName.className = JSON.parse(localStorage.getItem("inputName"));
       textarea.className = JSON.parse(localStorage.getItem("textarea"));
       closeCookiesInfo.className = JSON.parse(localStorage.getItem("closeCookiesInfo"));
       closeCookiesInfo.style.borderBottom = "none";
       footerLink.style.borderBottom = "none";
+      inputMail.classList.remove("form__input--invalidated");
+      inputPhone.classList.remove("form__input--invalidated");
+      textarea.classList.remove("form__input--invalidated");
       for (let tag of projectTag) {
         tag.className = JSON.parse(localStorage.getItem("projectTag"));
       }
@@ -511,7 +511,6 @@
     toggleMultipleClasses(overlay, "overlay--light", "overlay--dark");
     toggleMultipleClasses(inputMail, "input-light", "input-dark");
     toggleMultipleClasses(inputPhone, "input-light", "input-dark");
-    // toggleMultipleClasses(inputName, "input-light", "input-dark");
     toggleMultipleClasses(textarea, "input-light", "input-dark");
     toggleMultipleClasses(closeCookiesInfo, "dark-theme--link", "light-theme--link", "dark-outline");
     toggleMultipleClasses(navLinkStart, "light-theme--link", "dark-theme--link");
@@ -539,7 +538,6 @@
     localStorage.setItem("overlay", JSON.stringify(overlay.className));
     localStorage.setItem("inputMail", JSON.stringify(inputMail.className));
     localStorage.setItem("inputPhone", JSON.stringify(inputPhone.className));
-    // localStorage.setItem("inputName", JSON.stringify(inputName.className));
     localStorage.setItem("textarea", JSON.stringify(textarea.className));
     localStorage.setItem("projectTag", JSON.stringify(projectTag[0].className));
     toggleAttribute(navLogo, "src", "img/logo-light.png", "img/logo-dark.png");
@@ -598,13 +596,11 @@
     contactTitle.textContent = data.contactTitle;
     mailLabel.textContent = data.contactTitle;
     phoneLabel.innerHTML = data.phoneLabel;
-    // nameLabel.textContent = data.nameLabel;
     textLabel.textContent = data.textLabel;
     formButton.textContent = data.sendButton;
     formButton.setAttribute("aria-label", data.sendButtonAria);
     formButton.setAttribute("value", data.sendButton);
     inputMail.setAttribute("placeholder", data.mailPlaceholder);
-    // inputName.setAttribute("placeholder", data.namePlaceholder);
     textarea.setAttribute("placeholder", data.textPlaceholder);
     github.textContent = data.github;
     linkedin.textContent = data.linkedin;
@@ -695,12 +691,16 @@
     let emailValue = inputMail.value;
     let phoneValue = inputPhone.value;
     let message = textarea.value;
-    // let nameValue = inputName.value;
+    inputMail.classList.remove("form__input--invalidated");
+    inputPhone.classList.remove("form__input--invalidated");
+    textarea.classList.remove("form__input--invalidated");
     if (checkMail.test(emailValue) === false) {
       const mailFailPL = "Podaj prawidłowy adres e-mail";
       const mailFailENG = "Please provide a valid email address";
       let newP = document.createElement("p");
       newP.classList.add("input__fail");
+      newP.classList.add("fade-in-short");
+      inputMail.classList.add("form__input--invalidated");
       if (langPL.classList.contains("button--lang--active")) {
         newP.textContent = mailFailPL;
       } else {
@@ -713,28 +713,22 @@
       const phoneFailENG = "Please provide a valid mobile number";
       let newP = document.createElement("p");
       newP.classList.add("input__fail");
+      newP.classList.add("fade-in-short");
+      inputPhone.classList.add("form__input--invalidated");
       if (langPL.classList.contains("button--lang--active")) {
         newP.textContent = phoneFailPL;
       } else {
         newP.textContent = phoneFailENG;
       }
       document.querySelector(".form__group--phone").appendChild(newP);
-    } /* if (checkname.test(nameValue) === false) {
-      const nameFailPL = "Podaj prawidłowe imię i nazwisko";
-      const nameFailENG = "Please provide a valid first and last name";
-      let newP = document.createElement("p");
-      newP.classList.add("input__fail");
-      if (langPL.classList.contains("button--lang--active")) {
-        newP.textContent = nameFailPL;
-      } else {
-        newP.textContent = nameFailENG;
-      }
-      document.querySelector(".form__group--name").appendChild(newP);
-      }*/ if (message === "") {
+    } 
+    if (message === "") {
       const msgFailPL = "Wiadomość nie może być pusta";
       const msgFailENG = "The message cannot be empty";
       let newP = document.createElement("p");
       newP.classList.add("input__fail");
+      newP.classList.add("fade-in-short");
+      textarea.classList.add("form__input--invalidated");
       if (langPL.classList.contains("button--lang--active")) {
         newP.textContent = msgFailPL;
       } else {

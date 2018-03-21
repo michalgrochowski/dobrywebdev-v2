@@ -231,7 +231,7 @@
 .nav__hamburger, .nav__close-menu {
   position: fixed;
   top: 1rem;
-  right: 1rem;
+  right: 0.5rem;
   z-index: 10;
   font-size: 3rem;
   border: none;
@@ -630,15 +630,17 @@
   padding: 0.5rem;
   border-radius: 1.5rem;
   line-height: normal; }
+  .form__input--invalidated {
+    background-color: rgba(207, 101, 97, 0.3) !important; }
 
 .form__input:focus {
   -webkit-transition: all 0.5s;
   transition: all 0.5s; }
 
 .input__fail {
-  font-size: 1.4rem;
-  color: #c71610;
-  margin-bottom: 0; }
+  font-size: 1.2rem;
+  color: #bd5855;
+  margin: 0; }
 
 .form__textarea {
   font-family: 'Poppins', sans-serif;
@@ -915,6 +917,26 @@
   100% {
     opacity: 1; } }
 
+.fade-in-short {
+  -webkit-animation: fade-in 0.1s;
+  animation: fade-in 0.1s; }
+
+@-webkit-keyframes fade-in-short {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fade-in-short {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+
 @-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
@@ -966,14 +988,6 @@
 .fade-in-short {
   -webkit-animation: fade-in-short 1s;
   animation: fade-in-short 1s; }
-
-@-webkit-keyframes fade-in-short {
-  0% {
-    opacity: 0; }
-  50% {
-    opacity: 0; }
-  100% {
-    opacity: 1; } }
 
 @keyframes fade-in-short {
   0% {

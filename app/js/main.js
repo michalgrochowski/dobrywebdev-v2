@@ -92,6 +92,7 @@
   const aboutDescription = document.querySelector(".aboutDescription");
   const skillsSubtitle = document.querySelector(".skillsSubtitle");
   const projectsNavInfo = document.querySelector(".projects__nav-info");
+  const prodegeDescription = document.querySelector(".prodegeDescription");
   const gridDescription = document.querySelector(".gridDescription");
   const weatherDescription = document.querySelector(".weatherDescription");
   const challengeDescription = document.querySelector(".challengeDescription");
@@ -280,8 +281,6 @@
     setTimeout(function(){
       if (localStorage.getItem("cookiesOff") === "true" && infoCookies.classList.contains("visuallyhidden") === false) {
         infoCookies.classList.add("visuallyhidden");
-      } else {
-        return;
       }
     }, 500);
   });
@@ -437,8 +436,6 @@
         hamburger.style.display = "block";
         closeHamburger.style.display = "none";
         navList.classList.remove("nav__list--expanded");
-      } else {
-        return;
       }
     });
   }
@@ -449,11 +446,7 @@
         navList.classList.remove("nav__list--expanded");
         hamburger.style.display = "block";
         closeHamburger.style.display = "none";
-      } else {
-        return;
       }
-    } else {
-      return;
     }
   });
 
@@ -575,6 +568,7 @@
     aboutTitle.textContent = data.aboutTitle;
     aboutDescription.innerHTML = data.aboutDescription;
     skillsSubtitle.textContent = data.skillsSubtitle;
+    prodegeDescription.textContent = data.prodegeDescription;
     gridDescription.textContent = data.gridDescription;
     weatherDescription.textContent = data.weatherDescription;
     challengeDescription.textContent = data.challengeDescription;
@@ -608,37 +602,39 @@
     closeCookiesInfo.setAttribute("aria-label", data.cookiesClose);
     infoCookiesText.textContent = data.cookies;
     // Main titles
-    projectTitle[1].textContent = data.weatherMaintitle;
-    projectTitle[5].textContent = data.todoMaintitle;
+    projectTitle[2].textContent = data.weatherMaintitle;
+    projectTitle[6].textContent = data.todoMaintitle;
     // Projects links titles
-    projectsLinks[0].setAttribute("title", data.gridTitle);
-    projectsLinks[1].setAttribute("title", data.gridCode);
-    projectsLinks[2].setAttribute("title", data.weatherTitle);
-    projectsLinks[3].setAttribute("title", data.weatherCode);
-    projectsLinks[4].setAttribute("title", data.challengeTitle);
-    projectsLinks[5].setAttribute("title", data.challengeCode);
-    projectsLinks[6].setAttribute("title", data.interiorTitle);
-    projectsLinks[7].setAttribute("title", data.interiorCode);
-    projectsLinks[8].setAttribute("title", data.sleszynskiTitle);
-    projectsLinks[9].setAttribute("title", data.sleszynskiCode);
-    projectsLinks[10].setAttribute("title", data.todoTitle);
-    projectsLinks[11].setAttribute("title", data.todoCode);
-    projectsLinks[12].setAttribute("title", data.interiorv1Title);
-    projectsLinks[13].setAttribute("title", data.interiorv1Code);
-    projectsLinks[14].setAttribute("title", data.dobrywebdevTitle);
-    projectsLinks[15].setAttribute("title", data.dobrywebdevCode);
-    projectsLinks[16].setAttribute("title", data.interactiveTitle);
-    projectsLinks[17].setAttribute("title", data.interactiveCode);
+    projectsLinks[0].setAttribute("title", data.prodegeTitle);
+    projectsLinks[1].setAttribute("title", data.gridTitle);
+    projectsLinks[2].setAttribute("title", data.gridCode);
+    projectsLinks[3].setAttribute("title", data.weatherTitle);
+    projectsLinks[4].setAttribute("title", data.weatherCode);
+    projectsLinks[5].setAttribute("title", data.challengeTitle);
+    projectsLinks[6].setAttribute("title", data.challengeCode);
+    projectsLinks[7].setAttribute("title", data.interiorTitle);
+    projectsLinks[8].setAttribute("title", data.interiorCode);
+    projectsLinks[9].setAttribute("title", data.sleszynskiTitle);
+    projectsLinks[10].setAttribute("title", data.sleszynskiCode);
+    projectsLinks[11].setAttribute("title", data.todoTitle);
+    projectsLinks[12].setAttribute("title", data.todoCode);
+    projectsLinks[13].setAttribute("title", data.interiorv1Title);
+    projectsLinks[14].setAttribute("title", data.interiorv1Code);
+    projectsLinks[15].setAttribute("title", data.dobrywebdevTitle);
+    projectsLinks[16].setAttribute("title", data.dobrywebdevCode);
+    projectsLinks[17].setAttribute("title", data.interactiveTitle);
+    projectsLinks[18].setAttribute("title", data.interactiveCode);
     // Projects photos alts
-    projectPhoto[0].setAttribute("alt", data.gridAlt);
-    projectPhoto[1].setAttribute("alt", data.weatherAlt);
-    projectPhoto[2].setAttribute("alt", data.challengeAlt);
-    projectPhoto[3].setAttribute("alt", data.interiorAlt);
-    projectPhoto[4].setAttribute("alt", data.sleszynskiAlt);
-    projectPhoto[5].setAttribute("alt", data.todoAlt);
-    projectPhoto[6].setAttribute("alt", data.interiorv1Alt);
-    projectPhoto[7].setAttribute("alt", data.dobrywebdevAlt);
-    projectPhoto[8].setAttribute("alt", data.interactiveAlt);
+    projectPhoto[0].setAttribute("alt", data.prodegeAlt);
+    projectPhoto[1].setAttribute("alt", data.gridAlt);
+    projectPhoto[2].setAttribute("alt", data.weatherAlt);
+    projectPhoto[3].setAttribute("alt", data.challengeAlt);
+    projectPhoto[4].setAttribute("alt", data.interiorAlt);
+    projectPhoto[5].setAttribute("alt", data.sleszynskiAlt);
+    projectPhoto[6].setAttribute("alt", data.todoAlt);
+    projectPhoto[7].setAttribute("alt", data.interiorv1Alt);
+    projectPhoto[8].setAttribute("alt", data.dobrywebdevAlt);
+    projectPhoto[9].setAttribute("alt", data.interactiveAlt);
   }
 
   // Language changing on button click
